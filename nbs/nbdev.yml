@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "fh-matui"
+  site-url: "https://abhishek sreesaila.github.io/fh-matui"
+  description: "material-ui for fasthtml"
+  repo-branch: main
+  repo-url: "https://github.com/abhishek sreesaila/fh-matui"

@@ -1,0 +1,16 @@
+website:
+  sidebar:
+    contents:
+      - index.ipynb
+      - 00_foundations.ipynb
+      - 00_foundations_tests.ipynb
+      - 01_core.ipynb
+      - 01_core_tests.ipynb
+      - 02_components.ipynb
+      - 02_components_tests.ipynb
+      - 03_pages.ipynb
+      - 04_page_snippets.ipynb
+      - 04_page_snippets_tests.ipynb
+      - 05_pages.ipynb
+      - 05_pages_tests.ipynb
+      - 05_pages_preview.ipynb
