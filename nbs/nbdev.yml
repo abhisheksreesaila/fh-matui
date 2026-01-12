@@ -3,7 +3,7 @@ project:
 
 website:
   title: "fh-matui"
-  site-url: "https://abhishek sreesaila.github.io/fh-matui"
+  site-url: "https://abhisheksreesaila.github.io/fh-matui"
   description: "material-ui for fasthtml"
-  repo-branch: main
-  repo-url: "https://github.com/abhishek sreesaila/fh-matui"
+  repo-branch: master
+  repo-url: "https://github.com/abhisheksreesaila/fh-matui"
