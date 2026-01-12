@@ -60,7 +60,7 @@ for name, css in BUTTON_SPECIALS.items():
 
 ButtonT = _ButtonChain()
 
-# %% ../nbs/02_components.ipynb 11
+# %% ../nbs/02_components.ipynb 10
 #| code-fold: true
 class _AnchorChain(BeerCssChain):
     """Chainable anchor style helper"""
@@ -84,7 +84,7 @@ for name, css in ANCHOR_SPECIALS.items():
 
 AT = _AnchorChain()
 
-# %% ../nbs/02_components.ipynb 14
+# %% ../nbs/02_components.ipynb 13
 class SpaceT(VEnum):
     """Space types using BeerCSS spacing classes"""
     no_space = 'no-space'
@@ -224,7 +224,7 @@ def Grid(*cells, space=SpaceT.medium_space,
     grid_cls = [t for t in grid_cls if t]
     return Div(*wrapped_cells, cls=stringify(dedupe_preserve_order(grid_cls)), **kwargs)
 
-# %% ../nbs/02_components.ipynb 17
+# %% ../nbs/02_components.ipynb 16
 def DivLAligned(*c, cls='', **kwargs):
     """MonsterUI-compatible left-aligned row using BeerCSS tokens."""
     cls_tokens = normalize_tokens(cls)
@@ -235,7 +235,7 @@ def DivLAligned(*c, cls='', **kwargs):
 
 
 
-# %% ../nbs/02_components.ipynb 19
+# %% ../nbs/02_components.ipynb 18
 def DivVStacked(*c, responsive=True, padding=True, cls='', **kwargs):
     """Responsive vertical stack with padding and mobile compatibility."""
     cls_tokens = normalize_tokens(cls)
@@ -253,7 +253,7 @@ def DivVStacked(*c, responsive=True, padding=True, cls='', **kwargs):
     return Div(*c, cls=stringify(dedupe_preserve_order(tokens)), **kwargs)
 
 
-# %% ../nbs/02_components.ipynb 21
+# %% ../nbs/02_components.ipynb 20
 def DivHStacked(*c, responsive=True, padding=True, cls='', **kwargs):
     """Responsive horizontal stack with padding and mobile compatibility."""
     cls_tokens = normalize_tokens(cls)
@@ -271,7 +271,7 @@ def DivHStacked(*c, responsive=True, padding=True, cls='', **kwargs):
     return Div(*c, cls=stringify(dedupe_preserve_order(tokens)), **kwargs)
 
 
-# %% ../nbs/02_components.ipynb 23
+# %% ../nbs/02_components.ipynb 22
 def DivRAligned(*c, cls='', **kwargs):
     """MonsterUI-compatible right-aligned row using BeerCSS tokens."""
     cls_tokens = normalize_tokens(cls)
@@ -280,7 +280,7 @@ def DivRAligned(*c, cls='', **kwargs):
     tokens = [t for t in tokens if t]
     return DivHStacked(*c, cls=stringify(dedupe_preserve_order(tokens)), **kwargs)
 
-# %% ../nbs/02_components.ipynb 25
+# %% ../nbs/02_components.ipynb 24
 def DivCentered(*c, cls='', **kwargs):
     """Center-aligned container using BeerCSS tokens."""
     cls_tokens = normalize_tokens(cls)
@@ -289,7 +289,7 @@ def DivCentered(*c, cls='', **kwargs):
     tokens = [t for t in tokens if t]
     return Div(*c, cls=stringify(dedupe_preserve_order(tokens)), **kwargs)
 
-# %% ../nbs/02_components.ipynb 27
+# %% ../nbs/02_components.ipynb 26
 def DivFullySpaced(*c, cls='', **kwargs):
     """Row with children stretched to far ends using BeerCSS `max` spacers."""
     cls_tokens = normalize_tokens(cls)
@@ -310,7 +310,7 @@ def DivFullySpaced(*c, cls='', **kwargs):
         base = spaced_children
     return Div(*base, cls=stringify(dedupe_preserve_order(tokens)), **kwargs)
 
-# %% ../nbs/02_components.ipynb 30
+# %% ../nbs/02_components.ipynb 29
 #| code-fold: true
 def Icon(icon: str, size: str = None, fill: bool = False, cls = (), **kwargs):
     """Material Design icon with optional size and fill"""
@@ -321,7 +321,7 @@ def Icon(icon: str, size: str = None, fill: bool = False, cls = (), **kwargs):
     cls_str = ' '.join(icon_cls) if icon_cls else None
     return I(icon, cls=cls_str, **kwargs) if cls_str else I(icon, **kwargs)
 
-# %% ../nbs/02_components.ipynb 33
+# %% ../nbs/02_components.ipynb 32
 #| code-fold: true
 def NavBar(*children, brand=None, sticky=False, cls='', **kwargs):
     """Horizontal navigation bar with optional brand and sticky positioning"""
@@ -330,7 +330,7 @@ def NavBar(*children, brand=None, sticky=False, cls='', **kwargs):
         return Nav(brand, Div(cls='max'), *children, cls=f"row middle-align padding {nav_cls}", **kwargs)
     return Nav(*children, cls=f"padding {nav_cls}", **kwargs)
 
-# %% ../nbs/02_components.ipynb 36
+# %% ../nbs/02_components.ipynb 35
 def Modal(*c, id=None, footer=None, active=False, overlay=True, cls=(), **kwargs):
     """BeerCSS modal dialog with optional overlay and footer."""
     modal_cls = normalize_tokens(cls)
@@ -398,7 +398,7 @@ def ModalFooter(*c, cls=(), **kwargs):
     footer_cls.extend(['right-align', 'no-space'])
     return Nav(*c, cls=' '.join(footer_cls), **kwargs)
 
-# %% ../nbs/02_components.ipynb 39
+# %% ../nbs/02_components.ipynb 38
 #| code-fold: true
 def Field(*c, label: bool = False, prefix: bool = False, suffix: bool = False, cls = '', **kwargs):
     """BeerCSS field wrapper for inputs with border/label/prefix/suffix styling."""
@@ -423,7 +423,7 @@ def LabelInput(label: str, id: str = None, placeholder: str = None, input_type: 
     if suffix_icon: children.append(I(suffix_icon))
     return Field(*children, label=True, prefix=bool(prefix_icon), suffix=bool(suffix_icon), cls=cls)
 
-# %% ../nbs/02_components.ipynb 42
+# %% ../nbs/02_components.ipynb 41
 #| code-fold: true
 def LabelInput(label: str, id: str = None, placeholder: str = None, input_type: str = 'text',
                prefix_icon: str = None, suffix_icon: str = None, value: str = None, cls = '', **kwargs):
@@ -445,7 +445,7 @@ def FormLabel(*c, cls=(), **kwargs):
     if cls_str: return Label(*c, cls=cls_str, **kwargs)
     return Label(*c, **kwargs)
 
-# %% ../nbs/02_components.ipynb 45
+# %% ../nbs/02_components.ipynb 44
 #| code-fold: true
 def CheckboxX(*c, cls=(), **kwargs):
     """BeerCSS checkbox with label support."""
@@ -455,7 +455,7 @@ def CheckboxX(*c, cls=(), **kwargs):
     cls_str = stringify(checkbox_cls)
     return Label(Input(type='checkbox', **kwargs), Span(label_text) if label_text else Span(), cls=cls_str)
 
-# %% ../nbs/02_components.ipynb 48
+# %% ../nbs/02_components.ipynb 47
 #| code-fold: true
 def Radio(*c, cls=(), **kwargs):
     """BeerCSS radio button with label."""
@@ -465,7 +465,7 @@ def Radio(*c, cls=(), **kwargs):
     cls_str = stringify(radio_cls)
     return Label(Input(type='radio', **kwargs), Span(label_text) if label_text else Span(), cls=cls_str)
 
-# %% ../nbs/02_components.ipynb 51
+# %% ../nbs/02_components.ipynb 50
 #| code-fold: true
 def Switch(*c, cls=(), **kwargs):
     """BeerCSS toggle switch for on/off states.
@@ -492,7 +492,7 @@ def Switch(*c, cls=(), **kwargs):
         cls='middle-align'
     )
 
-# %% ../nbs/02_components.ipynb 54
+# %% ../nbs/02_components.ipynb 53
 #| code-fold: true
 def TextArea(*c, cls=(), **kwargs):
     """BeerCSS textarea with field wrapper for consistent styling."""
@@ -500,7 +500,7 @@ def TextArea(*c, cls=(), **kwargs):
     textarea = Textarea(content, **kwargs) if content else Textarea(**kwargs)
     return Field(textarea, cls=cls)
 
-# %% ../nbs/02_components.ipynb 57
+# %% ../nbs/02_components.ipynb 56
 #| code-fold: true
 def Range(*c, min=None, max=None, step=None, cls=(), **kwargs):
     """BeerCSS range slider with two-tone fill effect."""
@@ -529,7 +529,7 @@ def Range(*c, min=None, max=None, step=None, cls=(), **kwargs):
     style = f"--_start: 0%; --_end: {percentage:.1f}%;"
     return Label(Input(**input_attrs), Span(), cls=cls_str, style=style)
 
-# %% ../nbs/02_components.ipynb 60
+# %% ../nbs/02_components.ipynb 59
 #| code-fold: true
 def Select(*items, value='', placeholder='Select...', prefix_icon=None, name='', cls=(), **kwargs):
     """BeerCSS menu-based select dropdown with rich styling."""
@@ -554,7 +554,7 @@ def Select(*items, value='', placeholder='Select...', prefix_icon=None, name='',
     cls_str = stringify(field_cls)
     return Div(*children, cls=cls_str)
 
-# %% ../nbs/02_components.ipynb 69
+# %% ../nbs/02_components.ipynb 68
 #| code-fold: true
 def FormGrid(*c, cols: int = 1):
     """Responsive grid layout for form fields that stacks on mobile."""
@@ -563,7 +563,7 @@ def FormGrid(*c, cols: int = 1):
     wrapped = [Div(child, cls=col_cls) for child in c]
     return Div(*wrapped, cls="grid")
 
-# %% ../nbs/02_components.ipynb 72
+# %% ../nbs/02_components.ipynb 71
 #| code-fold: true
 def Progress(*c, value='', max='100', cls=(), **kwargs):
     """Linear progress bar with value/max support."""
@@ -575,7 +575,7 @@ def Progress(*c, value='', max='100', cls=(), **kwargs):
     if cls_str: return fc.Progress(*c, cls=cls_str, **progress_attrs)
     return fc.Progress(*c, **progress_attrs)
 
-# %% ../nbs/02_components.ipynb 75
+# %% ../nbs/02_components.ipynb 74
 #| code-fold: true
 def LoadingIndicator(size='medium', cls='', **kwargs):
     """BeerCSS circular spinner for async operations."""
@@ -583,7 +583,7 @@ def LoadingIndicator(size='medium', cls='', **kwargs):
     progress_cls = f"circle {size_cls} {cls}".strip()
     return fc.Progress(cls=progress_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 78
+# %% ../nbs/02_components.ipynb 77
 #| code-fold: true
 def Table(*c, cls = 'border', **kwargs):
     """BeerCSS table with optional border/stripes classes."""
@@ -651,14 +651,14 @@ def TableFromDicts(header_data, body_data, footer_data = None, header_cell_rende
         Tfoot(Tr(*[footer_cell_render(k, footer_data.get(k, '')) for k in header_data])) if footer_data else None,
         cls=cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 81
+# %% ../nbs/02_components.ipynb 80
 #| code-fold: true
 def TableControls(*controls, cls='', **kwargs):
     """Toolbar container for table filters, search, and actions."""
     controls_cls = f"padding middle-align space {cls}".strip()
     return Div(*controls, cls=controls_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 84
+# %% ../nbs/02_components.ipynb 83
 #| code-fold: true
 def Pagination(current_page: int, total_pages: int, hx_get: str, hx_target: str = '#table-container',
                show_first_last: bool = True, cls='', **kwargs):
@@ -693,7 +693,7 @@ def Pagination(current_page: int, total_pages: int, hx_get: str, hx_target: str 
     nav_cls = f"center-align middle-align {cls}".strip()
     return Nav(*buttons, cls=nav_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 87
+# %% ../nbs/02_components.ipynb 86
 #| code-fold: true
 def Card(*c, header = None, footer = None, body_cls = 'padding', header_cls = (), footer_cls = (), cls = (), **kwargs):
     """BeerCSS card with optional header/footer sections."""
@@ -707,7 +707,7 @@ def Card(*c, header = None, footer = None, body_cls = 'padding', header_cls = ()
     if footer is not None: sections.append(Nav(footer, cls=footer_cls) if footer_cls else Nav(footer))
     return Article(*sections, cls=cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 90
+# %% ../nbs/02_components.ipynb 89
 #| code-fold: true
 def Toolbar(*items, cls='', elevate='large', fill=True, **kwargs):
     """BeerCSS toolbar for action bars with elevation options."""
@@ -717,7 +717,7 @@ def Toolbar(*items, cls='', elevate='large', fill=True, **kwargs):
     if cls: classes.append(cls)
     return Nav(*items, cls=' '.join(classes), **kwargs)
 
-# %% ../nbs/02_components.ipynb 93
+# %% ../nbs/02_components.ipynb 92
 #| code-fold: true
 def Toast(*c, cls='', position='top', variant='', action=None, dur=5.0, active=False, **kwargs):
     """BeerCSS snackbar/toast notification with position and variant options."""
@@ -741,7 +741,7 @@ def Snackbar(*c, **kwargs):
     """Alias for Toast component."""
     return Toast(*c, **kwargs)
 
-# %% ../nbs/02_components.ipynb 95
+# %% ../nbs/02_components.ipynb 94
 #| code-fold: true
 class ContainerT(VEnum):
     """Container size options (BeerCSS). Most alias to 'responsive'; use 'expand' for full-width."""
@@ -752,7 +752,7 @@ class ContainerT(VEnum):
     xl = 'responsive'
     expand = 'responsive max'
 
-# %% ../nbs/02_components.ipynb 97
+# %% ../nbs/02_components.ipynb 96
 #| code-fold: true
 def _get_form_config(col: dict) -> dict:
     """Extract form config from column, with sensible defaults."""
@@ -828,7 +828,7 @@ def FormField(
             **attrs
         )
 
-# %% ../nbs/02_components.ipynb 99
+# %% ../nbs/02_components.ipynb 98
 #| code-fold: true
 from typing import Callable, Any
 
@@ -947,7 +947,7 @@ def FormModal(
         cls="large-width"
     )
 
-# %% ../nbs/02_components.ipynb 101
+# %% ../nbs/02_components.ipynb 100
 #| code-fold: true
 def NavContainer(*li, title=None, brand=None, position='left', close_button=True, cls='active', id=None, **kwargs):
     """Slide-out navigation drawer with header and close button."""
@@ -1004,7 +1004,7 @@ def BottomNav(*c, cls='bottom', size='s', **kwargs):
     final_cls = f"{cls} {size_cls}".strip()
     return Nav(*c, cls=final_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 104
+# %% ../nbs/02_components.ipynb 103
 #| code-fold: true
 def NavSideBarHeader(*c, cls='', **kwargs):
     """Sidebar header section for menu buttons and branding."""
@@ -1024,7 +1024,7 @@ def NavSideBarContainer(*children, position='left', size='m', cls='', active=Fal
     nav_cls = f"{base_cls} {cls}".strip()
     return Nav(*children, cls=nav_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 106
+# %% ../nbs/02_components.ipynb 105
 #| code-fold: true
 def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_size=ContainerT.expand,
            main_bg='surface', sidebar_id='app-sidebar', cls='', **kwargs):
@@ -1069,7 +1069,7 @@ def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_s
     final_cls = f"surface-container {cls}".strip() if cls else "surface-container"
     return Div(*layout_children, cls=final_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 110
+# %% ../nbs/02_components.ipynb 109
 #| code-fold: true
 class TextT(VEnum):
     """Text styles using BeerCSS typography classes."""
@@ -1101,7 +1101,7 @@ class TextPresets(VEnum):
     primary_link = 'link primary-text'
     muted_link = 'link secondary-text'
 
-# %% ../nbs/02_components.ipynb 111
+# %% ../nbs/02_components.ipynb 110
 #| code-fold: true
 def CodeSpan(*c, cls=(), **kwargs):
     """Inline code snippet."""
@@ -1157,7 +1157,7 @@ def Sup(*c, cls=(), **kwargs):
     cls_str = stringify(cls) if cls else None
     return fc.Sup(*c, cls=cls_str, **kwargs) if cls_str else fc.Sup(*c, **kwargs)
 
-# %% ../nbs/02_components.ipynb 113
+# %% ../nbs/02_components.ipynb 112
 #| code-fold: true
 def FAQItem(question: str, answer: str, question_cls: str = '', answer_cls: str = ''):
     """Collapsible FAQ item using details/summary.
@@ -1175,7 +1175,7 @@ def FAQItem(question: str, answer: str, question_cls: str = '', answer_cls: str 
         Summary(Article(Nav(Div(question, cls=f"max bold {question_cls}".strip()), I("expand_more")), cls="round surface-variant border no-elevate")),
         Article(P(answer, cls=f"secondary-text {answer_cls}".strip()), cls="round border padding"))
 
-# %% ../nbs/02_components.ipynb 117
+# %% ../nbs/02_components.ipynb 116
 #| code-fold: true
 def CookiesBanner(message='We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.',
                   accept_text='Accept', decline_text='Decline', settings_text=None, policy_link='/cookies', policy_text='Learn more',
