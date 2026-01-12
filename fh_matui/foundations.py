@@ -9,6 +9,7 @@ __all__ = ['VEnum', 'stringify', 'normalize_tokens', 'dedupe_preserve_order']
 from typing import Any, Iterable, Optional, Union
 from enum import Enum
 from fastcore.utils import *
+from nbdev.showdoc import show_doc
 
 # %% ../nbs/00_foundations.ipynb 4
 #| code-fold: true
