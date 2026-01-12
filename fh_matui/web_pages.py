@@ -9,24 +9,18 @@ __all__ = ['SECTION_STYLE', 'SECTION_MARGIN', 'STANDARD_FOOTER_COLUMNS', 'Featur
 # %% ../nbs/04_web_pages.ipynb 3
 import importlib
 import markdown
-
-
-
 from .components import *
 from .core import *
 from fasthtml.common import *
 from .app_pages import *
 from .foundations import *
-
 from fastcore.utils import partial
 from fasthtml.common import *
 from fasthtml.jupyter import FastHTML, fast_app, JupyUvi, HTMX
 from fastlite import *
 import fasthtml.components as fc
 from fasthtml.common import A, Button as FhButton, I, Span
-import socket
-import time
-import subprocess
+
 
 # %% ../nbs/04_web_pages.ipynb 10
 def FeatureShowcase(
