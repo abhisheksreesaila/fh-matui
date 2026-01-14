@@ -74,7 +74,6 @@ def home():
         Card(
             H3("Welcome to fh-matui!"),
             P("Build beautiful Material Design apps with Python."),
-            FormField("email", label="Email", type="email"),
             Button("Get Started", cls="primary"),
         ),
         cls="padding"
