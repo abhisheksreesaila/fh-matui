@@ -106,12 +106,12 @@ fh-matui automatically includes:
 
 | Module | Description | Key Components |
 |--------|-------------|----------------|
-| [Foundations](foundations.html) | Base utilities and helper functions | `BeerHeaders`, `display`, styling helpers |
-| [Core](core.html) | Theme system and styling | `MatTheme`, color presets, theme configuration |
-| [Components](components.html) | UI component library | `Button`, [`Card`](https://abhisheksreesaila.github.io/fh-matui/components.html#card), [`FormField`](https://abhisheksreesaila.github.io/fh-matui/components.html#formfield), [`FormModal`](https://abhisheksreesaila.github.io/fh-matui/components.html#formmodal), [`Grid`](https://abhisheksreesaila.github.io/fh-matui/components.html#grid) |
-| [App Pages](app_pages.html) | Application layouts | Navigation, sidebars, full-page layouts |
-| [Data Tables](05_table.html) | Data management components | [`DataTable`](https://abhisheksreesaila.github.io/fh-matui/table.html#datatable), [`DataTableResource`](https://abhisheksreesaila.github.io/fh-matui/table.html#datatableresource), CRUD operations |
-| [Web Pages](web_pages.html) | Marketing/landing pages | Hero sections, feature grids, testimonials |
+| [Foundations](https://abhisheksreesaila.github.io/fh-matui/foundations.html) | Base utilities and helper functions | `BeerHeaders`, `display`, styling helpers |
+| [Core](https://abhisheksreesaila.github.io/fh-matui/core.html) | Theme system and styling | `MatTheme`, color presets, theme configuration |
+| [Components](https://abhisheksreesaila.github.io/fh-matui/components.html) | UI component library | `Button`, `Card`, `FormField`, `FormModal`, `Grid` |
+| [App Pages](https://abhisheksreesaila.github.io/fh-matui/app_pages.html) | Application layouts | Navigation, sidebars, full-page layouts |
+| [Data Tables](https://abhisheksreesaila.github.io/fh-matui/datatable.html) | Data management components | `DataTable`, `DataTableResource`, CRUD operations |
+| [Web Pages](https://abhisheksreesaila.github.io/fh-matui/web_pages.html) | Marketing/landing pages | Hero sections, feature grids, testimonials |
 
 ## 🛠️ Development
 

@@ -7,6 +7,6 @@ website:
       - 02_components.ipynb
       - 03_app_pages.ipynb
       - 04_web_pages.ipynb
-      - 05_table.ipynb
+      - 05_datatable.ipynb
       - test_00_foundations.ipynb
       - test_01_core.ipynb
