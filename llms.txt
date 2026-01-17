@@ -1,0 +1,29 @@
+# FH-matui
+
+FH-matui is a comprehensive Material Design UI component library built with nbdev for FastHTML applications. It provides a complete set of pre-built, composable Material Design 3 components that enable developers to create modern, responsive web interfaces entirely in Python with zero JavaScript required.
+
+Here are some of FH-matui's features:
+- **Material Design 3**: Modern UI components following Google's latest design language and best practices.
+- **Zero JavaScript**: Build fully interactive web applications entirely in Python using FastHTML.
+- **Responsive by Default**: Mobile-first design with automatic breakpoint handling and adaptive layouts.
+- **Dark Mode Support**: Built-in light/dark theme support with 15+ color schemes (red, pink, purple, indigo, blue, cyan, teal, green, lime, yellow, amber, orange, deep-orange, brown).
+- **Composable APIs**: Chainable styling methods (ButtonT, AT, BeerCssChain) for fluent component customization.
+- **Full-Featured Data Tables**: DataTable and DataTableResource components with pagination, search, sorting, and complete CRUD operations.
+- **Fully Documented**: Every module is automatically documented from literate programming notebooks with executable examples.
+
+## Getting Started
+- [Overview & Quick Start](_proc/index.html.md): Project introduction, installation, themes, and quick start guide.
+
+## Foundation & Theming
+- [Foundations](_proc/00_foundations.html.md): Base utilities (VEnum, stringify, type conversion, helpers) and BeerCSS integration.
+- [Core Theming](_proc/01_core.html.md): Theme system with MatTheme fluent API, BeerCssChain styling, and CDN configuration.
+
+## UI Building Blocks
+- [Components](_proc/02_components.html.md): Comprehensive Material Design component library including Buttons, Cards, Forms, Modals, Navigation, Icons, Grids, Tables, and Typography.
+
+## Data Management
+- [Data Tables](_proc/05_table.html.md): Advanced DataTable and DataTableResource for paginated tables with search, sort, and CRUD operations.
+
+## Page Templates
+- [App Pages](_proc/03_app_pages.html.md): Pre-built authenticated application layouts including LoginScreen and Dashboard patterns.
+- [Web Pages](_proc/04_web_pages.html.md): Landing page and marketing components including Hero, Features, Pricing, FAQ, and complete Landing page compositions.
