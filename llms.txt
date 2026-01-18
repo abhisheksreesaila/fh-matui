@@ -11,9 +11,6 @@ Here are some of FH-matui's features:
 - **Full-Featured Data Tables**: DataTable and DataTableResource components with pagination, search, sorting, and complete CRUD operations.
 - **Fully Documented**: Every module is automatically documented from literate programming notebooks with executable examples.
 
-## Getting Started
-- [Overview & Quick Start](_proc/index.html.md): Project introduction, installation, themes, and quick start guide.
-
 ## Foundation & Theming
 - [Foundations](_proc/00_foundations.html.md): Base utilities (VEnum, stringify, type conversion, helpers) and BeerCSS integration.
 - [Core Theming](_proc/01_core.html.md): Theme system with MatTheme fluent API, BeerCssChain styling, and CDN configuration.
@@ -22,7 +19,7 @@ Here are some of FH-matui's features:
 - [Components](_proc/02_components.html.md): Comprehensive Material Design component library including Buttons, Cards, Forms, Modals, Navigation, Icons, Grids, Tables, and Typography.
 
 ## Data Management
-- [Data Tables](_proc/05_table.html.md): Advanced DataTable and DataTableResource for paginated tables with search, sort, and CRUD operations.
+- [Data Tables](_proc/05_datatable.html.md): Advanced DataTable and DataTableResource for paginated tables with search, sort, and CRUD operations.
 
 ## Page Templates
 - [App Pages](_proc/03_app_pages.html.md): Pre-built authenticated application layouts including LoginScreen and Dashboard patterns.
