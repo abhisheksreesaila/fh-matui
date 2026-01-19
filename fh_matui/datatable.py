@@ -403,15 +403,22 @@ def _to_dict(obj: Any) -> dict:
     return dict(obj)
 
 
+def _is_htmx_request(req) -> bool:
+    """Check if request is an HTMX partial request."""
+    headers = getattr(req, 'headers', {})
+    return headers.get('HX-Request') == 'true'
+
+
 class DataTableResource:
     """
     🔧 High-level resource that auto-registers all routes for a data table.
     
     **Features:**
+    - All callbacks receive `request` for multi-tenant support
     - Custom CRUD hooks with `CrudContext` for rich business logic
     - Async/sync hook support for external API integration
     - Auto-refresh table via HX-Trigger after mutations
-    - Request state accessors for multi-tenant apps
+    - Layout wrapper for full-page (non-HTMX) responses
     
     **Auto-registers 3 routes:**
     - `GET {base_route}` → DataTable list view
@@ -424,11 +431,13 @@ class DataTableResource:
         app,
         base_route: str,
         columns: list[dict],
-        get_all: Callable[[], list],
-        get_by_id: Callable[[Any], Any],
-        create: Callable[[dict], Any] = None,
-        update: Callable[[Any, dict], Any] = None,
-        delete: Callable[[Any], bool] = None,
+        # Data callbacks - ALL receive request as first param
+        get_all: Callable[[Any], list],                    # (req) -> list
+        get_by_id: Callable[[Any, Any], Any],              # (req, id) -> record
+        create: Callable[[Any, dict], Any] = None,         # (req, data) -> record
+        update: Callable[[Any, Any, dict], Any] = None,    # (req, id, data) -> record
+        delete: Callable[[Any, Any], bool] = None,         # (req, id) -> bool
+        # Display options
         title: str = "Records",
         row_id_field: str = "id",
         crud_ops: dict = None,
@@ -440,12 +449,8 @@ class DataTableResource:
         on_create: Callable[[CrudContext], dict] = None,
         on_update: Callable[[CrudContext], dict] = None,
         on_delete: Callable[[CrudContext], None] = None,
-        # Multi-tenant
-        user_filter: Callable = None,
-        # Request state accessors (for CrudContext)
-        get_user: Callable = None,
-        get_db: Callable = None,
-        get_table: Callable = None,
+        # Layout wrapper for full-page responses
+        layout_wrapper: Callable[[Any, Any], Any] = None,  # (content, req) -> wrapped
         # Custom generators
         id_generator: Callable[[], Any] = None,
         timestamp_fields: dict = None
@@ -480,13 +485,8 @@ class DataTableResource:
         self.on_update_hook = on_update
         self.on_delete_hook = on_delete
         
-        # Multi-tenant
-        self.user_filter = user_filter
-        
-        # Request state accessors
-        self.get_user = get_user
-        self.get_db = get_db
-        self.get_table = get_table
+        # Layout wrapper
+        self.layout_wrapper = layout_wrapper
         
         # Generators
         self.id_generator = id_generator
@@ -510,30 +510,22 @@ class DataTableResource:
         return hook(ctx)
     
     def _build_context(self, req, record: dict = None, record_id: Any = None) -> CrudContext:
-        """🏗️ Build CrudContext from request state."""
+        """🏗️ Build CrudContext from request."""
         user = None
         db = None
         tbl = None
         
+        # Extract user from request.state if available
         try:
-            if self.get_user and callable(self.get_user):
-                user = self.get_user(req)
-            elif hasattr(req, 'state') and hasattr(req.state, 'user'):
+            if hasattr(req, 'state') and hasattr(req.state, 'user'):
                 user = req.state.user
         except AttributeError:
             pass
         
+        # Extract db from request.state if available
         try:
-            if self.get_db and callable(self.get_db):
-                db = self.get_db(req)
-            elif hasattr(req, 'state') and hasattr(req.state, 'tenant_db'):
+            if hasattr(req, 'state') and hasattr(req.state, 'tenant_db'):
                 db = req.state.tenant_db
-        except AttributeError:
-            pass
-        
-        try:
-            if self.get_table and callable(self.get_table):
-                tbl = self.get_table(req)
         except AttributeError:
             pass
         
@@ -545,6 +537,12 @@ class DataTableResource:
             record=record or {},
             record_id=record_id
         )
+    
+    def _wrap_response(self, content, req):
+        """Wrap content with layout_wrapper if not an HTMX request."""
+        if self.layout_wrapper and not _is_htmx_request(req):
+            return self.layout_wrapper(content, req)
+        return content
     
     def _register_routes(self):
         """Register all data table routes with the app."""
@@ -563,18 +561,9 @@ class DataTableResource:
             return await self._handle_save(req)
     
     def _get_filtered_data(self, req) -> list:
-        """Get all data, optionally filtered by user_filter."""
-        all_data = self.get_all()
-        data = [_to_dict(item) for item in all_data]
-        
-        if self.user_filter and callable(self.user_filter):
-            filter_criteria = self.user_filter(req)
-            if filter_criteria:
-                data = [
-                    row for row in data
-                    if all(row.get(k) == v for k, v in filter_criteria.items())
-                ]
-        return data
+        """Get all data from user's callback."""
+        all_data = self.get_all(req)
+        return [_to_dict(item) for item in all_data]
     
     def _filter_by_search(self, data: list, search: str) -> list:
         """Filter data by search term across searchable columns."""
@@ -643,7 +632,10 @@ class DataTableResource:
         )
         
         feedback = Div(id=self.feedback_id)
-        return Div(feedback, table_container)
+        content = Div(feedback, table_container)
+        
+        # Wrap with layout if full-page request
+        return self._wrap_response(content, req)
     
     def _handle_action(self, req):
         """Handle action route (view/edit/create/delete)."""
@@ -690,7 +682,7 @@ class DataTableResource:
         # Get record for view/edit/delete
         record = None
         if record_id:
-            raw_record = self.get_by_id(record_id)
+            raw_record = self.get_by_id(req, record_id)
             record = _to_dict(raw_record) if raw_record else None
         
         if not record:
@@ -744,7 +736,7 @@ class DataTableResource:
                         self.on_delete_hook(ctx)
                 else:
                     # Default: use delete_fn
-                    self.delete_fn(record_id)
+                    self.delete_fn(req, record_id)
                 
                 return self._success_toast("Record deleted successfully.")
             except Exception as e:
@@ -805,9 +797,9 @@ class DataTableResource:
                 if self.on_update_hook:
                     data = await self._call_hook(self.on_update_hook, ctx)
                     if data is not None:
-                        self.update_fn(record_id, data)
+                        self.update_fn(req, record_id, data)
                 else:
-                    self.update_fn(record_id, data)
+                    self.update_fn(req, record_id, data)
                 
                 return self._success_toast("Record updated successfully.")
             else:
@@ -821,9 +813,9 @@ class DataTableResource:
                 if self.on_create_hook:
                     data = await self._call_hook(self.on_create_hook, ctx)
                     if data is not None:
-                        self.create_fn(data)
+                        self.create_fn(req, data)
                 else:
-                    self.create_fn(data)
+                    self.create_fn(req, data)
                 
                 return self._success_toast("Record created successfully.")
         

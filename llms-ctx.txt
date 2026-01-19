@@ -3441,7 +3441,7 @@ async def sync_transaction_update(ctx: CrudContext) -> dict:
 |-----------|---------|
 | [`DataTableResource`](https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatableresource) | High-level class that auto-registers table + forms + routes |
 
-**Features:** Auto-registers routes, handles pagination/search/save, **async hooks with CrudContext**, **auto-refresh via HX-Trigger**, multi-tenant support
+**Features:** Auto-registers routes, handles pagination/search/save, **all callbacks receive request**, **async hooks with CrudContext**, **auto-refresh via HX-Trigger**, **layout wrapper for full-page responses**
 
 ---
 
@@ -3452,12 +3452,15 @@ async def sync_transaction_update(ctx: CrudContext) -> dict:
 | `app` | `FastHTML` | App instance to register routes |
 | `base_route` | `str` | Base URL path (e.g., `/products`) |
 | `columns` | `list[dict]` | Column config (same as DataTable) |
-| `get_all` | `Callable` | `() -> list` of all records |
-| `get_by_id` | `Callable` | `(id) -> record` or None |
-| `create` | `Callable` | `(data_dict) -> record` |
-| `update` | `Callable` | `(id, data_dict) -> record` |
-| `delete` | `Callable` | `(id) -> bool` |
+| `get_all` | `Callable[[Request], list]` | `(req) -> list` of all records |
+| `get_by_id` | `Callable[[Request, Any], Any]` | `(req, id) -> record` or None |
+| `create` | `Callable[[Request, dict], Any]` | `(req, data) -> record` |
+| `update` | `Callable[[Request, Any, dict], Any]` | `(req, id, data) -> record` |
+| `delete` | `Callable[[Request, Any], bool]` | `(req, id) -> bool` |
 | `title` | `str` | Display title for table |
+| `layout_wrapper` | `Callable[[FT, Request], FT]` | Wrap full-page responses in app layout |
+
+> 💡 **All data callbacks receive `request` as first parameter** for multi-tenant support
 
 ---
 
@@ -3471,53 +3474,116 @@ async def sync_transaction_update(ctx: CrudContext) -> dict:
 
 **Features:**
 - ✅ Async/sync support (hooks can be `async def` or regular `def`)
-- ✅ Access to user, db, table via [`CrudContext`](https://abhisheksreesaila.github.io/fh-matui/datatable.html#crudcontext)
+- ✅ Access to user, db via [`CrudContext`](https://abhisheksreesaila.github.io/fh-matui/datatable.html#crudcontext)
 - ✅ Perfect for external API integration (e.g., Quiltt)
 - ✅ Auto-refresh table after mutations via HX-Trigger
 
 ---
 
-### 🔌 Request State Accessors (for CrudContext)
+### 🏢 Multi-Tenant Example
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `get_user` | `Callable` | `lambda req: req.state.user` - Extract user from request |
-| `get_db` | `Callable` | `lambda req: req.state.tenant_db` - Extract database from request |
-| `get_table` | `Callable` | `lambda req: req.state.tables['name']` - Extract table from request |
-
-**Why?** These allow CrudContext to populate user/db/tbl fields from your request.state structure.
-
----
-
-### 🏢 Multi-tenant Support
+In a multi-tenant app where each tenant has their own database (`request.state.tenant_db`):
 
 ```python
-products = DataTableResource(
-    ...,
-    user_filter=lambda req: {"tenant_id": req.state.tenant_id}
+# Define your data callbacks - all receive request
+def get_all_connections(req):
+    """Get all connections from tenant's database."""
+    tbl = req.state.tenant_db.t.connections
+    return tbl(order_by="created_at DESC")
+
+def get_connection_by_id(req, id):
+    """Get single connection from tenant's database."""
+    tbl = req.state.tenant_db.t.connections
+    return tbl[id]
+
+def create_connection(req, data):
+    """Create connection in tenant's database."""
+    tbl = req.state.tenant_db.t.connections
+    return tbl.insert(data)
+
+def update_connection(req, id, data):
+    """Update connection in tenant's database."""
+    tbl = req.state.tenant_db.t.connections
+    data['id'] = id
+    return tbl.update(data)
+
+def delete_connection(req, id):
+    """Delete connection from tenant's database."""
+    tbl = req.state.tenant_db.t.connections
+    tbl.delete(id)
+    return True
+
+# Create resource - handles all routes automatically
+connections = DataTableResource(
+    app=app,
+    base_route="/connections",
+    columns=connection_columns,
+    get_all=get_all_connections,
+    get_by_id=get_connection_by_id,
+    create=create_connection,
+    update=update_connection,
+    delete=delete_connection,
+    title="Bank Connections",
+    search_placeholder="Search connections...",
+    create_label="Add Connection",
+    layout_wrapper=lambda content, req: AppLayout(content, user=req.state.user)
 )
 ```
 
 ---
 
-### 🚀 Usage Examples
+### 📐 Layout Wrapper
 
-#### Basic Usage
+For full-page (non-HTMX) requests, wrap the table in your app layout:
+
 ```python
-resource = DataTableResource(
+def my_layout_wrapper(content, req):
+    """Wrap content in app layout with sidebar and navbar."""
+    return AppLayout(
+        content,
+        sidebar_links=get_sidebar_links(),
+        nav_bar=NavBar(user=req.state.user),
+        title="Dashboard"
+    )
+
+DataTableResource(
+    ...,
+    layout_wrapper=my_layout_wrapper
+)
+```
+
+**How it works:**
+- HTMX requests (`HX-Request: true` header) → Returns partial HTML for table swap
+- Full-page requests (no header) → Wraps response with `layout_wrapper(content, req)`
+
+---
+
+### 🚀 Basic Usage Example
+
+```python
+# Simple in-memory example (no multi-tenant)
+PRODUCTS = [{"id": 1, "name": "Widget", "price": 9.99}]
+
+products = DataTableResource(
     app=app,
     base_route="/products",
-    columns=product_columns,
-    get_all=get_all_products,
-    get_by_id=get_product_by_id,
-    create=create_product,
-    update=update_product,
-    delete=delete_product,
+    columns=[
+        {"key": "name", "label": "Name", "searchable": True},
+        {"key": "price", "label": "Price"}
+    ],
+    get_all=lambda req: PRODUCTS,
+    get_by_id=lambda req, id: next((p for p in PRODUCTS if p["id"] == id), None),
+    create=lambda req, data: PRODUCTS.append({"id": len(PRODUCTS)+1, **data}),
+    update=lambda req, id, data: ...,
+    delete=lambda req, id: ...,
     title="Products"
 )
 ```
 
-#### With External API Integration (Async Hook)
+---
+
+### 🔗 With External API Integration (Async Hook)
+
 ```python
 async def quiltt_create_connection(ctx: CrudContext) -> dict:
     """Call Quiltt API before storing connection in database."""
@@ -3540,39 +3606,11 @@ DataTableResource(
     app=app,
     base_route="/connections",
     columns=connection_columns,
-    get_all=get_connections,
-    get_by_id=get_connection_by_id,
-    create=insert_connection,
+    get_all=lambda req: req.state.tenant_db.t.connections(),
+    get_by_id=lambda req, id: req.state.tenant_db.t.connections[id],
+    create=lambda req, data: req.state.tenant_db.t.connections.insert(data),
     title="Bank Connections",
-    on_create=quiltt_create_connection,
-    get_user=lambda req: req.state.user
-)
-```
-
-#### With Soft Delete (Sync Hook)
-```python
-def soft_delete_budget(ctx: CrudContext) -> None:
-    """Soft delete by setting is_deleted flag."""
-    ctx.tbl.update({
-        'id': ctx.record_id,
-        'is_deleted': True,
-        'deleted_at': datetime.now().isoformat(),
-        'deleted_by': ctx.user['user_id']
-    })
-
-DataTableResource(
-    app=app,
-    base_route="/budgets",
-    columns=budget_columns,
-    get_all=get_active_budgets,
-    get_by_id=get_budget_by_id,
-    create=create_budget,
-    update=update_budget,
-    delete=None,  # No default delete
-    title="Budgets",
-    on_delete=soft_delete_budget,
-    get_user=lambda req: req.state.user,
-    get_table=lambda req: req.state.tables['budgets']
+    on_create=quiltt_create_connection
 )
 ```
 
@@ -3583,31 +3621,31 @@ DataTableResource(
 ### DataTableResource
 
 >      DataTableResource (app, base_route:str, columns:list[dict],
->                         get_all:Callable[[],list],
->                         get_by_id:Callable[[Any],Any],
->                         create:Callable[[dict],Any]=None,
->                         update:Callable[[Any,dict],Any]=None,
->                         delete:Callable[[Any],bool]=None, title:str='Records',
->                         row_id_field:str='id', crud_ops:dict=None,
->                         page_sizes:list=None,
+>                         get_all:Callable[[Any],list],
+>                         get_by_id:Callable[[Any,Any],Any],
+>                         create:Callable[[Any,dict],Any]=None,
+>                         update:Callable[[Any,Any,dict],Any]=None,
+>                         delete:Callable[[Any,Any],bool]=None,
+>                         title:str='Records', row_id_field:str='id',
+>                         crud_ops:dict=None, page_sizes:list=None,
 >                         search_placeholder:str='Search...',
 >                         create_label:str='New Record', empty_message:str='No
 >                         records found.',
 >                         on_create:Callable[[__main__.CrudContext],dict]=None,
 >                         on_update:Callable[[__main__.CrudContext],dict]=None, 
 >                         on_delete:Callable[[__main__.CrudContext],NoneType]=No
->                         ne, user_filter:Callable=None, get_user:Callable=None,
->                         get_db:Callable=None, get_table:Callable=None,
+>                         ne, layout_wrapper:Callable[[Any,Any],Any]=None,
 >                         id_generator:Callable[[],Any]=None,
 >                         timestamp_fields:dict=None)
 
 *🔧 High-level resource that auto-registers all routes for a data table.*
 
 **Features:**
+- All callbacks receive `request` for multi-tenant support
 - Custom CRUD hooks with [`CrudContext`](https://abhisheksreesaila.github.io/fh-matui/datatable.html#crudcontext) for rich business logic
 - Async/sync hook support for external API integration
 - Auto-refresh table via HX-Trigger after mutations
-- Request state accessors for multi-tenant apps
+- Layout wrapper for full-page (non-HTMX) responses
 
 **Auto-registers 3 routes:**
 - `GET {base_route}` → DataTable list view
@@ -3619,12 +3657,12 @@ DataTableResource(
 | app |  |  |  |
 | base_route | str |  |  |
 | columns | list |  |  |
-| get_all | Callable |  |  |
-| get_by_id | Callable |  |  |
-| create | Callable | None |  |
-| update | Callable | None |  |
-| delete | Callable | None |  |
-| title | str | Records |  |
+| get_all | Callable |  | (req) -> list |
+| get_by_id | Callable |  | (req, id) -> record |
+| create | Callable | None | (req, data) -> record |
+| update | Callable | None | (req, id, data) -> record |
+| delete | Callable | None | (req, id) -> bool |
+| title | str | Records | Display options |
 | row_id_field | str | id |  |
 | crud_ops | dict | None |  |
 | page_sizes | list | None |  |
@@ -3634,10 +3672,7 @@ DataTableResource(
 | on_create | Callable | None | CRUD Hooks (with CrudContext) |
 | on_update | Callable | None |  |
 | on_delete | Callable | None |  |
-| user_filter | Callable | None | Multi-tenant |
-| get_user | Callable | None | Request state accessors (for CrudContext) |
-| get_db | Callable | None |  |
-| get_table | Callable | None |  |
+| layout_wrapper | Callable | None | (content, req) -> wrapped |
 | id_generator | Callable | None | Custom generators |
 | timestamp_fields | dict | None |  |
 
@@ -3711,26 +3746,32 @@ product_columns = [
 # --- In-memory store (simulates database) ---
 DEMO_PRODUCTS = list(MOCK_PRODUCTS)
 
-def demo_get_all():
+# All callbacks receive request as first parameter
+def demo_get_all(req):
+    """Get all products. In multi-tenant app: req.state.tenant_db.t.products()"""
     return DEMO_PRODUCTS
 
-def demo_get_by_id(id):
+def demo_get_by_id(req, id):
+    """Get product by ID. In multi-tenant app: req.state.tenant_db.t.products[id]"""
     return next((p for p in DEMO_PRODUCTS if p["id"] == id), None)
 
-def demo_create(data):
+def demo_create(req, data):
+    """Create product. In multi-tenant app: req.state.tenant_db.t.products.insert(data)"""
     new_id = max(p["id"] for p in DEMO_PRODUCTS) + 1
     record = {"id": new_id, **data}
     DEMO_PRODUCTS.append(record)
     return record
 
-def demo_update(id, data):
+def demo_update(req, id, data):
+    """Update product. In multi-tenant app: tbl.update({'id': id, **data})"""
     for i, p in enumerate(DEMO_PRODUCTS):
         if p["id"] == id:
             DEMO_PRODUCTS[i] = {"id": id, **data}
             return DEMO_PRODUCTS[i]
     return None
 
-def demo_delete(id):
+def demo_delete(req, id):
+    """Delete product. In multi-tenant app: req.state.tenant_db.t.products.delete(id)"""
     global DEMO_PRODUCTS
     DEMO_PRODUCTS = [p for p in DEMO_PRODUCTS if p["id"] != id]
     return True
@@ -3753,14 +3794,15 @@ products_resource = DataTableResource(
 # --- Preview helper ---
 def ex_products():
     """Preview the DataTableResource table."""
-    return products_resource._handle_table(type('req', (), {'query_params': {}})())
+    mock_req = type('MockRequest', (), {'query_params': {}, 'headers': {}})()
+    return products_resource._handle_table(mock_req)
 
 preview(ex_products())
 ```
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:5555/_nQ15bTAwQ3_Dx5tn-5lvGg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:5555/_Q_7Yu9hSTq_3Pr4n35Orpg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
