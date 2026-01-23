@@ -3616,7 +3616,243 @@ DataTableResource(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L406){target="_blank" style="float:right; font-size:smaller"}
+## 🎨 Custom Row Actions
+
+> **Add domain-specific actions to the row menu beyond standard View/Edit/Delete**
+
+The `custom_actions` feature allows you to extend the row action menu with custom operations like "Refresh", "Archive", "Clone", "Approve", etc., each with their own handlers, icons, and optional confirmation dialogs.
+
+### 📦 Why Custom Actions?
+
+**Before:** Only View/Edit/Delete hardcoded actions
+```python
+crud_ops = {"create": True, "update": True, "delete": True}
+# ❌ Cannot add "Refresh", "Archive", or domain-specific actions
+```
+
+**After:** Extensible action menu with custom handlers
+```python
+crud_ops = {
+    "view": False,  # Can disable View now!
+    "update": False,
+    "delete": True,
+    "custom_actions": [
+        {
+            "name": "refresh",
+            "label": "Refresh Data",
+            "icon": "sync",
+            "handler": lambda ctx: sync_external_data(ctx.record_id),
+            "confirm": None  # No confirmation needed
+        },
+        {
+            "name": "archive",
+            "label": "Archive",
+            "icon": "archive",
+            "handler": handle_archive,
+            "confirm": "Archive this record?",
+            "condition": lambda row: not row.get('is_archived')  # Only show if not archived
+        }
+    ]
+}
+```
+
+---
+
+### 🏗️ Custom Action Structure
+
+Each custom action requires:
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `name` | `str` | ✅ Yes | Internal action identifier (used in routing) |
+| `label` | `str` | ✅ Yes | Display text in menu |
+| `icon` | `str` | ✅ Yes | Material icon name (e.g., "sync", "archive") |
+| `handler` | `Callable` | ✅ Yes | Function that receives [`CrudContext`](https://abhisheksreesaila.github.io/fh-matui/datatable.html#crudcontext) |
+| `confirm` | `str` | ❌ Optional | Confirmation dialog message |
+| `condition` | `Callable[[dict], bool]` | ❌ Optional | Per-row visibility test |
+
+**Reserved action names:** `view`, `edit`, `delete`, `create` (will raise `ValueError` if used)
+
+---
+
+### 🎯 Handler Signature
+
+Handlers receive a [`CrudContext`](https://abhisheksreesaila.github.io/fh-matui/datatable.html#crudcontext) object with full access to request state:
+
+```python
+def handle_refresh(ctx: CrudContext) -> Optional[str]:
+    """
+    Custom action handler.
+    
+    Args:
+        ctx.request: Full Starlette request
+        ctx.user: request.state.user (if available)
+        ctx.db: request.state.tenant_db (if available)
+        ctx.record: Current row data as dict
+        ctx.record_id: ID of the row
+    
+    Returns:
+        Optional success message (defaults to "{label} completed successfully.")
+    """
+    # Access external API
+    api = ExternalAPI(ctx.user['api_token'])
+    api.sync_data(ctx.record_id)
+    
+    # Update record
+    ctx.db.t.connections.update({
+        'id': ctx.record_id,
+        'last_synced': datetime.now().isoformat()
+    })
+    
+    return "Data refreshed successfully!"  # Custom success message
+```
+
+**Async handlers are supported:**
+```python
+async def handle_async_action(ctx: CrudContext) -> str:
+    result = await some_async_operation(ctx.record_id)
+    return f"Completed: {result}"
+```
+
+---
+
+### 📊 Complete Example
+
+```python
+# Handler definitions
+def refresh_connection(ctx: CrudContext) -> str:
+    """Sync data from external API."""
+    api = BankAPI(ctx.user['bank_token'])
+    response = api.refresh_accounts(ctx.record['connection_id'])
+    
+    ctx.db.t.connections.update({
+        'id': ctx.record_id,
+        'last_synced': datetime.now().isoformat(),
+        'account_count': response['account_count']
+    })
+    
+    return f"Refreshed {response['account_count']} accounts"
+
+def archive_connection(ctx: CrudContext):
+    """Soft delete by archiving."""
+    ctx.db.t.connections.update({
+        'id': ctx.record_id,
+        'is_archived': True,
+        'archived_at': datetime.now().isoformat(),
+        'archived_by': ctx.user['user_id']
+    })
+    # Return None = uses default success message
+
+async def clone_connection(ctx: CrudContext) -> str:
+    """Create a duplicate connection."""
+    new_record = {**ctx.record}
+    del new_record['id']
+    new_record['name'] = f"{new_record['name']} (Copy)"
+    new_record['created_at'] = datetime.now().isoformat()
+    
+    # Async database operation
+    result = await ctx.db.t.connections.insert_async(new_record)
+    return f"Cloned as connection #{result['id']}"
+
+# DataTableResource configuration
+DataTableResource(
+    app=app,
+    base_route="/connections",
+    columns=connection_columns,
+    get_all=lambda req: req.state.tenant_db.t.connections(),
+    get_by_id=lambda req, id: req.state.tenant_db.t.connections[id],
+    crud_ops={
+        "view": False,  # 🆕 Disable View action
+        "create": True,
+        "update": False,  # No edit needed
+        "delete": True,
+        "custom_actions": [  # 🆕 Custom actions
+            {
+                "name": "refresh",
+                "label": "Refresh Data",
+                "icon": "sync",
+                "handler": refresh_connection
+            },
+            {
+                "name": "archive",
+                "label": "Archive",
+                "icon": "archive",
+                "handler": archive_connection,
+                "confirm": "Archive this connection?",
+                "condition": lambda row: not row.get('is_archived')  # Only show if active
+            },
+            {
+                "name": "clone",
+                "label": "Duplicate",
+                "icon": "content_copy",
+                "handler": clone_connection,
+                "confirm": "Create a copy of this connection?"
+            }
+        ]
+    },
+    title="Bank Connections"
+)
+```
+
+---
+
+### 🔧 Per-Row Conditional Actions
+
+Use the `condition` callable to show/hide actions based on row data:
+
+```python
+{
+    "name": "approve",
+    "label": "Approve",
+    "icon": "check_circle",
+    "handler": handle_approve,
+    "condition": lambda row: row.get('status') == 'pending'  # Only show for pending items
+}
+```
+
+**Common conditions:**
+- Status-based: `lambda row: row['status'] == 'active'`
+- Role-based: `lambda row: row['owner_id'] == current_user_id` (access via handler)
+- Feature flag: `lambda row: row.get('supports_refresh', False)`
+- Type-based: `lambda row: row['type'] in ['checking', 'savings']`
+
+---
+
+### 🎭 Future: Full Renderer Override (Escape Hatch)
+
+For complete UI control beyond menu items, a future `row_actions_renderer` parameter will allow replacing the entire action menu:
+
+```python
+# 🔮 Future feature (not yet implemented)
+def custom_row_actions(row, row_id, ctx):
+    """Full control over row action UI."""
+    if row['type'] == 'external':
+        return Button(
+            "Launch Widget",
+            onclick="launchExternalWidget()",
+            cls="secondary"
+        )
+    # Fall back to standard menu
+    return None
+
+DataTable(
+    ...,
+    row_actions_renderer=custom_row_actions  # 🔮 Planned
+)
+```
+
+This would be useful for:
+- Non-menu layouts (button groups, custom dropdowns)
+- External widget integrations
+- Row-specific completely different UIs
+
+**Status:** Documented as planned feature, implement only if real use cases emerge.
+
+---
+
+---
+
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L412){target="_blank" style="float:right; font-size:smaller"}
 
 ### DataTableResource
 
@@ -3800,9 +4036,9 @@ def ex_products():
 preview(ex_products())
 ```
 
-::: {.cell-output .cell-output-display}
+::: {.cell-output .cell-output-display execution_count=8}
 ```{=html}
-<iframe src="http://localhost:5555/_Q_7Yu9hSTq_3Pr4n35Orpg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:5555/_urQ62dI6ScafVjnLaLRf2Q" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe

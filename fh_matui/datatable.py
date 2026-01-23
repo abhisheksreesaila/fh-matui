@@ -383,7 +383,7 @@ class CrudContext:
     record: dict = None              # Form data dict
     record_id: Optional[Any] = None  # ID for update/delete (None for create)
 
-# %% ../nbs/05_datatable.ipynb 12
+# %% ../nbs/05_datatable.ipynb 13
 from typing import Callable, Optional, Any, Union
 from dataclasses import asdict, is_dataclass
 from datetime import datetime
