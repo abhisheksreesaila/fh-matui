@@ -22,9 +22,49 @@ from .components import *
 from math import ceil
 from urllib.parse import urlencode
 from typing import Callable, Optional, Any
+from dataclasses import asdict, is_dataclass
 
 # Default page size options
 PAGE_SIZES = [5, 10, 20, 50]
+
+
+def _to_dict(obj: Any) -> dict:
+    """
+    Convert any record type to dict.
+    
+    Handles:
+    - dict -> pass through
+    - dataclass -> asdict()
+    - namedtuple -> _asdict()
+    - Pydantic model -> model_dump() or dict()
+    - ORM/object with __dict__ -> vars() filtered
+    - dict-like with keys -> dict()
+    - None -> {}
+    """
+    if obj is None:
+        return {}
+    if isinstance(obj, dict):
+        return obj
+    # Dataclass
+    if is_dataclass(obj) and not isinstance(obj, type):
+        return asdict(obj)
+    # Namedtuple
+    if hasattr(obj, '_asdict'):
+        return obj._asdict()
+    # Pydantic v2
+    if hasattr(obj, 'model_dump'):
+        return obj.model_dump()
+    # Pydantic v1
+    if hasattr(obj, 'dict') and callable(getattr(obj, 'dict')):
+        return obj.dict()
+    # ORM-style objects with __dict__
+    if hasattr(obj, "__dict__"):
+        return {k: v for k, v in obj.__dict__.items() if not k.startswith("_")}
+    # Dict-like
+    if hasattr(obj, 'keys'):
+        return dict(obj)
+    return {}
+
 
 def _safe_int(value, default):
     """Safely convert to positive int or return default."""
@@ -173,6 +213,9 @@ def DataTable(
     container_id = container_id or f"crud-table-{base_route.replace('/', '-').strip('-')}"
     feedback_id = f"{container_id}-feedback"
     
+    # Auto-convert data records to dicts (supports dataclass, namedtuple, Pydantic, ORM)
+    data = [_to_dict(r) for r in data]
+    
     # Auto-generate columns from first data row if not provided
     if columns is None and data:
         columns = [{"key": k, "label": k.replace("_", " ").title()} for k in data[0].keys()]
@@ -279,22 +322,27 @@ def DataTable(
             cls="field prefix"
         ),
         Input(type="hidden", name="page_size", value=page_size),
-        cls="row"
+        cls="max"
     )
+    
+    # Build table with proper Thead/Tbody structure
+    data_table = Table(
+        Thead(Tr(*[Th(label) for label in header_labels])),
+        Tbody(*[
+            Tr(*[Td(row_dict.get(key, '')) for key in header_keys])
+            for row_dict in table_rows
+        ]),
+        cls="border"
+    ) if data else Div(empty_message, cls="center-align padding")
     
     return Article(
         Div(id=feedback_id),  # Feedback container for modals/toasts
         Div(
             search_form,
             create_button,
-            cls="grid"
+            cls="row"
         ),
-        Table(
-            *table_rows,
-            headers=header_labels,
-            keys=header_keys,
-            cls="border"
-        ) if data else Div(empty_message, cls="center-align padding"),
+        data_table,
         Div(
             Div(
                 _page_size_select(page_size, search, base_route, container_id, page_sizes),
