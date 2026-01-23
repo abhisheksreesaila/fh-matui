@@ -113,14 +113,29 @@ def _action_menu(
         )
     
     items = []
-    # View is always available (read operation)
-    items.append(action_item("View", "visibility", "view"))
+    # View is conditional (read operation)
+    if crud_ops.get("view", True):
+        items.append(action_item("View", "visibility", "view"))
     
     if crud_ops.get("update", False):
         items.append(action_item("Edit", "edit", "edit"))
     
     if crud_ops.get("delete", False):
         items.append(action_item("Delete", "delete", "delete", confirm="Delete this record?"))
+    
+    # Custom actions
+    for custom_action in crud_ops.get("custom_actions", []):
+        # Check per-row condition if provided
+        condition = custom_action.get("condition")
+        if condition and not condition(row):
+            continue
+        
+        items.append(action_item(
+            label=custom_action["label"],
+            icon=custom_action["icon"],
+            action=custom_action["name"],
+            confirm=custom_action.get("confirm")
+        ))
     
     return Div(
         Button(
@@ -206,87 +221,95 @@ def DataTable(
         )
         table_rows.append(row_dict)
     
-    # Empty state
-    if not table_rows:
-        empty_row = {col["key"]: "" for col in columns}
-        empty_row[columns[0]["key"]] = Span(empty_message, cls="small-text grey-text")
-        empty_row["actions"] = ""
-        table_rows.append(empty_row)
+    # Create button
+    create_button = None
+    if crud_ops.get("create", False):
+        query = urlencode({"action": "create", "search": search, "page": page, "page_size": page_size})
+        create_button = Button(
+            Icon("add"),
+            create_label,
+            hx_get=f"{base_route}/action?{query}",
+            hx_target=f"#{feedback_id}",
+            hx_swap="outerHTML",
+            cls=ButtonT.primary
+        )
     
-    # Build header content
-    header_content = DivFullySpaced(
-        H5(title),
-        Span(f"{total} total", cls="small-text grey-text")
-    )
-    
-    # Build search and create button row
-    toolbar_items = [
-        Field(
-            Input(
-                placeholder=search_placeholder,
-                name="search",
-                value=search,
-                hx_get=f"{base_route}?page_size={page_size}",
-                hx_trigger="keyup changed delay:500ms",
+    # Pagination controls
+    pagination = None
+    if total_pages > 1:
+        prev_params = urlencode({"search": search, "page": max(1, page - 1), "page_size": page_size})
+        next_params = urlencode({"search": search, "page": min(total_pages, page + 1), "page_size": page_size})
+        
+        pagination = Div(
+            Button(
+                Icon("navigate_before"),
+                hx_get=f"{base_route}?{prev_params}",
                 hx_target=f"#{container_id}",
                 hx_push_url="true",
-                hx_vals='{"page":1}',
-                autocomplete="off",
-                onfocus="this.parentElement.classList.add('max')",
-                onblur="if(!this.value) this.parentElement.classList.remove('max')"
+                disabled=page == 1,
+                cls="circle"
             ),
-            cls="border round",
-            style="transition: flex-grow 0.3s ease"
-        )
-    ]
-    
-    if crud_ops.get("create", False):
-        create_query = urlencode({"action": "create", "search": search, "page": page, "page_size": page_size})
-        toolbar_items.append(
+            Span(f"Page {page} of {total_pages}", cls="middle"),
             Button(
-                Icon("add"),
-                Span(create_label),
-                cls=ButtonT.primary,
-                hx_get=f"{base_route}/action?{create_query}",
-                hx_target=f"#{feedback_id}",
-                hx_swap="outerHTML"
-            )
+                Icon("navigate_next"),
+                hx_get=f"{base_route}?{next_params}",
+                hx_target=f"#{container_id}",
+                hx_push_url="true",
+                disabled=page == total_pages,
+                cls="circle"
+            ),
+            cls="row center-align"
         )
     
-    # Build footer with pagination - count on left, paginator centered below table
-    footer_content = Div(
-        Div(Span(summary, cls="small-text grey-text")),
+    # Search form
+    search_form = Form(
         Div(
-            _page_size_select(page_size, search, base_route, container_id, page_sizes),
-            Pagination(
-                page,
-                total_pages,
-                f"{base_route}?{base_query}",
-                hx_target=f"#{container_id}"
+            Icon("search", cls="small"),
+            Input(
+                type="search",
+                name="search",
+                value=search,
+                placeholder=search_placeholder,
+                hx_get=base_route,
+                hx_trigger="input changed delay:300ms, search",
+                hx_target=f"#{container_id}",
+                hx_push_url="true",
+                hx_include="[name='page_size']"
             ),
-            cls="row center-align middle-align small-space"
+            cls="field prefix"
         ),
-        cls="grid"
+        Input(type="hidden", name="page_size", value=page_size),
+        cls="row"
     )
     
-    # Create header label mapping for custom rendering
-    label_map = dict(zip(header_keys, header_labels))
-    
-    # Build the card
-    card = Card(
-        DivFullySpaced(*toolbar_items, cls="padding"),
-        TableFromDicts(
-            header_keys,
-            table_rows,
-            header_cell_render=lambda k: Th(label_map.get(k, k)),
+    return Article(
+        Div(id=feedback_id),  # Feedback container for modals/toasts
+        Div(
+            search_form,
+            create_button,
+            cls="grid"
+        ),
+        Table(
+            *table_rows,
+            headers=header_labels,
+            keys=header_keys,
             cls="border"
-        ),
-        footer=footer_content,
-        header=header_content,
-        cls="surface-container border round"
+        ) if data else Div(empty_message, cls="center-align padding"),
+        Div(
+            Div(
+                _page_size_select(page_size, search, base_route, container_id, page_sizes),
+                Span(summary, cls="small-text grey-text"),
+                cls="row"
+            ),
+            pagination,
+            cls="grid"
+        ) if total > 0 else None,
+        id=container_id,
+        hx_trigger=f"{container_id}-refresh from:body",
+        hx_get=f"{base_route}?{base_query}",
+        hx_target=f"#{container_id}",
+        hx_swap="outerHTML"
     )
-    
-    return Div(card, Div(id=feedback_id), id=container_id)
 
 # %% ../nbs/05_datatable.ipynb 9
 import asyncio
@@ -479,6 +502,29 @@ class DataTableResource:
             }
         else:
             self.crud_ops = crud_ops
+            
+            # Validate custom_actions if provided
+            custom_actions = crud_ops.get("custom_actions", [])
+            if custom_actions:
+                reserved_names = {"view", "edit", "delete", "create"}
+                for action in custom_actions:
+                    # Check required fields
+                    if "name" not in action:
+                        raise ValueError("Custom action missing required 'name' field")
+                    if "label" not in action:
+                        raise ValueError(f"Custom action '{action['name']}' missing required 'label' field")
+                    if "icon" not in action:
+                        raise ValueError(f"Custom action '{action['name']}' missing required 'icon' field")
+                    if "handler" not in action:
+                        raise ValueError(f"Custom action '{action['name']}' missing required 'handler' field")
+                    
+                    # Check for reserved name collisions
+                    if action["name"] in reserved_names:
+                        raise ValueError(f"Custom action name '{action['name']}' conflicts with reserved action name")
+                    
+                    # Validate handler is callable
+                    if not callable(action["handler"]):
+                        raise ValueError(f"Custom action '{action['name']}' handler must be callable")
         
         # CRUD hooks
         self.on_create_hook = on_create
@@ -742,6 +788,29 @@ class DataTableResource:
             except Exception as e:
                 logger.error(f"Delete failed: {e}", exc_info=True)
                 return self._error_toast(f"Delete failed: {str(e)}")
+        
+        # Handle CUSTOM ACTIONS
+        custom_actions = self.crud_ops.get("custom_actions", [])
+        for custom_action in custom_actions:
+            if action == custom_action["name"]:
+                try:
+                    ctx = self._build_context(req, record=record, record_id=record_id)
+                    handler = custom_action["handler"]
+                    
+                    # Execute handler (sync or async)
+                    if asyncio.iscoroutinefunction(handler):
+                        loop = asyncio.get_event_loop()
+                        result = loop.run_until_complete(handler(ctx))
+                    else:
+                        result = handler(ctx)
+                    
+                    # Return success toast with refresh trigger
+                    message = result if isinstance(result, str) else f"{custom_action['label']} completed successfully."
+                    return self._success_toast(message)
+                    
+                except Exception as e:
+                    logger.error(f"Custom action '{action}' failed: {e}", exc_info=True)
+                    return self._error_toast(f"{custom_action['label']} failed: {str(e)}")
         
         return Div(id=self.feedback_id)
     
