@@ -331,9 +331,14 @@ def NavBar(*children, brand=None, sticky=False, cls='', **kwargs):
     return Nav(*children, cls=f"padding {nav_cls}", **kwargs)
 
 # %% ../nbs/02_components.ipynb 35
-def Modal(*c, id=None, footer=None, active=False, overlay=True, cls=(), **kwargs):
-    """BeerCSS modal dialog with optional overlay and footer."""
+def Modal(*c, id=None, footer=None, active=False, overlay='default', position=None, cls=(), **kwargs):
+    """BeerCSS modal dialog with position and overlay options."""
     modal_cls = normalize_tokens(cls)
+    
+    # Add position class if specified
+    if position in ['left', 'right', 'top', 'bottom']:
+        modal_cls.append(position)
+    
     if active: 
         modal_cls.append('active')
     
@@ -349,9 +354,22 @@ def Modal(*c, id=None, footer=None, active=False, overlay=True, cls=(), **kwargs
     # Create the dialog
     dialog = Dialog(*children, id=id, cls=cls_str, **kwargs)
     
-    if overlay:
-        # Return overlay + dialog as separate elements that BeerCSS can manage
-        overlay_cls = "overlay blur"
+    # Handle overlay
+    if overlay and overlay not in [False, None]:
+        overlay_classes = ['overlay']
+        
+        # Map overlay parameter to BeerCSS classes
+        if overlay == 'blur':
+            overlay_classes.append('blur')
+        elif overlay == 'small-blur':
+            overlay_classes.append('small-blur')
+        elif overlay == 'medium-blur':
+            overlay_classes.append('medium-blur')
+        elif overlay == 'large-blur':
+            overlay_classes.append('large-blur')
+        # 'default' means plain overlay with no blur class
+        
+        overlay_cls = ' '.join(overlay_classes)
         if active:
             overlay_cls += " active"
             
@@ -717,15 +735,14 @@ def Toolbar(*items, cls='', elevate='large', fill=True, **kwargs):
     if cls: classes.append(cls)
     return Nav(*items, cls=' '.join(classes), **kwargs)
 
-# %% ../nbs/02_components.ipynb 92
+# %% ../nbs/02_components.ipynb 93
 #| code-fold: true
-def Toast(*c, cls='', position='top', variant='', action=None, dur=5.0, active=False, **kwargs):
-    """BeerCSS snackbar/toast notification with position and variant options."""
+def Toast(*c, cls='', position='top', variant='', action=None, active=False, dur=None, **kwargs):
+    """BeerCSS snackbar/toast notification with position ('top' or 'bottom') and variant options."""
     classes = ['snackbar']
     if variant: classes.append(variant)
-    if position:
-        position_map = {'top': 'bottom', 'bottom': 'top', 'left': 'right', 'right': 'left'}
-        classes.append(position_map.get(position, position))
+    if position in ['top', 'bottom']:
+        classes.append(position)
     if active: classes.append('active')
     if cls: classes.append(cls)
     
@@ -735,13 +752,34 @@ def Toast(*c, cls='', position='top', variant='', action=None, dur=5.0, active=F
         if isinstance(action, str): content.append(A(action, cls='inverse-link'))
         else: content.append(action)
     else: content.extend(c)
-    return Div(*content, cls=' '.join(classes), **kwargs)
+    
+    snackbar = Div(*content, cls=' '.join(classes), **kwargs)
+    
+    # If duration is specified and there's an id, generate auto-hide script
+    if dur and 'id' in kwargs:
+        timeout_ms = int(dur * 1000)
+        toast_id = kwargs['id']
+        # Wait for Beer CSS module to load before calling ui()
+        script = Script(f"""
+window.addEventListener('load', function() {{
+    function showToast() {{
+        if (typeof ui !== 'undefined') {{
+            try {{ ui('#{toast_id}', {timeout_ms}); }}
+            catch (e) {{ console.error('Toast error:', e.message); }}
+        }}
+    }}
+    setTimeout(showToast, 50);
+}});
+""")
+        return (snackbar, script)
+    
+    return snackbar
 
 def Snackbar(*c, **kwargs):
     """Alias for Toast component."""
     return Toast(*c, **kwargs)
 
-# %% ../nbs/02_components.ipynb 94
+# %% ../nbs/02_components.ipynb 96
 #| code-fold: true
 class ContainerT(VEnum):
     """Container size options (BeerCSS). Most alias to 'responsive'; use 'expand' for full-width."""
@@ -752,7 +790,7 @@ class ContainerT(VEnum):
     xl = 'responsive'
     expand = 'responsive max'
 
-# %% ../nbs/02_components.ipynb 96
+# %% ../nbs/02_components.ipynb 98
 #| code-fold: true
 def _get_form_config(col: dict) -> dict:
     """Extract form config from column, with sensible defaults."""
@@ -828,7 +866,7 @@ def FormField(
             **attrs
         )
 
-# %% ../nbs/02_components.ipynb 98
+# %% ../nbs/02_components.ipynb 100
 #| code-fold: true
 from typing import Callable, Any
 
@@ -947,7 +985,7 @@ def FormModal(
         cls="large-width"
     )
 
-# %% ../nbs/02_components.ipynb 100
+# %% ../nbs/02_components.ipynb 102
 #| code-fold: true
 def NavContainer(*li, title=None, brand=None, position='left', close_button=True, cls='active', id=None, **kwargs):
     """Slide-out navigation drawer with header and close button."""
@@ -1004,7 +1042,7 @@ def BottomNav(*c, cls='bottom', size='s', **kwargs):
     final_cls = f"{cls} {size_cls}".strip()
     return Nav(*c, cls=final_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 103
+# %% ../nbs/02_components.ipynb 105
 #| code-fold: true
 def NavSideBarHeader(*c, cls='', **kwargs):
     """Sidebar header section for menu buttons and branding."""
@@ -1024,7 +1062,7 @@ def NavSideBarContainer(*children, position='left', size='m', cls='', active=Fal
     nav_cls = f"{base_cls} {cls}".strip()
     return Nav(*children, cls=nav_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 105
+# %% ../nbs/02_components.ipynb 107
 #| code-fold: true
 def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_size=ContainerT.expand,
            main_bg='surface', sidebar_id='app-sidebar', cls='', **kwargs):
@@ -1069,7 +1107,7 @@ def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_s
     final_cls = f"surface-container {cls}".strip() if cls else "surface-container"
     return Div(*layout_children, cls=final_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 109
+# %% ../nbs/02_components.ipynb 111
 #| code-fold: true
 class TextT(VEnum):
     """Text styles using BeerCSS typography classes."""
@@ -1101,7 +1139,7 @@ class TextPresets(VEnum):
     primary_link = 'link primary-text'
     muted_link = 'link secondary-text'
 
-# %% ../nbs/02_components.ipynb 110
+# %% ../nbs/02_components.ipynb 112
 #| code-fold: true
 def CodeSpan(*c, cls=(), **kwargs):
     """Inline code snippet."""
@@ -1157,7 +1195,7 @@ def Sup(*c, cls=(), **kwargs):
     cls_str = stringify(cls) if cls else None
     return fc.Sup(*c, cls=cls_str, **kwargs) if cls_str else fc.Sup(*c, **kwargs)
 
-# %% ../nbs/02_components.ipynb 112
+# %% ../nbs/02_components.ipynb 114
 #| code-fold: true
 def FAQItem(question: str, answer: str, question_cls: str = '', answer_cls: str = ''):
     """Collapsible FAQ item using details/summary.
@@ -1175,7 +1213,7 @@ def FAQItem(question: str, answer: str, question_cls: str = '', answer_cls: str 
         Summary(Article(Nav(Div(question, cls=f"max bold {question_cls}".strip()), I("expand_more")), cls="round surface-variant border no-elevate")),
         Article(P(answer, cls=f"secondary-text {answer_cls}".strip()), cls="round border padding"))
 
-# %% ../nbs/02_components.ipynb 116
+# %% ../nbs/02_components.ipynb 118
 #| code-fold: true
 def CookiesBanner(message='We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.',
                   accept_text='Accept', decline_text='Decline', settings_text=None, policy_link='/cookies', policy_text='Learn more',

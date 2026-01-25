@@ -123,6 +123,7 @@ def _action_menu(
     row: dict,
     row_id: Any,
     crud_ops: dict,
+    crud_enabled: dict,
     base_route: str,
     search: str,
     page: int,
@@ -153,14 +154,14 @@ def _action_menu(
         )
     
     items = []
-    # View is conditional (read operation)
-    if crud_ops.get("view", True):
+    # View is conditional (read operation) - use crud_enabled for callable support
+    if crud_enabled.get("view", True):
         items.append(action_item("View", "visibility", "view"))
     
-    if crud_ops.get("update", False):
+    if crud_enabled.get("update", False):
         items.append(action_item("Edit", "edit", "edit"))
     
-    if crud_ops.get("delete", False):
+    if crud_enabled.get("delete", False):
         items.append(action_item("Delete", "delete", "delete", confirm="Delete this record?"))
     
     # Custom actions
@@ -197,6 +198,7 @@ def DataTable(
     search: str = '',
     columns: list[dict] = None,
     crud_ops: dict = None,
+    crud_enabled: dict = None,
     base_route: str = '',
     row_id_field: str = 'id',
     title: str = 'Records',
@@ -209,6 +211,7 @@ def DataTable(
     "Generic data table with server-side pagination, search, and row actions."
     # Defaults
     crud_ops = crud_ops or {"create": False, "update": False, "delete": False}
+    crud_enabled = crud_enabled or {k: bool(v) for k, v in crud_ops.items() if k != 'custom_actions'}
     page_sizes = page_sizes or PAGE_SIZES
     container_id = container_id or f"crud-table-{base_route.replace('/', '-').strip('-')}"
     feedback_id = f"{container_id}-feedback"
@@ -227,7 +230,6 @@ def DataTable(
     start_index = (page - 1) * page_size + 1 if total else 0
     end_index = min(start_index + page_size - 1, total) if total else 0
     summary = f"{start_index}-{end_index} of {total} records" if total else "No matching records"
-    
     base_query = urlencode({"search": search, "page_size": page_size})
     
     # Build table header keys and labels
@@ -255,6 +257,7 @@ def DataTable(
             row=row,
             row_id=row_id,
             crud_ops=crud_ops,
+            crud_enabled=crud_enabled,
             base_route=base_route,
             search=search,
             page=page,
@@ -264,9 +267,9 @@ def DataTable(
         )
         table_rows.append(row_dict)
     
-    # Create button
+    # Create button - use crud_enabled for callable support
     create_button = None
-    if crud_ops.get("create", False):
+    if crud_enabled.get("create", False):
         query = urlencode({"action": "create", "search": search, "page": page, "page_size": page_size})
         create_button = Button(
             Icon("add"),
@@ -335,6 +338,24 @@ def DataTable(
         cls="border"
     ) if data else Div(empty_message, cls="center-align padding")
     
+    # Footer section with page size selector and pagination
+    footer = None
+    if total > 0:
+        page_info_row = Div(
+            _page_size_select(page_size, search, base_route, container_id, page_sizes),
+            Span(summary, cls="small-text grey-text"),
+            cls="row"
+        )
+        if pagination:
+            # Two-row layout: info on top, centered pagination below
+            footer = Div(
+                page_info_row,
+                Div(pagination, cls="row center-align"),
+            )
+        else:
+            # Single row when no pagination needed
+            footer = page_info_row
+    
     return Article(
         Div(id=feedback_id),  # Feedback container for modals/toasts
         Div(
@@ -343,15 +364,7 @@ def DataTable(
             cls="row"
         ),
         data_table,
-        Div(
-            Div(
-                _page_size_select(page_size, search, base_route, container_id, page_sizes),
-                Span(summary, cls="small-text grey-text"),
-                cls="row"
-            ),
-            pagination,
-            cls="grid"
-        ) if total > 0 else None,
+        footer,
         id=container_id,
         hx_trigger=f"{container_id}-refresh from:body",
         hx_get=f"{base_route}?{base_query}",
@@ -453,6 +466,7 @@ class CrudContext:
     tbl: Optional[Any] = None        # request.state.tables[table_name] (if available)
     record: dict = None              # Form data dict
     record_id: Optional[Any] = None  # ID for update/delete (None for create)
+    feedback_id: Optional[str] = None  # Target div ID for HTMX swap (for override handlers)
 
 # %% ../nbs/05_datatable.ipynb 13
 from typing import Callable, Optional, Any, Union
@@ -574,6 +588,20 @@ class DataTableResource:
                     if not callable(action["handler"]):
                         raise ValueError(f"Custom action '{action['name']}' handler must be callable")
         
+        # Parse crud_ops for callable overrides vs boolean enable/disable
+        # Callable = override handler (action is enabled)
+        # True = use default handler (action is enabled)
+        # False = action is disabled
+        self.crud_overrides = {}
+        self.crud_enabled = {}
+        for action_name in ['create', 'update', 'delete', 'view']:
+            value = self.crud_ops.get(action_name, action_name == 'view')  # view defaults to True
+            if callable(value):
+                self.crud_overrides[action_name] = value
+                self.crud_enabled[action_name] = True  # Callable means action is enabled
+            else:
+                self.crud_enabled[action_name] = bool(value)
+        
         # CRUD hooks
         self.on_create_hook = on_create
         self.on_update_hook = on_update
@@ -603,7 +631,7 @@ class DataTableResource:
             return await hook(ctx)
         return hook(ctx)
     
-    def _build_context(self, req, record: dict = None, record_id: Any = None) -> CrudContext:
+    def _build_context(self, req, record: dict = None, record_id: Any = None, include_feedback_id: bool = False) -> CrudContext:
         """🏗️ Build CrudContext from request."""
         user = None
         db = None
@@ -629,7 +657,8 @@ class DataTableResource:
             db=db,
             tbl=tbl,
             record=record or {},
-            record_id=record_id
+            record_id=record_id,
+            feedback_id=self.feedback_id if include_feedback_id else None
         )
     
     def _wrap_response(self, content, req):
@@ -647,8 +676,8 @@ class DataTableResource:
             return self._handle_table(req)
         
         @rt(f"{self.base_route}/action")
-        def _action_handler(req):
-            return self._handle_action(req)
+        async def _action_handler(req):
+            return await self._handle_action(req)
         
         @rt(f"{self.base_route}/save")
         async def _save_handler(req):
@@ -704,6 +733,7 @@ class DataTableResource:
             search=search,
             columns=self.columns,
             crud_ops=self.crud_ops,
+            crud_enabled=self.crud_enabled,
             base_route=self.base_route,
             row_id_field=self.row_id_field,
             title=self.title,
@@ -731,8 +761,8 @@ class DataTableResource:
         # Wrap with layout if full-page request
         return self._wrap_response(content, req)
     
-    def _handle_action(self, req):
-        """Handle action route (view/edit/create/delete)."""
+    async def _handle_action(self, req):
+        """Handle action route (view/edit/create/delete) with override support."""
         params = getattr(req, "query_params", {})
         getter = params.get if hasattr(params, "get") else (lambda k, d=None: params[k] if k in params else d)
         
@@ -755,9 +785,47 @@ class DataTableResource:
         cancel_url = f"{self.base_route}/action?dismiss=1"
         save_url = f"{self.base_route}/save?{return_params}"
         
-        # Handle CREATE
+        # Get record for actions that need it (not create)
+        record = None
+        if record_id:
+            raw_record = self.get_by_id(req, record_id)
+            record = _to_dict(raw_record) if raw_record else None
+        
+        # Map action names to internal action names for overrides
+        action_map = {'edit': 'update'}  # 'edit' action uses 'update' override
+        override_key = action_map.get(action, action)
+        
+        # Check for CRUD override FIRST (callable in crud_ops)
+        if override_key in self.crud_overrides:
+            try:
+                ctx = self._build_context(req, record=record, record_id=record_id, include_feedback_id=True)
+                handler = self.crud_overrides[override_key]
+                
+                # Execute handler (sync or async)
+                if asyncio.iscoroutinefunction(handler):
+                    result = await handler(ctx)
+                else:
+                    result = handler(ctx)
+                
+                # Handle return value:
+                # - FT component: Return directly (full control to user)
+                # - str: Wrap in success toast
+                # - None: Default success message
+                if result is None:
+                    return self._success_toast(f"{action.title()} completed successfully.")
+                elif isinstance(result, str):
+                    return self._success_toast(result)
+                else:
+                    # FT component - wrap in feedback div
+                    return Div(result, id=self.feedback_id)
+                    
+            except Exception as e:
+                logger.error(f"CRUD override '{action}' failed: {e}", exc_info=True)
+                return self._error_toast(f"{action.title()} failed: {str(e)}")
+        
+        # Handle CREATE (default behavior)
         if action == "create":
-            if not self.crud_ops.get("create"):
+            if not self.crud_enabled.get("create"):
                 return self._error_toast("Create operation not enabled.")
             
             modal = FormModal(
@@ -773,16 +841,11 @@ class DataTableResource:
             )
             return self._wrap_modal(modal)
         
-        # Get record for view/edit/delete
-        record = None
-        if record_id:
-            raw_record = self.get_by_id(req, record_id)
-            record = _to_dict(raw_record) if raw_record else None
-        
+        # Record required for remaining actions
         if not record:
             return self._error_toast("Record not found.")
         
-        # Handle VIEW
+        # Handle VIEW (default behavior)
         if action == "view":
             modal = FormModal(
                 columns=self.columns,
@@ -795,9 +858,9 @@ class DataTableResource:
             )
             return self._wrap_modal(modal)
         
-        # Handle EDIT
+        # Handle EDIT (default behavior)
         if action == "edit":
-            if not self.crud_ops.get("update"):
+            if not self.crud_enabled.get("update"):
                 return self._error_toast("Update operation not enabled.")
             
             modal = FormModal(
@@ -813,9 +876,9 @@ class DataTableResource:
             )
             return self._wrap_modal(modal)
         
-        # Handle DELETE
+        # Handle DELETE (default behavior)
         if action == "delete":
-            if not self.crud_ops.get("delete"):
+            if not self.crud_enabled.get("delete"):
                 return self._error_toast("Delete operation not enabled.")
             
             try:
@@ -823,11 +886,7 @@ class DataTableResource:
                 
                 # Use on_delete hook if provided
                 if self.on_delete_hook:
-                    if asyncio.iscoroutinefunction(self.on_delete_hook):
-                        loop = asyncio.get_event_loop()
-                        loop.run_until_complete(self.on_delete_hook(ctx))
-                    else:
-                        self.on_delete_hook(ctx)
+                    await self._call_hook(self.on_delete_hook, ctx)
                 else:
                     # Default: use delete_fn
                     self.delete_fn(req, record_id)
@@ -842,19 +901,22 @@ class DataTableResource:
         for custom_action in custom_actions:
             if action == custom_action["name"]:
                 try:
-                    ctx = self._build_context(req, record=record, record_id=record_id)
+                    ctx = self._build_context(req, record=record, record_id=record_id, include_feedback_id=True)
                     handler = custom_action["handler"]
                     
                     # Execute handler (sync or async)
                     if asyncio.iscoroutinefunction(handler):
-                        loop = asyncio.get_event_loop()
-                        result = loop.run_until_complete(handler(ctx))
+                        result = await handler(ctx)
                     else:
                         result = handler(ctx)
                     
-                    # Return success toast with refresh trigger
-                    message = result if isinstance(result, str) else f"{custom_action['label']} completed successfully."
-                    return self._success_toast(message)
+                    # Handle return value same as overrides
+                    if result is None:
+                        return self._success_toast(f"{custom_action['label']} completed successfully.")
+                    elif isinstance(result, str):
+                        return self._success_toast(result)
+                    else:
+                        return Div(result, id=self.feedback_id)
                     
                 except Exception as e:
                     logger.error(f"Custom action '{action}' failed: {e}", exc_info=True)
