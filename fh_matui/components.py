@@ -29,9 +29,13 @@ from nbdev.showdoc import show_doc
 # %% ../nbs/02_components.ipynb 6
 #| code-fold: true
 def NavToggleButton(target, icon='menu', **kwargs):
-    """Create a navigation toggle button that toggles the 'max' class on the target element"""
+    """Create a navigation toggle button that toggles the 'max' class on the target element.
+    
+    Also toggles icon between 'menu' and 'menu_open' based on nav state.
+    """
     cls = kwargs.get('cls', 'circle transparent')
-    onclick = f"toggleNav('{target}'); return false;"
+    # Inline JS: toggle nav's max class AND change this button's icon
+    onclick = f"var nav=document.querySelector('{target}');if(nav){{nav.classList.toggle('max');var i=this.querySelector('i');if(i)i.textContent=nav.classList.contains('max')?'menu_open':'menu'}};return false;"
     kwargs.update({'onclick': onclick, 'cls': cls})
     return Button(I(icon), **kwargs)
 
@@ -323,12 +327,31 @@ def Icon(icon: str, size: str = None, fill: bool = False, cls = (), **kwargs):
 
 # %% ../nbs/02_components.ipynb 32
 #| code-fold: true
-def NavBar(*children, brand=None, sticky=False, cls='', **kwargs):
-    """Horizontal navigation bar with optional brand and sticky positioning"""
-    nav_cls = f"{'sticky top' if sticky else ''} surface-container {cls}".strip()
+def NavBar(*children, brand=None, sticky=False, cls='', size='small',
+           hx_boost=True, hx_target='#main-content', **kwargs):
+    """Horizontal navigation bar with HTMX SPA navigation defaults.
+    
+    Args:
+        brand: Brand element (logo/title) positioned on the left
+        sticky: Whether navbar sticks to top on scroll
+        size: Navbar size - 'small' (default), 'medium', 'large', or None
+        hx_boost: Auto-enhance all <a> links for HTMX navigation (default True)
+        hx_target: Target element for boosted links (default '#main-content')
+    """
+    size_cls = size if size else ''
+    nav_cls = f"{'sticky top' if sticky else ''} surface-container {size_cls} {cls}".strip()
+    
+    # HTMX SPA optimizations
+    if hx_boost: kwargs['hx_boost'] = 'true'
+    if hx_target: kwargs['hx_target'] = hx_target
+    kwargs.setdefault('hx_push_url', 'true')
+    
+    # Use small-padding for compact navbar
+    padding_cls = 'small-padding' if size == 'small' else 'padding'
+    
     if brand:
-        return Nav(brand, Div(cls='max'), *children, cls=f"row middle-align padding {nav_cls}", **kwargs)
-    return Nav(*children, cls=f"padding {nav_cls}", **kwargs)
+        return Nav(brand, Div(cls='max'), *children, cls=f"row middle-align {padding_cls} {nav_cls}", **kwargs)
+    return Nav(*children, cls=f"{padding_cls} {nav_cls}", **kwargs)
 
 # %% ../nbs/02_components.ipynb 35
 def Modal(*c, id=None, footer=None, active=False, overlay='default', position=None, cls=(), **kwargs):
@@ -1072,33 +1095,76 @@ def NavSideBarLinks(*children, as_list=False, cls='', **kwargs):
         return Ul(*children, cls=list_cls, **kwargs)
     return Group(*children) if len(children) > 1 else (children[0] if children else Group())
 
-def NavSideBarContainer(*children, position='left', size='m', cls='', active=False, **kwargs):
-    """BeerCSS navigation sidebar/drawer component."""
+def NavSideBarContainer(*children, position='left', size='m', cls='', active=False,
+                        hx_boost=True, hx_target='#main-content', **kwargs):
+    """BeerCSS navigation sidebar with HTMX SPA navigation defaults.
+    
+    Args:
+        position: Sidebar position ('left' or 'right')
+        size: Sidebar size ('s', 'm', 'l')
+        active: Whether sidebar starts visible
+        hx_boost: Auto-enhance all <a> links for HTMX navigation (default True)
+        hx_target: Target element for boosted links (default '#main-content')
+    
+    Usage:
+        Routes should check `req.headers` for HX-Request and return content only for HTMX requests:
+        
+        @rt("/dashboard")
+        def dashboard(req):
+            content = dashboard_content()
+            if 'HX-Request' in req.headers: return content  # HTMX swap
+            return Layout(content)  # Full page load
+    """
     base_cls = f"{size} {position} surface-container"
     if active: base_cls += " active"
     nav_cls = f"{base_cls} {cls}".strip()
+    
+    # HTMX SPA optimizations
+    if hx_boost: kwargs['hx_boost'] = 'true'
+    if hx_target: kwargs['hx_target'] = hx_target
+    kwargs.setdefault('hx_push_url', 'true')
+    
     return Nav(*children, cls=nav_cls, **kwargs)
 
 # %% ../nbs/02_components.ipynb 107
 #| code-fold: true
 def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_size=ContainerT.expand,
-           main_bg='surface', sidebar_id='app-sidebar', cls='', **kwargs):
-    """App layout wrapper with auto-toggle sidebar and sensible defaults."""
-    main_content = []
+           main_bg='surface', sidebar_id='app-sidebar', main_id='main-content', cls='', **kwargs):
+    """App layout with HTMX SPA navigation.
     
-    if nav_bar:
-        if hasattr(nav_bar, 'attrs') and 'cls' in nav_bar.attrs:
-            if 'sticky' not in nav_bar.attrs['cls']: nav_bar.attrs['cls'] += ' sticky top'
-        main_content.append(nav_bar)
-    
+    Args:
+        main_id: ID for main content area (default 'main-content') - use as hx-target
+        
+    HTMX SPA features:
+        - hx-boost on sidebar automatically enhances all <a> links
+        - hx-history-elt for back/forward button caching
+        - Routes should check `req.headers` for HX-Request and return content only for HTMX requests
+        
+    Usage:
+        @rt("/dashboard")
+        def dashboard(req):
+            content = dashboard_content()
+            if 'HX-Request' in req.headers: return content  # HTMX swap
+            return Layout(content)  # Full page load
+    """
+    # Build content wrapper with history caching
+    content_wrapper = None
     if content:
-        container_cls = stringify((container_size, 'padding', main_bg))
-        main_content.append(Main(*content, cls=container_cls))
+        content_wrapper = Div(*content, id=main_id, hx_history_elt='true')
     
+    # No sidebar - simple layout
     if not sidebar and not sidebar_links:
-        if main_content: return Div(*main_content, cls=cls, **kwargs)
-        else: return Div(cls=cls, **kwargs)
+        result = []
+        if nav_bar:
+            if hasattr(nav_bar, 'attrs') and 'cls' in nav_bar.attrs:
+                if 'sticky' not in nav_bar.attrs['cls']: nav_bar.attrs['cls'] += ' sticky top'
+            result.append(nav_bar)
+        if content_wrapper:
+            container_cls = stringify((container_size, 'padding', main_bg))
+            result.append(Main(content_wrapper, cls=container_cls))
+        return Div(*result, cls=cls, **kwargs) if result else Div(cls=cls, **kwargs)
     
+    # Sidebar layout with hx-boost
     sidebar_children = [NavSideBarHeader(NavToggleButton(f"#{sidebar_id}"))]
     
     if sidebar_links: sidebar_children.extend(sidebar_links)
@@ -1108,23 +1174,23 @@ def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_s
     
     nav_rail = NavSideBarContainer(*sidebar_children, position='left', size='l', id=sidebar_id)
     
-    navbar_elem = None
-    content_items = []
-    for item in main_content:
-        if hasattr(item, 'tag') and item.tag == 'nav': navbar_elem = item
-        else: content_items.append(item)
-    
     layout_children = []
-    if navbar_elem: layout_children.append(navbar_elem)
+    
+    if nav_bar:
+        if hasattr(nav_bar, 'attrs') and 'cls' in nav_bar.attrs:
+            if 'sticky' not in nav_bar.attrs['cls']: nav_bar.attrs['cls'] += ' sticky top'
+        layout_children.append(nav_bar)
+    
     layout_children.append(nav_rail)
-    if content_items:
+    
+    if content_wrapper:
         container_cls = stringify((container_size, 'round', 'elevate', 'margin'))
-        layout_children.append(Main(*content_items, cls=container_cls))
+        layout_children.append(Main(content_wrapper, cls=container_cls))
     
     final_cls = f"surface-container {cls}".strip() if cls else "surface-container"
     return Div(*layout_children, cls=final_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 111
+# %% ../nbs/02_components.ipynb 113
 #| code-fold: true
 class TextT(VEnum):
     """Text styles using BeerCSS typography classes."""
@@ -1156,7 +1222,7 @@ class TextPresets(VEnum):
     primary_link = 'link primary-text'
     muted_link = 'link secondary-text'
 
-# %% ../nbs/02_components.ipynb 112
+# %% ../nbs/02_components.ipynb 114
 #| code-fold: true
 def CodeSpan(*c, cls=(), **kwargs):
     """Inline code snippet."""
@@ -1212,7 +1278,7 @@ def Sup(*c, cls=(), **kwargs):
     cls_str = stringify(cls) if cls else None
     return fc.Sup(*c, cls=cls_str, **kwargs) if cls_str else fc.Sup(*c, **kwargs)
 
-# %% ../nbs/02_components.ipynb 114
+# %% ../nbs/02_components.ipynb 116
 #| code-fold: true
 def FAQItem(question: str, answer: str, question_cls: str = '', answer_cls: str = ''):
     """Collapsible FAQ item using details/summary.
@@ -1230,7 +1296,7 @@ def FAQItem(question: str, answer: str, question_cls: str = '', answer_cls: str 
         Summary(Article(Nav(Div(question, cls=f"max bold {question_cls}".strip()), I("expand_more")), cls="round surface-variant border no-elevate")),
         Article(P(answer, cls=f"secondary-text {answer_cls}".strip()), cls="round border padding"))
 
-# %% ../nbs/02_components.ipynb 118
+# %% ../nbs/02_components.ipynb 120
 #| code-fold: true
 def CookiesBanner(message='We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.',
                   accept_text='Accept', decline_text='Decline', settings_text=None, policy_link='/cookies', policy_text='Learn more',

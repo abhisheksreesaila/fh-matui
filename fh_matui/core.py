@@ -31,7 +31,7 @@ beer_hdrs = (
     Script(src=HEADER_URLS["mdc_js"], type='module'),
 )
 
-# %% ../nbs/01_core.ipynb 8
+# %% ../nbs/01_core.ipynb 7
 #| code-fold: true
 # All BeerCSS color names
 COLOR_NAMES = ['amber', 'blue', 'blue_grey', 'brown', 'cyan', 'deep_orange', 'deep_purple', 
@@ -88,7 +88,7 @@ ALL_HELPERS = (SIZES + WIDTH_HEIGHT + ELEVATES + DIRECTIONS + FORMS + MARGINS + 
                POSITIONS + RESPONSIVE + ALIGNMENTS + BLURS + OPACITIES + SHADOWS + SPACES + 
                RIPPLES + SCROLLS + WAVES + ZOOMS + THEME_HELPERS + TYPOGRAPHY + TRIGGERS + COLOR_HELPERS)
 
-# %% ../nbs/01_core.ipynb 11
+# %% ../nbs/01_core.ipynb 10
 #| code-fold: true
 class _ThemeChain:
     """Internal class for building themed headers"""
@@ -142,14 +142,19 @@ class _ThemeChain:
                 }};
                 window.toggleNav = function(selector) {{
                     const nav = document.querySelector(selector);
-                    if (nav) {{ nav.classList.toggle('max'); }}
+                    if (nav) {{
+                        nav.classList.toggle('max');
+                        const isOpen = nav.classList.contains('max');
+                        const btn = nav.querySelector('button i, button .icon');
+                        if (btn) btn.textContent = isOpen ? 'menu_open' : 'menu';
+                    }}
                 }};
             ''')
             hdrs.append(theme_script)
         hdrs.append(Title(title))
         return tuple(hdrs)
 
-# %% ../nbs/01_core.ipynb 12
+# %% ../nbs/01_core.ipynb 11
 #| code-fold: true
 class _ThemeNamespace:
     """Namespace providing color properties that return _ThemeChain instances"""
@@ -208,7 +213,7 @@ class _ThemeNamespace:
 
 MatTheme = _ThemeNamespace()
 
-# %% ../nbs/01_core.ipynb 16
+# %% ../nbs/01_core.ipynb 15
 #| code-fold: true
 class BeerCssChain:
     """Base class for chaining Beer CSS helper classes together"""

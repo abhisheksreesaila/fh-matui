@@ -168,17 +168,6 @@ BeerCSS and Material Dynamic Colors CDN configuration.
 
 > 💡 **Use case**: Include `beer_hdrs` in your FastHTML app's headers to enable Material Design styling.
 
-::: {#4f525007 .cell}
-``` {.python .cell-code}
-# Add BeerCSS headers to your FastHTML app
-app = FastHTML(hdrs=beer_hdrs)
-
-# Or use MatTheme for colored theming
-app = FastHTML(hdrs=MatTheme.blue.headers(title="My App"))
-```
-:::
-
-
 ## 🎨 Helper Constants
 
 BeerCSS utility class names organized by category. These lists power [`BeerCssChain`](https://abhisheksreesaila.github.io/fh-matui/core.html#beercsschain) and can be used for validation.
@@ -199,6 +188,18 @@ print(SIZES)  # ['tiny', 'small', 'medium', 'large', 'extra', 'wrap', 'no_wrap',
 # All helpers combined for validation
 len(ALL_HELPERS)  # 400+ utility classes available
 ```
+
+::: {.cell-output .cell-output-stdout}
+```
+['tiny', 'small', 'medium', 'large', 'extra', 'wrap', 'no_wrap', 'max']
+```
+:::
+
+::: {.cell-output .cell-output-display}
+```
+408
+```
+:::
 :::
 
 
@@ -275,6 +276,12 @@ Div("Hello", cls=str(BeerCssChain().large.center.padding))
 # Iterate over tokens
 list(BeerCssChain().small.margin.elevate)  # ['small', 'margin', 'elevate']
 ```
+
+::: {.cell-output .cell-output-display}
+```
+['small', 'margin', 'elevate']
+```
+:::
 :::
 
 
@@ -362,7 +369,9 @@ Button variants and navigation toggle helpers.
 
 >      NavToggleButton (target, icon='menu', **kwargs)
 
-*Create a navigation toggle button that toggles the 'max' class on the target element*
+*Create a navigation toggle button that toggles the 'max' class on the target element.*
+
+Also toggles icon between 'menu' and 'menu_open' based on nav state.
 
 
 ::: {#cell-5 .cell}
@@ -386,7 +395,7 @@ preview(ex_buttons())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_WmTh-LLwQC6S5YRKRhsr2g" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_TboyYO-aQpqgi9DACOEvpA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -431,7 +440,7 @@ preview(ex_links())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_fYxV4bHIQgipLLZru4lloA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_lNDdiGYKRPC-Fz794Q1zBQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -553,7 +562,7 @@ preview(ex_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_xqOPKVDuRhehFWHQa7LFHw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_4WtdJswdRxiJ6xY1Zxhb8g" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -593,7 +602,7 @@ preview(ex_product_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_tDvdPfR7QFCU3kHz92KKEw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_0acXmKUIQ0y93W651qCypQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -643,7 +652,7 @@ preview(ex_l_aligned_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_mtmWbRoBR2Sb0RLbBpgc-Q" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_XEZocvpOQ6Kxay2ufOTQag" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -683,7 +692,7 @@ preview(ex_v_stacked_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_f-8W4dG9ShitrygZaYvoUg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_gUzNy4AqQQ6ScM6MzEAIvg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -711,7 +720,7 @@ preview(ex_h_stacked_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_c9k9vblQT4OeZzrbPKeCPQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_KTwqhtlUSA2tqcho8KgWjg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -750,7 +759,7 @@ preview(ex_r_aligned_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_KFhvKwTpQDq4zCTxSZG0dg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_aFg2NEODT36ioa95ORjQbg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -788,7 +797,7 @@ preview(ex_centered_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_t0SLLw8zTY_h0jRW1tp2XA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_cni02P-rRA_DDQf6uti_9Q" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -829,7 +838,7 @@ preview(ex_fully_spaced_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_sXIdgtfyRQeftD_jMH4WuA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_5Na6k9LLReOr35_4_gAqlw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -878,7 +887,7 @@ preview(ex_icon())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_g8mXmw9LSceHChT7prDfIw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_maU6eqK2TJqs7YOj3aahRQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -906,9 +915,17 @@ Horizontal navigation bar component.
 
 ### NavBar
 
->      NavBar (*children, brand=None, sticky=False, cls='', **kwargs)
+>      NavBar (*children, brand=None, sticky=False, cls='', size='small',
+>              hx_boost=True, hx_target='#main-content', **kwargs)
 
-*Horizontal navigation bar with optional brand and sticky positioning*
+*Horizontal navigation bar with HTMX SPA navigation defaults.*
+
+Args:
+    brand: Brand element (logo/title) positioned on the left
+    sticky: Whether navbar sticks to top on scroll
+    size: Navbar size - 'small' (default), 'medium', 'large', or None
+    hx_boost: Auto-enhance all <a> links for HTMX navigation (default True)
+    hx_target: Target element for boosted links (default '#main-content')
 
 
 ::: {#cell-32 .cell}
@@ -924,7 +941,7 @@ preview(ex_navbar1())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_9tI9HPlxT_SCqnpQ2Ue12Q" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_PPQjjdfVSdiL_pGrV95-jQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1134,7 +1151,7 @@ preview(test_modal())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_9lR3ilpnTLWKZrXrxS0z2g" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_mGnwGVzgRU2g2mywrAshrQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1193,7 +1210,7 @@ preview(ex_input())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_ePRrBz-PSTaR4Hq5HRfZwA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_frO6nvWtQnKGT5Y-ZDdOaQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1251,7 +1268,7 @@ preview(ex_form_label())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_zpnIG2TMTdOeTRH7FGlj2Q" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_5XEavIHqRgi2eaXjZheFnw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1297,7 +1314,7 @@ preview(ex_checkbox())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_dz-FX_m6Q1OuVfH4TcWkTA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Ux5l7YItQ26kzMxktoLOLg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1341,7 +1358,7 @@ preview(ex_Radio())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_aXIWuRQ7TCSQtc_Yl4jo6w" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_AjMlh2PAQ5e3PIfT9ZAHZQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1389,7 +1406,7 @@ preview(ex_switch())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_LNjggnYJRMSzot3vH8WhiQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_A-jko-f4SbmLWaJcDGRAhw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1434,7 +1451,7 @@ preview(ex_TextArea())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_b70hSQ8oRv6Maj4k59oDAg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_uW_UZA37SgySqZTZwcIUGw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1478,7 +1495,7 @@ preview(ex_range())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_dOricfgFSNeRM7EWIp5mvA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_hmXV0STwRXm1EdyEonKnxA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1532,7 +1549,7 @@ preview(ex_select())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_G57FNdAtQn__gDq6mOlJug" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Q1L193OpTT2M1LXS8vnVnA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1574,7 +1591,7 @@ preview(ex_fs())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_dQ-Nf91IScaz-mR6EQg-sQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_oQDKkXBFTAi67g-0YDrrTQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1612,7 +1629,7 @@ preview(ex_l())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_I9ZSlI14R0yHob1VQ0adtA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_lts7FBq-QGWGxlmoBOMg3A" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1712,7 +1729,7 @@ preview(ex_form_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_j2k-hTFXSTy5r1egOVSlTQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_DlN13JteRumLMhTcDucdBQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1756,7 +1773,7 @@ preview(ex_progress())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_CTppuT9UQfifNNN8g2ogLw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_EQ9alRJgRzaG5ypZBt4dfQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1800,7 +1817,7 @@ preview(ex_progress())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_QFuSCeHGRROzhZ78dnLBTw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_cmpSLeFARRmszGpXhfK_cw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1936,7 +1953,7 @@ preview(ex_tablelists())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_tKEwS6SCSyKvfmLmw-3CFw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_ZAcq6MJGRT_Y1CVy6fZTjA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1964,7 +1981,7 @@ preview(ex_tabledicts())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_H0LvBdMdQ4GFnKMYl_tZlA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_v54KuFlcSd_3H2XPCdN8GQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2001,7 +2018,7 @@ preview(ex_tablecontrols())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_l4qOLLFqS8y8l9KMFOCIgA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_C9RopNvsRXe39DAzNIA5Ag" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2046,7 +2063,7 @@ preview(ex_tablePagination())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_tlZ3KRv0S06ACX1xhD4WAg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_gX718gVQSXGNz4LvIZgLHA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2096,7 +2113,7 @@ preview(ex_card())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_p4FgYs8vRi6syOfs3IIjDg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_hctnctKJQsSmhtg3CWC5vA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2144,7 +2161,7 @@ preview(ex_toolbar())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_9-EJ0GLsQPuuaNDg9SfVtg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_MN7vjsfoTHOFDkHmXEa2KQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2220,7 +2237,7 @@ preview(ex_toast())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_8i5KpORjTwyF8HdXd77B-w" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_VZK5PfexS-uSBYsdTCLXPg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2436,7 +2453,7 @@ preview(ex_navcontainer())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_2s4XmHYASSucj0ngXBBe1A" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_j6tB8SxLRUuObjmpmoXoAQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2448,15 +2465,69 @@ preview(ex_navcontainer())
 :::
 
 
-## 📑 Sidebar
+## 📑 Sidebar & Layout
 
 | Component | Purpose |
 |-----------|---------|
 | [`NavSideBarHeader`](https://abhisheksreesaila.github.io/fh-matui/components.html#navsidebarheader) | Header section for sidebar |
-| [`NavSideBarContainer`](https://abhisheksreesaila.github.io/fh-matui/components.html#navsidebarcontainer) | Full sidebar with navigation |
+| [`NavSideBarContainer`](https://abhisheksreesaila.github.io/fh-matui/components.html#navsidebarcontainer) | Full sidebar with navigation (HTMX SPA enabled) |
 | [`Layout`](https://abhisheksreesaila.github.io/fh-matui/components.html#layout) | Complete page layout with sidebar and navbar |
 
 > 💡 **Use case**: App shells with persistent navigation, dashboard layouts.
+
+### 🚀 SPA Navigation (What App Developers Need to Know)
+
+The [`Layout`](https://abhisheksreesaila.github.io/fh-matui/components.html#layout), [`NavBar`](https://abhisheksreesaila.github.io/fh-matui/components.html#navbar), and [`NavSideBarContainer`](https://abhisheksreesaila.github.io/fh-matui/components.html#navsidebarcontainer) components now include **HTMX SPA navigation** by default. Links inside the sidebar/navbar are automatically enhanced with `hx-boost`, so clicking them swaps only the `#main-content` area instead of reloading the entire page.
+
+#### Route Pattern
+Routes must check `req.headers` for HTMX requests to return just the content (not the full layout):
+
+```python
+@rt("/dashboard")
+def dashboard(req):
+    content = dashboard_content()
+    if 'HX-Request' in req.headers: return content  # HTMX swap - just content
+    return get_layout(content)  # Full page load with Layout
+```
+
+#### Active Link Highlighting
+Add `cls='nav-link'` to sidebar links for automatic active state highlighting:
+
+```python
+A(Icon('home'), Span('Home'), href='/', cls='nav-link')
+```
+
+Include `active_nav_script` in your layout wrapper:
+
+```python
+active_nav_script = Script("""
+function updateActiveNav() {
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === window.location.pathname);
+    });
+}
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateActiveNav);
+} else {
+    updateActiveNav();
+}
+document.body.addEventListener('htmx:afterSettle', updateActiveNav);
+""")
+
+def get_layout(content):
+    return Div(
+        Layout(content, sidebar_links=sidebar_items(), nav_bar=NavBar(...)),
+        active_nav_script
+    )
+```
+
+#### New Optional Parameters (backward-compatible)
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `hx_boost` | `True` | Auto-enhance links for HTMX navigation |
+| `hx_target` | `'#main-content'` | Target element for content swaps |
+| `main_id` | `'main-content'` | ID for main content wrapper (Layout only) |
+| `size` | `'small'` | Navbar thickness (NavBar only) |
 
 ---
 
@@ -2465,9 +2536,26 @@ preview(ex_navcontainer())
 ### NavSideBarContainer
 
 >      NavSideBarContainer (*children, position='left', size='m', cls='',
->                           active=False, **kwargs)
+>                           active=False, hx_boost=True, hx_target='#main-
+>                           content', **kwargs)
 
-*BeerCSS navigation sidebar/drawer component.*
+*BeerCSS navigation sidebar with HTMX SPA navigation defaults.*
+
+Args:
+    position: Sidebar position ('left' or 'right')
+    size: Sidebar size ('s', 'm', 'l')
+    active: Whether sidebar starts visible
+    hx_boost: Auto-enhance all <a> links for HTMX navigation (default True)
+    hx_target: Target element for boosted links (default '#main-content')
+
+Usage:
+    Routes should check `req.headers` for HX-Request and return content only for HTMX requests:
+
+    @rt("/dashboard")
+    def dashboard(req):
+        content = dashboard_content()
+        if 'HX-Request' in req.headers: return content  # HTMX swap
+        return Layout(content)  # Full page load
 
 
 ---
@@ -2525,7 +2613,7 @@ preview(ex_navsidebarcontainer())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_IMDZtWkHRT6LBmI_HWLI0Q" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_cK1-ukGKQgKlnq-G7QXlng" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2545,36 +2633,93 @@ preview(ex_navsidebarcontainer())
 
 >      Layout (*content, sidebar=None, sidebar_links=None, nav_bar=None,
 >              container_size=<ContainerT.expand: 'responsive max'>,
->              main_bg='surface', sidebar_id='app-sidebar', cls='', **kwargs)
+>              main_bg='surface', sidebar_id='app-sidebar', main_id='main-
+>              content', cls='', **kwargs)
 
-*App layout wrapper with auto-toggle sidebar and sensible defaults.*
+*App layout with HTMX SPA navigation.*
+
+Args:
+    main_id: ID for main content area (default 'main-content') - use as hx-target
+
+HTMX SPA features:
+    - hx-boost on sidebar automatically enhances all <a> links
+    - hx-history-elt for back/forward button caching
+    - Routes should check `req.headers` for HX-Request and return content only for HTMX requests
+
+Usage:
+    @rt("/dashboard")
+    def dashboard(req):
+        content = dashboard_content()
+        if 'HX-Request' in req.headers: return content  # HTMX swap
+        return Layout(content)  # Full page load
 
 
 ::: {#cell-130 .cell}
 ``` {.python .cell-code code-fold="true"}
 def nav_items():
-    """Returns navigation items for NavBar"""
+    """Returns navigation items for NavBar - no hx_* attrs needed, hx-boost handles it"""
     return [
-        A("Home", href='/', hx_get='/', hx_target='#main-content', hx_push_url='true'),
-        A("Dashboard", href='/dashboard', hx_get='/dashboard', hx_target='#main-content', hx_push_url='true'),
-        A("Cookies", href='/cookies', hx_get='/cookies', hx_target='#main-content', hx_push_url='true'),
+        A("Home", href='/'),
+        A("Dashboard", href='/dashboard'),
+        A("Cookies", href='/cookies'),
         A(Icon('light_mode'), cls='circle', onclick='toggleMode()', title='Toggle dark/light mode', style='margin-left: 1rem;'),
     ]
 
 
 def sidebar_items():
-    """Returns navigation items for sidebar"""
+    """Returns navigation items for NavSideBarContainer - no hx_* attrs needed, hx-boost handles it"""
     return [
-        A(Icon('home'), Span('Home'), href='/', hx_get='/', hx_target='#main-content', hx_push_url='true'),
-        A(Icon('dashboard'), Span('Dashboard'), href='/dashboard', hx_get='/dashboard', hx_target='#main-content', hx_push_url='true'),
-        A(Icon('cookie'), Span('Cookies'), href='/cookies', hx_get='/cookies', hx_target='#main-content', hx_push_url='true'),
-        A(Icon('logout'), Span('Logout'), href='/login', hx_get='/login', hx_target='#main-content', hx_push_url='true'),
+        A(Icon('home'), Span('Home'), href='/', cls='nav-link'),
+        A(Icon('dashboard'), Span('Dashboard'), href='/dashboard', cls='nav-link'),
+        A(Icon('cookie'), Span('Cookies'), href='/cookies', cls='nav-link'),
+        A(Icon('logout'), Span('Logout'), href='/login', cls='nav-link'),
     ]
 
 
+# Script to highlight active nav link - uses BeerCSS 'active' class
+active_nav_script = Script("""
+function updateActiveNav() {
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === window.location.pathname);
+    });
+}
+// Run on initial page load (after DOM is ready)
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateActiveNav);
+} else {
+    updateActiveNav();
+}
+// Run after HTMX swaps
+document.body.addEventListener('htmx:afterSettle', updateActiveNav);
+""")
 
-def get_layout():
-    content = Div(
+
+def get_layout(content):
+    """App shell with HTMX SPA navigation."""
+    return Div(
+        Layout(
+            content,
+            sidebar_links=sidebar_items(),
+            nav_bar=NavBar(*nav_items(), brand=H3('Admin Panel'), sticky=True)
+        ),
+        active_nav_script
+    )
+```
+:::
+
+
+::: {#cell-131 .cell}
+``` {.python .cell-code code-fold="true"}
+# Content functions for each page
+def home_content():
+    return Div(
+        H1("Home"),
+        P("Welcome to the home page!", cls='grey-text'),
+        cls='padding'
+    )
+
+def dashboard_content():
+    return Div(
         H1("Dashboard"),
         P("Welcome to the admin panel!", cls='grey-text'),
         Grid(
@@ -2584,41 +2729,65 @@ def get_layout():
             Card(H6("Conversion Rate"), H2("3.2%"), cls='padding'),
             cols=4
         ),
-        Div(style='margin-top: 2rem;')(
-            Card(
-                H5("Recent Activity"),
-                Ul(
-                    Li("User john@example.com logged in"),
-                    Li("New order #1234 created"),
-                    Li("Payment processed for order #1233"),
-                    Li("User jane@example.com signed up")
-                ),
-                cls='padding'
-            )
+        Card(
+            H5("Recent Activity"),
+            Ul(
+                Li("User john@example.com logged in"),
+                Li("New order #1234 created"),
+                Li("Payment processed for order #1233"),
+                Li("User jane@example.com signed up")
+            ),
+            cls='padding margin-top'
         ),
         cls='padding'
     )
-    
-    return Layout(
-        Div(content, id='main-content'),
-        sidebar_links=sidebar_items(),
-        nav_bar=NavBar(*nav_items(), brand=DivLAligned(H3('Admin Panel'),H3('Admin Panel2')), sticky=True)
 
-
-
+def cookies_content():
+    return Div(
+        H1("Cookies Settings"),
+        P("Manage your cookie preferences here.", cls='grey-text'),
+        cls='padding'
     )
+
+# Routes - check HX-Request header for HTMX detection
+@rt("/")
+def home(req):
+    content = home_content()
+    if 'HX-Request' in req.headers: return content
+    return get_layout(content)
+
+@rt("/dashboard")
+def dashboard(req):
+    content = dashboard_content()
+    if 'HX-Request' in req.headers: return content
+    return get_layout(content)
+
+@rt("/cookies")
+def cookies(req):
+    content = cookies_content()
+    if 'HX-Request' in req.headers: return content
+    return get_layout(content)
 ```
 :::
 
 
-::: {#cell-131 .cell}
+::: {#cell-132 .cell}
 ``` {.python .cell-code code-fold="true"}
-preview(get_layout())
+@rt('/test_layout')
+def test_layout():
+ return get_layout(dashboard_content())
+```
+:::
+
+
+::: {#cell-133 .cell}
+``` {.python .cell-code code-fold="true"}
+preview(get_layout(dashboard_content()))
 ```
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/__3Yg38EkTwGkpLzfvhYY-Q" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_WhaRm4d_SEiar12bBtZihA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2814,7 +2983,7 @@ Args:
     answer_cls: Additional classes for answer styling
 
 
-::: {#cell-148 .cell}
+::: {#cell-150 .cell}
 ``` {.python .cell-code}
 def ex_faq_item():
     return Div(
@@ -2826,14 +2995,14 @@ def ex_faq_item():
 :::
 
 
-::: {#cell-149 .cell}
+::: {#cell-151 .cell}
 ``` {.python .cell-code}
 preview(ex_faq_item())
 ```
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_QWofj3_2SnKL5xL_6Iz5kg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_ApDx7XzzS86zGKDBuC0rLw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2871,7 +3040,7 @@ preview(ex_faq_item())
 *GDPR-compliant cookie consent banner with accept/decline actions.*
 
 
-::: {#cell-152 .cell}
+::: {#cell-154 .cell}
 ``` {.python .cell-code code-fold="true"}
 def get_CookiesBanner():
     return CookiesBanner()
@@ -2881,7 +3050,7 @@ preview(get_CookiesBanner())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_d4F9zMcJTum2ymlEQy5BVw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_QrkQ7h-yRl2rVixaZmtFIQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2897,7 +3066,7 @@ preview(get_CookiesBanner())
 
 > 💡 **Use case**: Quotations, testimonials, highlighted text excerpts.
 
-::: {#cell-154 .cell}
+::: {#cell-156 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_other():
     return Article(
@@ -2910,7 +3079,7 @@ preview(ex_other())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_KpPCIsmgTjSU5DR1GuBNUA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_7nykVQFUQkG2UjLZXfwoPA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2926,7 +3095,7 @@ preview(ex_other())
 
 Preview of all [`TextT`](https://abhisheksreesaila.github.io/fh-matui/components.html#textt) enum values applied to text.
 
-::: {#cell-156 .cell}
+::: {#cell-158 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_textt():
     return Article(
@@ -2939,7 +3108,7 @@ preview(ex_textt())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_2_s8Eg-hSlSrAhGuqtHpxQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_GbEwqWYRTeWLFt8gSU9xKg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2955,7 +3124,7 @@ preview(ex_textt())
 
 Preview of all [`TextPresets`](https://abhisheksreesaila.github.io/fh-matui/components.html#textpresets) enum values applied to text.
 
-::: {#cell-158 .cell}
+::: {#cell-160 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_textpresets():
     return Article(
@@ -2967,7 +3136,7 @@ preview(ex_textpresets())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_-SSHUGnFRhawFtorB8z2XQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_QhcNtvGWTN_p3fs9WqP1tQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2983,7 +3152,7 @@ preview(ex_textpresets())
 
 Preview of heading hierarchy (H1-H6) with `Titled` component.
 
-::: {#cell-160 .cell}
+::: {#cell-162 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_headings():
     return Article(
@@ -3003,7 +3172,7 @@ preview(ex_headings())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_tiPd-TPLSWyIB0iGf8i6kg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Qo2wjPazSh_SBfb1MXZ9sA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3015,7 +3184,7 @@ preview(ex_headings())
 :::
 
 
-::: {#cell-161 .cell}
+::: {#cell-163 .cell}
 ``` {.python .cell-code}
 DivVStacked()
 ```
@@ -3029,7 +3198,7 @@ DivVStacked()
 :::
 
 
-::: {#cell-162 .cell}
+::: {#cell-164 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_semantic_elements():
     return Article(
@@ -3101,7 +3270,7 @@ preview(ex_semantic_elements())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_ZJ3SSSr5TYW1KsiaUYWExg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_9dTb_bX4SUaDwyjvP1Ezqw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
