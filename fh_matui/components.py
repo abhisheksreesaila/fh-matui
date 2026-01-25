@@ -4,7 +4,7 @@
 
 # %% auto 0
 __all__ = ['BUTTON_SPECIALS', 'ButtonT', 'ANCHOR_SPECIALS', 'AT', 'NavToggleButton', 'SpaceT', 'GridSpanT', 'GridCell', 'Grid',
-           'DivLAligned', 'DivVStacked', 'DivHStacked', 'DivRAligned', 'DivCentered', 'DivFullySpaced', 'Icon',
+           'DivHStacked', 'DivLAligned', 'DivVStacked', 'DivRAligned', 'DivCentered', 'DivFullySpaced', 'Icon',
            'NavBar', 'Modal', 'ModalButton', 'ModalCancel', 'ModalConfirm', 'ModalTitle', 'ModalBody', 'ModalFooter',
            'Field', 'LabelInput', 'FormLabel', 'CheckboxX', 'Radio', 'Switch', 'TextArea', 'Range', 'Select',
            'FormGrid', 'Progress', 'LoadingIndicator', 'Table', 'Td', 'Th', 'Thead', 'Tbody', 'Tfoot', 'TableFromLists',
@@ -225,35 +225,6 @@ def Grid(*cells, space=SpaceT.medium_space,
     return Div(*wrapped_cells, cls=stringify(dedupe_preserve_order(grid_cls)), **kwargs)
 
 # %% ../nbs/02_components.ipynb 16
-def DivLAligned(*c, cls='', **kwargs):
-    """MonsterUI-compatible left-aligned row using BeerCSS tokens."""
-    cls_tokens = normalize_tokens(cls)
-    tokens = ['left-align']
-    tokens.extend(cls_tokens)
-    tokens = [t for t in tokens if t]
-    return DivHStacked(*c, cls=stringify(dedupe_preserve_order(tokens)), **kwargs)
-
-
-
-# %% ../nbs/02_components.ipynb 18
-def DivVStacked(*c, responsive=True, padding=True, cls='', **kwargs):
-    """Responsive vertical stack with padding and mobile compatibility."""
-    cls_tokens = normalize_tokens(cls)
-    tokens = []
-    if responsive and 'responsive' not in cls_tokens:
-        tokens.append('responsive')
-    if padding and 'padding' not in cls_tokens and 'no-padding' not in cls_tokens:
-        tokens.append('padding')
-    if 'grid' not in cls_tokens:
-        tokens.extend(['row', 'vertical'])
-    if not _has_space_token(cls_tokens):
-        tokens.append(SpaceT.medium_space)
-    tokens.extend(cls_tokens)
-    tokens = [t for t in tokens if t]
-    return Div(*c, cls=stringify(dedupe_preserve_order(tokens)), **kwargs)
-
-
-# %% ../nbs/02_components.ipynb 20
 def DivHStacked(*c, responsive=True, padding=True, cls='', **kwargs):
     """Responsive horizontal stack with padding and mobile compatibility."""
     cls_tokens = normalize_tokens(cls)
@@ -264,6 +235,35 @@ def DivHStacked(*c, responsive=True, padding=True, cls='', **kwargs):
         tokens.append('padding')
     if 'grid' not in cls_tokens:
         tokens.extend(['row', 'middle-align'])
+    if not _has_space_token(cls_tokens):
+        tokens.append(SpaceT.medium_space)
+    tokens.extend(cls_tokens)
+    tokens = [t for t in tokens if t]
+    return Div(*c, cls=stringify(dedupe_preserve_order(tokens)), **kwargs)
+
+
+# %% ../nbs/02_components.ipynb 17
+def DivLAligned(*c, cls='', **kwargs):
+    """MonsterUI-compatible left-aligned row using BeerCSS tokens."""
+    cls_tokens = normalize_tokens(cls)
+    tokens = ['left-align']
+    tokens.extend(cls_tokens)
+    tokens = [t for t in tokens if t]
+    return DivHStacked(*c, cls=stringify(dedupe_preserve_order(tokens)), **kwargs)
+
+
+
+# %% ../nbs/02_components.ipynb 19
+def DivVStacked(*c, responsive=True, padding=True, cls='', **kwargs):
+    """Responsive vertical stack with padding and mobile compatibility."""
+    cls_tokens = normalize_tokens(cls)
+    tokens = []
+    if responsive and 'responsive' not in cls_tokens:
+        tokens.append('responsive')
+    if padding and 'padding' not in cls_tokens and 'no-padding' not in cls_tokens:
+        tokens.append('padding')
+    if 'grid' not in cls_tokens:
+        tokens.extend(['row', 'vertical'])
     if not _has_space_token(cls_tokens):
         tokens.append(SpaceT.medium_space)
     tokens.extend(cls_tokens)
@@ -332,7 +332,24 @@ def NavBar(*children, brand=None, sticky=False, cls='', **kwargs):
 
 # %% ../nbs/02_components.ipynb 35
 def Modal(*c, id=None, footer=None, active=False, overlay='default', position=None, cls=(), **kwargs):
-    """BeerCSS modal dialog with position and overlay options."""
+    """BeerCSS modal dialog with position and overlay options.
+    
+    Always returns a list for consistent unpacking with *Modal(...).
+    When overlay is enabled, clicking the overlay closes the modal.
+    
+    Args:
+        *c: Modal content (title, body, etc.)
+        id: Modal ID for data-ui targeting
+        footer: Footer content (auto-wrapped in Nav if not already)
+        active: Whether modal starts active/visible
+        overlay: Overlay style - 'default' (plain), 'blur', 'small-blur', 
+                 'medium-blur', 'large-blur', or False/None (no overlay)
+        position: Position - None (center), 'left', 'right', 'top', 'bottom'
+        cls: Additional CSS classes
+    
+    Returns:
+        List of elements (overlay + dialog, or just [dialog] if no overlay)
+    """
     modal_cls = normalize_tokens(cls)
     
     # Add position class if specified
@@ -354,7 +371,7 @@ def Modal(*c, id=None, footer=None, active=False, overlay='default', position=No
     # Create the dialog
     dialog = Dialog(*children, id=id, cls=cls_str, **kwargs)
     
-    # Handle overlay
+    # Handle overlay - always return a list for consistent *Modal(...) unpacking
     if overlay and overlay not in [False, None]:
         overlay_classes = ['overlay']
         
@@ -372,14 +389,14 @@ def Modal(*c, id=None, footer=None, active=False, overlay='default', position=No
         overlay_cls = ' '.join(overlay_classes)
         if active:
             overlay_cls += " active"
-            
-        # Return as a list - both elements need to be at same DOM level
-        return [
-            Div(cls=overlay_cls),
-            dialog
-        ]
+        
+        # Overlay with data-ui to close modal on click (click-outside-to-close)
+        overlay_el = Div(cls=overlay_cls, data_ui=f"#{id}" if id else None)
+        
+        return [overlay_el, dialog]
     
-    return dialog
+    # No overlay - still return as list for consistent unpacking
+    return [dialog]
 
 def ModalButton(text: str, id: str, icon: str = None, cls=(), **kwargs):
     """Button that opens a modal via data-ui attribute."""

@@ -384,16 +384,16 @@ def ex_buttons():
 preview(ex_buttons())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_WmTh-LLwQC6S5YRKRhsr2g" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -429,16 +429,16 @@ def ex_links():
 preview(ex_links())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_fYxV4bHIQgipLLZru4lloA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -551,16 +551,16 @@ def ex_grid():
 preview(ex_grid())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_xqOPKVDuRhehFWHQa7LFHw" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -591,18 +591,29 @@ def ex_product_grid():
 preview(ex_product_grid())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_tDvdPfR7QFCU3kHz92KKEw" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
 :::
+:::
 
-:::
-:::
+
+---
+
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L257){target="_blank" style="float:right; font-size:smaller"}
+
+### DivHStacked
+
+>      DivHStacked (*c, responsive=True, padding=True, cls='', **kwargs)
+
+*Responsive horizontal stack with padding and mobile compatibility.*
 
 
 ---
@@ -616,7 +627,7 @@ preview(ex_product_grid())
 *MonsterUI-compatible left-aligned row using BeerCSS tokens.*
 
 
-::: {#cell-16 .cell}
+::: {#cell-17 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_l_aligned_div():
     return Article(
@@ -630,16 +641,16 @@ def ex_l_aligned_div():
 preview(ex_l_aligned_div())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_mtmWbRoBR2Sb0RLbBpgc-Q" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -655,7 +666,7 @@ preview(ex_l_aligned_div())
 *Responsive vertical stack with padding and mobile compatibility.*
 
 
-::: {#cell-18 .cell}
+::: {#cell-19 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_v_stacked_div():
     return Article(
@@ -670,29 +681,18 @@ def ex_v_stacked_div():
 preview(ex_v_stacked_div())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_f-8W4dG9ShitrygZaYvoUg" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
 :::
-
 :::
-:::
-
-
----
-
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L257){target="_blank" style="float:right; font-size:smaller"}
-
-### DivHStacked
-
->      DivHStacked (*c, responsive=True, padding=True, cls='', **kwargs)
-
-*Responsive horizontal stack with padding and mobile compatibility.*
 
 
 ::: {#cell-20 .cell}
@@ -709,16 +709,16 @@ def ex_h_stacked_div():
 preview(ex_h_stacked_div())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_c9k9vblQT4OeZzrbPKeCPQ" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -748,16 +748,16 @@ def ex_r_aligned_div():
 preview(ex_r_aligned_div())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_KFhvKwTpQDq4zCTxSZG0dg" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -786,16 +786,16 @@ def ex_centered_div():
 preview(ex_centered_div())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_t0SLLw8zTY_h0jRW1tp2XA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -827,16 +827,16 @@ def ex_fully_spaced_div():
 preview(ex_fully_spaced_div())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_sXIdgtfyRQeftD_jMH4WuA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -876,16 +876,16 @@ def ex_icon():
 preview(ex_icon())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_g8mXmw9LSceHChT7prDfIw" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -922,16 +922,16 @@ def ex_navbar1():
 preview(ex_navbar1())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_9tI9HPlxT_SCqnpQ2Ue12Q" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1051,6 +1051,22 @@ Modal/dialog components for popups and confirmations.
 
 *BeerCSS modal dialog with position and overlay options.*
 
+Always returns a list for consistent unpacking with *Modal(...).
+When overlay is enabled, clicking the overlay closes the modal.
+
+Args:
+    *c: Modal content (title, body, etc.)
+    id: Modal ID for data-ui targeting
+    footer: Footer content (auto-wrapped in Nav if not already)
+    active: Whether modal starts active/visible
+    overlay: Overlay style - 'default' (plain), 'blur', 'small-blur', 
+             'medium-blur', 'large-blur', or False/None (no overlay)
+    position: Position - None (center), 'left', 'right', 'top', 'bottom'
+    cls: Additional CSS classes
+
+Returns:
+    List of elements (overlay + dialog, or just [dialog] if no overlay)
+
 
 ::: {#cell-41 .cell}
 ``` {.python .cell-code code-fold="true"}
@@ -1073,7 +1089,7 @@ def test_modal():
         Button("Left Drawer (Blur)", data_ui="#modal-left", cls="secondary"),
         *Modal(
             ModalTitle("Left Navigation"),
-            ModalBody("This is a left-side drawer with blur overlay"),
+            ModalBody("This is a left-side drawer with blur overlay. Click overlay to close."),
             footer=ModalFooter(
                 ModalCancel(modal_id="modal-left"),
                 ModalConfirm(modal_id="modal-left")
@@ -1083,18 +1099,17 @@ def test_modal():
             overlay='blur'
         ),
         
-        # Right panel with no overlay
-        Button("Right Panel (No Overlay)", data_ui="#modal-right"),
+        # Right panel with default overlay
+        Button("Right Panel", data_ui="#modal-right"),
         *Modal(
             ModalTitle("Right Panel"),
-            ModalBody("This is a right-side panel with no overlay"),
+            ModalBody("This is a right-side panel. Click overlay to close."),
             footer=ModalFooter(
                 ModalCancel(modal_id="modal-right"),
                 ModalConfirm(modal_id="modal-right")
             ),
             id="modal-right",
-            position='right',
-            overlay=False
+            position='right'
         ),
         
         # Bottom sheet
@@ -1117,16 +1132,16 @@ def test_modal():
 preview(test_modal())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_9lR3ilpnTLWKZrXrxS0z2g" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1176,16 +1191,16 @@ def ex_input():
 preview(ex_input())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_ePRrBz-PSTaR4Hq5HRfZwA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1234,16 +1249,16 @@ def ex_form_label():
 preview(ex_form_label())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_zpnIG2TMTdOeTRH7FGlj2Q" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1280,16 +1295,16 @@ def ex_checkbox():
 preview(ex_checkbox())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_dz-FX_m6Q1OuVfH4TcWkTA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1324,16 +1339,16 @@ def ex_Radio():
 preview(ex_Radio())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_aXIWuRQ7TCSQtc_Yl4jo6w" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1372,16 +1387,16 @@ def ex_switch():
 preview(ex_switch())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_LNjggnYJRMSzot3vH8WhiQ" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1417,16 +1432,16 @@ def ex_TextArea():
 preview(ex_TextArea())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_b70hSQ8oRv6Maj4k59oDAg" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1461,16 +1476,16 @@ def ex_range():
 preview(ex_range())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_dOricfgFSNeRM7EWIp5mvA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1515,16 +1530,16 @@ def ex_select():
 preview(ex_select())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_G57FNdAtQn__gDq6mOlJug" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1540,18 +1555,6 @@ def Fieldset(*c, cls=(), **kwargs):
         return fc.Fieldset(*c, cls=cls_str, **kwargs)
     return fc.Fieldset(*c, **kwargs)
 ```
-
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
-```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
-```
-:::
-
-:::
 :::
 
 
@@ -1569,16 +1572,16 @@ def ex_fs():
 preview(ex_fs())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_dQ-Nf91IScaz-mR6EQg-sQ" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1594,18 +1597,6 @@ def Legend(*c, cls=(), **kwargs):
         return fc.Legend(*c, cls=cls_str, **kwargs)
     return fc.Legend(*c, **kwargs)
 ```
-
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
-```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
-```
-:::
-
-:::
 :::
 
 
@@ -1619,16 +1610,16 @@ def ex_l():
 preview(ex_l())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_I9ZSlI14R0yHob1VQ0adtA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1719,16 +1710,16 @@ def ex_form_grid():
 preview(ex_form_grid())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_j2k-hTFXSTy5r1egOVSlTQ" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1763,16 +1754,16 @@ def ex_progress():
 preview(ex_progress())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_CTppuT9UQfifNNN8g2ogLw" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1807,16 +1798,16 @@ def ex_progress():
 preview(ex_progress())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_QFuSCeHGRROzhZ78dnLBTw" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1943,16 +1934,16 @@ def ex_tablelists():
 preview(ex_tablelists())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_tKEwS6SCSyKvfmLmw-3CFw" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -1971,16 +1962,16 @@ def ex_tabledicts():
 preview(ex_tabledicts())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_H0LvBdMdQ4GFnKMYl_tZlA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -2008,16 +1999,16 @@ def ex_tablecontrols():
 preview(ex_tablecontrols())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_l4qOLLFqS8y8l9KMFOCIgA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -2053,16 +2044,16 @@ def ex_tablePagination():
 preview(ex_tablePagination())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_tlZ3KRv0S06ACX1xhD4WAg" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -2103,16 +2094,16 @@ def ex_card():
 preview(ex_card())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_p4FgYs8vRi6syOfs3IIjDg" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -2151,16 +2142,16 @@ def ex_toolbar():
 preview(ex_toolbar())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_9-EJ0GLsQPuuaNDg9SfVtg" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -2229,7 +2220,7 @@ preview(ex_toast())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Dj9hIUq_TgymWQhGiXqFJQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_8i5KpORjTwyF8HdXd77B-w" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2443,16 +2434,16 @@ def ex_navcontainer():
 preview(ex_navcontainer())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_2s4XmHYASSucj0ngXBBe1A" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -2532,16 +2523,16 @@ def ex_navsidebarcontainer():
 preview(ex_navsidebarcontainer())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_IMDZtWkHRT6LBmI_HWLI0Q" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -2617,18 +2608,6 @@ def get_layout():
 
     )
 ```
-
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
-```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
-```
-:::
-
-:::
 :::
 
 
@@ -2637,16 +2616,16 @@ def get_layout():
 preview(get_layout())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/__3Yg38EkTwGkpLzfvhYY-Q" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -2844,18 +2823,6 @@ def ex_faq_item():
         cls="column small-space"
     )
 ```
-
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
-```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
-```
-:::
-
-:::
 :::
 
 
@@ -2864,16 +2831,16 @@ def ex_faq_item():
 preview(ex_faq_item())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_QWofj3_2SnKL5xL_6Iz5kg" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -2912,16 +2879,16 @@ def get_CookiesBanner():
 preview(get_CookiesBanner())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_d4F9zMcJTum2ymlEQy5BVw" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -2941,16 +2908,16 @@ def ex_other():
 preview(ex_other())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_KpPCIsmgTjSU5DR1GuBNUA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -2970,16 +2937,16 @@ def ex_textt():
 preview(ex_textt())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_2_s8Eg-hSlSrAhGuqtHpxQ" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -2998,16 +2965,16 @@ def ex_textpresets():
 preview(ex_textpresets())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_-SSHUGnFRhawFtorB8z2XQ" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -3034,16 +3001,16 @@ def ex_headings():
 preview(ex_headings())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_tiPd-TPLSWyIB0iGf8i6kg" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
@@ -3053,16 +3020,11 @@ preview(ex_headings())
 DivVStacked()
 ```
 
-::: {.cell-output .cell-output-error}
+::: {.cell-output .cell-output-display .cell-output-markdown}
+```html
+<div class="responsive padding row vertical medium-space"></div>
 
-::: {.ansi-escaped-output}
-```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
 ```
-:::
-
 :::
 :::
 
@@ -3137,16 +3099,16 @@ def ex_semantic_elements():
 preview(ex_semantic_elements())
 ```
 
-::: {.cell-output .cell-output-error}
-
-::: {.ansi-escaped-output}
+::: {.cell-output .cell-output-display}
 ```{=html}
-<pre><span class="ansi-red-fg ansi-bold">notebook controller is DISPOSED. 
-
-</span><span class="ansi-red-fg ansi-bold">View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
+<iframe src="http://localhost:2222/_ZJ3SSSr5TYW1KsiaUYWExg" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
 ```
-:::
-
 :::
 :::
 
