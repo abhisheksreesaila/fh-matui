@@ -976,7 +976,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L395){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L413){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalFooter
 
@@ -987,7 +987,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L391){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L409){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalBody
 
@@ -998,7 +998,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L387){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L405){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalTitle
 
@@ -1009,7 +1009,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L379){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L397){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalConfirm
 
@@ -1020,7 +1020,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L371){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L389){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalCancel
 
@@ -1031,7 +1031,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L366){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L384){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalButton
 
@@ -1142,7 +1142,7 @@ preview(test_modal())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L428){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L446){target="_blank" style="float:right; font-size:smaller"}
 
 ### LabelInput
 
@@ -1155,7 +1155,7 @@ preview(test_modal())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L403){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L421){target="_blank" style="float:right; font-size:smaller"}
 
 ### Field
 
@@ -1200,7 +1200,7 @@ preview(ex_input())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L442){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L460){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormLabel
 
@@ -1211,7 +1211,7 @@ preview(ex_input())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L428){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L446){target="_blank" style="float:right; font-size:smaller"}
 
 ### LabelInput
 
@@ -1258,7 +1258,7 @@ preview(ex_form_label())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L450){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L468){target="_blank" style="float:right; font-size:smaller"}
 
 ### CheckboxX
 
@@ -1304,7 +1304,7 @@ preview(ex_checkbox())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L460){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L478){target="_blank" style="float:right; font-size:smaller"}
 
 ### Radio
 
@@ -1348,7 +1348,7 @@ preview(ex_Radio())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L470){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L488){target="_blank" style="float:right; font-size:smaller"}
 
 ### Switch
 
@@ -1396,7 +1396,7 @@ preview(ex_switch())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L497){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L515){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextArea
 
@@ -1441,7 +1441,7 @@ preview(ex_TextArea())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L505){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L523){target="_blank" style="float:right; font-size:smaller"}
 
 ### Range
 
@@ -1485,7 +1485,7 @@ preview(ex_range())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L534){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L552){target="_blank" style="float:right; font-size:smaller"}
 
 ### Select
 
@@ -1652,7 +1652,7 @@ Arranges children in columns on medium+ screens (full-width on small screens). U
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L559){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L577){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormGrid
 
@@ -1743,7 +1743,7 @@ preview(ex_form_grid())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L568){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L586){target="_blank" style="float:right; font-size:smaller"}
 
 ### Progress
 
@@ -1787,7 +1787,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L580){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L598){target="_blank" style="float:right; font-size:smaller"}
 
 ### LoadingIndicator
 
@@ -1835,7 +1835,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L644){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L662){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableFromDicts
 
@@ -1850,7 +1850,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L635){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L653){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableFromLists
 
@@ -1865,7 +1865,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L630){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L648){target="_blank" style="float:right; font-size:smaller"}
 
 ### Tfoot
 
@@ -1876,7 +1876,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L624){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L642){target="_blank" style="float:right; font-size:smaller"}
 
 ### Tbody
 
@@ -1887,7 +1887,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L619){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L637){target="_blank" style="float:right; font-size:smaller"}
 
 ### Thead
 
@@ -1898,7 +1898,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L606){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L624){target="_blank" style="float:right; font-size:smaller"}
 
 ### Th
 
@@ -1909,7 +1909,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L593){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L611){target="_blank" style="float:right; font-size:smaller"}
 
 ### Td
 
@@ -1920,7 +1920,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L588){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L606){target="_blank" style="float:right; font-size:smaller"}
 
 ### Table
 
@@ -1987,7 +1987,7 @@ preview(ex_tabledicts())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L656){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L674){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableControls
 
@@ -2032,7 +2032,7 @@ preview(ex_tablecontrols())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L663){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L681){target="_blank" style="float:right; font-size:smaller"}
 
 ### Pagination
 
@@ -2077,7 +2077,7 @@ preview(ex_tablePagination())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L698){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L716){target="_blank" style="float:right; font-size:smaller"}
 
 ### Card
 
@@ -2127,7 +2127,7 @@ preview(ex_card())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L712){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L730){target="_blank" style="float:right; font-size:smaller"}
 
 ### Toolbar
 
@@ -2185,7 +2185,7 @@ preview(ex_toolbar())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L740){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L778){target="_blank" style="float:right; font-size:smaller"}
 
 ### Snackbar
 
@@ -2196,7 +2196,7 @@ preview(ex_toolbar())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L722){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L740){target="_blank" style="float:right; font-size:smaller"}
 
 ### Toast
 
@@ -2252,7 +2252,7 @@ def example_toast():
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L746){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L784){target="_blank" style="float:right; font-size:smaller"}
 
 ### ContainerT
 
@@ -2295,7 +2295,7 @@ Each column can include a `form` key to customize its form field:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L773){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L811){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormField
 
@@ -2331,7 +2331,7 @@ Could be expanded to accept simpler field specs in the future.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L835){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L873){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormModal
 
@@ -2357,7 +2357,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1001){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1039){target="_blank" style="float:right; font-size:smaller"}
 
 ### BottomNav
 
@@ -2368,7 +2368,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L997){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1035){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSubtitle
 
@@ -2379,7 +2379,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L993){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1031){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavCloseLi
 
@@ -2391,7 +2391,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L989){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1027){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavDividerLi
 
@@ -2402,7 +2402,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L985){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1023){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavHeaderLi
 
@@ -2413,7 +2413,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L952){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L990){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavContainer
 
@@ -2469,7 +2469,7 @@ preview(ex_navcontainer())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1020){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1058){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarContainer
 
@@ -2481,7 +2481,7 @@ preview(ex_navcontainer())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1013){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1051){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarLinks
 
@@ -2492,7 +2492,7 @@ preview(ex_navcontainer())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1009){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1047){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarHeader
 
@@ -2548,7 +2548,7 @@ preview(ex_navsidebarcontainer())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1029){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1067){target="_blank" style="float:right; font-size:smaller"}
 
 ### Layout
 
@@ -2664,7 +2664,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1093){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1131){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextPresets
 
@@ -2675,7 +2675,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1074){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1112){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextT
 
@@ -2686,7 +2686,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1155){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1193){target="_blank" style="float:right; font-size:smaller"}
 
 ### Sup
 
@@ -2697,7 +2697,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1150){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1188){target="_blank" style="float:right; font-size:smaller"}
 
 ### Sub
 
@@ -2708,7 +2708,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1145){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1183){target="_blank" style="float:right; font-size:smaller"}
 
 ### Abbr
 
@@ -2719,7 +2719,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1140){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1178){target="_blank" style="float:right; font-size:smaller"}
 
 ### Mark
 
@@ -2730,7 +2730,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1136){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1174){target="_blank" style="float:right; font-size:smaller"}
 
 ### Small
 
@@ -2741,7 +2741,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1132){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1170){target="_blank" style="float:right; font-size:smaller"}
 
 ### Strong
 
@@ -2752,7 +2752,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1127){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1165){target="_blank" style="float:right; font-size:smaller"}
 
 ### Em
 
@@ -2763,7 +2763,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1123){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1161){target="_blank" style="float:right; font-size:smaller"}
 
 ### Q
 
@@ -2774,7 +2774,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1118){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1156){target="_blank" style="float:right; font-size:smaller"}
 
 ### Blockquote
 
@@ -2785,7 +2785,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1111){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1149){target="_blank" style="float:right; font-size:smaller"}
 
 ### CodeBlock
 
@@ -2796,7 +2796,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1106){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1144){target="_blank" style="float:right; font-size:smaller"}
 
 ### CodeSpan
 
@@ -2816,7 +2816,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1162){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1200){target="_blank" style="float:right; font-size:smaller"}
 
 ### FAQItem
 
@@ -2888,7 +2888,7 @@ preview(ex_faq_item())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1180){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1218){target="_blank" style="float:right; font-size:smaller"}
 
 ### CookiesBanner
 
@@ -3379,7 +3379,7 @@ def my_table(req):
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L192){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L193){target="_blank" style="float:right; font-size:smaller"}
 
 ### DataTable
 
@@ -3477,7 +3477,7 @@ async def on_create(ctx: CrudContext) -> dict:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L372){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L385){target="_blank" style="float:right; font-size:smaller"}
 
 ### CrudContext
 
@@ -3980,7 +3980,7 @@ This would be useful for:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L483){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L497){target="_blank" style="float:right; font-size:smaller"}
 
 ### DataTableResource
 

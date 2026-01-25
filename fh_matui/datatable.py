@@ -280,31 +280,15 @@ def DataTable(
             cls=ButtonT.primary
         )
     
-    # Pagination controls
+    # Pagination controls (using reusable Pagination component)
     pagination = None
     if total_pages > 1:
-        prev_params = urlencode({"search": search, "page": max(1, page - 1), "page_size": page_size})
-        next_params = urlencode({"search": search, "page": min(total_pages, page + 1), "page_size": page_size})
-        
-        pagination = Div(
-            Button(
-                Icon("navigate_before"),
-                hx_get=f"{base_route}?{prev_params}",
-                hx_target=f"#{container_id}",
-                hx_push_url="true",
-                disabled=page == 1,
-                cls="circle"
-            ),
-            Span(f"Page {page} of {total_pages}", cls="middle"),
-            Button(
-                Icon("navigate_next"),
-                hx_get=f"{base_route}?{next_params}",
-                hx_target=f"#{container_id}",
-                hx_push_url="true",
-                disabled=page == total_pages,
-                cls="circle"
-            ),
-            cls="row center-align"
+        pagination_params = urlencode({"search": search, "page_size": page_size})
+        pagination = Pagination(
+            current_page=page,
+            total_pages=total_pages,
+            hx_get=f"{base_route}?{pagination_params}",
+            hx_target=f"#{container_id}"
         )
     
     # Search form
