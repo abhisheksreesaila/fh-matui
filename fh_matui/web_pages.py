@@ -809,20 +809,20 @@ def LandingPageSimple(
 # %% ../nbs/04_web_pages.ipynb 30
 def MarkdownSection(
     content: str,           # Markdown text to render
-    title: str = None,      # Optional section title (rendered as H5)
+    title: str = None,      # Optional section title (rendered as H3 for appropriate size)
     cls: str = "",          # Additional classes
 ):
     """Renders markdown content server-side for SEO compatibility.
     
     Uses python-markdown to convert markdown to HTML on the server.
     Search engines see fully rendered HTML (no JavaScript required).
-    Parent ContentPage uses 'min' class to center the page layout.
+    Content is centered using BeerCSS large-width + row center-align pattern.
     
     Great for text-heavy pages like Privacy Policy, Terms, About, Blog posts, etc.
     
     Args:
         content: Markdown text string (can include headers, lists, links, code blocks, tables)
-        title: Optional page title (rendered before markdown content)
+        title: Optional page title (rendered as H3 for blog-appropriate sizing)
         cls: Additional CSS classes
     
     Example:
@@ -848,12 +848,15 @@ We value your privacy...
     
     elements = []
     if title:
-        elements.append(H5(title, cls="center-align"))
+        # Use H3 for page title - appropriately sized for content pages
+        elements.append(H3(title, cls="bold"))
     
     # NotStr tells FastHTML to render raw HTML without escaping
     elements.append(NotStr(html_content))
     
-    return Article(*elements, cls=f"large-padding {cls}".strip())
+    # large-width constrains content, wrapped in row center-align for centering
+    article = Article(*elements, cls=f"large-width large-padding {cls}".strip())
+    return Div(article, cls="row center-align")
 
 # %% ../nbs/04_web_pages.ipynb 31
 def ContentPage(
@@ -871,7 +874,7 @@ def ContentPage(
     A shell template for text-heavy pages like Privacy Policy, Terms of Service,
     Security, About, Blog posts, etc. Developer passes any number of content sections.
     
-    Layout: Navbar (sticky) -> Content sections (centered with 'min') -> Footer
+    Layout: Navbar (sticky) -> Content sections (centered with 'responsive') -> Footer
     
     Uses STANDARD_FOOTER_COLUMNS by default for consistent footer across all pages.
     
@@ -913,7 +916,7 @@ def ContentPage(
         cls="large-padding",
     )
     
-    # Main content area - use "min" to center content (unlike landing page which uses "max")
-    main_content = Main(*sections, cls="min large-padding")
+    # Main content area - sections handle their own centering
+    main_content = Main(*sections, cls="large-padding")
     
     return Div(navbar, main_content, footer_el, cls=f"column {cls}".strip())

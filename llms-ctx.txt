@@ -607,7 +607,7 @@ preview(ex_product_grid())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L257){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L228){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivHStacked
 
@@ -618,7 +618,7 @@ preview(ex_product_grid())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L228){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L246){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivLAligned
 
@@ -657,7 +657,7 @@ preview(ex_l_aligned_div())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L239){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L257){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivVStacked
 
@@ -976,7 +976,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L413){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L430){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalFooter
 
@@ -987,7 +987,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L409){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L426){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalBody
 
@@ -998,7 +998,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L405){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L422){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalTitle
 
@@ -1009,7 +1009,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L397){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L414){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalConfirm
 
@@ -1020,7 +1020,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L389){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L406){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalCancel
 
@@ -1031,7 +1031,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L384){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L401){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalButton
 
@@ -1157,7 +1157,7 @@ preview(test_modal())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L446){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L463){target="_blank" style="float:right; font-size:smaller"}
 
 ### LabelInput
 
@@ -1170,7 +1170,7 @@ preview(test_modal())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L421){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L438){target="_blank" style="float:right; font-size:smaller"}
 
 ### Field
 
@@ -1215,7 +1215,7 @@ preview(ex_input())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L460){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L477){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormLabel
 
@@ -1226,7 +1226,7 @@ preview(ex_input())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L446){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L463){target="_blank" style="float:right; font-size:smaller"}
 
 ### LabelInput
 
@@ -1273,7 +1273,7 @@ preview(ex_form_label())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L468){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L485){target="_blank" style="float:right; font-size:smaller"}
 
 ### CheckboxX
 
@@ -1319,7 +1319,7 @@ preview(ex_checkbox())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L478){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L495){target="_blank" style="float:right; font-size:smaller"}
 
 ### Radio
 
@@ -1363,7 +1363,7 @@ preview(ex_Radio())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L488){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L505){target="_blank" style="float:right; font-size:smaller"}
 
 ### Switch
 
@@ -1411,7 +1411,7 @@ preview(ex_switch())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L515){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L532){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextArea
 
@@ -1456,7 +1456,7 @@ preview(ex_TextArea())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L523){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L540){target="_blank" style="float:right; font-size:smaller"}
 
 ### Range
 
@@ -1500,7 +1500,7 @@ preview(ex_range())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L552){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L569){target="_blank" style="float:right; font-size:smaller"}
 
 ### Select
 
@@ -1643,7 +1643,7 @@ Arranges children in columns on medium+ screens (full-width on small screens). U
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L577){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L594){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormGrid
 
@@ -1734,7 +1734,7 @@ preview(ex_form_grid())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L586){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L603){target="_blank" style="float:right; font-size:smaller"}
 
 ### Progress
 
@@ -1778,7 +1778,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L598){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L615){target="_blank" style="float:right; font-size:smaller"}
 
 ### LoadingIndicator
 
@@ -1826,7 +1826,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L662){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L679){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableFromDicts
 
@@ -1841,7 +1841,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L653){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L670){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableFromLists
 
@@ -1856,7 +1856,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L648){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L665){target="_blank" style="float:right; font-size:smaller"}
 
 ### Tfoot
 
@@ -1867,7 +1867,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L642){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L659){target="_blank" style="float:right; font-size:smaller"}
 
 ### Tbody
 
@@ -1878,7 +1878,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L637){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L654){target="_blank" style="float:right; font-size:smaller"}
 
 ### Thead
 
@@ -1889,7 +1889,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L624){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L641){target="_blank" style="float:right; font-size:smaller"}
 
 ### Th
 
@@ -1900,7 +1900,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L611){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L628){target="_blank" style="float:right; font-size:smaller"}
 
 ### Td
 
@@ -1911,7 +1911,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L606){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L623){target="_blank" style="float:right; font-size:smaller"}
 
 ### Table
 
@@ -1978,7 +1978,7 @@ preview(ex_tabledicts())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L674){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L691){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableControls
 
@@ -2023,7 +2023,7 @@ preview(ex_tablecontrols())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L681){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L698){target="_blank" style="float:right; font-size:smaller"}
 
 ### Pagination
 
@@ -2068,7 +2068,7 @@ preview(ex_tablePagination())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L716){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L733){target="_blank" style="float:right; font-size:smaller"}
 
 ### Card
 
@@ -2118,7 +2118,7 @@ preview(ex_card())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L730){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L747){target="_blank" style="float:right; font-size:smaller"}
 
 ### Toolbar
 
@@ -2176,7 +2176,7 @@ preview(ex_toolbar())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L778){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L795){target="_blank" style="float:right; font-size:smaller"}
 
 ### Snackbar
 
@@ -2187,7 +2187,7 @@ preview(ex_toolbar())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L740){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L757){target="_blank" style="float:right; font-size:smaller"}
 
 ### Toast
 
@@ -2243,7 +2243,7 @@ def example_toast():
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L784){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L801){target="_blank" style="float:right; font-size:smaller"}
 
 ### ContainerT
 
@@ -2286,7 +2286,7 @@ Each column can include a `form` key to customize its form field:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L811){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L828){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormField
 
@@ -2322,7 +2322,7 @@ Could be expanded to accept simpler field specs in the future.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L873){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L890){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormModal
 
@@ -2348,7 +2348,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1039){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1056){target="_blank" style="float:right; font-size:smaller"}
 
 ### BottomNav
 
@@ -2359,7 +2359,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1035){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1052){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSubtitle
 
@@ -2370,7 +2370,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1031){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1048){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavCloseLi
 
@@ -2382,7 +2382,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1027){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1044){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavDividerLi
 
@@ -2393,7 +2393,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1023){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1040){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavHeaderLi
 
@@ -2404,7 +2404,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L990){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1007){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavContainer
 
@@ -2460,7 +2460,7 @@ preview(ex_navcontainer())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1058){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1075){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarContainer
 
@@ -2472,7 +2472,7 @@ preview(ex_navcontainer())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1051){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1068){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarLinks
 
@@ -2483,7 +2483,7 @@ preview(ex_navcontainer())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1047){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1064){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarHeader
 
@@ -2539,7 +2539,7 @@ preview(ex_navsidebarcontainer())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1067){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1084){target="_blank" style="float:right; font-size:smaller"}
 
 ### Layout
 
@@ -2643,7 +2643,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1131){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1148){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextPresets
 
@@ -2654,7 +2654,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1112){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1129){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextT
 
@@ -2665,7 +2665,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1193){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1210){target="_blank" style="float:right; font-size:smaller"}
 
 ### Sup
 
@@ -2676,7 +2676,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1188){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1205){target="_blank" style="float:right; font-size:smaller"}
 
 ### Sub
 
@@ -2687,7 +2687,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1183){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1200){target="_blank" style="float:right; font-size:smaller"}
 
 ### Abbr
 
@@ -2698,7 +2698,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1178){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1195){target="_blank" style="float:right; font-size:smaller"}
 
 ### Mark
 
@@ -2709,7 +2709,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1174){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1191){target="_blank" style="float:right; font-size:smaller"}
 
 ### Small
 
@@ -2720,7 +2720,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1170){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1187){target="_blank" style="float:right; font-size:smaller"}
 
 ### Strong
 
@@ -2731,7 +2731,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1165){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1182){target="_blank" style="float:right; font-size:smaller"}
 
 ### Em
 
@@ -2742,7 +2742,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1161){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1178){target="_blank" style="float:right; font-size:smaller"}
 
 ### Q
 
@@ -2753,7 +2753,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1156){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1173){target="_blank" style="float:right; font-size:smaller"}
 
 ### Blockquote
 
@@ -2764,7 +2764,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1149){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1166){target="_blank" style="float:right; font-size:smaller"}
 
 ### CodeBlock
 
@@ -2775,7 +2775,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1144){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1161){target="_blank" style="float:right; font-size:smaller"}
 
 ### CodeSpan
 
@@ -2795,7 +2795,7 @@ preview(get_layout())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1200){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1217){target="_blank" style="float:right; font-size:smaller"}
 
 ### FAQItem
 
@@ -2855,7 +2855,7 @@ preview(ex_faq_item())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1218){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1235){target="_blank" style="float:right; font-size:smaller"}
 
 ### CookiesBanner
 
@@ -3439,7 +3439,7 @@ async def on_create(ctx: CrudContext) -> dict:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L385){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L369){target="_blank" style="float:right; font-size:smaller"}
 
 ### CrudContext
 
@@ -3942,7 +3942,7 @@ This would be useful for:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L497){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L481){target="_blank" style="float:right; font-size:smaller"}
 
 ### DataTableResource
 
@@ -4259,6 +4259,25 @@ except Exception as e:
     print(f"✗ Failed to start server: {e}")
     raise
 ```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+
+<script>
+document.body.addEventListener('htmx:configRequest', (event) => {
+    if(event.detail.path.includes('://')) return;
+    htmx.config.selfRequestsOnly=false;
+    event.detail.path = `${location.protocol}//${location.hostname}:9999${event.detail.path}`;
+});
+</script>
+```
+:::
+
+::: {.cell-output .cell-output-stdout}
+```
+✓ Server running on port 9999
+```
+:::
 :::
 
 
@@ -4333,6 +4352,18 @@ Example:
 ``` {.python .cell-code code-fold="true"}
 preview(LoginScreen())
 ```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+<iframe src="http://localhost:9999/_FqxV-GRoT5OAz0JF39Ulcg" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+```
+:::
 :::
 
 
@@ -4581,6 +4612,25 @@ except Exception as e:
     print(f"✗ Failed to start server: {e}")
     raise
 ```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+
+<script>
+document.body.addEventListener('htmx:configRequest', (event) => {
+    if(event.detail.path.includes('://')) return;
+    htmx.config.selfRequestsOnly=false;
+    event.detail.path = `${location.protocol}//${location.hostname}:7020${event.detail.path}`;
+});
+</script>
+```
+:::
+
+::: {.cell-output .cell-output-stdout}
+```
+✓ Server running on port 7020
+```
+:::
 :::
 
 
@@ -4638,6 +4688,18 @@ def hero_section():
 
 preview(hero_section())
 ```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+<iframe src="http://localhost:7020/_e7xBl305TVCvV6Cqs1f-Sg" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+```
+:::
 :::
 
 
@@ -4717,6 +4779,18 @@ def test_showcase():
 
 preview(test_showcase())
 ```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+<iframe src="http://localhost:7020/_N1dfN2o2ThW5G577_k22SQ" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+```
+:::
 :::
 
 
@@ -4767,6 +4841,18 @@ def test_fg():
 ``` {.python .cell-code code-fold="true"}
 preview(test_fg())
 ```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+<iframe src="http://localhost:7020/_1p_ivZOhSk2QDCxo_7kHTA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+```
+:::
 :::
 
 
@@ -4880,6 +4966,18 @@ def test_pricing_3tier():
 
 preview(test_pricing_3tier())
 ```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+<iframe src="http://localhost:7020/_L7Qal1JqSPGjbXOQ8uoyCg" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+```
+:::
 :::
 
 
@@ -4909,6 +5007,18 @@ def test_pricing_single():
 
 preview(test_pricing_single())
 ```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+<iframe src="http://localhost:7020/_tfbceex6RtC1iZMxna64ag" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+```
+:::
 :::
 
 
@@ -4954,6 +5064,18 @@ def faq_section():
 
 preview(faq_section())
 ```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+<iframe src="http://localhost:7020/_cN8JWvsgQtuM4mgoppkM_A" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+```
+:::
 :::
 
 
@@ -5008,6 +5130,18 @@ def ex_footer():
 
 preview(ex_footer())
 ```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+<iframe src="http://localhost:7020/_uSpJtofiTN2d-C1Pzipi5A" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+```
+:::
 :::
 
 
@@ -5185,13 +5319,13 @@ def test_landing_page():
 
     Uses python-markdown to convert markdown to HTML on the server.
     Search engines see fully rendered HTML (no JavaScript required).
-    Parent ContentPage uses 'min' class to center the page layout.
+    Content is centered using BeerCSS large-width + row center-align pattern.
 
     Great for text-heavy pages like Privacy Policy, Terms, About, Blog posts, etc.
 
     Args:
         content: Markdown text string (can include headers, lists, links, code blocks, tables)
-        title: Optional page title (rendered before markdown content)
+        title: Optional page title (rendered as H3 for blog-appropriate sizing)
         cls: Additional CSS classes
 
     Example:
@@ -5210,7 +5344,7 @@ We value your privacy...
 |    | **Type** | **Default** | **Details** |
 | -- | -------- | ----------- | ----------- |
 | content | str |  | Markdown text to render |
-| title | str | None | Optional section title (rendered as H5) |
+| title | str | None | Optional section title (rendered as H3 for appropriate size) |
 | cls | str |  | Additional classes |
 
 
@@ -5230,7 +5364,7 @@ We value your privacy...
 A shell template for text-heavy pages like Privacy Policy, Terms of Service,
 Security, About, Blog posts, etc. Developer passes any number of content sections.
 
-Layout: Navbar (sticky) -> Content sections (centered with 'min') -> Footer
+Layout: Navbar (sticky) -> Content sections (centered with 'responsive') -> Footer
 
 Uses STANDARD_FOOTER_COLUMNS by default for consistent footer across all pages.
 
@@ -5268,11 +5402,11 @@ Example:
 ``` {.python .cell-code code-fold="true"}
 # Example: Privacy Policy page
 privacy_md = '''
-## 📋 Introduction
+#### 📋 Introduction
 
 This Privacy Policy explains how we collect, use, and protect your personal information when you use our services.
 
-## 📊 Information We Collect
+#### 📊 Information We Collect
 
 We may collect the following types of information:
 
@@ -5280,7 +5414,7 @@ We may collect the following types of information:
 - **Usage Data**: How you interact with our services, including pages visited and features used
 - **Device Information**: Browser type, operating system, and IP address
 
-## 🎯 How We Use Your Information
+#### 🎯 How We Use Your Information
 
 We use your information to:
 
@@ -5292,7 +5426,7 @@ We use your information to:
 
 We retain your data only as long as necessary to provide our services or as required by law.
 
-## ✅ Your Rights
+#### ✅ Your Rights
 
 You have the right to:
 
@@ -5301,7 +5435,7 @@ You have the right to:
 - Request deletion of your data
 - Opt out of marketing communications
 
-## 📬 Contact Us
+#### 📬 Contact Us
 
 If you have questions about this Privacy Policy, please contact us at privacy@example.com.
 
@@ -5319,6 +5453,18 @@ def privacy_page():
 
 preview(privacy_page())
 ```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+<iframe src="http://localhost:7020/_gK_8YSmPS1SuzT4wHFR43w" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+```
+:::
 :::
 
 
@@ -5326,29 +5472,29 @@ preview(privacy_page())
 ``` {.python .cell-code code-fold="true"}
 # Example: Security page
 security_md = '''
-## 🛡️ Our Commitment to Security
+#### 🛡️ Our Commitment to Security
 
 We take the security of your data seriously. Here is how we protect your information:
 
-### 🔐 Encryption
+#### 🔐 Encryption
 
 - All data is encrypted in transit using TLS 1.3
 - Sensitive data is encrypted at rest using AES-256
 - Passwords are hashed using bcrypt with salt
 
-### 🏗️ Infrastructure
+#### 🏗️ Infrastructure
 
 - Hosted on SOC 2 Type II certified infrastructure
 - Regular security audits and penetration testing
 - 24/7 monitoring and incident response
 
-### 🔑 Access Control
+#### 🔑 Access Control
 
 - Role-based access control (RBAC) for all systems
 - Multi-factor authentication required for all employees
 - Principle of least privilege enforced
 
-### 📜 Compliance
+#### 📜 Compliance
 
 We comply with:
 
@@ -5356,7 +5502,7 @@ We comply with:
 - CCPA (California Consumer Privacy Act)
 - SOC 2 Type II
 
-## 🚨 Reporting Security Issues
+#### 🚨 Reporting Security Issues
 
 If you discover a security vulnerability, please report it to security@example.com. We appreciate responsible disclosure.
 '''
@@ -5372,6 +5518,18 @@ def security_page():
 
 preview(security_page())
 ```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+<iframe src="http://localhost:7020/_VcxFHIX2Rdyw0MX1Fd3SfQ" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+```
+:::
 :::
 
 
@@ -5383,11 +5541,11 @@ about_md = '''
 
 FastHTML is built by a passionate team of developers who believe building web apps should be **fast, fun, and frustration-free**.
 
-### 🎯 Our Mission
+#### 🎯 Our Mission
 
 To empower developers to ship beautiful, production-ready web applications in record time — without sacrificing quality or maintainability.
 
-### 💡 Our Story
+#### 💡 Our Story
 
 We started FastHTML because we were tired of:
 
@@ -5397,13 +5555,13 @@ We started FastHTML because we were tired of:
 
 So we built a better way. FastHTML combines the best of Python, HTMX, and Material Design into a cohesive framework that just works.
 
-### 🌟 Our Values
+#### 🌟 Our Values
 
 - **Simplicity First**: If it's complicated, we're doing it wrong
 - **Developer Experience**: Your time is precious — we respect it
 - **Open Source**: Built in the open, for everyone
 
-### 🤝 Join Us
+#### 🤝 Join Us
 
 We're always looking for contributors and collaborators. Check out our GitHub or reach out at hello@example.com.
 
@@ -5421,6 +5579,18 @@ def about_page():
 
 preview(about_page())
 ```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+<iframe src="http://localhost:7020/_rrWybUA-Q2W9E_0xGmJ_EA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+```
+:::
 :::
 
 
@@ -5428,17 +5598,17 @@ preview(about_page())
 ``` {.python .cell-code code-fold="true"}
 # Example: Terms of Service page
 terms_md = '''
-## 📜 Terms of Service
+#### 📜 Terms of Service
 
 *Effective Date: January 2026*
 
 Please read these Terms of Service carefully before using our services.
 
-### ✅ Acceptance of Terms
+#### ✅ Acceptance of Terms
 
 By accessing or using FastHTML, you agree to be bound by these Terms. If you disagree with any part, you may not access the service.
 
-### 🔐 Account Responsibilities
+#### 🔐 Account Responsibilities
 
 When you create an account, you must:
 
@@ -5447,7 +5617,7 @@ When you create an account, you must:
 - Notify us immediately of any unauthorized access
 - Accept responsibility for all activities under your account
 
-### 💳 Payment Terms
+#### 💳 Payment Terms
 
 For paid plans:
 
@@ -5455,7 +5625,7 @@ For paid plans:
 - Refunds are available within 30 days of initial purchase
 - We reserve the right to change pricing with 30 days notice
 
-### 🚫 Prohibited Uses
+#### 🚫 Prohibited Uses
 
 You may not use our service to:
 
@@ -5464,15 +5634,15 @@ You may not use our service to:
 3. Distribute malware or harmful code
 4. Attempt to gain unauthorized access to our systems
 
-### ⚖️ Limitation of Liability
+#### ⚖️ Limitation of Liability
 
 FastHTML is provided "as is" without warranties of any kind. We are not liable for any indirect, incidental, or consequential damages.
 
-### 📝 Changes to Terms
+#### 📝 Changes to Terms
 
 We may modify these terms at any time. Continued use of the service constitutes acceptance of modified terms.
 
-### 📧 Contact
+#### 📧 Contact
 
 Questions about these Terms? Contact us at legal@example.com.
 '''
@@ -5488,6 +5658,18 @@ def terms_page():
 
 preview(terms_page())
 ```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+<iframe src="http://localhost:7020/_9f8WSRhpT3K9-g3kAdVvnA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+```
+:::
 :::
 
 
