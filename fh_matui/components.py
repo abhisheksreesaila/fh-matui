@@ -10,9 +10,9 @@ __all__ = ['BUTTON_SPECIALS', 'ButtonT', 'ANCHOR_SPECIALS', 'AT', 'NavToggleButt
            'FormGrid', 'Progress', 'LoadingIndicator', 'Table', 'Td', 'Th', 'Thead', 'Tbody', 'Tfoot', 'TableFromLists',
            'TableFromDicts', 'TableControls', 'Pagination', 'Card', 'Toolbar', 'Toast', 'Snackbar', 'ContainerT',
            'FormField', 'FormModal', 'NavContainer', 'NavHeaderLi', 'NavDividerLi', 'NavCloseLi', 'NavSubtitle',
-           'BottomNav', 'NavSideBarHeader', 'NavSideBarLinks', 'NavSideBarContainer', 'Layout', 'TextT', 'TextPresets',
-           'CodeSpan', 'CodeBlock', 'Blockquote', 'Q', 'Em', 'Strong', 'Small', 'Mark', 'Abbr', 'Sub', 'Sup', 'FAQItem',
-           'CookiesBanner']
+           'BottomNav', 'NavSideBarHeader', 'NavSideBarLinks', 'NavSideBarContainer', 'Page', 'Layout', 'TextT',
+           'TextPresets', 'CodeSpan', 'CodeBlock', 'Blockquote', 'Q', 'Em', 'Strong', 'Small', 'Mark', 'Abbr', 'Sub',
+           'Sup', 'FAQItem', 'CookiesBanner']
 
 # %% ../nbs/02_components.ipynb 2
 from fastcore.utils import *
@@ -339,7 +339,7 @@ def NavBar(*children, brand=None, sticky=False, cls='', size='small',
         hx_target: Target element for boosted links (default '#main-content')
     """
     size_cls = size if size else ''
-    nav_cls = f"{'sticky top' if sticky else ''} surface-container {size_cls} {cls}".strip()
+    nav_cls = f"{'sticky top' if sticky else ''} surface {size_cls} {cls}".strip()
     
     # HTMX SPA optimizations
     if hx_boost: kwargs['hx_boost'] = 'true'
@@ -1115,7 +1115,7 @@ def NavSideBarContainer(*children, position='left', size='m', cls='', active=Fal
             if 'HX-Request' in req.headers: return content  # HTMX swap
             return Layout(content)  # Full page load
     """
-    base_cls = f"{size} {position} surface-container"
+    base_cls = f"{size} {position} surface"
     if active: base_cls += " active"
     nav_cls = f"{base_cls} {cls}".strip()
     
@@ -1128,6 +1128,26 @@ def NavSideBarContainer(*children, position='left', size='m', cls='', active=Fal
 
 # %% ../nbs/02_components.ipynb 107
 #| code-fold: true
+def Page(*c, active=True, position=None, cls='', **kwargs):
+    """BeerCSS animated page container.
+    
+    Pages are containers that can be a main page, multiple pages, or animated elements.
+    
+    Args:
+        active: Show page (default True)
+        position: Animation direction - 'left', 'right', 'top', 'bottom' (optional)
+        cls: Additional classes
+    
+    Example:
+        Page(H1("Dashboard"), P("Content here"))  # Default active page
+        Page(content, position='right')  # Slide from right animation
+    """
+    page_cls = ['page']
+    if active: page_cls.append('active')
+    if position: page_cls.append(position)
+    if cls: page_cls.extend(normalize_tokens(cls))
+    return Div(*c, cls=stringify(page_cls), **kwargs)
+
 def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_size=ContainerT.expand,
            main_bg='surface', sidebar_id='app-sidebar', main_id='main-content', cls='', **kwargs):
     """App layout with HTMX SPA navigation.
@@ -1150,7 +1170,7 @@ def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_s
     # Build content wrapper with history caching
     content_wrapper = None
     if content:
-        content_wrapper = Div(*content, id=main_id, hx_history_elt='true')
+        content_wrapper = Div(*content, hx_history_elt='true')
     
     # No sidebar - simple layout
     if not sidebar and not sidebar_links:
@@ -1161,7 +1181,8 @@ def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_s
             result.append(nav_bar)
         if content_wrapper:
             container_cls = stringify((container_size, 'padding', main_bg))
-            result.append(Main(content_wrapper, cls=container_cls))
+            page_content = Page(content_wrapper, id=main_id)
+            result.append(Main(page_content, cls=container_cls))
         return Div(*result, cls=cls, **kwargs) if result else Div(cls=cls, **kwargs)
     
     # Sidebar layout with hx-boost
@@ -1184,11 +1205,13 @@ def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_s
     layout_children.append(nav_rail)
     
     if content_wrapper:
-        container_cls = stringify((container_size, 'round', 'elevate', 'margin'))
-        layout_children.append(Main(content_wrapper, cls=container_cls))
+        container_cls = stringify((container_size, 'surface-container', 'round', 'padding', 'bottom-margin'))
+        page_content = Page(content_wrapper, id=main_id)
+        layout_children.append(Main(page_content, cls=container_cls))
     
-    final_cls = f"surface-container {cls}".strip() if cls else "surface-container"
+    final_cls = f"surface {cls}".strip() if cls else "surface"
     return Div(*layout_children, cls=final_cls, **kwargs)
+
 
 # %% ../nbs/02_components.ipynb 113
 #| code-fold: true

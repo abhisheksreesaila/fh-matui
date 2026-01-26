@@ -19,6 +19,7 @@ from nbdev.showdoc import show_doc
 
 # %% ../nbs/01_core.ipynb 5
 #| code-fold: true
+#| code-fold: true
 HEADER_URLS = {
     "beercss_css": "https://cdn.jsdelivr.net/npm/beercss@3.13.1/dist/cdn/beer.min.css",
     "beercss_js": "https://cdn.jsdelivr.net/npm/beercss@3.13.1/dist/cdn/beer.min.js",
@@ -32,6 +33,7 @@ beer_hdrs = (
 )
 
 # %% ../nbs/01_core.ipynb 7
+#| code-fold: true
 #| code-fold: true
 # All BeerCSS color names
 COLOR_NAMES = ['amber', 'blue', 'blue_grey', 'brown', 'cyan', 'deep_orange', 'deep_purple', 
@@ -89,6 +91,7 @@ ALL_HELPERS = (SIZES + WIDTH_HEIGHT + ELEVATES + DIRECTIONS + FORMS + MARGINS + 
                RIPPLES + SCROLLS + WAVES + ZOOMS + THEME_HELPERS + TYPOGRAPHY + TRIGGERS + COLOR_HELPERS)
 
 # %% ../nbs/01_core.ipynb 10
+#| code-fold: true
 #| code-fold: true
 class _ThemeChain:
     """Internal class for building themed headers"""
@@ -156,6 +159,7 @@ class _ThemeChain:
 
 # %% ../nbs/01_core.ipynb 11
 #| code-fold: true
+#| code-fold: true
 class _ThemeNamespace:
     """Namespace providing color properties that return _ThemeChain instances"""
     @property
@@ -214,6 +218,7 @@ class _ThemeNamespace:
 MatTheme = _ThemeNamespace()
 
 # %% ../nbs/01_core.ipynb 15
+#| code-fold: true
 #| code-fold: true
 class BeerCssChain:
     """Base class for chaining Beer CSS helper classes together"""

@@ -13,6 +13,7 @@ from nbdev.showdoc import show_doc
 
 # %% ../nbs/00_foundations.ipynb 4
 #| code-fold: true
+#| code-fold: true
 class VEnum(Enum):
     """Enum with string conversion and concatenation support"""
     def __str__(self): return self.value
@@ -21,6 +22,7 @@ class VEnum(Enum):
 
 # %% ../nbs/00_foundations.ipynb 8
 #| code-fold: true
+#| code-fold: true
 def stringify(o):
     """Converts input types into strings that can be passed to FT components"""
     if is_listy(o): 
@@ -28,6 +30,7 @@ def stringify(o):
     return str(o)
 
 # %% ../nbs/00_foundations.ipynb 12
+#| code-fold: true
 #| code-fold: true
 def normalize_tokens(cls):
     """Normalize class input to list of string tokens"""

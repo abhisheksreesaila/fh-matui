@@ -255,7 +255,7 @@ Chainable helper for building BeerCSS class strings with a fluent API.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/core.py#L213){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/core.py#L218){target="_blank" style="float:right; font-size:smaller"}
 
 ### BeerCssChain
 
@@ -395,7 +395,7 @@ preview(ex_buttons())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_TboyYO-aQpqgi9DACOEvpA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_zqgJ9AsuRCWGVkBjn9rF4w" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -440,7 +440,7 @@ preview(ex_links())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_lNDdiGYKRPC-Fz794Q1zBQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_LLUzTdxZQUKJEN3kZ3Ebuw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -494,7 +494,7 @@ Responsive grid system and flex layout helpers.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L191){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L195){target="_blank" style="float:right; font-size:smaller"}
 
 ### Grid
 
@@ -508,7 +508,7 @@ Responsive grid system and flex layout helpers.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L141){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L145){target="_blank" style="float:right; font-size:smaller"}
 
 ### GridCell
 
@@ -519,7 +519,7 @@ Responsive grid system and flex layout helpers.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L96){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L100){target="_blank" style="float:right; font-size:smaller"}
 
 ### GridSpanT
 
@@ -530,7 +530,7 @@ Responsive grid system and flex layout helpers.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L88){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L92){target="_blank" style="float:right; font-size:smaller"}
 
 ### SpaceT
 
@@ -562,7 +562,7 @@ preview(ex_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_4WtdJswdRxiJ6xY1Zxhb8g" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Rbd0ipkNQ6KfKDKGMdZkSQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -602,7 +602,7 @@ preview(ex_product_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_0acXmKUIQ0y93W651qCypQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_w05jigIAS_OuAM_MKdxG5A" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -616,7 +616,7 @@ preview(ex_product_grid())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L228){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L232){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivHStacked
 
@@ -627,7 +627,7 @@ preview(ex_product_grid())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L246){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L250){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivLAligned
 
@@ -652,7 +652,7 @@ preview(ex_l_aligned_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_XEZocvpOQ6Kxay2ufOTQag" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Z8ZLsXvcSBWnXb611FxsrQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -666,7 +666,7 @@ preview(ex_l_aligned_div())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L257){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L261){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivVStacked
 
@@ -692,7 +692,7 @@ preview(ex_v_stacked_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_gUzNy4AqQQ6ScM6MzEAIvg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_InRY_BD2SGOM9weQwUa5iw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -720,7 +720,7 @@ preview(ex_h_stacked_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_KTwqhtlUSA2tqcho8KgWjg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/__zrF01qBQmSWZchom4rS2g" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -734,7 +734,7 @@ preview(ex_h_stacked_div())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L275){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L279){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivRAligned
 
@@ -759,7 +759,7 @@ preview(ex_r_aligned_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_aFg2NEODT36ioa95ORjQbg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_JwHppP2hSSurDeQk4Blr-Q" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -773,7 +773,7 @@ preview(ex_r_aligned_div())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L284){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L288){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivCentered
 
@@ -797,7 +797,7 @@ preview(ex_centered_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_cni02P-rRA_DDQf6uti_9Q" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_M0_W912TSVGhNtbHo3fe7w" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -811,7 +811,7 @@ preview(ex_centered_div())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L293){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L297){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivFullySpaced
 
@@ -838,7 +838,7 @@ preview(ex_fully_spaced_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_5Na6k9LLReOr35_4_gAqlw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_B5J7SIjsQva55t-IdiS79w" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -862,7 +862,7 @@ Material Design icon component.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L315){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L319){target="_blank" style="float:right; font-size:smaller"}
 
 ### Icon
 
@@ -887,7 +887,7 @@ preview(ex_icon())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_maU6eqK2TJqs7YOj3aahRQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_808rx6fqRf_0jpMp7A_HRg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -911,7 +911,7 @@ Horizontal navigation bar component.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L326){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L330){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavBar
 
@@ -941,7 +941,7 @@ preview(ex_navbar1())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_PPQjjdfVSdiL_pGrV95-jQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_rXlwaj-XQlKjYGbGM4N0mw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -993,7 +993,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L430){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L453){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalFooter
 
@@ -1004,7 +1004,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L426){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L449){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalBody
 
@@ -1015,7 +1015,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L422){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L445){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalTitle
 
@@ -1026,7 +1026,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L414){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L437){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalConfirm
 
@@ -1037,7 +1037,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L406){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L429){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalCancel
 
@@ -1048,7 +1048,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L401){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L424){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalButton
 
@@ -1059,7 +1059,7 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L334){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L357){target="_blank" style="float:right; font-size:smaller"}
 
 ### Modal
 
@@ -1151,7 +1151,7 @@ preview(test_modal())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_mGnwGVzgRU2g2mywrAshrQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_RwbmiYpIQ7iTb0edjQ77Vw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1174,7 +1174,7 @@ preview(test_modal())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L463){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L486){target="_blank" style="float:right; font-size:smaller"}
 
 ### LabelInput
 
@@ -1187,7 +1187,7 @@ preview(test_modal())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L438){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L461){target="_blank" style="float:right; font-size:smaller"}
 
 ### Field
 
@@ -1210,7 +1210,7 @@ preview(ex_input())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_frO6nvWtQnKGT5Y-ZDdOaQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_MQDbUeddQfq3DallwHolpA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1232,7 +1232,7 @@ preview(ex_input())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L477){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L500){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormLabel
 
@@ -1243,7 +1243,7 @@ preview(ex_input())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L463){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L486){target="_blank" style="float:right; font-size:smaller"}
 
 ### LabelInput
 
@@ -1268,7 +1268,7 @@ preview(ex_form_label())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_5XEavIHqRgi2eaXjZheFnw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/__H3JfpS_ROSGN9evmfrF2g" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1290,7 +1290,7 @@ preview(ex_form_label())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L485){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L508){target="_blank" style="float:right; font-size:smaller"}
 
 ### CheckboxX
 
@@ -1314,7 +1314,7 @@ preview(ex_checkbox())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Ux5l7YItQ26kzMxktoLOLg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_JgF3mkG5QhCnX6ae4lHjiA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1336,7 +1336,7 @@ preview(ex_checkbox())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L495){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L518){target="_blank" style="float:right; font-size:smaller"}
 
 ### Radio
 
@@ -1358,7 +1358,7 @@ preview(ex_Radio())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_AjMlh2PAQ5e3PIfT9ZAHZQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_G_gGwsNqT2uN3KQ_w1jT3g" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1380,7 +1380,7 @@ preview(ex_Radio())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L505){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L528){target="_blank" style="float:right; font-size:smaller"}
 
 ### Switch
 
@@ -1406,7 +1406,7 @@ preview(ex_switch())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_A-jko-f4SbmLWaJcDGRAhw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_uQk8FmV6Rju48miFU6OJKg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1428,7 +1428,7 @@ preview(ex_switch())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L532){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L555){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextArea
 
@@ -1451,7 +1451,7 @@ preview(ex_TextArea())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_uW_UZA37SgySqZTZwcIUGw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_deeY5xLRSHauwEohxZZeNg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1473,7 +1473,7 @@ preview(ex_TextArea())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L540){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L563){target="_blank" style="float:right; font-size:smaller"}
 
 ### Range
 
@@ -1495,7 +1495,7 @@ preview(ex_range())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_hmXV0STwRXm1EdyEonKnxA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_wvvMWUN_T1q5S2l4JIDvTg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1517,7 +1517,7 @@ preview(ex_range())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L569){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L592){target="_blank" style="float:right; font-size:smaller"}
 
 ### Select
 
@@ -1549,7 +1549,7 @@ preview(ex_select())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Q1L193OpTT2M1LXS8vnVnA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_psCEUDryTTCUMGOpTBKI0w" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1591,7 +1591,7 @@ preview(ex_fs())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_oQDKkXBFTAi67g-0YDrrTQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_pKzhb1Z3RIW5U3B1a_CxBg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1629,7 +1629,7 @@ preview(ex_l())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_lts7FBq-QGWGxlmoBOMg3A" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_sQWd9iJ9Tjqk0anZRh63HA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1660,7 +1660,7 @@ Arranges children in columns on medium+ screens (full-width on small screens). U
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L594){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L617){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormGrid
 
@@ -1729,7 +1729,7 @@ preview(ex_form_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_DlN13JteRumLMhTcDucdBQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_rRi5IpDyS9CzjKDzevAt8w" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1751,7 +1751,7 @@ preview(ex_form_grid())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L603){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L626){target="_blank" style="float:right; font-size:smaller"}
 
 ### Progress
 
@@ -1773,7 +1773,7 @@ preview(ex_progress())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_EQ9alRJgRzaG5ypZBt4dfQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_0tyJlYf6ShOD3X6iZDHbrw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1795,7 +1795,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L615){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L638){target="_blank" style="float:right; font-size:smaller"}
 
 ### LoadingIndicator
 
@@ -1817,7 +1817,7 @@ preview(ex_progress())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_cmpSLeFARRmszGpXhfK_cw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_1HTx2x2LQdGY62_nWh2qxA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1843,7 +1843,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L679){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L702){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableFromDicts
 
@@ -1858,7 +1858,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L670){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L693){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableFromLists
 
@@ -1873,7 +1873,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L665){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L688){target="_blank" style="float:right; font-size:smaller"}
 
 ### Tfoot
 
@@ -1884,7 +1884,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L659){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L682){target="_blank" style="float:right; font-size:smaller"}
 
 ### Tbody
 
@@ -1895,7 +1895,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L654){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L677){target="_blank" style="float:right; font-size:smaller"}
 
 ### Thead
 
@@ -1906,7 +1906,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L641){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L664){target="_blank" style="float:right; font-size:smaller"}
 
 ### Th
 
@@ -1917,7 +1917,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L628){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L651){target="_blank" style="float:right; font-size:smaller"}
 
 ### Td
 
@@ -1928,7 +1928,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L623){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L646){target="_blank" style="float:right; font-size:smaller"}
 
 ### Table
 
@@ -1953,7 +1953,7 @@ preview(ex_tablelists())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_ZAcq6MJGRT_Y1CVy6fZTjA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_ekHmRqHpQDimia6LklxwkQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1981,7 +1981,7 @@ preview(ex_tabledicts())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_v54KuFlcSd_3H2XPCdN8GQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_yAO-pxnfSTuDxvi0obPLBA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1995,7 +1995,7 @@ preview(ex_tabledicts())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L691){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L714){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableControls
 
@@ -2018,7 +2018,7 @@ preview(ex_tablecontrols())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_C9RopNvsRXe39DAzNIA5Ag" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_n90u_YMSTyec7wV2C0_6ng" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2040,7 +2040,7 @@ preview(ex_tablecontrols())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L698){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L721){target="_blank" style="float:right; font-size:smaller"}
 
 ### Pagination
 
@@ -2063,7 +2063,7 @@ preview(ex_tablePagination())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_gX718gVQSXGNz4LvIZgLHA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_uPIwEVS1Rg2lHDGmVP5dUA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2085,7 +2085,7 @@ preview(ex_tablePagination())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L733){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L756){target="_blank" style="float:right; font-size:smaller"}
 
 ### Card
 
@@ -2113,7 +2113,7 @@ preview(ex_card())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_hctnctKJQsSmhtg3CWC5vA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_WZMm9YLsSV25qUhSY31FSA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2135,7 +2135,7 @@ preview(ex_card())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L747){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L770){target="_blank" style="float:right; font-size:smaller"}
 
 ### Toolbar
 
@@ -2161,7 +2161,7 @@ preview(ex_toolbar())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_MN7vjsfoTHOFDkHmXEa2KQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_DpREVAI8TruzP-csj_Z5HQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2193,7 +2193,7 @@ preview(ex_toolbar())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L795){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L818){target="_blank" style="float:right; font-size:smaller"}
 
 ### Snackbar
 
@@ -2204,7 +2204,7 @@ preview(ex_toolbar())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L757){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L780){target="_blank" style="float:right; font-size:smaller"}
 
 ### Toast
 
@@ -2237,7 +2237,7 @@ preview(ex_toast())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_VZK5PfexS-uSBYsdTCLXPg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_q1MxI0g5QHSP1vqHPgfiYg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2260,7 +2260,7 @@ def example_toast():
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L801){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L824){target="_blank" style="float:right; font-size:smaller"}
 
 ### ContainerT
 
@@ -2303,7 +2303,7 @@ Each column can include a `form` key to customize its form field:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L828){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L851){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormField
 
@@ -2339,7 +2339,7 @@ Could be expanded to accept simpler field specs in the future.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L890){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L913){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormModal
 
@@ -2365,7 +2365,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1056){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1079){target="_blank" style="float:right; font-size:smaller"}
 
 ### BottomNav
 
@@ -2376,7 +2376,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1052){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1075){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSubtitle
 
@@ -2387,7 +2387,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1048){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1071){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavCloseLi
 
@@ -2399,7 +2399,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1044){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1067){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavDividerLi
 
@@ -2410,7 +2410,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1040){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1063){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavHeaderLi
 
@@ -2421,7 +2421,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1007){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1030){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavContainer
 
@@ -2453,7 +2453,7 @@ preview(ex_navcontainer())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_j6tB8SxLRUuObjmpmoXoAQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_ifDjqMlUQmeLaJnwHc3hsg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2531,7 +2531,7 @@ def get_layout(content):
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1075){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1098){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarContainer
 
@@ -2560,7 +2560,7 @@ Usage:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1068){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1091){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarLinks
 
@@ -2571,7 +2571,7 @@ Usage:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1064){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1087){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarHeader
 
@@ -2613,7 +2613,7 @@ preview(ex_navsidebarcontainer())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_cK1-ukGKQgKlnq-G7QXlng" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_fRtAXVpKR1GvXw22tMHNGQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2627,7 +2627,7 @@ preview(ex_navsidebarcontainer())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1084){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1131){target="_blank" style="float:right; font-size:smaller"}
 
 ### Layout
 
@@ -2654,7 +2654,27 @@ Usage:
         return Layout(content)  # Full page load
 
 
-::: {#cell-130 .cell}
+---
+
+### Page
+
+>      Page (*c, active=True, position=None, cls='', **kwargs)
+
+*BeerCSS animated page container.*
+
+Pages are containers that can be a main page, multiple pages, or animated elements.
+
+Args:
+    active: Show page (default True)
+    position: Animation direction - 'left', 'right', 'top', 'bottom' (optional)
+    cls: Additional classes
+
+Example:
+    Page(H1("Dashboard"), P("Content here"))  # Default active page
+    Page(content, position='right')  # Slide from right animation
+
+
+::: {#cell-131 .cell}
 ``` {.python .cell-code code-fold="true"}
 def nav_items():
     """Returns navigation items for NavBar - no hx_* attrs needed, hx-boost handles it"""
@@ -2708,7 +2728,7 @@ def get_layout(content):
 :::
 
 
-::: {#cell-131 .cell}
+::: {#cell-132 .cell}
 ``` {.python .cell-code code-fold="true"}
 # Content functions for each page
 def home_content():
@@ -2771,7 +2791,7 @@ def cookies(req):
 :::
 
 
-::: {#cell-132 .cell}
+::: {#cell-133 .cell}
 ``` {.python .cell-code code-fold="true"}
 @rt('/test_layout')
 def test_layout():
@@ -2780,14 +2800,14 @@ def test_layout():
 :::
 
 
-::: {#cell-133 .cell}
+::: {#cell-134 .cell}
 ``` {.python .cell-code code-fold="true"}
 preview(get_layout(dashboard_content()))
 ```
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_WhaRm4d_SEiar12bBtZihA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_evA09skCR76x-iloBQlPDw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2812,7 +2832,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1148){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1214){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextPresets
 
@@ -2823,7 +2843,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1129){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1195){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextT
 
@@ -2834,7 +2854,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1210){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1276){target="_blank" style="float:right; font-size:smaller"}
 
 ### Sup
 
@@ -2845,7 +2865,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1205){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1271){target="_blank" style="float:right; font-size:smaller"}
 
 ### Sub
 
@@ -2856,7 +2876,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1200){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1266){target="_blank" style="float:right; font-size:smaller"}
 
 ### Abbr
 
@@ -2867,7 +2887,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1195){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1261){target="_blank" style="float:right; font-size:smaller"}
 
 ### Mark
 
@@ -2878,7 +2898,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1191){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1257){target="_blank" style="float:right; font-size:smaller"}
 
 ### Small
 
@@ -2889,7 +2909,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1187){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1253){target="_blank" style="float:right; font-size:smaller"}
 
 ### Strong
 
@@ -2900,7 +2920,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1182){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1248){target="_blank" style="float:right; font-size:smaller"}
 
 ### Em
 
@@ -2911,7 +2931,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1178){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1244){target="_blank" style="float:right; font-size:smaller"}
 
 ### Q
 
@@ -2922,7 +2942,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1173){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1239){target="_blank" style="float:right; font-size:smaller"}
 
 ### Blockquote
 
@@ -2933,7 +2953,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1166){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1232){target="_blank" style="float:right; font-size:smaller"}
 
 ### CodeBlock
 
@@ -2944,7 +2964,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1161){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1227){target="_blank" style="float:right; font-size:smaller"}
 
 ### CodeSpan
 
@@ -2964,7 +2984,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1217){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1283){target="_blank" style="float:right; font-size:smaller"}
 
 ### FAQItem
 
@@ -2983,7 +3003,7 @@ Args:
     answer_cls: Additional classes for answer styling
 
 
-::: {#cell-150 .cell}
+::: {#cell-151 .cell}
 ``` {.python .cell-code}
 def ex_faq_item():
     return Div(
@@ -2995,14 +3015,14 @@ def ex_faq_item():
 :::
 
 
-::: {#cell-151 .cell}
+::: {#cell-152 .cell}
 ``` {.python .cell-code}
 preview(ex_faq_item())
 ```
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_ApDx7XzzS86zGKDBuC0rLw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_p6nrygR3RDiMv2jfOJ-U2Q" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3024,7 +3044,7 @@ preview(ex_faq_item())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1235){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1301){target="_blank" style="float:right; font-size:smaller"}
 
 ### CookiesBanner
 
@@ -3040,7 +3060,7 @@ preview(ex_faq_item())
 *GDPR-compliant cookie consent banner with accept/decline actions.*
 
 
-::: {#cell-154 .cell}
+::: {#cell-155 .cell}
 ``` {.python .cell-code code-fold="true"}
 def get_CookiesBanner():
     return CookiesBanner()
@@ -3050,7 +3070,7 @@ preview(get_CookiesBanner())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_QrkQ7h-yRl2rVixaZmtFIQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_T0U-TG4aQuCatpfwXXPbWw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3066,7 +3086,7 @@ preview(get_CookiesBanner())
 
 > 💡 **Use case**: Quotations, testimonials, highlighted text excerpts.
 
-::: {#cell-156 .cell}
+::: {#cell-157 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_other():
     return Article(
@@ -3079,7 +3099,7 @@ preview(ex_other())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_7nykVQFUQkG2UjLZXfwoPA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Pa-MT47cRrWqSIKzbbhGYQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3095,7 +3115,7 @@ preview(ex_other())
 
 Preview of all [`TextT`](https://abhisheksreesaila.github.io/fh-matui/components.html#textt) enum values applied to text.
 
-::: {#cell-158 .cell}
+::: {#cell-159 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_textt():
     return Article(
@@ -3108,7 +3128,7 @@ preview(ex_textt())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_GbEwqWYRTeWLFt8gSU9xKg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_HtMkzkfPTxmxVRNDk5EKcg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3124,7 +3144,7 @@ preview(ex_textt())
 
 Preview of all [`TextPresets`](https://abhisheksreesaila.github.io/fh-matui/components.html#textpresets) enum values applied to text.
 
-::: {#cell-160 .cell}
+::: {#cell-161 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_textpresets():
     return Article(
@@ -3136,7 +3156,7 @@ preview(ex_textpresets())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_QhcNtvGWTN_p3fs9WqP1tQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_UiNfKyT7TJ24Evt88X_tKg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3152,7 +3172,7 @@ preview(ex_textpresets())
 
 Preview of heading hierarchy (H1-H6) with `Titled` component.
 
-::: {#cell-162 .cell}
+::: {#cell-163 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_headings():
     return Article(
@@ -3172,27 +3192,13 @@ preview(ex_headings())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Qo2wjPazSh_SBfb1MXZ9sA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_fky4E_tlSbOpiCYf5M2D9A" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
             if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
         }, false);
     }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
-```
-:::
-:::
-
-
-::: {#cell-163 .cell}
-``` {.python .cell-code}
-DivVStacked()
-```
-
-::: {.cell-output .cell-output-display .cell-output-markdown}
-```html
-<div class="responsive padding row vertical medium-space"></div>
-
 ```
 :::
 :::
@@ -3270,7 +3276,7 @@ preview(ex_semantic_elements())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_9dTb_bX4SUaDwyjvP1Ezqw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_DJqSBBeiQ4egdt_rElvxGw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -4396,35 +4402,8 @@ title: "\U0001F4F1 App Pages"
 | Category | Components | Purpose |
 |----------|------------|---------|
 | 🔐 Auth | [`LoginScreen`](https://abhisheksreesaila.github.io/fh-matui/app_pages.html#loginscreen) | Split-screen OAuth login with brand customization |
-| 📊 Dashboard | [`Layout`](https://abhisheksreesaila.github.io/fh-matui/components.html#layout) integration | Admin panel with sidebar navigation |
 
----
-
-## 🏗️ Architecture
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                     App Shell                            │
-├─────────────────────────────────────────────────────────┤
-│  LoginScreen ──→ Dashboard Layout ──→ Content Pages     │
-│       │                │                    │           │
-│   OAuth Providers  NavBar + Sidebar    HTMX Partials    │
-└─────────────────────────────────────────────────────────┘
-```
-
----
-
-## 📚 Quick Reference
-
-### Auth Flow
-```
-LoginScreen → OAuth Provider → Dashboard (with Layout wrapper)
-```
-
-### Layout Pattern
-```
-Layout(content, sidebar_links=[...], nav_bar=NavBar(...))
-```
+> **Note:** For dashboard layouts with sidebar navigation, use [`Layout`](https://abhisheksreesaila.github.io/fh-matui/components.html#layout) from `fh_matui.components`.
 
 ::: {#2505c949 .cell}
 ``` {.python .cell-code code-fold="true"}
@@ -4433,6 +4412,16 @@ from IPython.display import HTML, Markdown, Image
 import socket
 import time
 import subprocess
+import importlib
+
+# Force reload to pick up latest changes
+import fh_matui.foundations
+import fh_matui.core
+import fh_matui.components
+importlib.reload(fh_matui.foundations)
+importlib.reload(fh_matui.core)
+importlib.reload(fh_matui.components)
+from fh_matui.components import *
 
 def kill_process_on_port(port):
     """Kill any process using the specified port on Windows"""
@@ -4478,7 +4467,7 @@ if 'server' in globals():
         pass
 
 # Try to kill any process on preferred port, then find available port
-preferred_port = 9999
+preferred_port = 9998
 kill_process_on_port(preferred_port)
 port = find_available_port(preferred_port)
 
@@ -4501,7 +4490,7 @@ except Exception as e:
 document.body.addEventListener('htmx:configRequest', (event) => {
     if(event.detail.path.includes('://')) return;
     htmx.config.selfRequestsOnly=false;
-    event.detail.path = `${location.protocol}//${location.hostname}:9999${event.detail.path}`;
+    event.detail.path = `${location.protocol}//${location.hostname}:9998${event.detail.path}`;
 });
 </script>
 ```
@@ -4509,7 +4498,7 @@ document.body.addEventListener('htmx:configRequest', (event) => {
 
 ::: {.cell-output .cell-output-stdout}
 ```
-✓ Server running on port 9999
+✓ Server running on port 9998
 ```
 :::
 :::
@@ -4589,7 +4578,7 @@ preview(LoginScreen())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:9999/_FqxV-GRoT5OAz0JF39Ulcg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:9998/_ggezJ1q_RfGlk933MJd0Tg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -4606,107 +4595,6 @@ preview(LoginScreen())
 @app.get("/test-login")
 def login():
     return LoginScreen()
-```
-:::
-
-
-## 🏠 Dashboard Layout
-
-| Pattern | Purpose |
-|---------|---------|
-| [`Layout`](https://abhisheksreesaila.github.io/fh-matui/components.html#layout) + Routes | Full app shell with sidebar, navbar, and HTMX partials |
-
-**Features:** NavBar header, collapsible sidebar, route-based content loading
-
-::: {#2fa2b341 .cell}
-``` {.python .cell-code code-fold="true"}
-def nav_items():
-    """Returns navigation items for NavBar"""
-    return [
-        A("Home", href='/', hx_get='/', hx_target='#main-content', hx_push_url='true'),
-        A("Dashboard", href='/dashboard', hx_get='/dashboard', hx_target='#main-content', hx_push_url='true'),
-        A("Cookies", href='/cookies', hx_get='/cookies', hx_target='#main-content', hx_push_url='true'),
-        A(Icon('light_mode'), cls='circle', onclick='toggleMode()', title='Toggle dark/light mode', style='margin-left: 1rem;'),
-    ]
-
-
-def sidebar_items():
-    """Returns navigation items for sidebar"""
-    return [
-        A(Icon('home'), Span('Home'), href='/', hx_get='/', hx_target='#main-content', hx_push_url='true'),
-        A(Icon('dashboard'), Span('Dashboard'), href='/dashboard', hx_get='/dashboard', hx_target='#main-content', hx_push_url='true'),
-        A(Icon('cookie'), Span('Cookies'), href='/cookies', hx_get='/cookies', hx_target='#main-content', hx_push_url='true'),
-        A(Icon('logout'), Span('Logout'), href='/login', hx_get='/login', hx_target='#main-content', hx_push_url='true'),
-    ]
-
-# Login page - starting point
-@rt('/')
-@rt('/login')
-def get(req):
-    # Update providers to route to dashboard after "login"
-    return LoginScreen(
-        providers=[
-            {'label': 'Continue with Google', 'icon': 'https://authjs.dev/img/providers/google.svg', 'href': '/dashboard', 'cls': 'border responsive surface'},
-            {'label': 'Continue with GitHub', 'icon': 'https://authjs.dev/img/providers/github.svg', 'icon_cls': 'invert', 'href': '/dashboard', 'cls': 'fill responsive inverse-surface'}
-        ]
-    )
-
-# Dashboard - main admin panel after login
-@rt('/dashboard')
-def get(req):
-    content = Div(
-        H1("Dashboard"),
-        P("Welcome to the admin panel!", cls='grey-text'),
-        Grid(
-            Card(H6("Total Users"), H2("1,234"), cls='padding'),
-            Card(H6("Active Sessions"), H2("456"), cls='padding'),
-            Card(H6("Page Views"), H2("12.5K"), cls='padding'),
-            Card(H6("Conversion Rate"), H2("3.2%"), cls='padding'),
-            cols=4
-        ),
-        Div(style='margin-top: 2rem;')(
-            Card(
-                H5("Recent Activity"),
-                Ul(
-                    Li("User john@example.com logged in"),
-                    Li("New order #1234 created"),
-                    Li("Payment processed for order #1233"),
-                    Li("User jane@example.com signed up")
-                ),
-                cls='padding'
-            )
-        ),
-        cls='padding'
-    )
-    
-    if 'HX-Request' in req.headers:
-        return content
-    
-    return Layout(
-        Div(content, id='main-content'),
-        sidebar_links=sidebar_items(),
-        nav_bar=NavBar(*nav_items(), brand=H3('Admin Panel'), sticky=True)
-    )
-
-# Cookies banner demo
-@rt('/cookies')
-def get(req):
-    content = Div(
-        H2("Cookie Banner Examples"),
-        P("Scroll to the bottom to see the cookie banner"),
-        Div(style='height: 70vh;'),
-        CookiesBanner(),
-        cls='padding'
-    )
-    
-    if 'HX-Request' in req.headers:
-        return content
-    
-    return Layout(
-        Div(content, id='main-content'),
-        sidebar_links=sidebar_items(),
-        nav_bar=NavBar(*nav_items(), brand=H3('Admin Panel'), sticky=True)
-    )
 ```
 :::
 
@@ -5584,7 +5472,7 @@ We value your privacy...
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L859){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L862){target="_blank" style="float:right; font-size:smaller"}
 
 ### ContentPage
 

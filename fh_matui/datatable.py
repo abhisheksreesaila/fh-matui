@@ -19,6 +19,7 @@ from .components import *
 
 # %% ../nbs/05_datatable.ipynb 7
 #| code-fold: true
+#| code-fold: true
 from math import ceil
 from urllib.parse import urlencode
 from typing import Callable, Optional, Any
