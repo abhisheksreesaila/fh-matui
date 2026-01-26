@@ -4111,6 +4111,40 @@ This would be useful for:
 
 ---
 
+## 📊 DataTableResource
+
+A high-level resource that auto-registers all routes for a complete CRUD data table.
+
+> **💡 DB-Level Pagination (Recommended for Large Datasets)**
+>
+> By default, [`DataTableResource`](https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatableresource) fetches all rows via `get_all` and paginates in Python.
+> For large datasets, this is inefficient. Use the `get_count` parameter for efficient DB-level pagination:
+>
+> ```python
+> def get_products(req):
+>     page = int(req.query_params.get('page', 1))
+>     page_size = int(req.query_params.get('page_size', 10))
+>     offset = (page - 1) * page_size
+>     # SQL-level pagination - only fetch current page
+>     return list(tbl(limit=page_size, offset=offset))
+>
+> def get_product_count(req):
+>     # Efficient COUNT(*) query
+>     return db.execute("SELECT COUNT(*) FROM products").scalar()
+>
+> DataTableResource(
+>     get_all=get_products,        # Returns only page_size rows
+>     get_count=get_product_count,  # Returns total count efficiently
+>     ...
+> )
+> ```
+>
+> **Behavior:**
+> - **With `get_count`**: Uses your count function; assumes `get_all` returns pre-paginated data
+> - **Without `get_count`**: Falls back to Python-side filtering/pagination (requires `get_all` to return ALL rows)
+
+---
+
 [source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L481){target="_blank" style="float:right; font-size:smaller"}
 
 ### DataTableResource
@@ -4118,6 +4152,7 @@ This would be useful for:
 >      DataTableResource (app, base_route:str, columns:list[dict],
 >                         get_all:Callable[[Any],list],
 >                         get_by_id:Callable[[Any,Any],Any],
+>                         get_count:Callable[[Any],int]=None,
 >                         create:Callable[[Any,dict],Any]=None,
 >                         update:Callable[[Any,Any,dict],Any]=None,
 >                         delete:Callable[[Any,Any],bool]=None,
@@ -4141,19 +4176,49 @@ This would be useful for:
 - Async/sync hook support for external API integration
 - Auto-refresh table via HX-Trigger after mutations
 - Layout wrapper for full-page (non-HTMX) responses
+- Optional `get_count` for efficient DB-level pagination
 
 **Auto-registers 3 routes:**
 - `GET {base_route}` → DataTable list view
 - `GET {base_route}/action` → FormModal for create/edit/view/delete
 - `POST {base_route}/save` → Save handler with hooks
 
+**DB-Level Pagination (Recommended for large datasets):**
+
+For efficient pagination, provide both `get_all` (returning paginated rows) 
+and `get_count` (returning total count):
+
+```python
+def get_products(req):
+    page = int(req.query_params.get('page', 1))
+    page_size = int(req.query_params.get('page_size', 10))
+    offset = (page - 1) * page_size
+    search = req.query_params.get('search', '')
+    # SQL-level pagination
+    return list(tbl(limit=page_size, offset=offset))
+
+def get_product_count(req):
+    search = req.query_params.get('search', '')
+    return db.execute("SELECT COUNT(*) FROM products").scalar()
+
+DataTableResource(
+    get_all=get_products,      # Returns page_size rows
+    get_count=get_product_count,  # Returns total count
+    ...
+)
+```
+
+If `get_count` is not provided, the library filters and paginates in Python
+(requires `get_all` to return ALL rows - inefficient for large datasets).
+
 |    | **Type** | **Default** | **Details** |
 | -- | -------- | ----------- | ----------- |
 | app |  |  |  |
 | base_route | str |  |  |
 | columns | list |  |  |
-| get_all | Callable |  | (req) -> list |
+| get_all | Callable |  | (req) -> list (can be paginated) |
 | get_by_id | Callable |  | (req, id) -> record |
+| get_count | Callable | None | (req) -> total count for pagination |
 | create | Callable | None | (req, data) -> record |
 | update | Callable | None | (req, id, data) -> record |
 | delete | Callable | None | (req, id) -> bool |

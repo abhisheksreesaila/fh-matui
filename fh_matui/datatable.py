@@ -452,7 +452,7 @@ class CrudContext:
     record_id: Optional[Any] = None  # ID for update/delete (None for create)
     feedback_id: Optional[str] = None  # Target div ID for HTMX swap (for override handlers)
 
-# %% ../nbs/05_datatable.ipynb 13
+# %% ../nbs/05_datatable.ipynb 14
 from typing import Callable, Optional, Any, Union
 from dataclasses import asdict, is_dataclass
 from datetime import datetime
@@ -488,11 +488,40 @@ class DataTableResource:
     - Async/sync hook support for external API integration
     - Auto-refresh table via HX-Trigger after mutations
     - Layout wrapper for full-page (non-HTMX) responses
+    - Optional `get_count` for efficient DB-level pagination
     
     **Auto-registers 3 routes:**
     - `GET {base_route}` → DataTable list view
     - `GET {base_route}/action` → FormModal for create/edit/view/delete
     - `POST {base_route}/save` → Save handler with hooks
+    
+    **DB-Level Pagination (Recommended for large datasets):**
+    
+    For efficient pagination, provide both `get_all` (returning paginated rows) 
+    and `get_count` (returning total count):
+    
+    ```python
+    def get_products(req):
+        page = int(req.query_params.get('page', 1))
+        page_size = int(req.query_params.get('page_size', 10))
+        offset = (page - 1) * page_size
+        search = req.query_params.get('search', '')
+        # SQL-level pagination
+        return list(tbl(limit=page_size, offset=offset))
+    
+    def get_product_count(req):
+        search = req.query_params.get('search', '')
+        return db.execute("SELECT COUNT(*) FROM products").scalar()
+    
+    DataTableResource(
+        get_all=get_products,      # Returns page_size rows
+        get_count=get_product_count,  # Returns total count
+        ...
+    )
+    ```
+    
+    If `get_count` is not provided, the library filters and paginates in Python
+    (requires `get_all` to return ALL rows - inefficient for large datasets).
     """
     
     def __init__(
@@ -501,8 +530,9 @@ class DataTableResource:
         base_route: str,
         columns: list[dict],
         # Data callbacks - ALL receive request as first param
-        get_all: Callable[[Any], list],                    # (req) -> list
+        get_all: Callable[[Any], list],                    # (req) -> list (can be paginated)
         get_by_id: Callable[[Any, Any], Any],              # (req, id) -> record
+        get_count: Callable[[Any], int] = None,            # (req) -> total count for pagination
         create: Callable[[Any, dict], Any] = None,         # (req, data) -> record
         update: Callable[[Any, Any, dict], Any] = None,    # (req, id, data) -> record
         delete: Callable[[Any, Any], bool] = None,         # (req, id) -> bool
@@ -529,6 +559,7 @@ class DataTableResource:
         self.columns = columns
         self.get_all = get_all
         self.get_by_id = get_by_id
+        self.get_count = get_count
         self.create_fn = create
         self.update_fn = update
         self.delete_fn = delete
@@ -704,10 +735,22 @@ class DataTableResource:
         """Handle main table route."""
         state = table_state_from_request(req, page_sizes=self.page_sizes)
         search, page, page_size = state["search"], state["page"], state["page_size"]
-        
+        # Get data from user callback
         data = self._get_filtered_data(req)
-        filtered = self._filter_by_search(data, search)
-        page_data, total, page = self._paginate(filtered, page, page_size)
+        
+        # Determine total count:
+        # - If get_count provided: use it (efficient DB-level count)
+        # - Otherwise: filter and count in Python (assumes get_all returns all rows)
+        if self.get_count:
+            # User handles pagination in get_all, we just get count separately
+            total = self.get_count(req)
+            page_data = data  # Already paginated by user
+            total_pages = max(1, ceil(total / page_size)) if total > 0 else 1
+            page = min(max(1, page), total_pages)
+        else:
+            # Legacy behavior: filter and paginate in Python
+            filtered = self._filter_by_search(data, search)
+            page_data, total, page = self._paginate(filtered, page, page_size)
         
         table = DataTable(
             data=page_data,
@@ -828,7 +871,7 @@ class DataTableResource:
         # Record required for remaining actions
         if not record:
             return self._error_toast("Record not found.")
-        
+            return self._wrap_modal(modal)
         # Handle VIEW (default behavior)
         if action == "view":
             modal = FormModal(
