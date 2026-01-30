@@ -23,7 +23,7 @@ Base class for creating enums that work seamlessly with FastHTML components.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/foundations.py#L16){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/foundations.py#L17){target="_blank" style="float:right; font-size:smaller"}
 
 ### VEnum
 
@@ -60,7 +60,7 @@ Converts various input types into space-separated strings for FT component class
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/foundations.py#L24){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/foundations.py#L26){target="_blank" style="float:right; font-size:smaller"}
 
 ### stringify
 
@@ -91,7 +91,7 @@ Functions for normalizing and deduplicating CSS class tokens.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/foundations.py#L32){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/foundations.py#L35){target="_blank" style="float:right; font-size:smaller"}
 
 ### normalize_tokens
 
@@ -102,7 +102,7 @@ Functions for normalizing and deduplicating CSS class tokens.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/foundations.py#L51){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/foundations.py#L54){target="_blank" style="float:right; font-size:smaller"}
 
 ### dedupe_preserve_order
 
@@ -218,7 +218,7 @@ Fluent API for configuring app themes with Material Design colors.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/core.py#L98){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/core.py#L101){target="_blank" style="float:right; font-size:smaller"}
 
 ### _ThemeChain.headers
 
@@ -255,7 +255,7 @@ Chainable helper for building BeerCSS class strings with a fluent API.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/core.py#L218){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/core.py#L223){target="_blank" style="float:right; font-size:smaller"}
 
 ### BeerCssChain
 
@@ -395,7 +395,7 @@ preview(ex_buttons())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_zqgJ9AsuRCWGVkBjn9rF4w" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_HadBzHRwSp6FGoiatZYQ0Q" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -440,7 +440,7 @@ preview(ex_links())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_LLUzTdxZQUKJEN3kZ3Ebuw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_O0rQXCmRSw_EYrX_5a34uQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -505,6 +505,11 @@ Responsive grid system and flex layout helpers.
 
 *BeerCSS responsive grid with smart column defaults and mobile-first design.*
 
+MonsterUI-compatible API: `cols` parameter auto-derives responsive breakpoints:
+    cols=4 -> cols_sm=1, cols_md=2, cols_lg=4 (mobile stacks, tablet halves, desktop full)
+
+For explicit control, use cols_sm, cols_md, cols_lg directly.
+
 
 ---
 
@@ -562,7 +567,7 @@ preview(ex_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Rbd0ipkNQ6KfKDKGMdZkSQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_hw0_NEpcTOqPbzRp2e9fFw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -602,7 +607,7 @@ preview(ex_product_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_w05jigIAS_OuAM_MKdxG5A" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_neBQYbN-QwSp9DsB3gqvsQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -652,7 +657,7 @@ preview(ex_l_aligned_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Z8ZLsXvcSBWnXb611FxsrQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_YIWKqMUKQ6W_SfDLCvHDeg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -692,7 +697,7 @@ preview(ex_v_stacked_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_InRY_BD2SGOM9weQwUa5iw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_ARL2B90fRZywsi6O4pU1Bg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -720,7 +725,7 @@ preview(ex_h_stacked_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/__zrF01qBQmSWZchom4rS2g" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Y5rpd1-PR3yt2WfD79SA0Q" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -759,7 +764,7 @@ preview(ex_r_aligned_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_JwHppP2hSSurDeQk4Blr-Q" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_RGmhlXJYTbyVWL4ouoovhQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -797,7 +802,7 @@ preview(ex_centered_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_M0_W912TSVGhNtbHo3fe7w" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_udtIyBogQbmsO4sTR9o3qg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -838,7 +843,7 @@ preview(ex_fully_spaced_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_B5J7SIjsQva55t-IdiS79w" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_6YbQcJ9JTHKVj7lzS4G5vA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -887,7 +892,7 @@ preview(ex_icon())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_808rx6fqRf_0jpMp7A_HRg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_1A7AHTheTLCa6hkwTWbVFg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -941,7 +946,7 @@ preview(ex_navbar1())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_rXlwaj-XQlKjYGbGM4N0mw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_K-XAQU7XQ7SGE_oApQaKwg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1151,7 +1156,7 @@ preview(test_modal())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_RwbmiYpIQ7iTb0edjQ77Vw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_1QQSUD16RZmNKsA7QYquvg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1210,7 +1215,7 @@ preview(ex_input())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_MQDbUeddQfq3DallwHolpA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_CZbjrMBvRTSVTyMJeP1dJw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1268,7 +1273,7 @@ preview(ex_form_label())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/__H3JfpS_ROSGN9evmfrF2g" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_CkDNqa19RfS4SVs1BUDrZw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1314,7 +1319,7 @@ preview(ex_checkbox())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_JgF3mkG5QhCnX6ae4lHjiA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_e38DXQnKRa2NGb8rBa_z4A" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1358,7 +1363,7 @@ preview(ex_Radio())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_G_gGwsNqT2uN3KQ_w1jT3g" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_nZ8uVjweSducjJAUS-5lYw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1406,7 +1411,7 @@ preview(ex_switch())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_uQk8FmV6Rju48miFU6OJKg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_c5ptOKMUTYWr2mxzk-rMug" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1451,7 +1456,7 @@ preview(ex_TextArea())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_deeY5xLRSHauwEohxZZeNg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_g-6w0oxFQVyXhM7zYHMM9w" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1495,7 +1500,7 @@ preview(ex_range())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_wvvMWUN_T1q5S2l4JIDvTg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_dIjubBDQSwOTgEnuHY1suw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1511,9 +1516,34 @@ preview(ex_range())
 
 | Component | Purpose |
 |-----------|---------|
-| [`Select`](https://abhisheksreesaila.github.io/fh-matui/components.html#select) | Dropdown with placeholder and icon support |
+| [`Select`](https://abhisheksreesaila.github.io/fh-matui/components.html#select) | Dropdown with placeholder, icon support, and HTMX integration |
 
-> 💡 **Use case**: Picking from a list of predefined options (country, category, status).
+### HTMX Integration
+
+The Select component automatically dispatches an `itemselected` event when a menu item is clicked, enabling seamless HTMX integration:
+
+```python
+# Trigger HTMX request when selection changes
+Select("Option A", "Option B", 
+       name="category",
+       hx_get="/subcategories",
+       hx_trigger="itemselected",
+       hx_target="#subcategory-wrapper")
+```
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `*items` | `str|Li` | - | Menu items (strings or Li elements) |
+| `value` | `str` | `''` | Initial selected value |
+| `placeholder` | `str` | `'Select...'` | Placeholder text when empty |
+| `prefix_icon` | `str` | `None` | Optional icon before input |
+| `name` | `str` | `''` | Form field name (also used for hidden input) |
+| `id` | `str` | auto | Wrapper ID (auto-generated from name if not provided) |
+| `cls` | `str|tuple` | `()` | Additional CSS classes |
+
+> 💡 **Use case**: Picking from predefined options with Material Design styling and HTMX reactivity.
 
 ---
 
@@ -1522,9 +1552,12 @@ preview(ex_range())
 ### Select
 
 >      Select (*items, value='', placeholder='Select...', prefix_icon=None,
->              name='', cls=(), **kwargs)
+>              name='', id=None, cls=(), **kwargs)
 
-*BeerCSS menu-based select dropdown with rich styling.*
+*BeerCSS menu-based select dropdown with HTMX integration.*
+
+Dispatches 'itemselected' custom event when a menu item is clicked,
+enabling HTMX patterns like hx-trigger="itemselected".
 
 
 ::: {#cell-67 .cell}
@@ -1549,7 +1582,7 @@ preview(ex_select())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_psCEUDryTTCUMGOpTBKI0w" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_j3OmvxDjTQS3yM0gFsXc0A" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1561,9 +1594,138 @@ preview(ex_select())
 :::
 
 
+::: {#cell-68 .cell}
+``` {.python .cell-code code-fold="true"}
+# Cascading dropdown example with HTMX
+# Demonstrates Select's itemselected event for dynamic form updates
+
+categories = {
+    "Electronics": ["Phones", "Laptops", "Tablets", "Cameras"],
+    "Clothing": ["Shirts", "Pants", "Shoes", "Accessories"],
+    "Books": ["Fiction", "Non-Fiction", "Comics", "Textbooks"]
+}
+
+@app.get("/cascade-demo")
+def cascade_demo():
+    """Demo page with cascading dropdowns."""
+    return Article(
+        H5("Cascading Select Demo"),
+        P("Select a category to load subcategories via HTMX", cls="small-text grey-text"),
+        
+        # Parent select - triggers HTMX on selection
+        Select("Electronics", "Clothing", "Books",
+               name="category",
+               placeholder="Select category...",
+               hx_get="/cascade-subcategories",
+               hx_trigger="itemselected",
+               hx_target="#subcategory-wrapper",
+               hx_include="[name='category']"),
+        
+        P("Select a sub-category", cls="small-text grey-text"),
+        # Child select - gets swapped by HTMX response
+        Div(Select(placeholder="Select category first...", name="subcategory"), 
+            id="subcategory-wrapper"),
+        
+        # Show current selection
+        Div(id="selection-display", cls="padding"),
+        
+        cls="padding"
+    )
+
+@app.get("/cascade-subcategories")
+def cascade_subcategories(category: str = ''):
+    """Return subcategory Select based on parent selection."""
+    subs = categories.get(category, [])
+    if not subs:
+        return Select(placeholder="No subcategories available...", name="subcategory")
+    return Select(*subs, 
+                  name="subcategory", 
+                  placeholder="Select subcategory...",
+                  hx_get="/cascade-selection",
+                  hx_trigger="itemselected",
+                  hx_target="#selection-display",
+                  hx_include="[name='category'], [name='subcategory']")
+
+@app.get("/cascade-selection")
+def cascade_selection(category: str = '', subcategory: str = ''):
+    """Display current selection."""
+    return Div(
+        P(f"Selected: {category} → {subcategory}", cls="bold"),
+        cls="surface padding round"
+    )
+
+# Preview the cascading demo
+preview(cascade_demo())
+```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+<iframe src="http://localhost:2222/_Yvkv6edRTNm3qM4ohy9jWg" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+```
+:::
+:::
+
+
+### Cascading Dropdowns with HTMX
+
+The `itemselected` event enables cascading dropdowns using pure HTMX - no custom JavaScript required:
+
+```python
+# In your FastHTML app:
+
+# Sample hierarchical data
+categories = {
+    "Electronics": ["Phones", "Laptops", "Tablets"],
+    "Clothing": ["Shirts", "Pants", "Shoes"],
+    "Books": ["Fiction", "Non-Fiction", "Comics"]
+}
+
+@app.get("/")
+def home():
+    return Layout(
+        Form(
+            # Parent select - triggers HTMX on selection
+            Select("Electronics", "Clothing", "Books",
+                   name="category",
+                   placeholder="Select category...",
+                   hx_get="/subcategories",
+                   hx_trigger="itemselected",
+                   hx_target="#subcategory-wrapper",
+                   hx_include="[name='category']"),
+            
+            # Child select - swapped by HTMX
+            Div(Select(placeholder="Select subcategory first..."), 
+                id="subcategory-wrapper"),
+            
+            cls="padding"
+        ),
+        title="Cascading Example"
+    )
+
+@app.get("/subcategories")
+def get_subcategories(category: str):
+    """Return new Select with subcategories for chosen category."""
+    subs = categories.get(category, [])
+    return Select(*subs, 
+                  name="subcategory", 
+                  placeholder="Select subcategory...")
+```
+
+The pattern works because:
+1. Parent Select dispatches `itemselected` event when clicked
+2. HTMX listens for this event (`hx-trigger="itemselected"`)
+3. Server returns a new Select component with filtered options
+4. HTMX swaps it into the target container
+
 ### Fieldset
 
-::: {#cell-69 .cell}
+::: {#cell-71 .cell}
 ``` {.python .cell-code}
 def Fieldset(*c, cls=(), **kwargs):
     """Form fieldset container for grouping related inputs."""
@@ -1575,7 +1737,7 @@ def Fieldset(*c, cls=(), **kwargs):
 :::
 
 
-::: {#cell-70 .cell}
+::: {#cell-72 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_fs(): 
     return Article(
@@ -1591,7 +1753,7 @@ preview(ex_fs())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_pKzhb1Z3RIW5U3B1a_CxBg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Wuvzcqt9SaSSZKXp999ERA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1605,7 +1767,7 @@ preview(ex_fs())
 
 ### Legend
 
-::: {#cell-72 .cell}
+::: {#cell-74 .cell}
 ``` {.python .cell-code}
 def Legend(*c, cls=(), **kwargs):
     """Fieldset legend/caption element."""
@@ -1617,7 +1779,7 @@ def Legend(*c, cls=(), **kwargs):
 :::
 
 
-::: {#cell-73 .cell}
+::: {#cell-75 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_l():
     return Article(
@@ -1629,7 +1791,7 @@ preview(ex_l())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_sQWd9iJ9Tjqk0anZRh63HA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_VrvoDSK8QBKG-0ePwsA3_w" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1669,7 +1831,7 @@ Arranges children in columns on medium+ screens (full-width on small screens). U
 *Responsive grid layout for form fields that stacks on mobile.*
 
 
-::: {#cell-76 .cell}
+::: {#cell-78 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_form_grid():
     """Example: FormGrid with different column configurations."""
@@ -1729,7 +1891,7 @@ preview(ex_form_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_rRi5IpDyS9CzjKDzevAt8w" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_qBf1pb5GRK2cALblY6qKPQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1760,7 +1922,7 @@ preview(ex_form_grid())
 *Linear progress bar with value/max support.*
 
 
-::: {#cell-79 .cell}
+::: {#cell-81 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_progress():
     return Article(
@@ -1773,7 +1935,7 @@ preview(ex_progress())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_0tyJlYf6ShOD3X6iZDHbrw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_tzjTrKmUR-aO6TMErlKXdA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1804,7 +1966,7 @@ preview(ex_progress())
 *BeerCSS circular spinner for async operations.*
 
 
-::: {#cell-82 .cell}
+::: {#cell-84 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_progress():
     return Article(
@@ -1817,7 +1979,7 @@ preview(ex_progress())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_1HTx2x2LQdGY62_nWh2qxA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_rMzH-bzoQZ6eusqHcsMy0Q" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1937,7 +2099,7 @@ preview(ex_progress())
 *BeerCSS table with optional border/stripes classes.*
 
 
-::: {#cell-92 .cell}
+::: {#cell-94 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_tablelists():
     return Article(
@@ -1953,7 +2115,7 @@ preview(ex_tablelists())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_ekHmRqHpQDimia6LklxwkQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_673u45Q9TE_euOqewkg18Q" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1965,7 +2127,7 @@ preview(ex_tablelists())
 :::
 
 
-::: {#cell-93 .cell}
+::: {#cell-95 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_tabledicts():
     return Article(
@@ -1981,7 +2143,7 @@ preview(ex_tabledicts())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_yAO-pxnfSTuDxvi0obPLBA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_SbATFbrDSGCRUGDn14Ly9g" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2004,7 +2166,7 @@ preview(ex_tabledicts())
 *Toolbar container for table filters, search, and actions.*
 
 
-::: {#cell-95 .cell}
+::: {#cell-97 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_tablecontrols():
     return Article(
@@ -2018,7 +2180,7 @@ preview(ex_tablecontrols())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_n90u_YMSTyec7wV2C0_6ng" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_kj64Cw5QT4iOhk3sBbKGaA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2051,7 +2213,7 @@ preview(ex_tablecontrols())
 *HTMX-integrated pagination controls with first/prev/next/last buttons.*
 
 
-::: {#cell-98 .cell}
+::: {#cell-100 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_tablePagination():
     return Article(
@@ -2063,7 +2225,7 @@ preview(ex_tablePagination())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_uPIwEVS1Rg2lHDGmVP5dUA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_NAKahOCTSRiAf-iLtXb8bg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2095,7 +2257,7 @@ preview(ex_tablePagination())
 *BeerCSS card with optional header/footer sections.*
 
 
-::: {#cell-101 .cell}
+::: {#cell-103 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_card():
     return Article(
@@ -2113,7 +2275,7 @@ preview(ex_card())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_WZMm9YLsSV25qUhSY31FSA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_nsOcZ04xS9SHqCSbRjuzwQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2144,7 +2306,7 @@ preview(ex_card())
 *BeerCSS toolbar for action bars with elevation options.*
 
 
-::: {#cell-104 .cell}
+::: {#cell-106 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_toolbar():
     return Article(
@@ -2161,7 +2323,7 @@ preview(ex_toolbar())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_DpREVAI8TruzP-csj_Z5HQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_-M-0NkRlTDCMtVZp8yy5bg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2214,7 +2376,7 @@ preview(ex_toolbar())
 *BeerCSS snackbar/toast notification with position ('top' or 'bottom') and variant options.*
 
 
-::: {#cell-109 .cell}
+::: {#cell-111 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_toast():
     """Toast examples showing position and auto-hide duration."""
@@ -2237,7 +2399,7 @@ preview(ex_toast())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_q1MxI0g5QHSP1vqHPgfiYg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Qlqt7AGwT8qQI8J8XChRzw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2249,7 +2411,7 @@ preview(ex_toast())
 :::
 
 
-::: {#cell-110 .cell}
+::: {#cell-112 .cell}
 ``` {.python .cell-code code-fold="true"}
 @rt("/test-toast")
 def example_toast():
@@ -2431,7 +2593,7 @@ Integrates with HTMX for form submission.
 *Slide-out navigation drawer with header and close button.*
 
 
-::: {#cell-123 .cell}
+::: {#cell-125 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_navcontainer():
     return NavContainer(
@@ -2453,7 +2615,7 @@ preview(ex_navcontainer())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_ifDjqMlUQmeLaJnwHc3hsg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_fqC0sUNtTpiYThlajBNNXw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2471,9 +2633,21 @@ preview(ex_navcontainer())
 |-----------|---------|
 | [`NavSideBarHeader`](https://abhisheksreesaila.github.io/fh-matui/components.html#navsidebarheader) | Header section for sidebar |
 | [`NavSideBarContainer`](https://abhisheksreesaila.github.io/fh-matui/components.html#navsidebarcontainer) | Full sidebar with navigation (HTMX SPA enabled) |
-| [`Layout`](https://abhisheksreesaila.github.io/fh-matui/components.html#layout) | Complete page layout with sidebar and navbar |
+| [`BottomNav`](https://abhisheksreesaila.github.io/fh-matui/components.html#bottomnav) | Mobile bottom navigation bar |
+| [`Layout`](https://abhisheksreesaila.github.io/fh-matui/components.html#layout) | Complete page layout with sidebar, navbar, and mobile-responsive navigation |
 
 > 💡 **Use case**: App shells with persistent navigation, dashboard layouts.
+
+### 📱 Mobile Responsive Navigation
+
+The [`Layout`](https://abhisheksreesaila.github.io/fh-matui/components.html#layout) component automatically switches between desktop and mobile navigation:
+
+| Screen Size | Navigation Style |
+|-------------|-----------------|
+| Desktop (>992px) | Left sidebar ([`NavSideBarContainer`](https://abhisheksreesaila.github.io/fh-matui/components.html#navsidebarcontainer)) visible |
+| Mobile (≤992px) | Bottom nav ([`BottomNav`](https://abhisheksreesaila.github.io/fh-matui/components.html#bottomnav)) visible |
+
+Both navigations use the same `sidebar_links` and share HTMX SPA attributes for consistent behavior. The main container uses `horizontal-margin` for symmetric spacing.
 
 ### 🚀 SPA Navigation (What App Developers Need to Know)
 
@@ -2580,7 +2754,7 @@ Usage:
 *Sidebar header section for menu buttons and branding.*
 
 
-::: {#cell-128 .cell}
+::: {#cell-130 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_navsidebarcontainer():
          
@@ -2613,7 +2787,7 @@ preview(ex_navsidebarcontainer())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_fRtAXVpKR1GvXw22tMHNGQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_0-Mjz2hfQBujMl1fuuIWCw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2627,7 +2801,7 @@ preview(ex_navsidebarcontainer())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1131){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1151){target="_blank" style="float:right; font-size:smaller"}
 
 ### Layout
 
@@ -2636,7 +2810,7 @@ preview(ex_navsidebarcontainer())
 >              main_bg='surface', sidebar_id='app-sidebar', main_id='main-
 >              content', cls='', **kwargs)
 
-*App layout with HTMX SPA navigation.*
+*App layout with HTMX SPA navigation and responsive mobile support.*
 
 Args:
     main_id: ID for main content area (default 'main-content') - use as hx-target
@@ -2645,6 +2819,11 @@ HTMX SPA features:
     - hx-boost on sidebar automatically enhances all <a> links
     - hx-history-elt for back/forward button caching
     - Routes should check `req.headers` for HX-Request and return content only for HTMX requests
+
+Mobile Responsive:
+    - Desktop (>992px): Left sidebar visible, bottom nav hidden
+    - Mobile (≤992px): Bottom nav visible, sidebar hidden
+    - Both navigations share the same sidebar_links for consistent behavior
 
 Usage:
     @rt("/dashboard")
@@ -2655,6 +2834,8 @@ Usage:
 
 
 ---
+
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1131){target="_blank" style="float:right; font-size:smaller"}
 
 ### Page
 
@@ -2674,7 +2855,7 @@ Example:
     Page(content, position='right')  # Slide from right animation
 
 
-::: {#cell-131 .cell}
+::: {#cell-133 .cell}
 ``` {.python .cell-code code-fold="true"}
 def nav_items():
     """Returns navigation items for NavBar - no hx_* attrs needed, hx-boost handles it"""
@@ -2728,7 +2909,7 @@ def get_layout(content):
 :::
 
 
-::: {#cell-132 .cell}
+::: {#cell-134 .cell}
 ``` {.python .cell-code code-fold="true"}
 # Content functions for each page
 def home_content():
@@ -2747,7 +2928,7 @@ def dashboard_content():
             Card(H6("Active Sessions"), H2("456"), cls='padding'),
             Card(H6("Page Views"), H2("12.5K"), cls='padding'),
             Card(H6("Conversion Rate"), H2("3.2%"), cls='padding'),
-            cols=4
+            cols=4  # Now auto-derives: cols_sm=1, cols_md=2, cols_lg=4
         ),
         Card(
             H5("Recent Activity"),
@@ -2791,7 +2972,7 @@ def cookies(req):
 :::
 
 
-::: {#cell-133 .cell}
+::: {#cell-135 .cell}
 ``` {.python .cell-code code-fold="true"}
 @rt('/test_layout')
 def test_layout():
@@ -2800,14 +2981,14 @@ def test_layout():
 :::
 
 
-::: {#cell-134 .cell}
+::: {#cell-136 .cell}
 ``` {.python .cell-code code-fold="true"}
 preview(get_layout(dashboard_content()))
 ```
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_evA09skCR76x-iloBQlPDw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_C71quU-sR_eub-87bcuFXQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2832,7 +3013,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1214){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1237){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextPresets
 
@@ -2843,7 +3024,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1195){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1218){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextT
 
@@ -2854,7 +3035,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1276){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1299){target="_blank" style="float:right; font-size:smaller"}
 
 ### Sup
 
@@ -2865,7 +3046,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1271){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1294){target="_blank" style="float:right; font-size:smaller"}
 
 ### Sub
 
@@ -2876,7 +3057,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1266){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1289){target="_blank" style="float:right; font-size:smaller"}
 
 ### Abbr
 
@@ -2887,7 +3068,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1261){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1284){target="_blank" style="float:right; font-size:smaller"}
 
 ### Mark
 
@@ -2898,7 +3079,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1257){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1280){target="_blank" style="float:right; font-size:smaller"}
 
 ### Small
 
@@ -2909,7 +3090,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1253){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1276){target="_blank" style="float:right; font-size:smaller"}
 
 ### Strong
 
@@ -2920,7 +3101,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1248){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1271){target="_blank" style="float:right; font-size:smaller"}
 
 ### Em
 
@@ -2931,7 +3112,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1244){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1267){target="_blank" style="float:right; font-size:smaller"}
 
 ### Q
 
@@ -2942,7 +3123,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1239){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1262){target="_blank" style="float:right; font-size:smaller"}
 
 ### Blockquote
 
@@ -2953,7 +3134,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1232){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1255){target="_blank" style="float:right; font-size:smaller"}
 
 ### CodeBlock
 
@@ -2964,7 +3145,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1227){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1250){target="_blank" style="float:right; font-size:smaller"}
 
 ### CodeSpan
 
@@ -2984,7 +3165,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1283){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1306){target="_blank" style="float:right; font-size:smaller"}
 
 ### FAQItem
 
@@ -3003,7 +3184,7 @@ Args:
     answer_cls: Additional classes for answer styling
 
 
-::: {#cell-151 .cell}
+::: {#cell-153 .cell}
 ``` {.python .cell-code}
 def ex_faq_item():
     return Div(
@@ -3015,14 +3196,14 @@ def ex_faq_item():
 :::
 
 
-::: {#cell-152 .cell}
+::: {#cell-154 .cell}
 ``` {.python .cell-code}
 preview(ex_faq_item())
 ```
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_p6nrygR3RDiMv2jfOJ-U2Q" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_BDrAKby_SaSzv-0mdOD3Jw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3044,7 +3225,7 @@ preview(ex_faq_item())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1301){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1324){target="_blank" style="float:right; font-size:smaller"}
 
 ### CookiesBanner
 
@@ -3060,7 +3241,7 @@ preview(ex_faq_item())
 *GDPR-compliant cookie consent banner with accept/decline actions.*
 
 
-::: {#cell-155 .cell}
+::: {#cell-157 .cell}
 ``` {.python .cell-code code-fold="true"}
 def get_CookiesBanner():
     return CookiesBanner()
@@ -3070,7 +3251,7 @@ preview(get_CookiesBanner())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_T0U-TG4aQuCatpfwXXPbWw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_4nY1aI_dR0K9I74Zp-kqRQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3086,7 +3267,7 @@ preview(get_CookiesBanner())
 
 > 💡 **Use case**: Quotations, testimonials, highlighted text excerpts.
 
-::: {#cell-157 .cell}
+::: {#cell-159 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_other():
     return Article(
@@ -3099,7 +3280,7 @@ preview(ex_other())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Pa-MT47cRrWqSIKzbbhGYQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_tWvR7ipGRZu2GNgWWu97cA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3115,7 +3296,7 @@ preview(ex_other())
 
 Preview of all [`TextT`](https://abhisheksreesaila.github.io/fh-matui/components.html#textt) enum values applied to text.
 
-::: {#cell-159 .cell}
+::: {#cell-161 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_textt():
     return Article(
@@ -3128,7 +3309,7 @@ preview(ex_textt())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_HtMkzkfPTxmxVRNDk5EKcg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_f50JRb2RQeq9aH6OWswfdg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3144,7 +3325,7 @@ preview(ex_textt())
 
 Preview of all [`TextPresets`](https://abhisheksreesaila.github.io/fh-matui/components.html#textpresets) enum values applied to text.
 
-::: {#cell-161 .cell}
+::: {#cell-163 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_textpresets():
     return Article(
@@ -3156,7 +3337,7 @@ preview(ex_textpresets())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_UiNfKyT7TJ24Evt88X_tKg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Xpc03xe5S5ycasnuiDk4qg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3172,7 +3353,7 @@ preview(ex_textpresets())
 
 Preview of heading hierarchy (H1-H6) with `Titled` component.
 
-::: {#cell-163 .cell}
+::: {#cell-165 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_headings():
     return Article(
@@ -3192,7 +3373,7 @@ preview(ex_headings())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_fky4E_tlSbOpiCYf5M2D9A" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_ftTKd633QlSyDjFmWKFMwg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3204,7 +3385,7 @@ preview(ex_headings())
 :::
 
 
-::: {#cell-164 .cell}
+::: {#cell-166 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_semantic_elements():
     return Article(
@@ -3276,7 +3457,7 @@ preview(ex_semantic_elements())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_DJqSBBeiQ4egdt_rElvxGw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_REFvzuk_TA2uGbdWF-CxPg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3516,7 +3697,7 @@ def my_table(req):
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L193){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L194){target="_blank" style="float:right; font-size:smaller"}
 
 ### DataTable
 
@@ -3527,14 +3708,42 @@ def my_table(req):
 >                 container_id:str=None, page_sizes:list=None,
 >                 search_placeholder:str='Search...', create_label:str='New
 >                 Record', empty_message:str='No records match the current
->                 filters.')
+>                 filters.', table_style:str='border', space:str='small-space',
+>                 align:str=None)
 
 *Generic data table with server-side pagination, search, and row actions.*
+
+Table Styling (BeerCSS):
+    table_style: Table visual style - 'border', 'stripes', 'min', 'fixed' or combine like 'border stripes'
+    space: Row spacing - 'no-space', 'small-space', 'medium-space', 'large-space'  
+    align: Text alignment - 'left-align', 'right-align', 'center-align' (None for default)
+
+|    | **Type** | **Default** | **Details** |
+| -- | -------- | ----------- | ----------- |
+| data | list |  |  |
+| total | int |  |  |
+| page | int | 1 |  |
+| page_size | int | 10 |  |
+| search | str |  |  |
+| columns | list | None |  |
+| crud_ops | dict | None |  |
+| crud_enabled | dict | None |  |
+| base_route | str |  |  |
+| row_id_field | str | id |  |
+| title | str | Records |  |
+| container_id | str | None |  |
+| page_sizes | list | None |  |
+| search_placeholder | str | Search... |  |
+| create_label | str | New Record |  |
+| empty_message | str | No records match the current filters. |  |
+| table_style | str | border | border, stripes, min, fixed (can combine: 'border stripes') |
+| space | str | small-space | no-space, small-space, medium-space, large-space |
+| align | str | None | left-align, right-align, center-align (None = default left) |
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L77){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L78){target="_blank" style="float:right; font-size:smaller"}
 
 ### table_state_from_request
 
@@ -3614,7 +3823,7 @@ async def on_create(ctx: CrudContext) -> dict:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L369){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L370){target="_blank" style="float:right; font-size:smaller"}
 
 ### CrudContext
 
@@ -4151,7 +4360,7 @@ A high-level resource that auto-registers all routes for a complete CRUD data ta
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L481){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L482){target="_blank" style="float:right; font-size:smaller"}
 
 ### DataTableResource
 
@@ -4368,7 +4577,7 @@ preview(ex_products())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:5555/_5wAUBZmsRqyp3MAph09pAQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:5555/_D5F37x7sTrqhg1urm9bKpA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe

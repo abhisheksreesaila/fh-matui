@@ -163,28 +163,20 @@ def _snap_to_valid_cols(n: int) -> int:
     return 12
 
 
-def _wrap_grid_children(cells, cols=None, cols_sm=None, cols_md=None, cols_lg=None):
+def _wrap_grid_children(cells, cols_sm=None, cols_md=None, cols_lg=None):
     """Wrap grid children with span classes based on column counts."""
     # If no column counts specified, return cells as-is
-    if not any([cols, cols_sm, cols_md, cols_lg]):
+    if not any([cols_sm, cols_md, cols_lg]):
         return cells
     
     # Build span string from column counts
     spans = []
     if cols_sm:
         spans.append(f's{12 // cols_sm}')
-    elif cols:
-        spans.append(f's{12 // cols}')
-    
     if cols_md:
         spans.append(f'm{12 // cols_md}')
-    elif cols:
-        spans.append(f'm{12 // cols}')
-    
     if cols_lg:
         spans.append(f'l{12 // cols_lg}')
-    elif cols:
-        spans.append(f'l{12 // cols}')
     
     span_str = ' '.join(spans) if spans else 's12'
     
@@ -196,11 +188,21 @@ def Grid(*cells, space=SpaceT.medium_space,
          cols_min: int = 1, cols_max: int = 4,
          cols: int = None, cols_sm: int = None, cols_md: int = None, cols_lg: int = None, 
          responsive: bool = True, padding: bool = True, cls: str = '', **kwargs):
-    """BeerCSS responsive grid with smart column defaults and mobile-first design."""
+    """BeerCSS responsive grid with smart column defaults and mobile-first design.
+    
+    MonsterUI-compatible API: `cols` parameter auto-derives responsive breakpoints:
+        cols=4 -> cols_sm=1, cols_md=2, cols_lg=4 (mobile stacks, tablet halves, desktop full)
+    
+    For explicit control, use cols_sm, cols_md, cols_lg directly.
+    """
     # Smart defaults based on content count (MonsterUI pattern)
     if cols:
-        # Fixed cols for all breakpoints
-        cols_sm = cols_md = cols_lg = _snap_to_valid_cols(cols)
+        # Auto-derive responsive breakpoints from cols (mobile-friendly by default)
+        # cols=4 -> stack on mobile (1), half on tablet (2), full on desktop (4)
+        snapped = _snap_to_valid_cols(cols)
+        cols_lg = cols_lg or snapped
+        cols_md = cols_md or _snap_to_valid_cols(max(1, snapped // 2))
+        cols_sm = cols_sm or 1  # Always stack on mobile for readability
     elif not any([cols_sm, cols_md, cols_lg]):
         # Auto-calculate responsive columns based on item count
         n = len(cells)
@@ -214,18 +216,20 @@ def Grid(*cells, space=SpaceT.medium_space,
         if cols_md: cols_md = _snap_to_valid_cols(cols_md)
         if cols_lg: cols_lg = _snap_to_valid_cols(cols_lg)
     
-    wrapped_cells = _wrap_grid_children(cells, cols, cols_sm, cols_md, cols_lg)
+    wrapped_cells = _wrap_grid_children(cells, cols_sm, cols_md, cols_lg)
     
     cls_tokens = normalize_tokens(cls)
     grid_cls = ['grid']
-    if responsive and 'responsive' not in cls_tokens:
-        grid_cls.append('responsive')
+    
     if padding and 'padding' not in cls_tokens and 'no-padding' not in cls_tokens:
         grid_cls.append('padding')
+    
     if space and not _has_space_token(cls_tokens):
         grid_cls.extend(normalize_tokens(space))
+    
     grid_cls.extend(cls_tokens)
     grid_cls = [t for t in grid_cls if t]
+    
     return Div(*wrapped_cells, cls=stringify(dedupe_preserve_order(grid_cls)), **kwargs)
 
 # %% ../nbs/02_components.ipynb 16
@@ -589,30 +593,105 @@ def Range(*c, min=None, max=None, step=None, cls=(), **kwargs):
 
 # %% ../nbs/02_components.ipynb 59
 #| code-fold: true
-def Select(*items, value='', placeholder='Select...', prefix_icon=None, name='', cls=(), **kwargs):
-    """BeerCSS menu-based select dropdown with rich styling."""
+# One-time script for Select component HTMX integration
+# Handles menu item clicks, syncs hidden input, dispatches 'itemselected' event
+# Fixed: Better selector, data-value support, menu closing, dual event dispatch
+_SELECT_SCRIPT = Script("""
+(function() {
+    if (window._fhMatuiSelectInit) return;
+    window._fhMatuiSelectInit = true;
+    
+    document.addEventListener('click', function(e) {
+        // Find clicked li inside a menu that's inside a field wrapper
+        const li = e.target.closest('li');
+        if (!li) return;
+        
+        // Skip transparent items (headers/labels)
+        if (li.classList.contains('transparent')) return;
+        
+        // Find the menu and field wrapper
+        const menu = li.closest('menu');
+        if (!menu) return;
+        
+        const wrapper = menu.closest('.field');
+        if (!wrapper) return;
+        
+        // Get value: prefer data-value attribute, fallback to text content
+        const value = li.dataset.value || li.textContent.trim();
+        const displayText = li.textContent.trim();
+        
+        // Update display input (readonly visible input)
+        const displayInput = wrapper.querySelector('input:not([type="hidden"])');
+        if (displayInput) displayInput.value = displayText;
+        
+        // Update hidden input (form submission value)
+        const hiddenInput = wrapper.querySelector('input[type="hidden"]');
+        if (hiddenInput) hiddenInput.value = value;
+        
+        // Close the menu using BeerCSS ui() function
+        if (typeof ui === 'function') {
+            ui(menu);
+        }
+        
+        // Dispatch custom event for HTMX integration (on wrapper for hx-trigger)
+        wrapper.dispatchEvent(new CustomEvent('itemselected', {
+            detail: { value: value, displayText: displayText, li: li },
+            bubbles: true
+        }));
+        
+        // Also dispatch change event for standard form handling
+        if (hiddenInput) {
+            hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+    });
+})();
+""", id="fh-matui-select-init")
+
+def Select(*items, value='', placeholder='Select...', prefix_icon=None, name='', id=None, cls=(), **kwargs):
+    """BeerCSS menu-based select dropdown with HTMX integration.
+    
+    Dispatches 'itemselected' custom event when a menu item is clicked,
+    enabling HTMX patterns like hx-trigger="itemselected".
+    """
     menu_items = []
     for item in items:
         if isinstance(item, str): menu_items.append(Li(item))
         else: menu_items.append(item)
     
+    # Auto-generate ID from name if not provided
+    wrapper_id = id or (f"select-{name}" if name else None)
+    
     children = []
     if prefix_icon: children.append(I(prefix_icon))
+    
+    # Display input (readonly, shows selected value)
     input_attrs = {'value': value, 'readonly': True, 'placeholder': placeholder if placeholder else ' '}
-    if name: input_attrs['name'] = name
-    input_attrs.update(kwargs)
     children.append(Input(**input_attrs))
+    
+    # Hidden input for form submission (carries the actual value)
+    if name:
+        children.append(Input(type='hidden', name=name, value=value))
+    
     children.append(I('arrow_drop_down'))
     children.append(Menu(*menu_items))
+    
+    # Include the one-time init script
+    children.append(_SELECT_SCRIPT)
     
     field_cls = ['field', 'fill', 'round']
     if prefix_icon: field_cls.append('prefix')
     field_cls.append('suffix')
     if cls: field_cls.extend(normalize_tokens(cls))
     cls_str = stringify(field_cls)
-    return Div(*children, cls=cls_str)
+    
+    wrapper_attrs = {'cls': cls_str}
+    if wrapper_id:
+        wrapper_attrs['id'] = wrapper_id
+    wrapper_attrs.update(kwargs)
+    
+    return Div(*children, **wrapper_attrs)
 
-# %% ../nbs/02_components.ipynb 68
+# %% ../nbs/02_components.ipynb 70
 #| code-fold: true
 def FormGrid(*c, cols: int = 1):
     """Responsive grid layout for form fields that stacks on mobile."""
@@ -621,7 +700,7 @@ def FormGrid(*c, cols: int = 1):
     wrapped = [Div(child, cls=col_cls) for child in c]
     return Div(*wrapped, cls="grid")
 
-# %% ../nbs/02_components.ipynb 71
+# %% ../nbs/02_components.ipynb 73
 #| code-fold: true
 def Progress(*c, value='', max='100', cls=(), **kwargs):
     """Linear progress bar with value/max support."""
@@ -633,7 +712,7 @@ def Progress(*c, value='', max='100', cls=(), **kwargs):
     if cls_str: return fc.Progress(*c, cls=cls_str, **progress_attrs)
     return fc.Progress(*c, **progress_attrs)
 
-# %% ../nbs/02_components.ipynb 74
+# %% ../nbs/02_components.ipynb 76
 #| code-fold: true
 def LoadingIndicator(size='medium', cls='', **kwargs):
     """BeerCSS circular spinner for async operations."""
@@ -641,7 +720,7 @@ def LoadingIndicator(size='medium', cls='', **kwargs):
     progress_cls = f"circle {size_cls} {cls}".strip()
     return fc.Progress(cls=progress_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 77
+# %% ../nbs/02_components.ipynb 79
 #| code-fold: true
 def Table(*c, cls = 'border', **kwargs):
     """BeerCSS table with optional border/stripes classes."""
@@ -709,14 +788,14 @@ def TableFromDicts(header_data, body_data, footer_data = None, header_cell_rende
         Tfoot(Tr(*[footer_cell_render(k, footer_data.get(k, '')) for k in header_data])) if footer_data else None,
         cls=cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 80
+# %% ../nbs/02_components.ipynb 82
 #| code-fold: true
 def TableControls(*controls, cls='', **kwargs):
     """Toolbar container for table filters, search, and actions."""
     controls_cls = f"padding middle-align space {cls}".strip()
     return Div(*controls, cls=controls_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 83
+# %% ../nbs/02_components.ipynb 85
 #| code-fold: true
 def Pagination(current_page: int, total_pages: int, hx_get: str, hx_target: str = '#table-container',
                show_first_last: bool = True, cls='', **kwargs):
@@ -751,7 +830,7 @@ def Pagination(current_page: int, total_pages: int, hx_get: str, hx_target: str 
     nav_cls = f"center-align middle-align {cls}".strip()
     return Nav(*buttons, cls=nav_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 86
+# %% ../nbs/02_components.ipynb 88
 #| code-fold: true
 def Card(*c, header = None, footer = None, body_cls = 'padding', header_cls = (), footer_cls = (), cls = (), **kwargs):
     """BeerCSS card with optional header/footer sections."""
@@ -765,7 +844,7 @@ def Card(*c, header = None, footer = None, body_cls = 'padding', header_cls = ()
     if footer is not None: sections.append(Nav(footer, cls=footer_cls) if footer_cls else Nav(footer))
     return Article(*sections, cls=cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 89
+# %% ../nbs/02_components.ipynb 91
 #| code-fold: true
 def Toolbar(*items, cls='', elevate='large', fill=True, **kwargs):
     """BeerCSS toolbar for action bars with elevation options."""
@@ -775,7 +854,7 @@ def Toolbar(*items, cls='', elevate='large', fill=True, **kwargs):
     if cls: classes.append(cls)
     return Nav(*items, cls=' '.join(classes), **kwargs)
 
-# %% ../nbs/02_components.ipynb 93
+# %% ../nbs/02_components.ipynb 95
 #| code-fold: true
 def Toast(*c, cls='', position='top', variant='', action=None, active=False, dur=None, **kwargs):
     """BeerCSS snackbar/toast notification with position ('top' or 'bottom') and variant options."""
@@ -819,7 +898,7 @@ def Snackbar(*c, **kwargs):
     """Alias for Toast component."""
     return Toast(*c, **kwargs)
 
-# %% ../nbs/02_components.ipynb 96
+# %% ../nbs/02_components.ipynb 98
 #| code-fold: true
 class ContainerT(VEnum):
     """Container size options (BeerCSS). Most alias to 'responsive'; use 'expand' for full-width."""
@@ -830,7 +909,7 @@ class ContainerT(VEnum):
     xl = 'responsive'
     expand = 'responsive max'
 
-# %% ../nbs/02_components.ipynb 98
+# %% ../nbs/02_components.ipynb 100
 #| code-fold: true
 def _get_form_config(col: dict) -> dict:
     """Extract form config from column, with sensible defaults."""
@@ -906,7 +985,7 @@ def FormField(
             **attrs
         )
 
-# %% ../nbs/02_components.ipynb 100
+# %% ../nbs/02_components.ipynb 102
 #| code-fold: true
 from typing import Callable, Any
 
@@ -1025,7 +1104,7 @@ def FormModal(
         cls="large-width"
     )
 
-# %% ../nbs/02_components.ipynb 102
+# %% ../nbs/02_components.ipynb 104
 #| code-fold: true
 def NavContainer(*li, title=None, brand=None, position='left', close_button=True, cls='active', id=None, **kwargs):
     """Slide-out navigation drawer with header and close button."""
@@ -1082,7 +1161,7 @@ def BottomNav(*c, cls='bottom', size='s', **kwargs):
     final_cls = f"{cls} {size_cls}".strip()
     return Nav(*c, cls=final_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 105
+# %% ../nbs/02_components.ipynb 107
 #| code-fold: true
 def NavSideBarHeader(*c, cls='', **kwargs):
     """Sidebar header section for menu buttons and branding."""
@@ -1126,7 +1205,7 @@ def NavSideBarContainer(*children, position='left', size='m', cls='', active=Fal
     
     return Nav(*children, cls=nav_cls, **kwargs)
 
-# %% ../nbs/02_components.ipynb 107
+# %% ../nbs/02_components.ipynb 109
 #| code-fold: true
 def Page(*c, active=True, position=None, cls='', **kwargs):
     """BeerCSS animated page container.
@@ -1150,7 +1229,7 @@ def Page(*c, active=True, position=None, cls='', **kwargs):
 
 def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_size=ContainerT.expand,
            main_bg='surface', sidebar_id='app-sidebar', main_id='main-content', cls='', **kwargs):
-    """App layout with HTMX SPA navigation.
+    """App layout with HTMX SPA navigation and responsive mobile support.
     
     Args:
         main_id: ID for main content area (default 'main-content') - use as hx-target
@@ -1159,6 +1238,11 @@ def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_s
         - hx-boost on sidebar automatically enhances all <a> links
         - hx-history-elt for back/forward button caching
         - Routes should check `req.headers` for HX-Request and return content only for HTMX requests
+        
+    Mobile Responsive:
+        - Desktop (>992px): Left sidebar visible, bottom nav hidden
+        - Mobile (≤992px): Bottom nav visible, sidebar hidden
+        - Both navigations share the same sidebar_links for consistent behavior
         
     Usage:
         @rt("/dashboard")
@@ -1193,9 +1277,24 @@ def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_s
         if is_listy(sidebar): sidebar_children.extend(sidebar)
         else: sidebar_children.append(sidebar)
     
-    nav_rail = NavSideBarContainer(*sidebar_children, position='left', size='l', id=sidebar_id)
+    nav_rail = NavSideBarContainer(*sidebar_children, position='left', size='l', id=sidebar_id, cls='desktop-nav')
     
-    layout_children = []
+    # Mobile bottom navigation with same links
+    bottom_nav_children = sidebar_links if sidebar_links else (list(sidebar) if is_listy(sidebar) else [sidebar] if sidebar else [])
+    nav_bottom = BottomNav(*bottom_nav_children, cls='bottom mobile-nav', 
+                           hx_boost='true', hx_target=f'#{main_id}', hx_push_url='true')
+    
+    # Responsive CSS for desktop/mobile navigation switching
+    # Only hide elements when needed - don't override Beer CSS flex layout on desktop
+    responsive_nav_css = Style("""
+        .mobile-nav { display: none !important; }
+        @media (max-width: 992px) {
+            .mobile-nav { display: flex !important; }
+            .desktop-nav { display: none !important; }
+        }
+    """)
+    
+    layout_children = [responsive_nav_css]
     
     if nav_bar:
         if hasattr(nav_bar, 'attrs') and 'cls' in nav_bar.attrs:
@@ -1203,9 +1302,10 @@ def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_s
         layout_children.append(nav_bar)
     
     layout_children.append(nav_rail)
+    layout_children.append(nav_bottom)
     
     if content_wrapper:
-        container_cls = stringify((container_size, 'surface-container', 'round', 'padding', 'bottom-margin'))
+        container_cls = stringify((container_size, 'surface-container', 'round', 'padding', 'bottom-margin', 'horizontal-margin'))
         page_content = Page(content_wrapper, id=main_id)
         layout_children.append(Main(page_content, cls=container_cls))
     
@@ -1213,7 +1313,7 @@ def Layout(*content, sidebar=None, sidebar_links=None, nav_bar=None, container_s
     return Div(*layout_children, cls=final_cls, **kwargs)
 
 
-# %% ../nbs/02_components.ipynb 113
+# %% ../nbs/02_components.ipynb 115
 #| code-fold: true
 class TextT(VEnum):
     """Text styles using BeerCSS typography classes."""
@@ -1245,7 +1345,7 @@ class TextPresets(VEnum):
     primary_link = 'link primary-text'
     muted_link = 'link secondary-text'
 
-# %% ../nbs/02_components.ipynb 114
+# %% ../nbs/02_components.ipynb 116
 #| code-fold: true
 def CodeSpan(*c, cls=(), **kwargs):
     """Inline code snippet."""
@@ -1301,7 +1401,7 @@ def Sup(*c, cls=(), **kwargs):
     cls_str = stringify(cls) if cls else None
     return fc.Sup(*c, cls=cls_str, **kwargs) if cls_str else fc.Sup(*c, **kwargs)
 
-# %% ../nbs/02_components.ipynb 116
+# %% ../nbs/02_components.ipynb 118
 #| code-fold: true
 def FAQItem(question: str, answer: str, question_cls: str = '', answer_cls: str = ''):
     """Collapsible FAQ item using details/summary.
@@ -1319,7 +1419,7 @@ def FAQItem(question: str, answer: str, question_cls: str = '', answer_cls: str 
         Summary(Article(Nav(Div(question, cls=f"max bold {question_cls}".strip()), I("expand_more")), cls="round surface-variant border no-elevate")),
         Article(P(answer, cls=f"secondary-text {answer_cls}".strip()), cls="round border padding"))
 
-# %% ../nbs/02_components.ipynb 120
+# %% ../nbs/02_components.ipynb 122
 #| code-fold: true
 def CookiesBanner(message='We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.',
                   accept_text='Accept', decline_text='Decline', settings_text=None, policy_link='/cookies', policy_text='Learn more',
