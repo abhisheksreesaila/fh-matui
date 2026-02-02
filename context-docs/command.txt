@@ -1,0 +1,5 @@
+ python -c "from nbdev.quarto import prepare; prepare()"
+
+ python -c "from nbdev.quarto import nbdev_docs; nbdev_docs()"
+
+ C:\Python313\python.exe -m pip install pre-commit

@@ -27,8 +27,14 @@ Base class for creating enums that work seamlessly with FastHTML components.
 
 ### VEnum
 
->      VEnum (new_class_name, names, module=None, qualname=None, type=None,
->             start=1, boundary=None)
+```python
+
+def VEnum(
+    args:VAR_POSITIONAL, kwds:VAR_KEYWORD
+):
+
+
+```
 
 *Enum with string conversion and concatenation support*
 
@@ -64,7 +70,14 @@ Converts various input types into space-separated strings for FT component class
 
 ### stringify
 
->      stringify (o)
+```python
+
+def stringify(
+    o
+):
+
+
+```
 
 *Converts input types into strings that can be passed to FT components*
 
@@ -95,7 +108,14 @@ Functions for normalizing and deduplicating CSS class tokens.
 
 ### normalize_tokens
 
->      normalize_tokens (cls)
+```python
+
+def normalize_tokens(
+    cls
+):
+
+
+```
 
 *Normalize class input to list of string tokens*
 
@@ -106,7 +126,14 @@ Functions for normalizing and deduplicating CSS class tokens.
 
 ### dedupe_preserve_order
 
->      dedupe_preserve_order (tokens)
+```python
+
+def dedupe_preserve_order(
+    tokens
+):
+
+
+```
 
 *Remove duplicates while preserving order*
 
@@ -222,7 +249,14 @@ Fluent API for configuring app themes with Material Design colors.
 
 ### _ThemeChain.headers
 
->      _ThemeChain.headers (title='App', mode='auto')
+```python
+
+def headers(
+    title:str='App', mode:str='auto'
+):
+
+
+```
 
 *Generate FastHTML headers with BeerCSS theming*
 
@@ -259,7 +293,14 @@ Chainable helper for building BeerCSS class strings with a fluent API.
 
 ### BeerCssChain
 
->      BeerCssChain (tokens=None)
+```python
+
+def BeerCssChain(
+    tokens:NoneType=None
+):
+
+
+```
 
 *Base class for chaining Beer CSS helper classes together*
 
@@ -367,14 +408,21 @@ Button variants and navigation toggle helpers.
 
 ### NavToggleButton
 
->      NavToggleButton (target, icon='menu', **kwargs)
+```python
+
+def NavToggleButton(
+    target, icon:str='menu', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Create a navigation toggle button that toggles the 'max' class on the target element.*
 
 Also toggles icon between 'menu' and 'menu_open' based on nav state.
 
 
-::: {#cell-5 .cell}
+::: {#7101c2cf .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_buttons(): 
 
@@ -395,7 +443,7 @@ preview(ex_buttons())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_HadBzHRwSp6FGoiatZYQ0Q" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_oOdtUWKJQW6_yq4jNON4Uw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -417,7 +465,7 @@ Chainable anchor/link styles.
 
 > 💡 **Use case**: `A("Learn More", href="/docs", cls=AT.button.primary)` creates a button-styled link.
 
-::: {#cell-7 .cell}
+::: {#735f1acc .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_links(): 
     return Article(
@@ -440,7 +488,7 @@ preview(ex_links())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_O0rQXCmRSw_EYrX_5a34uQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_ugU-7pyYQf_VvCH1IKVOkA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -494,14 +542,20 @@ Responsive grid system and flex layout helpers.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L195){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L187){target="_blank" style="float:right; font-size:smaller"}
 
 ### Grid
 
->      Grid (*cells, space=<SpaceT.medium_space: 'medium-space'>,
->            cols_min:int=1, cols_max:int=4, cols:int=None, cols_sm:int=None,
->            cols_md:int=None, cols_lg:int=None, responsive:bool=True,
->            padding:bool=True, cls:str='', **kwargs)
+```python
+
+def Grid(
+    cells:VAR_POSITIONAL, space:SpaceT=<SpaceT.medium_space: 'medium-space'>, cols_min:int=1, cols_max:int=4,
+    cols:int=None, cols_sm:int=None, cols_md:int=None, cols_lg:int=None, responsive:bool=True, padding:bool=True,
+    cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS responsive grid with smart column defaults and mobile-first design.*
 
@@ -517,7 +571,14 @@ For explicit control, use cols_sm, cols_md, cols_lg directly.
 
 ### GridCell
 
->      GridCell (*c, span=(), cls='', **kwargs)
+```python
+
+def GridCell(
+    c:VAR_POSITIONAL, span:tuple=(), cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Wrap content as a BeerCSS grid cell with responsive span control.*
 
@@ -528,7 +589,14 @@ For explicit control, use cols_sm, cols_md, cols_lg directly.
 
 ### GridSpanT
 
->      GridSpanT (*values)
+```python
+
+def GridSpanT(
+    args:VAR_POSITIONAL, kwds:VAR_KEYWORD
+):
+
+
+```
 
 *Grid span classes for responsive layouts (BeerCSS)*
 
@@ -539,12 +607,19 @@ For explicit control, use cols_sm, cols_md, cols_lg directly.
 
 ### SpaceT
 
->      SpaceT (*values)
+```python
+
+def SpaceT(
+    args:VAR_POSITIONAL, kwds:VAR_KEYWORD
+):
+
+
+```
 
 *Space types using BeerCSS spacing classes*
 
 
-::: {#cell-13 .cell}
+::: {#a86314a8 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_grid():
     return Grid(
@@ -567,7 +642,7 @@ preview(ex_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_hw0_NEpcTOqPbzRp2e9fFw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_SuBEKJD2QSmWYAQRrnCGaA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -579,7 +654,7 @@ preview(ex_grid())
 :::
 
 
-::: {#cell-14 .cell}
+::: {#b9475629 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_product_grid():
     products = [
@@ -607,7 +682,7 @@ preview(ex_product_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_neBQYbN-QwSp9DsB3gqvsQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_eWpDpk_fRW_5bY3xel72RA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -621,27 +696,41 @@ preview(ex_product_grid())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L232){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L236){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivHStacked
 
->      DivHStacked (*c, responsive=True, padding=True, cls='', **kwargs)
+```python
+
+def DivHStacked(
+    c:VAR_POSITIONAL, responsive:bool=True, padding:bool=True, cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Responsive horizontal stack with padding and mobile compatibility.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L250){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L254){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivLAligned
 
->      DivLAligned (*c, cls='', **kwargs)
+```python
+
+def DivLAligned(
+    c:VAR_POSITIONAL, cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *MonsterUI-compatible left-aligned row using BeerCSS tokens.*
 
 
-::: {#cell-17 .cell}
+::: {#50bf7c4e .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_l_aligned_div():
     return Article(
@@ -657,7 +746,7 @@ preview(ex_l_aligned_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_YIWKqMUKQ6W_SfDLCvHDeg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_rTEg0NhWQGWpl2LXhLacoQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -671,16 +760,23 @@ preview(ex_l_aligned_div())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L261){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L265){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivVStacked
 
->      DivVStacked (*c, responsive=True, padding=True, cls='', **kwargs)
+```python
+
+def DivVStacked(
+    c:VAR_POSITIONAL, responsive:bool=True, padding:bool=True, cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Responsive vertical stack with padding and mobile compatibility.*
 
 
-::: {#cell-19 .cell}
+::: {#362c8bdc .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_v_stacked_div():
     return Article(
@@ -697,7 +793,7 @@ preview(ex_v_stacked_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_ARL2B90fRZywsi6O4pU1Bg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_ucWWsY9BSf603Gl_Ln8pXA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -709,7 +805,7 @@ preview(ex_v_stacked_div())
 :::
 
 
-::: {#cell-20 .cell}
+::: {#8ae0f94f .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_h_stacked_div():
     return Article(
@@ -725,7 +821,7 @@ preview(ex_h_stacked_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Y5rpd1-PR3yt2WfD79SA0Q" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Femd5ISlQeu9tVw5hv_7dw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -739,16 +835,23 @@ preview(ex_h_stacked_div())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L279){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L283){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivRAligned
 
->      DivRAligned (*c, cls='', **kwargs)
+```python
+
+def DivRAligned(
+    c:VAR_POSITIONAL, cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *MonsterUI-compatible right-aligned row using BeerCSS tokens.*
 
 
-::: {#cell-22 .cell}
+::: {#b387dd33 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_r_aligned_div():
     return Article(
@@ -764,7 +867,7 @@ preview(ex_r_aligned_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_RGmhlXJYTbyVWL4ouoovhQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_cZuaIrDZT5OQXyyXpLN6Dw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -778,16 +881,23 @@ preview(ex_r_aligned_div())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L288){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L292){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivCentered
 
->      DivCentered (*c, cls='', **kwargs)
+```python
+
+def DivCentered(
+    c:VAR_POSITIONAL, cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Center-aligned container using BeerCSS tokens.*
 
 
-::: {#cell-24 .cell}
+::: {#c5f1f64c .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_centered_div():
     return Article(
@@ -802,7 +912,7 @@ preview(ex_centered_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_udtIyBogQbmsO4sTR9o3qg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Pr-7CGhTTRmvHQXnPdFDHA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -816,16 +926,23 @@ preview(ex_centered_div())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L297){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L301){target="_blank" style="float:right; font-size:smaller"}
 
 ### DivFullySpaced
 
->      DivFullySpaced (*c, cls='', **kwargs)
+```python
+
+def DivFullySpaced(
+    c:VAR_POSITIONAL, cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Row with children stretched to far ends using BeerCSS `max` spacers.*
 
 
-::: {#cell-26 .cell}
+::: {#25ed84c8 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_fully_spaced_div():
     return Article(
@@ -843,7 +960,7 @@ preview(ex_fully_spaced_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_6YbQcJ9JTHKVj7lzS4G5vA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_hvPb7ugRQXGTZK_UaKQTnA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -867,16 +984,23 @@ Material Design icon component.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L319){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L323){target="_blank" style="float:right; font-size:smaller"}
 
 ### Icon
 
->      Icon (icon:str, size:str=None, fill:bool=False, cls=(), **kwargs)
+```python
+
+def Icon(
+    icon:str, size:str=None, fill:bool=False, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Material Design icon with optional size and fill*
 
 
-::: {#cell-29 .cell}
+::: {#fbbcec3b .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_icon():
     return Article(
@@ -892,7 +1016,7 @@ preview(ex_icon())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_1A7AHTheTLCa6hkwTWbVFg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_SnXkQ1FWR9WvdJR7IImdtA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -916,12 +1040,19 @@ Horizontal navigation bar component.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L330){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L334){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavBar
 
->      NavBar (*children, brand=None, sticky=False, cls='', size='small',
->              hx_boost=True, hx_target='#main-content', **kwargs)
+```python
+
+def NavBar(
+    children:VAR_POSITIONAL, brand:NoneType=None, sticky:bool=False, cls:str='', size:str='small',
+    hx_boost:bool=True, hx_target:str='#main-content', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Horizontal navigation bar with HTMX SPA navigation defaults.*
 
@@ -933,7 +1064,7 @@ Args:
     hx_target: Target element for boosted links (default '#main-content')
 
 
-::: {#cell-32 .cell}
+::: {#794163eb .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_navbar1():
     return NavBar(A("Page1",href='/rt1'),
@@ -946,7 +1077,7 @@ preview(ex_navbar1())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_K-XAQU7XQ7SGE_oApQaKwg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_dNbrinYhQkCOxs-NFfrk_g" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -998,78 +1129,127 @@ Modal/dialog components for popups and confirmations.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L453){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L457){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalFooter
 
->      ModalFooter (*c, cls=(), **kwargs)
+```python
+
+def ModalFooter(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Modal footer with right-aligned action buttons.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L449){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L453){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalBody
 
->      ModalBody (*c, cls=(), **kwargs)
+```python
+
+def ModalBody(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Modal body wrapper for content layout.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L445){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L449){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalTitle
 
->      ModalTitle (*c, cls=(), **kwargs)
+```python
+
+def ModalTitle(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Modal title using H5 element.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L437){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L441){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalConfirm
 
->      ModalConfirm (text='Confirm', modal_id=None, cls=(), **kwargs)
+```python
+
+def ModalConfirm(
+    text:str='Confirm', modal_id:NoneType=None, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Confirm button that closes modal via data-ui.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L429){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L433){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalCancel
 
->      ModalCancel (text='Cancel', modal_id=None, cls=(), **kwargs)
+```python
+
+def ModalCancel(
+    text:str='Cancel', modal_id:NoneType=None, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Cancel button that closes modal via data-ui.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L424){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L428){target="_blank" style="float:right; font-size:smaller"}
 
 ### ModalButton
 
->      ModalButton (text:str, id:str, icon:str=None, cls=(), **kwargs)
+```python
+
+def ModalButton(
+    text:str, id:str, icon:str=None, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Button that opens a modal via data-ui attribute.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L357){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L361){target="_blank" style="float:right; font-size:smaller"}
 
 ### Modal
 
->      Modal (*c, id=None, footer=None, active=False, overlay='default',
->             position=None, cls=(), **kwargs)
+```python
+
+def Modal(
+    c:VAR_POSITIONAL, id:NoneType=None, footer:NoneType=None, active:bool=False, overlay:str='default',
+    position:NoneType=None, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS modal dialog with position and overlay options.*
 
@@ -1090,7 +1270,7 @@ Returns:
     List of elements (overlay + dialog, or just [dialog] if no overlay)
 
 
-::: {#cell-41 .cell}
+::: {#552d4163 .cell}
 ``` {.python .cell-code code-fold="true"}
 def test_modal():
     """Test modal with position and overlay options."""
@@ -1156,7 +1336,7 @@ preview(test_modal())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_1QQSUD16RZmNKsA7QYquvg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_BaVAPgMjQnOJYUOaidmSWQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1179,30 +1359,42 @@ preview(test_modal())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L486){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L490){target="_blank" style="float:right; font-size:smaller"}
 
 ### LabelInput
 
->      LabelInput (label:str, id:str=None, placeholder:str=None,
->                  input_type:str='text', prefix_icon:str=None,
->                  suffix_icon:str=None, value:str=None, cls='', **kwargs)
+```python
+
+def LabelInput(
+    label:str, id:str=None, placeholder:str=None, input_type:str='text', prefix_icon:str=None, suffix_icon:str=None,
+    value:str=None, cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Labeled input field with floating label and optional icons.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L461){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L465){target="_blank" style="float:right; font-size:smaller"}
 
 ### Field
 
->      Field (*c, label:bool=False, prefix:bool=False, suffix:bool=False,
->             cls='', **kwargs)
+```python
+
+def Field(
+    c:VAR_POSITIONAL, label:bool=False, prefix:bool=False, suffix:bool=False, cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS field wrapper for inputs with border/label/prefix/suffix styling.*
 
 
-::: {#cell-45 .cell}
+::: {#57cc3b25 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_input(): 
     return Article(
@@ -1215,7 +1407,7 @@ preview(ex_input())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_CZbjrMBvRTSVTyMJeP1dJw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_ZRazOvU2ShatqD_jcpLhRQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1237,29 +1429,42 @@ preview(ex_input())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L500){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L504){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormLabel
 
->      FormLabel (*c, cls=(), **kwargs)
+```python
+
+def FormLabel(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Standalone form label element with MonsterUI-compatible signature.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L486){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L490){target="_blank" style="float:right; font-size:smaller"}
 
 ### LabelInput
 
->      LabelInput (label:str, id:str=None, placeholder:str=None,
->                  input_type:str='text', prefix_icon:str=None,
->                  suffix_icon:str=None, value:str=None, cls='', **kwargs)
+```python
+
+def LabelInput(
+    label:str, id:str=None, placeholder:str=None, input_type:str='text', prefix_icon:str=None, suffix_icon:str=None,
+    value:str=None, cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Labeled input field with floating label and optional icons.*
 
 
-::: {#cell-49 .cell}
+::: {#7179491b .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_form_label(): 
     return Article(
@@ -1273,7 +1478,7 @@ preview(ex_form_label())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_CkDNqa19RfS4SVs1BUDrZw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_yMWHUMUfS3Kq0KP3gGlxqg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1295,16 +1500,23 @@ preview(ex_form_label())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L508){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L512){target="_blank" style="float:right; font-size:smaller"}
 
 ### CheckboxX
 
->      CheckboxX (*c, cls=(), **kwargs)
+```python
+
+def CheckboxX(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS checkbox with label support.*
 
 
-::: {#cell-52 .cell}
+::: {#9e2b9b6e .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_checkbox(): 
     return Article(
@@ -1319,7 +1531,7 @@ preview(ex_checkbox())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_e38DXQnKRa2NGb8rBa_z4A" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_XweE9DXQTP2gj8JQWgD1WA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1341,16 +1553,23 @@ preview(ex_checkbox())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L518){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L522){target="_blank" style="float:right; font-size:smaller"}
 
 ### Radio
 
->      Radio (*c, cls=(), **kwargs)
+```python
+
+def Radio(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS radio button with label.*
 
 
-::: {#cell-55 .cell}
+::: {#1293d8dd .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_Radio(): 
     return Article(
@@ -1363,7 +1582,7 @@ preview(ex_Radio())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_nZ8uVjweSducjJAUS-5lYw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_vQ0NudNjTLG5TB8TfEGy7w" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1385,11 +1604,18 @@ preview(ex_Radio())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L528){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L532){target="_blank" style="float:right; font-size:smaller"}
 
 ### Switch
 
->      Switch (*c, cls=(), **kwargs)
+```python
+
+def Switch(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS toggle switch for on/off states.*
 
@@ -1397,7 +1623,7 @@ If label text is provided, wraps in a nav with the label on the left
 and the switch on the right (standard BeerCSS pattern).
 
 
-::: {#cell-58 .cell}
+::: {#c618b870 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_switch(): 
     return Article(
@@ -1411,7 +1637,7 @@ preview(ex_switch())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_c5ptOKMUTYWr2mxzk-rMug" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_XVNVqNJLSIKiFE7MblRInA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1433,16 +1659,23 @@ preview(ex_switch())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L555){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L559){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextArea
 
->      TextArea (*c, cls=(), **kwargs)
+```python
+
+def TextArea(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS textarea with field wrapper for consistent styling.*
 
 
-::: {#cell-61 .cell}
+::: {#4e654d8f .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_TextArea(): 
     return Article(
@@ -1456,7 +1689,7 @@ preview(ex_TextArea())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_g-6w0oxFQVyXhM7zYHMM9w" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_3sJsJWgwSbO9pY81iHqSqw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1478,16 +1711,23 @@ preview(ex_TextArea())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L563){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L567){target="_blank" style="float:right; font-size:smaller"}
 
 ### Range
 
->      Range (*c, min=None, max=None, step=None, cls=(), **kwargs)
+```python
+
+def Range(
+    c:VAR_POSITIONAL, min:NoneType=None, max:NoneType=None, step:NoneType=None, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS range slider with two-tone fill effect.*
 
 
-::: {#cell-64 .cell}
+::: {#2e596f13 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_range(): 
     return Article(
@@ -1500,7 +1740,7 @@ preview(ex_range())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_dIjubBDQSwOTgEnuHY1suw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_x8JulguqSmmOTJFNY4B6CA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1512,61 +1752,164 @@ preview(ex_range())
 :::
 
 
-## 📋 Select
+## 📋 Select & SelectMenu
 
 | Component | Purpose |
 |-----------|---------|
-| [`Select`](https://abhisheksreesaila.github.io/fh-matui/components.html#select) | Dropdown with placeholder, icon support, and HTMX integration |
+| [`Select`](https://abhisheksreesaila.github.io/fh-matui/components.html#select) | Native HTML select for forms - uses standard `change` event, works with HTMX |
+| `SelectMenu` | BeerCSS menu-based dropdown for display menus (profile, actions, navigation) |
 
-### HTMX Integration
+### Select (Native HTML)
 
-The Select component automatically dispatches an `itemselected` event when a menu item is clicked, enabling seamless HTMX integration:
+Uses the native `<select>` element with BeerCSS styling. Best for form inputs where you need:
+- Standard `change` events for HTMX (`hx-trigger="change"`)
+- Keyboard navigation and accessibility
+- Mobile-friendly native picker
+- Cascading dropdown patterns
 
 ```python
-# Trigger HTMX request when selection changes
-Select("Option A", "Option B", 
+# Basic usage with label
+Select("Option A", "Option B", "Option C", 
+       name="category", label="Category")
+
+# With HTMX for cascading dropdowns
+Select("Electronics", "Clothing", "Books",
        name="category",
+       label="Category",
        hx_get="/subcategories",
-       hx_trigger="itemselected",
+       hx_trigger="change",
        hx_target="#subcategory-wrapper")
 ```
 
-### Parameters
+#### Select Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `*options` | `str|Option|dict` | - | Options (strings, Option elements, or dicts with value/label) |
+| `label` | `str` | `None` | Floating label text |
+| `value` | `str` | `''` | Currently selected value |
+| `name` | `str` | `''` | Form field name |
+| `id` | `str` | auto | Element ID (auto-generated from name) |
+| `placeholder` | `str` | `None` | Placeholder option (disabled first option) |
+| `cls` | `str|tuple` | `()` | Additional CSS classes |
+
+### SelectMenu (Display Menus)
+
+Uses BeerCSS menu element for visual dropdowns. Best for:
+- Profile menus, action dropdowns
+- Navigation menus
+- Any non-form UI where you just need a clickable menu
+
+```python
+# Simple menu display
+SelectMenu("Home", "About", "Contact", value="Home")
+
+# With icon and custom items
+SelectMenu(
+    Li(Label("Section"), cls="transparent"),
+    Li("Item 1"),
+    Li("Item 2"),
+    prefix_icon="menu"
+)
+```
+
+#### SelectMenu Parameters
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `*items` | `str|Li` | - | Menu items (strings or Li elements) |
-| `value` | `str` | `''` | Initial selected value |
+| `value` | `str` | `''` | Display value text |
 | `placeholder` | `str` | `'Select...'` | Placeholder text when empty |
 | `prefix_icon` | `str` | `None` | Optional icon before input |
-| `name` | `str` | `''` | Form field name (also used for hidden input) |
-| `id` | `str` | auto | Wrapper ID (auto-generated from name if not provided) |
+| `id` | `str` | `None` | Wrapper ID |
 | `cls` | `str|tuple` | `()` | Additional CSS classes |
 
-> 💡 **Use case**: Picking from predefined options with Material Design styling and HTMX reactivity.
+> 💡 **Rule of thumb**: Use [`Select`](https://abhisheksreesaila.github.io/fh-matui/components.html#select) for forms, `SelectMenu` for display-only menus.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L592){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L650){target="_blank" style="float:right; font-size:smaller"}
 
 ### Select
 
->      Select (*items, value='', placeholder='Select...', prefix_icon=None,
->              name='', id=None, cls=(), **kwargs)
+```python
 
-*BeerCSS menu-based select dropdown with HTMX integration.*
+def Select(
+    options:VAR_POSITIONAL, label:NoneType=None, value:str='', name:str='', id:NoneType=None,
+    placeholder:NoneType=None, cls:tuple=(), kwargs:VAR_KEYWORD
+):
 
-Dispatches 'itemselected' custom event when a menu item is clicked,
-enabling HTMX patterns like hx-trigger="itemselected".
+
+```
+
+*BeerCSS native HTML select with floating label support.*
+
+Uses the native <select> element for full browser support including:
+- Standard 'change' event for HTMX (hx-trigger="change")
+- Keyboard navigation
+- Mobile-friendly native picker
+- Works seamlessly with cascading dropdowns
+
+Args:
+    *options: Option items - strings, Option elements, or dicts with 'value'/'label' keys
+    label: Floating label text (optional)
+    value: Currently selected value
+    name: Form field name
+    id: Element ID (auto-generated from name if not provided)
+    placeholder: Placeholder option text (shown as disabled first option)
+    cls: Additional CSS classes for the field wrapper
 
 
-::: {#cell-67 .cell}
+---
+
+### SelectMenu
+
+```python
+
+def SelectMenu(
+    items:VAR_POSITIONAL, value:str='', placeholder:str='Select...', prefix_icon:NoneType=None, id:NoneType=None,
+    cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
+
+*BeerCSS menu-based dropdown for display menus (profile, actions, navigation).*
+
+Not intended for form input - use Select for forms with native change events.
+This component uses BeerCSS's menu element which opens/closes on click.
+
+Args:
+    *items: Menu items - strings are auto-wrapped in Li, or pass Li elements directly
+    value: Currently displayed value text
+    placeholder: Placeholder text when no value selected
+    prefix_icon: Optional icon to show before the input
+    id: Optional wrapper ID
+    cls: Additional CSS classes
+
+
+::: {#ce645e6c .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_select(): 
     return Article(
-        Select("Home", "About", "Contact", value="Home"),
-        Select("Option 1", "Option 2", "Option 3", prefix_icon="list"),
+        H6("Native Select (for forms)"),
+        # Basic native select with label
+        Select("Home", "About", "Contact", label="Page", value="Home", name="page"),
+        # Native select with placeholder
+        Select("Option 1", "Option 2", "Option 3", placeholder="Choose...", name="option"),
+        # Native select with dict options (separate value/label)
         Select(
+            {"value": "us", "label": "United States"},
+            {"value": "uk", "label": "United Kingdom"},
+            {"value": "ca", "label": "Canada"},
+            label="Country", name="country", value="us"
+        ),
+        
+        H6("SelectMenu (for display menus)", cls="top-margin"),
+        # Menu-based dropdown for navigation/actions
+        SelectMenu("Home", "About", "Contact", value="Home"),
+        SelectMenu("Option 1", "Option 2", "Option 3", prefix_icon="list"),
+        SelectMenu(
             Li(Label("Section"), cls="transparent"),
             Li("Item 1"),
             Li("Item 2"),
@@ -1582,7 +1925,7 @@ preview(ex_select())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_j3OmvxDjTQS3yM0gFsXc0A" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_KJ75F8QeTnCuixFJb1iONw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1594,10 +1937,10 @@ preview(ex_select())
 :::
 
 
-::: {#cell-68 .cell}
+::: {#28d666f2 .cell}
 ``` {.python .cell-code code-fold="true"}
 # Cascading dropdown example with HTMX
-# Demonstrates Select's itemselected event for dynamic form updates
+# Demonstrates native Select's change event for dynamic form updates
 
 categories = {
     "Electronics": ["Phones", "Laptops", "Tablets", "Cameras"],
@@ -1612,12 +1955,13 @@ def cascade_demo():
         H5("Cascading Select Demo"),
         P("Select a category to load subcategories via HTMX", cls="small-text grey-text"),
         
-        # Parent select - triggers HTMX on selection
+        # Parent select - triggers HTMX on native change event
         Select("Electronics", "Clothing", "Books",
                name="category",
+               label="Category",
                placeholder="Select category...",
                hx_get="/cascade-subcategories",
-               hx_trigger="itemselected",
+               hx_trigger="change",
                hx_target="#subcategory-wrapper",
                hx_include="[name='category']"),
         
@@ -1639,10 +1983,11 @@ def cascade_subcategories(category: str = ''):
     if not subs:
         return Select(placeholder="No subcategories available...", name="subcategory")
     return Select(*subs, 
-                  name="subcategory", 
+                  name="subcategory",
+                  label="Subcategory",
                   placeholder="Select subcategory...",
                   hx_get="/cascade-selection",
-                  hx_trigger="itemselected",
+                  hx_trigger="change",
                   hx_target="#selection-display",
                   hx_include="[name='category'], [name='subcategory']")
 
@@ -1660,7 +2005,7 @@ preview(cascade_demo())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Yvkv6edRTNm3qM4ohy9jWg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_-n5QGl3YSWSe-juBimo1fQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1674,7 +2019,7 @@ preview(cascade_demo())
 
 ### Cascading Dropdowns with HTMX
 
-The `itemselected` event enables cascading dropdowns using pure HTMX - no custom JavaScript required:
+The native Select uses the standard `change` event, enabling cascading dropdowns with pure HTMX - no custom JavaScript required:
 
 ```python
 # In your FastHTML app:
@@ -1690,17 +2035,18 @@ categories = {
 def home():
     return Layout(
         Form(
-            # Parent select - triggers HTMX on selection
+            # Parent select - triggers HTMX on native change event
             Select("Electronics", "Clothing", "Books",
                    name="category",
+                   label="Category",
                    placeholder="Select category...",
                    hx_get="/subcategories",
-                   hx_trigger="itemselected",
+                   hx_trigger="change",
                    hx_target="#subcategory-wrapper",
                    hx_include="[name='category']"),
             
             # Child select - swapped by HTMX
-            Div(Select(placeholder="Select subcategory first..."), 
+            Div(Select(placeholder="Select category first..."), 
                 id="subcategory-wrapper"),
             
             cls="padding"
@@ -1713,19 +2059,22 @@ def get_subcategories(category: str):
     """Return new Select with subcategories for chosen category."""
     subs = categories.get(category, [])
     return Select(*subs, 
-                  name="subcategory", 
+                  name="subcategory",
+                  label="Subcategory",
                   placeholder="Select subcategory...")
 ```
 
 The pattern works because:
-1. Parent Select dispatches `itemselected` event when clicked
-2. HTMX listens for this event (`hx-trigger="itemselected"`)
+1. Native Select fires the standard `change` event when user selects an option
+2. HTMX listens for this event (`hx-trigger="change"`)
 3. Server returns a new Select component with filtered options
 4. HTMX swaps it into the target container
 
+**Note:** For display-only menus (profile dropdowns, action menus), use `SelectMenu` instead.
+
 ### Fieldset
 
-::: {#cell-71 .cell}
+::: {#edebd15d .cell}
 ``` {.python .cell-code}
 def Fieldset(*c, cls=(), **kwargs):
     """Form fieldset container for grouping related inputs."""
@@ -1737,7 +2086,7 @@ def Fieldset(*c, cls=(), **kwargs):
 :::
 
 
-::: {#cell-72 .cell}
+::: {#1997c8f2 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_fs(): 
     return Article(
@@ -1753,7 +2102,7 @@ preview(ex_fs())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Wuvzcqt9SaSSZKXp999ERA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/__VKXJay3STiFBlK6QHHVaA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1767,7 +2116,7 @@ preview(ex_fs())
 
 ### Legend
 
-::: {#cell-74 .cell}
+::: {#e7bf5a2f .cell}
 ``` {.python .cell-code}
 def Legend(*c, cls=(), **kwargs):
     """Fieldset legend/caption element."""
@@ -1779,7 +2128,7 @@ def Legend(*c, cls=(), **kwargs):
 :::
 
 
-::: {#cell-75 .cell}
+::: {#ed051bf0 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_l():
     return Article(
@@ -1791,7 +2140,7 @@ preview(ex_l())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_VrvoDSK8QBKG-0ePwsA3_w" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_a662hbSBQxqc1ErlJ9HeBQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1822,16 +2171,23 @@ Arranges children in columns on medium+ screens (full-width on small screens). U
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L617){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L696){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormGrid
 
->      FormGrid (*c, cols:int=1)
+```python
+
+def FormGrid(
+    c:VAR_POSITIONAL, cols:int=1
+):
+
+
+```
 
 *Responsive grid layout for form fields that stacks on mobile.*
 
 
-::: {#cell-78 .cell}
+::: {#c0f1ad51 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_form_grid():
     """Example: FormGrid with different column configurations."""
@@ -1891,7 +2247,7 @@ preview(ex_form_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_qBf1pb5GRK2cALblY6qKPQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Q5yHwNyRQsWkfVO2rPMePQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1913,16 +2269,23 @@ preview(ex_form_grid())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L626){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L705){target="_blank" style="float:right; font-size:smaller"}
 
 ### Progress
 
->      Progress (*c, value='', max='100', cls=(), **kwargs)
+```python
+
+def Progress(
+    c:VAR_POSITIONAL, value:str='', max:str='100', cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Linear progress bar with value/max support.*
 
 
-::: {#cell-81 .cell}
+::: {#34d9b3a8 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_progress():
     return Article(
@@ -1935,7 +2298,7 @@ preview(ex_progress())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_tzjTrKmUR-aO6TMErlKXdA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_HA8qzLQoSQyWMNU3-HxVCw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1957,16 +2320,23 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L638){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L717){target="_blank" style="float:right; font-size:smaller"}
 
 ### LoadingIndicator
 
->      LoadingIndicator (size='medium', cls='', **kwargs)
+```python
+
+def LoadingIndicator(
+    size:str='medium', cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS circular spinner for async operations.*
 
 
-::: {#cell-84 .cell}
+::: {#8e20afb2 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_progress():
     return Article(
@@ -1979,7 +2349,7 @@ preview(ex_progress())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_rMzH-bzoQZ6eusqHcsMy0Q" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_MPWIdltQT3K_7ZQ_3jfsvQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2005,101 +2375,152 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L702){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L781){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableFromDicts
 
->      TableFromDicts (header_data, body_data, footer_data=None,
->                      header_cell_render=<function Th>,
->                      body_cell_render=<function <lambda>>,
->                      footer_cell_render=<function <lambda>>, cls='border',
->                      sortable=False, **kwargs)
+```python
+
+def TableFromDicts(
+    header_data, body_data, footer_data:NoneType=None, header_cell_render:function=Th,
+    body_cell_render:function=<lambda>, footer_cell_render:function=<lambda>, cls:str='border', sortable:bool=False,
+    kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Create table from header keys and body list of dicts.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L693){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L772){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableFromLists
 
->      TableFromLists (header_data, body_data, footer_data=None,
->                      header_cell_render=<function Th>,
->                      body_cell_render=<function Td>,
->                      footer_cell_render=<function Td>, cls='border',
->                      sortable=False, **kwargs)
+```python
+
+def TableFromLists(
+    header_data, body_data, footer_data:NoneType=None, header_cell_render:function=Th, body_cell_render:function=Td,
+    footer_cell_render:function=Td, cls:str='border', sortable:bool=False, kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Create table from header list and body list of lists.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L688){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L767){target="_blank" style="float:right; font-size:smaller"}
 
 ### Tfoot
 
->      Tfoot (*c, cls=(), **kwargs)
+```python
+
+def Tfoot(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Table footer section.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L682){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L761){target="_blank" style="float:right; font-size:smaller"}
 
 ### Tbody
 
->      Tbody (*c, cls=(), sortable=False, **kwargs)
+```python
+
+def Tbody(
+    c:VAR_POSITIONAL, cls:tuple=(), sortable:bool=False, kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Table body section with optional SortableJS support.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L677){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L756){target="_blank" style="float:right; font-size:smaller"}
 
 ### Thead
 
->      Thead (*c, cls=(), **kwargs)
+```python
+
+def Thead(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Table header section.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L664){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L743){target="_blank" style="float:right; font-size:smaller"}
 
 ### Th
 
->      Th (*c, shrink=False, expand=False, cls=(), **kwargs)
+```python
+
+def Th(
+    c:VAR_POSITIONAL, shrink:bool=False, expand:bool=False, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Table header cell with shrink/expand width options.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L651){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L730){target="_blank" style="float:right; font-size:smaller"}
 
 ### Td
 
->      Td (*c, shrink=False, expand=False, cls=(), **kwargs)
+```python
+
+def Td(
+    c:VAR_POSITIONAL, shrink:bool=False, expand:bool=False, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Table data cell with shrink/expand width options.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L646){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L725){target="_blank" style="float:right; font-size:smaller"}
 
 ### Table
 
->      Table (*c, cls='border', **kwargs)
+```python
+
+def Table(
+    c:VAR_POSITIONAL, cls:str='border', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS table with optional border/stripes classes.*
 
 
-::: {#cell-94 .cell}
+::: {#78b3bbad .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_tablelists():
     return Article(
@@ -2115,7 +2536,7 @@ preview(ex_tablelists())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_673u45Q9TE_euOqewkg18Q" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_G9iJM4ubRy2GDvJ3ZJ9V6w" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2127,7 +2548,7 @@ preview(ex_tablelists())
 :::
 
 
-::: {#cell-95 .cell}
+::: {#bb68947c .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_tabledicts():
     return Article(
@@ -2143,7 +2564,7 @@ preview(ex_tabledicts())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_SbATFbrDSGCRUGDn14Ly9g" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_MbRd_Xi_Q_KQgTCvClhoWg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2157,16 +2578,23 @@ preview(ex_tabledicts())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L714){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L793){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableControls
 
->      TableControls (*controls, cls='', **kwargs)
+```python
+
+def TableControls(
+    controls:VAR_POSITIONAL, cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Toolbar container for table filters, search, and actions.*
 
 
-::: {#cell-97 .cell}
+::: {#05fa45bf .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_tablecontrols():
     return Article(
@@ -2180,7 +2608,7 @@ preview(ex_tablecontrols())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_kj64Cw5QT4iOhk3sBbKGaA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_xjCbzoyrQMe-j-FRzVzXFA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2202,18 +2630,24 @@ preview(ex_tablecontrols())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L721){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L800){target="_blank" style="float:right; font-size:smaller"}
 
 ### Pagination
 
->      Pagination (current_page:int, total_pages:int, hx_get:str,
->                  hx_target:str='#table-container', show_first_last:bool=True,
->                  cls='', **kwargs)
+```python
+
+def Pagination(
+    current_page:int, total_pages:int, hx_get:str, hx_target:str='#table-container', show_first_last:bool=True,
+    cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *HTMX-integrated pagination controls with first/prev/next/last buttons.*
 
 
-::: {#cell-100 .cell}
+::: {#c104da0f .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_tablePagination():
     return Article(
@@ -2225,7 +2659,7 @@ preview(ex_tablePagination())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_NAKahOCTSRiAf-iLtXb8bg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_1slicX9HR_a1knJUDMkviA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2247,17 +2681,24 @@ preview(ex_tablePagination())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L756){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L835){target="_blank" style="float:right; font-size:smaller"}
 
 ### Card
 
->      Card (*c, header=None, footer=None, body_cls='padding', header_cls=(),
->            footer_cls=(), cls=(), **kwargs)
+```python
+
+def Card(
+    c:VAR_POSITIONAL, header:NoneType=None, footer:NoneType=None, body_cls:str='padding', header_cls:tuple=(),
+    footer_cls:tuple=(), cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS card with optional header/footer sections.*
 
 
-::: {#cell-103 .cell}
+::: {#14193850 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_card():
     return Article(
@@ -2275,7 +2716,7 @@ preview(ex_card())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_nsOcZ04xS9SHqCSbRjuzwQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_JoPXRGwnToysje2buYuUKQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2297,16 +2738,23 @@ preview(ex_card())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L770){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L849){target="_blank" style="float:right; font-size:smaller"}
 
 ### Toolbar
 
->      Toolbar (*items, cls='', elevate='large', fill=True, **kwargs)
+```python
+
+def Toolbar(
+    items:VAR_POSITIONAL, cls:str='', elevate:str='large', fill:bool=True, kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS toolbar for action bars with elevation options.*
 
 
-::: {#cell-106 .cell}
+::: {#333c0a78 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_toolbar():
     return Article(
@@ -2323,7 +2771,7 @@ preview(ex_toolbar())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_-M-0NkRlTDCMtVZp8yy5bg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_OFJza3KSTauhFU45vOzYNw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2355,28 +2803,42 @@ preview(ex_toolbar())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L818){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L897){target="_blank" style="float:right; font-size:smaller"}
 
 ### Snackbar
 
->      Snackbar (*c, **kwargs)
+```python
+
+def Snackbar(
+    c:VAR_POSITIONAL, kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Alias for Toast component.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L780){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L859){target="_blank" style="float:right; font-size:smaller"}
 
 ### Toast
 
->      Toast (*c, cls='', position='top', variant='', action=None, active=False,
->             dur=None, **kwargs)
+```python
+
+def Toast(
+    c:VAR_POSITIONAL, cls:str='', position:str='top', variant:str='', action:NoneType=None, active:bool=False,
+    dur:NoneType=None, kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS snackbar/toast notification with position ('top' or 'bottom') and variant options.*
 
 
-::: {#cell-111 .cell}
+::: {#fff15ee3 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_toast():
     """Toast examples showing position and auto-hide duration."""
@@ -2399,7 +2861,7 @@ preview(ex_toast())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Qlqt7AGwT8qQI8J8XChRzw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_FZ8JUnAhTkqPhjJNn1-SgQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2411,7 +2873,7 @@ preview(ex_toast())
 :::
 
 
-::: {#cell-112 .cell}
+::: {#b49968dd .cell}
 ``` {.python .cell-code code-fold="true"}
 @rt("/test-toast")
 def example_toast():
@@ -2422,11 +2884,18 @@ def example_toast():
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L824){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L903){target="_blank" style="float:right; font-size:smaller"}
 
 ### ContainerT
 
->      ContainerT (*values)
+```python
+
+def ContainerT(
+    args:VAR_POSITIONAL, kwds:VAR_KEYWORD
+):
+
+
+```
 
 *Container size options (BeerCSS). Most alias to 'responsive'; use 'expand' for full-width.*
 
@@ -2465,11 +2934,18 @@ Each column can include a `form` key to customize its form field:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L851){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L930){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormField
 
->      FormField (col:dict, value:Any=None, mode:str='edit')
+```python
+
+def FormField(
+    col:dict, value:Any=None, mode:str='edit'
+)->Any:
+
+
+```
 
 *Render a single form field based on column config.*
 
@@ -2501,15 +2977,20 @@ Could be expanded to accept simpler field specs in the future.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L913){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L992){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormModal
 
->      FormModal (columns:list[dict], mode:str='view', record:dict=None,
->                 modal_id:str='form-modal', title:str=None, save_url:str=None,
->                 save_target:str=None, cancel_url:str=None,
->                 cancel_target:str=None, form_layout:Callable=None,
->                 row_id_field:str='id', indicator_id:str=None)
+```python
+
+def FormModal(
+    columns:list, mode:str='view', record:dict=None, modal_id:str='form-modal', title:str=None, save_url:str=None,
+    save_target:str=None, cancel_url:str=None, cancel_target:str=None, form_layout:Callable=None,
+    row_id_field:str='id', indicator_id:str=None
+)->Any:
+
+
+```
 
 *Generate a modal dialog with form fields driven by column config.*
 
@@ -2527,73 +3008,114 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1079){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1158){target="_blank" style="float:right; font-size:smaller"}
 
 ### BottomNav
 
->      BottomNav (*c, cls='bottom', size='s', **kwargs)
+```python
+
+def BottomNav(
+    c:VAR_POSITIONAL, cls:str='bottom', size:str='s', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Mobile bottom navigation bar.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1075){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1154){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSubtitle
 
->      NavSubtitle (*c, cls='small-text gray-text padding', **kwargs)
+```python
+
+def NavSubtitle(
+    c:VAR_POSITIONAL, cls:str='small-text gray-text padding', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Navigation section subtitle label.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1071){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1150){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavCloseLi
 
->      NavCloseLi (dialog_id:str, icon='close', cls='circle transparent',
->                  **kwargs)
+```python
+
+def NavCloseLi(
+    dialog_id:str, icon:str='close', cls:str='circle transparent', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Navigation close button.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1067){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1146){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavDividerLi
 
->      NavDividerLi (cls='', **kwargs)
+```python
+
+def NavDividerLi(
+    cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Navigation divider (horizontal rule).*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1063){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1142){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavHeaderLi
 
->      NavHeaderLi (*c, cls='horizontal-padding', **kwargs)
+```python
+
+def NavHeaderLi(
+    c:VAR_POSITIONAL, cls:str='horizontal-padding', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Navigation header element.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1030){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1109){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavContainer
 
->      NavContainer (*li, title=None, brand=None, position='left',
->                    close_button=True, cls='active', id=None, **kwargs)
+```python
+
+def NavContainer(
+    li:VAR_POSITIONAL, title:NoneType=None, brand:NoneType=None, position:str='left', close_button:bool=True,
+    cls:str='active', id:NoneType=None, kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Slide-out navigation drawer with header and close button.*
 
 
-::: {#cell-125 .cell}
+::: {#cd1fabae .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_navcontainer():
     return NavContainer(
@@ -2615,7 +3137,7 @@ preview(ex_navcontainer())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_fqC0sUNtTpiYThlajBNNXw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_WUG9HHoISJiuyJXIlGpo0g" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2705,13 +3227,19 @@ def get_layout(content):
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1098){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1177){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarContainer
 
->      NavSideBarContainer (*children, position='left', size='m', cls='',
->                           active=False, hx_boost=True, hx_target='#main-
->                           content', **kwargs)
+```python
+
+def NavSideBarContainer(
+    children:VAR_POSITIONAL, position:str='left', size:str='m', cls:str='', active:bool=False, hx_boost:bool=True,
+    hx_target:str='#main-content', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS navigation sidebar with HTMX SPA navigation defaults.*
 
@@ -2734,27 +3262,41 @@ Usage:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1091){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1170){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarLinks
 
->      NavSideBarLinks (*children, as_list=False, cls='', **kwargs)
+```python
+
+def NavSideBarLinks(
+    children:VAR_POSITIONAL, as_list:bool=False, cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Container for navigation links (optional list wrapper).*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1087){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1166){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarHeader
 
->      NavSideBarHeader (*c, cls='', **kwargs)
+```python
+
+def NavSideBarHeader(
+    c:VAR_POSITIONAL, cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Sidebar header section for menu buttons and branding.*
 
 
-::: {#cell-130 .cell}
+::: {#8c32793c .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_navsidebarcontainer():
          
@@ -2787,7 +3329,7 @@ preview(ex_navsidebarcontainer())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_0-Mjz2hfQBujMl1fuuIWCw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_jPDdAq5fTnGh1MvYYi-VPg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2801,14 +3343,20 @@ preview(ex_navsidebarcontainer())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1151){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1230){target="_blank" style="float:right; font-size:smaller"}
 
 ### Layout
 
->      Layout (*content, sidebar=None, sidebar_links=None, nav_bar=None,
->              container_size=<ContainerT.expand: 'responsive max'>,
->              main_bg='surface', sidebar_id='app-sidebar', main_id='main-
->              content', cls='', **kwargs)
+```python
+
+def Layout(
+    content:VAR_POSITIONAL, sidebar:NoneType=None, sidebar_links:NoneType=None, nav_bar:NoneType=None,
+    container_size:ContainerT=<ContainerT.expand: 'responsive max'>, main_bg:str='surface',
+    sidebar_id:str='app-sidebar', main_id:str='main-content', cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *App layout with HTMX SPA navigation and responsive mobile support.*
 
@@ -2835,11 +3383,18 @@ Usage:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1131){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1210){target="_blank" style="float:right; font-size:smaller"}
 
 ### Page
 
->      Page (*c, active=True, position=None, cls='', **kwargs)
+```python
+
+def Page(
+    c:VAR_POSITIONAL, active:bool=True, position:NoneType=None, cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *BeerCSS animated page container.*
 
@@ -2855,7 +3410,7 @@ Example:
     Page(content, position='right')  # Slide from right animation
 
 
-::: {#cell-133 .cell}
+::: {#2d5e284f .cell}
 ``` {.python .cell-code code-fold="true"}
 def nav_items():
     """Returns navigation items for NavBar - no hx_* attrs needed, hx-boost handles it"""
@@ -2909,7 +3464,7 @@ def get_layout(content):
 :::
 
 
-::: {#cell-134 .cell}
+::: {#a63f299f .cell}
 ``` {.python .cell-code code-fold="true"}
 # Content functions for each page
 def home_content():
@@ -2972,7 +3527,7 @@ def cookies(req):
 :::
 
 
-::: {#cell-135 .cell}
+::: {#61c8fffa .cell}
 ``` {.python .cell-code code-fold="true"}
 @rt('/test_layout')
 def test_layout():
@@ -2981,14 +3536,14 @@ def test_layout():
 :::
 
 
-::: {#cell-136 .cell}
+::: {#884f908e .cell}
 ``` {.python .cell-code code-fold="true"}
 preview(get_layout(dashboard_content()))
 ```
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_C71quU-sR_eub-87bcuFXQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_vR5s11AGQGKOBxFtVwPbgQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3013,143 +3568,234 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1237){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1337){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextPresets
 
->      TextPresets (*values)
+```python
+
+def TextPresets(
+    args:VAR_POSITIONAL, kwds:VAR_KEYWORD
+):
+
+
+```
 
 *Common typography presets combining multiple TextT values.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1218){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1318){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextT
 
->      TextT (*values)
+```python
+
+def TextT(
+    args:VAR_POSITIONAL, kwds:VAR_KEYWORD
+):
+
+
+```
 
 *Text styles using BeerCSS typography classes.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1299){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1399){target="_blank" style="float:right; font-size:smaller"}
 
 ### Sup
 
->      Sup (*c, cls=(), **kwargs)
+```python
+
+def Sup(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Superscript text.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1294){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1394){target="_blank" style="float:right; font-size:smaller"}
 
 ### Sub
 
->      Sub (*c, cls=(), **kwargs)
+```python
+
+def Sub(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Subscript text.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1289){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1389){target="_blank" style="float:right; font-size:smaller"}
 
 ### Abbr
 
->      Abbr (*c, title='', cls=(), **kwargs)
+```python
+
+def Abbr(
+    c:VAR_POSITIONAL, title:str='', cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Abbreviation with title tooltip.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1284){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1384){target="_blank" style="float:right; font-size:smaller"}
 
 ### Mark
 
->      Mark (*c, cls=(), **kwargs)
+```python
+
+def Mark(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Highlighted/marked text.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1280){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1380){target="_blank" style="float:right; font-size:smaller"}
 
 ### Small
 
->      Small (*c, cls='small-text', **kwargs)
+```python
+
+def Small(
+    c:VAR_POSITIONAL, cls:str='small-text', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Small text element.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1276){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1376){target="_blank" style="float:right; font-size:smaller"}
 
 ### Strong
 
->      Strong (*c, cls='bold', **kwargs)
+```python
+
+def Strong(
+    c:VAR_POSITIONAL, cls:str='bold', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Strong (bold) text.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1271){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1371){target="_blank" style="float:right; font-size:smaller"}
 
 ### Em
 
->      Em (*c, cls=(), **kwargs)
+```python
+
+def Em(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Emphasized text.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1267){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1367){target="_blank" style="float:right; font-size:smaller"}
 
 ### Q
 
->      Q (*c, cls='italic large-text', **kwargs)
+```python
+
+def Q(
+    c:VAR_POSITIONAL, cls:str='italic large-text', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Styled inline quotation.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1262){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1362){target="_blank" style="float:right; font-size:smaller"}
 
 ### Blockquote
 
->      Blockquote (*c, cls=(), **kwargs)
+```python
+
+def Blockquote(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Blockquote element for quotes.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1255){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1355){target="_blank" style="float:right; font-size:smaller"}
 
 ### CodeBlock
 
->      CodeBlock (*c, cls=(), code_cls=(), **kwargs)
+```python
+
+def CodeBlock(
+    c:VAR_POSITIONAL, cls:tuple=(), code_cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Block code with pre wrapper.*
 
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1250){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1350){target="_blank" style="float:right; font-size:smaller"}
 
 ### CodeSpan
 
->      CodeSpan (*c, cls=(), **kwargs)
+```python
+
+def CodeSpan(
+    c:VAR_POSITIONAL, cls:tuple=(), kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *Inline code snippet.*
 
@@ -3165,12 +3811,18 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1306){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1406){target="_blank" style="float:right; font-size:smaller"}
 
 ### FAQItem
 
->      FAQItem (question:str, answer:str, question_cls:str='',
->               answer_cls:str='')
+```python
+
+def FAQItem(
+    question:str, answer:str, question_cls:str='', answer_cls:str=''
+):
+
+
+```
 
 *Collapsible FAQ item using details/summary.*
 
@@ -3184,7 +3836,7 @@ Args:
     answer_cls: Additional classes for answer styling
 
 
-::: {#cell-153 .cell}
+::: {#3964c65a .cell}
 ``` {.python .cell-code}
 def ex_faq_item():
     return Div(
@@ -3196,14 +3848,14 @@ def ex_faq_item():
 :::
 
 
-::: {#cell-154 .cell}
+::: {#79a36f6c .cell}
 ``` {.python .cell-code}
 preview(ex_faq_item())
 ```
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_BDrAKby_SaSzv-0mdOD3Jw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_EltZwf_XQSe4CZ2CazYfRQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3225,23 +3877,27 @@ preview(ex_faq_item())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1324){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1424){target="_blank" style="float:right; font-size:smaller"}
 
 ### CookiesBanner
 
->      CookiesBanner (message='We use cookies to enhance your experience. By
->                     continuing to visit this site you agree to our use of
->                     cookies.', accept_text='Accept', decline_text='Decline',
->                     settings_text=None, policy_link='/cookies',
->                     policy_text='Learn more', position='bottom',
->                     on_accept='console.log("Accepted")',
->                     on_decline='console.log("Declined")',
->                     on_settings='console.log("Settings")', cls='', **kwargs)
+```python
+
+def CookiesBanner(
+    message:str='We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.',
+    accept_text:str='Accept', decline_text:str='Decline', settings_text:NoneType=None, policy_link:str='/cookies',
+    policy_text:str='Learn more', position:str='bottom', on_accept:str='console.log("Accepted")',
+    on_decline:str='console.log("Declined")', on_settings:str='console.log("Settings")', cls:str='',
+    kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *GDPR-compliant cookie consent banner with accept/decline actions.*
 
 
-::: {#cell-157 .cell}
+::: {#905a3946 .cell}
 ``` {.python .cell-code code-fold="true"}
 def get_CookiesBanner():
     return CookiesBanner()
@@ -3251,7 +3907,7 @@ preview(get_CookiesBanner())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_4nY1aI_dR0K9I74Zp-kqRQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_fF2jfU8NR_W1Khx8_KWzSA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3267,7 +3923,7 @@ preview(get_CookiesBanner())
 
 > 💡 **Use case**: Quotations, testimonials, highlighted text excerpts.
 
-::: {#cell-159 .cell}
+::: {#ed8f11dd .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_other():
     return Article(
@@ -3280,7 +3936,7 @@ preview(ex_other())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_tWvR7ipGRZu2GNgWWu97cA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_twOTvR-ZSh6Lc5j8J8LfTw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3296,7 +3952,7 @@ preview(ex_other())
 
 Preview of all [`TextT`](https://abhisheksreesaila.github.io/fh-matui/components.html#textt) enum values applied to text.
 
-::: {#cell-161 .cell}
+::: {#936f79ae .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_textt():
     return Article(
@@ -3309,7 +3965,7 @@ preview(ex_textt())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_f50JRb2RQeq9aH6OWswfdg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Lc41UPhzTeihZWX9RT5I1A" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3325,7 +3981,7 @@ preview(ex_textt())
 
 Preview of all [`TextPresets`](https://abhisheksreesaila.github.io/fh-matui/components.html#textpresets) enum values applied to text.
 
-::: {#cell-163 .cell}
+::: {#b73b5aaa .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_textpresets():
     return Article(
@@ -3337,7 +3993,7 @@ preview(ex_textpresets())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Xpc03xe5S5ycasnuiDk4qg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_ajQRiSHZSw_qUvzcHJl6ag" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3353,7 +4009,7 @@ preview(ex_textpresets())
 
 Preview of heading hierarchy (H1-H6) with `Titled` component.
 
-::: {#cell-165 .cell}
+::: {#41ee8ff9 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_headings():
     return Article(
@@ -3373,7 +4029,7 @@ preview(ex_headings())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_ftTKd633QlSyDjFmWKFMwg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_ywcclX7gS_ioeKhCQKvZ7A" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3385,7 +4041,7 @@ preview(ex_headings())
 :::
 
 
-::: {#cell-166 .cell}
+::: {#0b8d16b3 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_semantic_elements():
     return Article(
@@ -3457,7 +4113,7 @@ preview(ex_semantic_elements())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_REFvzuk_TA2uGbdWF-CxPg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_sowlEp5wSpuPfkYNIaZUQQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3697,19 +4353,24 @@ def my_table(req):
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L194){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L200){target="_blank" style="float:right; font-size:smaller"}
 
 ### DataTable
 
->      DataTable (data:list[dict], total:int, page:int=1, page_size:int=10,
->                 search:str='', columns:list[dict]=None, crud_ops:dict=None,
->                 crud_enabled:dict=None, base_route:str='',
->                 row_id_field:str='id', title:str='Records',
->                 container_id:str=None, page_sizes:list=None,
->                 search_placeholder:str='Search...', create_label:str='New
->                 Record', empty_message:str='No records match the current
->                 filters.', table_style:str='border', space:str='small-space',
->                 align:str=None)
+```python
+
+def DataTable(
+    data:list, total:int, page:int=1, page_size:int=10, search:str='', columns:list=None, crud_ops:dict=None,
+    crud_enabled:dict=None, base_route:str='', row_id_field:str='id', title:str='Records', container_id:str=None,
+    page_sizes:list=None, search_placeholder:str='Search...', create_label:str='New Record',
+    empty_message:str='No records match the current filters.',
+    table_style:str='border', # border, stripes, min, fixed (can combine: 'border stripes')
+    space:str='small-space', # no-space, small-space, medium-space, large-space
+    align:str=None, # left-align, right-align, center-align (None = default left)
+):
+
+
+```
 
 *Generic data table with server-side pagination, search, and row actions.*
 
@@ -3718,36 +4379,21 @@ Table Styling (BeerCSS):
     space: Row spacing - 'no-space', 'small-space', 'medium-space', 'large-space'  
     align: Text alignment - 'left-align', 'right-align', 'center-align' (None for default)
 
-|    | **Type** | **Default** | **Details** |
-| -- | -------- | ----------- | ----------- |
-| data | list |  |  |
-| total | int |  |  |
-| page | int | 1 |  |
-| page_size | int | 10 |  |
-| search | str |  |  |
-| columns | list | None |  |
-| crud_ops | dict | None |  |
-| crud_enabled | dict | None |  |
-| base_route | str |  |  |
-| row_id_field | str | id |  |
-| title | str | Records |  |
-| container_id | str | None |  |
-| page_sizes | list | None |  |
-| search_placeholder | str | Search... |  |
-| create_label | str | New Record |  |
-| empty_message | str | No records match the current filters. |  |
-| table_style | str | border | border, stripes, min, fixed (can combine: 'border stripes') |
-| space | str | small-space | no-space, small-space, medium-space, large-space |
-| align | str | None | left-align, right-align, center-align (None = default left) |
-
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L78){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L84){target="_blank" style="float:right; font-size:smaller"}
 
 ### table_state_from_request
 
->      table_state_from_request (req, page_sizes=None)
+```python
+
+def table_state_from_request(
+    req, page_sizes:NoneType=None
+):
+
+
+```
 
 *Extract pagination state from request query params.*
 
@@ -3823,14 +4469,19 @@ async def on_create(ctx: CrudContext) -> dict:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L370){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L397){target="_blank" style="float:right; font-size:smaller"}
 
 ### CrudContext
 
->      CrudContext (request:Any, user:Optional[dict]=None,
->                   db:Optional[Any]=None, tbl:Optional[Any]=None,
->                   record:dict=None, record_id:Optional[Any]=None,
->                   feedback_id:Optional[str]=None)
+```python
+
+def CrudContext(
+    request:Any, user:Optional=None, db:Optional=None, tbl:Optional=None, record:dict=None, record_id:Optional=None,
+    feedback_id:Optional=None
+)->None:
+
+
+```
 
 *🎯 Context object passed to enhanced CRUD operation hooks.*
 
@@ -4360,28 +5011,30 @@ A high-level resource that auto-registers all routes for a complete CRUD data ta
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L482){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L509){target="_blank" style="float:right; font-size:smaller"}
 
 ### DataTableResource
 
->      DataTableResource (app, base_route:str, columns:list[dict],
->                         get_all:Callable[[Any],list],
->                         get_by_id:Callable[[Any,Any],Any],
->                         get_count:Callable[[Any],int]=None,
->                         create:Callable[[Any,dict],Any]=None,
->                         update:Callable[[Any,Any,dict],Any]=None,
->                         delete:Callable[[Any,Any],bool]=None,
->                         title:str='Records', row_id_field:str='id',
->                         crud_ops:dict=None, page_sizes:list=None,
->                         search_placeholder:str='Search...',
->                         create_label:str='New Record', empty_message:str='No
->                         records found.',
->                         on_create:Callable[[__main__.CrudContext],dict]=None,
->                         on_update:Callable[[__main__.CrudContext],dict]=None, 
->                         on_delete:Callable[[__main__.CrudContext],NoneType]=No
->                         ne, layout_wrapper:Callable[[Any,Any],Any]=None,
->                         id_generator:Callable[[],Any]=None,
->                         timestamp_fields:dict=None)
+```python
+
+def DataTableResource(
+    app, base_route:str, columns:list, get_all:Callable, # (req) -> list (can be paginated)
+    get_by_id:Callable, # (req, id) -> record
+    get_count:Callable=None, # (req) -> total count for pagination
+    create:Callable=None, # (req, data) -> record
+    update:Callable=None, # (req, id, data) -> record
+    delete:Callable=None, # (req, id) -> bool
+    title:str='Records', # Display options
+    row_id_field:str='id', crud_ops:dict=None, page_sizes:list=None, search_placeholder:str='Search...',
+    create_label:str='New Record', empty_message:str='No records found.',
+    on_create:Callable=None, # CRUD Hooks (with CrudContext)
+    on_update:Callable=None, on_delete:Callable=None, layout_wrapper:Callable=None, # (content, req) -> wrapped
+    id_generator:Callable=None, # Custom generators
+    timestamp_fields:dict=None
+):
+
+
+```
 
 *🔧 High-level resource that auto-registers all routes for a data table.*
 
@@ -4425,31 +5078,6 @@ DataTableResource(
 
 If `get_count` is not provided, the library filters and paginates in Python
 (requires `get_all` to return ALL rows - inefficient for large datasets).
-
-|    | **Type** | **Default** | **Details** |
-| -- | -------- | ----------- | ----------- |
-| app |  |  |  |
-| base_route | str |  |  |
-| columns | list |  |  |
-| get_all | Callable |  | (req) -> list (can be paginated) |
-| get_by_id | Callable |  | (req, id) -> record |
-| get_count | Callable | None | (req) -> total count for pagination |
-| create | Callable | None | (req, data) -> record |
-| update | Callable | None | (req, id, data) -> record |
-| delete | Callable | None | (req, id) -> bool |
-| title | str | Records | Display options |
-| row_id_field | str | id |  |
-| crud_ops | dict | None |  |
-| page_sizes | list | None |  |
-| search_placeholder | str | Search... |  |
-| create_label | str | New Record |  |
-| empty_message | str | No records found. |  |
-| on_create | Callable | None | CRUD Hooks (with CrudContext) |
-| on_update | Callable | None |  |
-| on_delete | Callable | None |  |
-| layout_wrapper | Callable | None | (content, req) -> wrapped |
-| id_generator | Callable | None | Custom generators |
-| timestamp_fields | dict | None |  |
 
 
 ### DataTableResource Demo
@@ -4727,11 +5355,22 @@ document.body.addEventListener('htmx:configRequest', (event) => {
 
 ### LoginScreen
 
->      LoginScreen (title='Sign In', subtitle='Choose your preferred sign-in
->                   method', providers=None, left_slot=None, logo_src=None,
->                   brand_name=None, quotes=None, color_cycle=True,
->                   testimonial_text=None, brand_bg_cls='primary', left_cols=9,
->                   cls='', **kwargs)
+```python
+
+def LoginScreen(
+    title:str='Sign In', subtitle:str='Choose your preferred sign-in method', providers:NoneType=None,
+    left_slot:NoneType=None, logo_src:NoneType=None,
+    brand_name:NoneType=None, # Brand name displayed at top-left of left panel
+    quotes:NoneType=None, # List of quotes to rotate (uses defaults if None, pass [] to disable)
+    color_cycle:bool=True, # Enable color cycling animation
+    testimonial_text:NoneType=None, # Legacy: single testimonial (use quotes instead)
+    brand_bg_cls:str='primary', # Legacy: fallback if gradient fails
+    left_cols:int=9, # Number of columns for left side (out of 12)
+    cls:str='', kwargs:VAR_KEYWORD
+):
+
+
+```
 
 *A configurable Split Login Screen with dynamic branding.*
 
@@ -4762,22 +5401,6 @@ Example:
             "Another inspiring message — Source",
         ],
     )
-
-|    | **Type** | **Default** | **Details** |
-| -- | -------- | ----------- | ----------- |
-| title | str | Sign In |  |
-| subtitle | str | Choose your preferred sign-in method |  |
-| providers | NoneType | None |  |
-| left_slot | NoneType | None |  |
-| logo_src | NoneType | None |  |
-| brand_name | NoneType | None | Brand name displayed at top-left of left panel |
-| quotes | NoneType | None | List of quotes to rotate (uses defaults if None, pass [] to disable) |
-| color_cycle | bool | True | Enable color cycling animation |
-| testimonial_text | NoneType | None | Legacy: single testimonial (use quotes instead) |
-| brand_bg_cls | str | primary | Legacy: fallback if gradient fails |
-| left_cols | int | 9 | Number of columns for left side (out of 12) |
-| cls | str |  |  |
-| kwargs | VAR_KEYWORD |  |  |
 
 
 ::: {#b144599d .cell}
@@ -4880,7 +5503,7 @@ LandingPage(
 )
 ```
 
-::: {#cell-3 .cell}
+::: {#e5974670 .cell}
 ``` {.python .cell-code code-fold="true"}
 import socket
 import time
@@ -4979,11 +5602,23 @@ document.body.addEventListener('htmx:configRequest', (event) => {
 
 ### HeroSection
 
->      HeroSection (title:str, subtitle:str, primary_cta_text:str,
->                   primary_cta_href:str, secondary_cta_text:str=None,
->                   secondary_cta_href:str=None, background:str='primary-
->                   container', cls:str='', extra_css:str|None=None,
->                   extra_js:str|None=None)
+```python
+
+def HeroSection(
+    title:str, # Main hero title
+    subtitle:str, # Hero subtitle/description
+    primary_cta_text:str, # Primary CTA button text
+    primary_cta_href:str, # Primary CTA button href
+    secondary_cta_text:str=None, # Secondary CTA button text (optional)
+    secondary_cta_href:str=None, # Secondary CTA button href (optional)
+    background:str='primary-container', # BeerCSS background class (without bg- prefix)
+    cls:str='', # Additional classes
+    extra_css:str | None=None, # Optional custom CSS (minimal; opt-in)
+    extra_js:str | None=None, # Optional custom JS (minimal; opt-in)
+):
+
+
+```
 
 *Hero section with title, subtitle, and CTA buttons.*
 
@@ -4991,21 +5626,8 @@ BeerCSS-first styling. Takes up 75vh by default with gradient overlay.
 Designed for full-width layout - background extends edge-to-edge naturally.
 Content is centered using responsive class internally.
 
-|    | **Type** | **Default** | **Details** |
-| -- | -------- | ----------- | ----------- |
-| title | str |  | Main hero title |
-| subtitle | str |  | Hero subtitle/description |
-| primary_cta_text | str |  | Primary CTA button text |
-| primary_cta_href | str |  | Primary CTA button href |
-| secondary_cta_text | str | None | Secondary CTA button text (optional) |
-| secondary_cta_href | str | None | Secondary CTA button href (optional) |
-| background | str | primary-container | BeerCSS background class (without bg- prefix) |
-| cls | str |  | Additional classes |
-| extra_css | str \| None | None | Optional custom CSS (minimal; opt-in) |
-| extra_js | str \| None | None | Optional custom JS (minimal; opt-in) |
 
-
-::: {#cell-6 .cell}
+::: {#c7cbe9d0 .cell}
 ``` {.python .cell-code code-fold="true"}
 def hero_section():
     return HeroSection(
@@ -5056,8 +5678,17 @@ preview(hero_section())
 
 ### FeatureShowcase
 
->      FeatureShowcase (features:list, title:str=None, subtitle:str=None,
->                       cls:str='')
+```python
+
+def FeatureShowcase(
+    features:list, # List of dicts: {title, description, image_src?, icon?, image_alt?}
+    title:str=None, # Optional section title
+    subtitle:str=None, # Optional section subtitle
+    cls:str=''
+):
+
+
+```
 
 *Alternating text/image feature showcase with card styling.*
 
@@ -5085,15 +5716,8 @@ Example:
         ]
     )
 
-|    | **Type** | **Default** | **Details** |
-| -- | -------- | ----------- | ----------- |
-| features | list |  | List of dicts: {title, description, image_src?, icon?, image_alt?} |
-| title | str | None | Optional section title |
-| subtitle | str | None | Optional section subtitle |
-| cls | str |  |  |
 
-
-::: {#cell-10 .cell}
+::: {#11bcabcb .cell}
 ``` {.python .cell-code code-fold="true"}
 showcase_features = [
     {'title': 'Lightning Fast', 'description': 'Built for speed with optimized rendering and minimal overhead. Your pages load instantly.', 'icon': 'bolt'},
@@ -5131,21 +5755,23 @@ preview(test_showcase())
 
 ### FeaturesGrid
 
->      FeaturesGrid (features:list, title:str=None, subtitle:str=None,
->                    cols:int=3, cls:str='')
+```python
+
+def FeaturesGrid(
+    features:list, # List of dicts with 'icon', 'title', 'description'
+    title:str=None, # Optional section title
+    subtitle:str=None, # Optional section subtitle
+    cols:int=3, # Number of columns (1-4)
+    cls:str='', # Additional classes
+):
+
+
+```
 
 *Grid of feature cards using BeerCSS grid helpers.*
 
-|    | **Type** | **Default** | **Details** |
-| -- | -------- | ----------- | ----------- |
-| features | list |  | List of dicts with 'icon', 'title', 'description' |
-| title | str | None | Optional section title |
-| subtitle | str | None | Optional section subtitle |
-| cols | int | 3 | Number of columns (1-4) |
-| cls | str |  | Additional classes |
 
-
-::: {#cell-12 .cell}
+::: {#17e96d5b .cell}
 ``` {.python .cell-code code-fold="true"}
 sample_features = [
     {'icon': 'star', 'title': 'Fast', 'description': 'Lightning fast performance'},
@@ -5168,7 +5794,7 @@ def test_fg():
 :::
 
 
-::: {#cell-13 .cell}
+::: {#72017bff .cell}
 ``` {.python .cell-code code-fold="true"}
 preview(test_fg())
 ```
@@ -5206,7 +5832,16 @@ preview(test_fg())
 
 ### PricingSection
 
->      PricingSection (title:str, plans:list, cls:str='')
+```python
+
+def PricingSection(
+    title:str, # Section title
+    plans:list, # List of plan dicts: {name, monthly_price, yearly_price, features, cta_text, cta_href, highlight?}
+    cls:str='', # Additional classes
+):
+
+
+```
 
 *Multi-tier pricing section with monthly/yearly toggle.*
 
@@ -5236,14 +5871,8 @@ Example:
         ]
     )
 
-|    | **Type** | **Default** | **Details** |
-| -- | -------- | ----------- | ----------- |
-| title | str |  | Section title |
-| plans | list |  | List of plan dicts: {name, monthly_price, yearly_price, features, cta_text, cta_href, highlight?} |
-| cls | str |  | Additional classes |
 
-
-::: {#cell-16 .cell}
+::: {#574777b3 .cell}
 ``` {.python .cell-code code-fold="true"}
 # Test with 3-tier pricing (Starter / Pro / Enterprise)
 def test_pricing_3tier():
@@ -5312,7 +5941,7 @@ preview(test_pricing_3tier())
 :::
 
 
-::: {#cell-17 .cell}
+::: {#72c44e1c .cell}
 ``` {.python .cell-code code-fold="true"}
 # Test with single pricing card
 def test_pricing_single():
@@ -5367,7 +5996,14 @@ preview(test_pricing_single())
 
 ### FAQSection
 
->      FAQSection (title:str, faqs:list, cls:str='')
+```python
+
+def FAQSection(
+    title:str, faqs:list, cls:str=''
+):
+
+
+```
 
 *FAQ section using FAQItem from components.*
 
@@ -5380,7 +6016,7 @@ Args:
     cls: Additional CSS classes
 
 
-::: {#cell-20 .cell}
+::: {#826fabe3 .cell}
 ``` {.python .cell-code code-fold="true"}
 faqs = [
     {'question': 'What is FastHTML?', 'answer': 'FastHTML is a modern web framework'},
@@ -5428,25 +6064,27 @@ preview(faq_section())
 
 ### PageFooter
 
->      PageFooter (columns:list, copyright:str, social_links:list=None,
->                  logo:str=None, wave_border:bool=True, cls:str='')
+```python
+
+def PageFooter(
+    columns:list, # List of dicts with 'title' and 'links' (list of dicts with 'text' and 'href')
+    copyright:str, # Copyright text
+    social_links:list=None, # List of dicts with 'icon' and 'href'
+    logo:str=None, # Optional logo text
+    wave_border:bool=True, # Show decorative wave border at top
+    cls:str='', # Additional classes
+):
+
+
+```
 
 *Footer with multiple columns, social links, and copyright.*
 
 Features a decorative sine wave border at the top for elegant visual separation.
 Blends with page background (no container fill) for seamless appearance.
 
-|    | **Type** | **Default** | **Details** |
-| -- | -------- | ----------- | ----------- |
-| columns | list |  | List of dicts with 'title' and 'links' (list of dicts with 'text' and 'href') |
-| copyright | str |  | Copyright text |
-| social_links | list | None | List of dicts with 'icon' and 'href' |
-| logo | str | None | Optional logo text |
-| wave_border | bool | True | Show decorative wave border at top |
-| cls | str |  | Additional classes |
 
-
-::: {#cell-23 .cell}
+::: {#49e86185 .cell}
 ``` {.python .cell-code code-fold="true"}
 def ex_footer():
     return   PageFooter(
@@ -5482,8 +6120,18 @@ preview(ex_footer())
 
 ### LandingNavBar
 
->      LandingNavBar (brand_name:str, links:list=None, actions:list=None,
->                     sticky:bool=True, cls:str='')
+```python
+
+def LandingNavBar(
+    brand_name:str, # Brand name for the navbar
+    links:list=None, # List of dicts with 'text' and 'href'
+    actions:list=None, # List of action buttons (Buttons/Links)
+    sticky:bool=True, # Whether navbar sticks to top
+    cls:str='', # Additional classes
+):
+
+
+```
 
 *Landing page navigation bar with frosted glass effect.*
 
@@ -5498,14 +6146,6 @@ Args:
     actions: List of action elements (Buttons, etc.) for CTA
     sticky: Whether navbar sticks to top while scrolling (default: True)
     cls: Additional CSS classes
-
-|    | **Type** | **Default** | **Details** |
-| -- | -------- | ----------- | ----------- |
-| brand_name | str |  | Brand name for the navbar |
-| links | list | None | List of dicts with 'text' and 'href' |
-| actions | list | None | List of action buttons (Buttons/Links) |
-| sticky | bool | True | Whether navbar sticks to top |
-| cls | str |  | Additional classes |
 
 
 ## 📄 Landing Page
@@ -5523,17 +6163,27 @@ Args:
 
 ### LandingPageSimple
 
->      LandingPageSimple (brand_name:str, hero_title:str, hero_subtitle:str,
->                         hero_primary_cta:dict, footer_copyright:str,
->                         hero_secondary_cta:dict=None, benefits:list=None,
->                         benefits_title:str=None, benefits_subtitle:str=None,
->                         features:list=None, features_title:str=None,
->                         features_subtitle:str=None, pricing_plans:list=None,
->                         pricing_title:str='Pricing', faqs:list=None,
->                         faq_title:str='Frequently Asked Questions',
->                         footer_columns:list=None,
->                         footer_social_links:list=None, nav_links:list=None,
->                         nav_actions:list=None, cls:str='')
+```python
+
+def LandingPageSimple(
+    brand_name:str, # Required
+    hero_title:str, hero_subtitle:str, hero_primary_cta:dict, # {'text': 'Get Started', 'href': '/signup'}
+    footer_copyright:str, # Required copyright text
+    hero_secondary_cta:dict=None, # Optional secondary CTA
+    benefits:list=None, # List of dicts: {title, description, icon?, image_src?}
+    benefits_title:str=None, benefits_subtitle:str=None,
+    features:list=None, # List of dicts: {icon, title, description}
+    features_title:str=None, features_subtitle:str=None,
+    pricing_plans:list=None, # List of plan dicts for PricingSection
+    pricing_title:str='Pricing', faqs:list=None, # List of FAQ dicts
+    faq_title:str='Frequently Asked Questions', footer_columns:list=None, # Optional Footer extras
+    footer_social_links:list=None, nav_links:list=None, # Override default nav links
+    nav_actions:list=None, # CTA buttons in navbar
+    cls:str=''
+):
+
+
+```
 
 *Landing page component - supply your content, get a complete page.*
 
@@ -5552,32 +6202,8 @@ Section order: Hero → Benefits → Features → Pricing → FAQ → Footer
 Required: brand_name, hero_title, hero_subtitle, hero_primary_cta, footer_copyright
 Optional: Benefits, Features, Pricing, FAQ (pass None to skip any section)
 
-|    | **Type** | **Default** | **Details** |
-| -- | -------- | ----------- | ----------- |
-| brand_name | str |  | Required |
-| hero_title | str |  |  |
-| hero_subtitle | str |  |  |
-| hero_primary_cta | dict |  | {'text': 'Get Started', 'href': '/signup'} |
-| footer_copyright | str |  | Required copyright text |
-| hero_secondary_cta | dict | None | Optional secondary CTA |
-| benefits | list | None | List of dicts: {title, description, icon?, image_src?} |
-| benefits_title | str | None |  |
-| benefits_subtitle | str | None |  |
-| features | list | None | List of dicts: {icon, title, description} |
-| features_title | str | None |  |
-| features_subtitle | str | None |  |
-| pricing_plans | list | None | List of plan dicts for PricingSection |
-| pricing_title | str | Pricing |  |
-| faqs | list | None | List of FAQ dicts |
-| faq_title | str | Frequently Asked Questions |  |
-| footer_columns | list | None | Optional Footer extras |
-| footer_social_links | list | None |  |
-| nav_links | list | None | Override default nav links |
-| nav_actions | list | None | CTA buttons in navbar |
-| cls | str |  |  |
 
-
-::: {#cell-27 .cell}
+::: {#e768711d .cell}
 ``` {.python .cell-code code-fold="true"}
 @rt('/test-lp')
 def test_landing_page():
@@ -5644,7 +6270,16 @@ def test_landing_page():
 
 ### MarkdownSection
 
->      MarkdownSection (content:str, title:str=None, cls:str='')
+```python
+
+def MarkdownSection(
+    content:str, # Markdown text to render
+    title:str=None, # Optional section title (rendered as H3 for appropriate size)
+    cls:str='', # Additional classes
+):
+
+
+```
 
 *Renders markdown content server-side for SEO compatibility.*
 
@@ -5672,12 +6307,6 @@ We value your privacy...
             '''
         )
 
-|    | **Type** | **Default** | **Details** |
-| -- | -------- | ----------- | ----------- |
-| content | str |  | Markdown text to render |
-| title | str | None | Optional section title (rendered as H3 for appropriate size) |
-| cls | str |  | Additional classes |
-
 
 ---
 
@@ -5685,10 +6314,21 @@ We value your privacy...
 
 ### ContentPage
 
->      ContentPage (brand_name:str, footer_copyright:str, *sections,
->                   nav_links:list=None, nav_actions:list=None,
->                   footer_columns:list=None, footer_social_links:list=None,
->                   cls:str='')
+```python
+
+def ContentPage(
+    brand_name:str, # Brand name for navbar
+    footer_copyright:str, # Copyright text for footer
+    sections:VAR_POSITIONAL, # Content sections (MarkdownSection, custom Divs, etc.)
+    nav_links:list=None, # Override default nav links
+    nav_actions:list=None, # CTA buttons in navbar
+    footer_columns:list=None, # Footer link columns (uses STANDARD_FOOTER_COLUMNS by default)
+    footer_social_links:list=None, # Footer social icons
+    cls:str=''
+):
+
+
+```
 
 *Generic content page with navbar, flexible content area, and footer.*
 
@@ -5717,19 +6357,8 @@ Example:
         nav_links=[{'text': 'Home', 'href': '/'}],
     )
 
-|    | **Type** | **Default** | **Details** |
-| -- | -------- | ----------- | ----------- |
-| brand_name | str |  | Brand name for navbar |
-| footer_copyright | str |  | Copyright text for footer |
-| sections | VAR_POSITIONAL |  | Content sections (MarkdownSection, custom Divs, etc.) |
-| nav_links | list | None | Override default nav links |
-| nav_actions | list | None | CTA buttons in navbar |
-| footer_columns | list | None | Footer link columns (uses STANDARD_FOOTER_COLUMNS by default) |
-| footer_social_links | list | None | Footer social icons |
-| cls | str |  |  |
 
-
-::: {#cell-31 .cell}
+::: {#5081664a .cell}
 ``` {.python .cell-code code-fold="true"}
 # Example: Privacy Policy page
 privacy_md = '''
@@ -5799,7 +6428,7 @@ preview(privacy_page())
 :::
 
 
-::: {#cell-32 .cell}
+::: {#465bbd8f .cell}
 ``` {.python .cell-code code-fold="true"}
 # Example: Security page
 security_md = '''
@@ -5864,7 +6493,7 @@ preview(security_page())
 :::
 
 
-::: {#cell-33 .cell}
+::: {#82f78d74 .cell}
 ``` {.python .cell-code code-fold="true"}
 # Example: About Us page
 about_md = '''
@@ -5925,7 +6554,7 @@ preview(about_page())
 :::
 
 
-::: {#cell-34 .cell}
+::: {#89cc1af6 .cell}
 ``` {.python .cell-code code-fold="true"}
 # Example: Terms of Service page
 terms_md = '''
