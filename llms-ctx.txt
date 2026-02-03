@@ -443,7 +443,7 @@ preview(ex_buttons())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_oOdtUWKJQW6_yq4jNON4Uw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_fyKiwACfSpu7FmYSJA90rQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -488,7 +488,7 @@ preview(ex_links())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_ugU-7pyYQf_VvCH1IKVOkA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_h7QUhiAUQOOvdYCwQ_5-3A" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -642,7 +642,7 @@ preview(ex_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_SuBEKJD2QSmWYAQRrnCGaA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_9fjrsc3wTrWpCBUGt8Q4tA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -682,7 +682,7 @@ preview(ex_product_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_eWpDpk_fRW_5bY3xel72RA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Nd_ECZ5fRGC6UQIxdrLTFw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -746,7 +746,7 @@ preview(ex_l_aligned_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_rTEg0NhWQGWpl2LXhLacoQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_eVLc1i3bQ7OhiTZz8Ph1hw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -793,7 +793,7 @@ preview(ex_v_stacked_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_ucWWsY9BSf603Gl_Ln8pXA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_fdfFTIfgRv_HiZ4J0YbGLw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -821,7 +821,7 @@ preview(ex_h_stacked_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Femd5ISlQeu9tVw5hv_7dw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/__kGtBbT1QpimFBMVqFrK3w" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -867,7 +867,7 @@ preview(ex_r_aligned_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_cZuaIrDZT5OQXyyXpLN6Dw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_gXmGZLhjRyqYS9pPaZg9Tw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -912,7 +912,7 @@ preview(ex_centered_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Pr-7CGhTTRmvHQXnPdFDHA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_5opiQry4TGiTtZlII0ZmXQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -960,7 +960,7 @@ preview(ex_fully_spaced_div())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_hvPb7ugRQXGTZK_UaKQTnA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_lrJVrFFzTHG09P9UBTo2mg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1016,7 +1016,7 @@ preview(ex_icon())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_SnXkQ1FWR9WvdJR7IImdtA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_FiHeOstDRca7vHsOD3CDog" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1077,7 +1077,7 @@ preview(ex_navbar1())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_dNbrinYhQkCOxs-NFfrk_g" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_D-GInvGURsOnVIg1FDcVXg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1336,7 +1336,7 @@ preview(test_modal())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_BaVAPgMjQnOJYUOaidmSWQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_yi7uiUEXRnOeBuAEx3UXRA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1407,7 +1407,7 @@ preview(ex_input())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_ZRazOvU2ShatqD_jcpLhRQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_4nVsShNTTciQy9YUAacBLw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1478,7 +1478,7 @@ preview(ex_form_label())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_yMWHUMUfS3Kq0KP3gGlxqg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_ZYyllOlOQ_KEJFkjvP7jhA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1531,7 +1531,7 @@ preview(ex_checkbox())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_XweE9DXQTP2gj8JQWgD1WA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_OTS_yDEnR6KECLGzdBLWwg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1582,7 +1582,7 @@ preview(ex_Radio())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_vQ0NudNjTLG5TB8TfEGy7w" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_KBMIXxzvTeenjyXUSleJ_A" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1637,7 +1637,7 @@ preview(ex_switch())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_XVNVqNJLSIKiFE7MblRInA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_-cHkfpKVQ9Spb10ikbiKdA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1689,7 +1689,7 @@ preview(ex_TextArea())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_3sJsJWgwSbO9pY81iHqSqw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_rMfKSnZZTRe2tmfxN8Q_AA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1740,7 +1740,7 @@ preview(ex_range())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_x8JulguqSmmOTJFNY4B6CA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_KGzkxB_NTSSpWJDueIKFWg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -1757,7 +1757,7 @@ preview(ex_range())
 | Component | Purpose |
 |-----------|---------|
 | [`Select`](https://abhisheksreesaila.github.io/fh-matui/components.html#select) | Native HTML select for forms - uses standard `change` event, works with HTMX |
-| `SelectMenu` | BeerCSS menu-based dropdown for display menus (profile, actions, navigation) |
+| [`SelectMenu`](https://abhisheksreesaila.github.io/fh-matui/components.html#selectmenu) | BeerCSS menu-based dropdown for display menus (profile, actions, navigation) |
 
 ### Select (Native HTML)
 
@@ -1824,11 +1824,11 @@ SelectMenu(
 | `id` | `str` | `None` | Wrapper ID |
 | `cls` | `str|tuple` | `()` | Additional CSS classes |
 
-> 💡 **Rule of thumb**: Use [`Select`](https://abhisheksreesaila.github.io/fh-matui/components.html#select) for forms, `SelectMenu` for display-only menus.
+> 💡 **Rule of thumb**: Use [`Select`](https://abhisheksreesaila.github.io/fh-matui/components.html#select) for forms, [`SelectMenu`](https://abhisheksreesaila.github.io/fh-matui/components.html#selectmenu) for display-only menus.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L650){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L639){target="_blank" style="float:right; font-size:smaller"}
 
 ### Select
 
@@ -1861,6 +1861,8 @@ Args:
 
 
 ---
+
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L596){target="_blank" style="float:right; font-size:smaller"}
 
 ### SelectMenu
 
@@ -1925,7 +1927,7 @@ preview(ex_select())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_KJ75F8QeTnCuixFJb1iONw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_NPH6awaeSVuXfZJlmn0cjQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2005,7 +2007,7 @@ preview(cascade_demo())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_-n5QGl3YSWSe-juBimo1fQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_glYxcKO8Qjq4_Lw1T_rCNw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2070,7 +2072,7 @@ The pattern works because:
 3. Server returns a new Select component with filtered options
 4. HTMX swaps it into the target container
 
-**Note:** For display-only menus (profile dropdowns, action menus), use `SelectMenu` instead.
+**Note:** For display-only menus (profile dropdowns, action menus), use [`SelectMenu`](https://abhisheksreesaila.github.io/fh-matui/components.html#selectmenu) instead.
 
 ### Fieldset
 
@@ -2102,7 +2104,7 @@ preview(ex_fs())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/__VKXJay3STiFBlK6QHHVaA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_PuwmSTG9Tb_kXlGatgf0wg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2140,7 +2142,7 @@ preview(ex_l())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_a662hbSBQxqc1ErlJ9HeBQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_tAhe82e0QbC8Jc-MdZRgTg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2171,7 +2173,7 @@ Arranges children in columns on medium+ screens (full-width on small screens). U
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L696){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L702){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormGrid
 
@@ -2247,7 +2249,7 @@ preview(ex_form_grid())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Q5yHwNyRQsWkfVO2rPMePQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_WeKWVRbKQ7e2RWuO7tquKA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2269,7 +2271,7 @@ preview(ex_form_grid())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L705){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L711){target="_blank" style="float:right; font-size:smaller"}
 
 ### Progress
 
@@ -2298,7 +2300,7 @@ preview(ex_progress())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_HA8qzLQoSQyWMNU3-HxVCw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_oB44QesEQNiQHC5cQ4On0w" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2320,7 +2322,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L717){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L723){target="_blank" style="float:right; font-size:smaller"}
 
 ### LoadingIndicator
 
@@ -2349,7 +2351,7 @@ preview(ex_progress())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_MPWIdltQT3K_7ZQ_3jfsvQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Ehdt5P26SwKamWDuGt5PTQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2375,7 +2377,7 @@ preview(ex_progress())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L781){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L787){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableFromDicts
 
@@ -2395,7 +2397,7 @@ def TableFromDicts(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L772){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L778){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableFromLists
 
@@ -2414,7 +2416,7 @@ def TableFromLists(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L767){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L773){target="_blank" style="float:right; font-size:smaller"}
 
 ### Tfoot
 
@@ -2432,7 +2434,7 @@ def Tfoot(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L761){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L767){target="_blank" style="float:right; font-size:smaller"}
 
 ### Tbody
 
@@ -2450,7 +2452,7 @@ def Tbody(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L756){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L762){target="_blank" style="float:right; font-size:smaller"}
 
 ### Thead
 
@@ -2468,7 +2470,7 @@ def Thead(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L743){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L749){target="_blank" style="float:right; font-size:smaller"}
 
 ### Th
 
@@ -2486,7 +2488,7 @@ def Th(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L730){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L736){target="_blank" style="float:right; font-size:smaller"}
 
 ### Td
 
@@ -2504,7 +2506,7 @@ def Td(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L725){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L731){target="_blank" style="float:right; font-size:smaller"}
 
 ### Table
 
@@ -2536,7 +2538,7 @@ preview(ex_tablelists())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_G9iJM4ubRy2GDvJ3ZJ9V6w" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_mliPY774Ts6WGq0xtc0PFQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2564,7 +2566,7 @@ preview(ex_tabledicts())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_MbRd_Xi_Q_KQgTCvClhoWg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_PqsfT5QRRnejN-mUro_RKw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2578,7 +2580,7 @@ preview(ex_tabledicts())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L793){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L799){target="_blank" style="float:right; font-size:smaller"}
 
 ### TableControls
 
@@ -2608,7 +2610,7 @@ preview(ex_tablecontrols())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_xjCbzoyrQMe-j-FRzVzXFA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_nHrWy4wVQhuKHyhV8tBpiA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2630,7 +2632,7 @@ preview(ex_tablecontrols())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L800){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L806){target="_blank" style="float:right; font-size:smaller"}
 
 ### Pagination
 
@@ -2659,7 +2661,7 @@ preview(ex_tablePagination())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_1slicX9HR_a1knJUDMkviA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Ebe_X02hRzOq7-_CXJP6CQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2681,7 +2683,7 @@ preview(ex_tablePagination())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L835){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L841){target="_blank" style="float:right; font-size:smaller"}
 
 ### Card
 
@@ -2716,7 +2718,7 @@ preview(ex_card())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_JoPXRGwnToysje2buYuUKQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_cAHMOENKSxe5WAolGoMUrQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2738,7 +2740,7 @@ preview(ex_card())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L849){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L855){target="_blank" style="float:right; font-size:smaller"}
 
 ### Toolbar
 
@@ -2771,7 +2773,7 @@ preview(ex_toolbar())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_OFJza3KSTauhFU45vOzYNw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_E-nwkMf2SamUf-E_HPqhNg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2803,7 +2805,7 @@ preview(ex_toolbar())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L897){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L903){target="_blank" style="float:right; font-size:smaller"}
 
 ### Snackbar
 
@@ -2821,7 +2823,7 @@ def Snackbar(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L859){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L865){target="_blank" style="float:right; font-size:smaller"}
 
 ### Toast
 
@@ -2861,7 +2863,7 @@ preview(ex_toast())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_FZ8JUnAhTkqPhjJNn1-SgQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_hZkLTQPXQh_BComzYYikpw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -2884,7 +2886,7 @@ def example_toast():
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L903){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L909){target="_blank" style="float:right; font-size:smaller"}
 
 ### ContainerT
 
@@ -2934,7 +2936,7 @@ Each column can include a `form` key to customize its form field:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L930){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L936){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormField
 
@@ -2977,7 +2979,7 @@ Could be expanded to accept simpler field specs in the future.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L992){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L998){target="_blank" style="float:right; font-size:smaller"}
 
 ### FormModal
 
@@ -3008,7 +3010,7 @@ Integrates with HTMX for form submission.
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1158){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1164){target="_blank" style="float:right; font-size:smaller"}
 
 ### BottomNav
 
@@ -3026,7 +3028,7 @@ def BottomNav(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1154){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1160){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSubtitle
 
@@ -3044,7 +3046,7 @@ def NavSubtitle(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1150){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1156){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavCloseLi
 
@@ -3062,7 +3064,7 @@ def NavCloseLi(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1146){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1152){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavDividerLi
 
@@ -3080,7 +3082,7 @@ def NavDividerLi(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1142){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1148){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavHeaderLi
 
@@ -3098,7 +3100,7 @@ def NavHeaderLi(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1109){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1115){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavContainer
 
@@ -3137,7 +3139,7 @@ preview(ex_navcontainer())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_WUG9HHoISJiuyJXIlGpo0g" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_HC07L1kWRz_2WQ-E1NtwDg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3227,7 +3229,7 @@ def get_layout(content):
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1177){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1183){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarContainer
 
@@ -3262,7 +3264,7 @@ Usage:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1170){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1176){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarLinks
 
@@ -3280,7 +3282,7 @@ def NavSideBarLinks(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1166){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1172){target="_blank" style="float:right; font-size:smaller"}
 
 ### NavSideBarHeader
 
@@ -3329,7 +3331,7 @@ preview(ex_navsidebarcontainer())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_jPDdAq5fTnGh1MvYYi-VPg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_M4uyQBGESxCjchukJVTB9A" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3343,7 +3345,7 @@ preview(ex_navsidebarcontainer())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1230){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1236){target="_blank" style="float:right; font-size:smaller"}
 
 ### Layout
 
@@ -3383,7 +3385,7 @@ Usage:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1210){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1216){target="_blank" style="float:right; font-size:smaller"}
 
 ### Page
 
@@ -3543,7 +3545,7 @@ preview(get_layout(dashboard_content()))
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_vR5s11AGQGKOBxFtVwPbgQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_1slT7SdaRlKAdKARhWfbTA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3568,7 +3570,7 @@ preview(get_layout(dashboard_content()))
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1337){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1343){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextPresets
 
@@ -3586,7 +3588,7 @@ def TextPresets(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1318){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1324){target="_blank" style="float:right; font-size:smaller"}
 
 ### TextT
 
@@ -3604,7 +3606,7 @@ def TextT(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1399){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1405){target="_blank" style="float:right; font-size:smaller"}
 
 ### Sup
 
@@ -3622,7 +3624,7 @@ def Sup(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1394){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1400){target="_blank" style="float:right; font-size:smaller"}
 
 ### Sub
 
@@ -3640,7 +3642,7 @@ def Sub(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1389){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1395){target="_blank" style="float:right; font-size:smaller"}
 
 ### Abbr
 
@@ -3658,7 +3660,7 @@ def Abbr(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1384){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1390){target="_blank" style="float:right; font-size:smaller"}
 
 ### Mark
 
@@ -3676,7 +3678,7 @@ def Mark(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1380){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1386){target="_blank" style="float:right; font-size:smaller"}
 
 ### Small
 
@@ -3694,7 +3696,7 @@ def Small(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1376){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1382){target="_blank" style="float:right; font-size:smaller"}
 
 ### Strong
 
@@ -3712,7 +3714,7 @@ def Strong(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1371){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1377){target="_blank" style="float:right; font-size:smaller"}
 
 ### Em
 
@@ -3730,7 +3732,7 @@ def Em(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1367){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1373){target="_blank" style="float:right; font-size:smaller"}
 
 ### Q
 
@@ -3748,7 +3750,7 @@ def Q(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1362){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1368){target="_blank" style="float:right; font-size:smaller"}
 
 ### Blockquote
 
@@ -3766,7 +3768,7 @@ def Blockquote(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1355){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1361){target="_blank" style="float:right; font-size:smaller"}
 
 ### CodeBlock
 
@@ -3784,7 +3786,7 @@ def CodeBlock(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1350){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1356){target="_blank" style="float:right; font-size:smaller"}
 
 ### CodeSpan
 
@@ -3811,7 +3813,7 @@ def CodeSpan(
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1406){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1412){target="_blank" style="float:right; font-size:smaller"}
 
 ### FAQItem
 
@@ -3855,7 +3857,7 @@ preview(ex_faq_item())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_EltZwf_XQSe4CZ2CazYfRQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_klVTHSK3SW_8KR37Fh6Ufw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3877,7 +3879,7 @@ preview(ex_faq_item())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1424){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/components.py#L1430){target="_blank" style="float:right; font-size:smaller"}
 
 ### CookiesBanner
 
@@ -3907,7 +3909,7 @@ preview(get_CookiesBanner())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_fF2jfU8NR_W1Khx8_KWzSA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_Ci7BhcpJRxyFjwoAQ3cK3g" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3936,7 +3938,7 @@ preview(ex_other())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_twOTvR-ZSh6Lc5j8J8LfTw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_dRQ1VQN6SRypl9vXssG7Hw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3965,7 +3967,7 @@ preview(ex_textt())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_Lc41UPhzTeihZWX9RT5I1A" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_31db8QSjRFecbQG7ZrxpJw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -3993,7 +3995,7 @@ preview(ex_textpresets())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_ajQRiSHZSw_qUvzcHJl6ag" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_7UtORtmXT8mnYczSAAhUwA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -4029,7 +4031,7 @@ preview(ex_headings())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_ywcclX7gS_ioeKhCQKvZ7A" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_4P87AdiLTEGOwYztSOHJyA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -4113,7 +4115,7 @@ preview(ex_semantic_elements())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:2222/_sowlEp5wSpuPfkYNIaZUQQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:2222/_OaExCBwQRu6n6vmLK01Ivg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe

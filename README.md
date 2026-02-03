@@ -46,22 +46,24 @@ responsive web interfaces entirely in Python — no JavaScript required.
 
 fh-matui includes 15+ pre-configured Material Design 3 color themes:
 
-| Theme                 | Preview | Theme                 | Preview |
-|-----------------------|---------|-----------------------|---------|
-| `MatTheme.red`        | 🔴      | `MatTheme.pink`       | 🩷      |
-| `MatTheme.purple`     | 🟣      | `MatTheme.deepPurple` | 💜      |
-| `MatTheme.indigo`     | 🔵      | `MatTheme.blue`       | 💙      |
-| `MatTheme.lightBlue`  | 🩵      | `MatTheme.cyan`       | 🌊      |
-| `MatTheme.teal`       | 🩶      | `MatTheme.green`      | 💚      |
-| `MatTheme.lightGreen` | 🍀      | `MatTheme.lime`       | 💛      |
-| `MatTheme.yellow`     | 🌟      | `MatTheme.amber`      | 🧡      |
-| `MatTheme.orange`     | 🟠      | `MatTheme.deepOrange` | 🔶      |
+| Theme                  | Preview | Theme                  | Preview |
+|------------------------|---------|------------------------|---------|
+| `MatTheme.red`         | 🔴      | `MatTheme.pink`        | 🩷      |
+| `MatTheme.purple`      | 🟣      | `MatTheme.deep_purple` | 💜      |
+| `MatTheme.indigo`      | 🔵      | `MatTheme.blue`        | 💙      |
+| `MatTheme.light_blue`  | 🩵      | `MatTheme.cyan`        | 🌊      |
+| `MatTheme.teal`        | 🩶      | `MatTheme.green`       | 💚      |
+| `MatTheme.light_green` | 🍀      | `MatTheme.lime`        | 💛      |
+| `MatTheme.yellow`      | 🌟      | `MatTheme.amber`       | 🧡      |
+| `MatTheme.orange`      | 🟠      | `MatTheme.deep_orange` | 🔶      |
+| `MatTheme.brown`       | 🟤      | `MatTheme.grey`        | ⚪      |
+| `MatTheme.blue_grey`   | 🔘      |                        |         |
 
 **Usage:**
 
 ``` python
 # Choose your theme
-app, rt = fast_app(hdrs=[MatTheme.deepPurple.headers()])
+app, rt = fast_app(hdrs=[MatTheme.deep_purple.headers()])
 ```
 
 ## 🚀 Quick Start
@@ -82,7 +84,6 @@ def home():
         Card(
             H3("Welcome to fh-matui!"),
             P("Build beautiful Material Design apps with Python."),
-            FormField("email", label="Email", type="email"),
             Button("Get Started", cls="primary"),
         ),
         cls="padding"
@@ -107,8 +108,10 @@ styling
 
 1.  **`MatTheme.indigo.headers()`** - Loads BeerCSS with the indigo
     color scheme
-2.  **`Card`** - Creates a Material Design card component with elevation
-3.  **`FormField`** - Generates a styled input with floating label
+2.  **[`Card`](https://abhisheksreesaila.github.io/fh-matui/components.html#card)** -
+    Creates a Material Design card component with elevation
+3.  **[`FormField`](https://abhisheksreesaila.github.io/fh-matui/components.html#formfield)** -
+    Generates a styled input with floating label
 4.  **`Button`** - Renders a Material Design button with ripple effects
 
 ## 📚 Module Reference
@@ -117,9 +120,9 @@ styling
 |----|----|----|
 | [Foundations](foundations.html) | Base utilities and helper functions | `BeerHeaders`, `display`, styling helpers |
 | [Core](core.html) | Theme system and styling | `MatTheme`, color presets, theme configuration |
-| [Components](components.html) | UI component library | `Button`, `Card`, `FormField`, `FormModal`, `Grid` |
+| [Components](components.html) | UI component library | `Button`, [`Card`](https://abhisheksreesaila.github.io/fh-matui/components.html#card), [`FormField`](https://abhisheksreesaila.github.io/fh-matui/components.html#formfield), [`FormModal`](https://abhisheksreesaila.github.io/fh-matui/components.html#formmodal), [`Grid`](https://abhisheksreesaila.github.io/fh-matui/components.html#grid) |
 | [App Pages](app_pages.html) | Application layouts | Navigation, sidebars, full-page layouts |
-| [Data Tables](05_table.html) | Data management components | `DataTable`, `DataTableResource`, CRUD operations |
+| [Data Tables](05_table.html) | Data management components | [`DataTable`](https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatable), [`DataTableResource`](https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatableresource), CRUD operations |
 | [Web Pages](web_pages.html) | Marketing/landing pages | Hero sections, feature grids, testimonials |
 
 ## 🛠️ Development
@@ -147,8 +150,8 @@ nbdev_prepare
 | **Component consistency** | Unified API across all components |
 | **Dark mode support** | Built-in with automatic system preference detection |
 | **Responsive design** | Mobile-first grid system and responsive utilities |
-| **Form handling** | `FormField`, `FormGrid`, `FormModal` for rapid form building |
-| **Data management** | `DataTable` and `DataTableResource` for CRUD operations |
+| **Form handling** | [`FormField`](https://abhisheksreesaila.github.io/fh-matui/components.html#formfield), [`FormGrid`](https://abhisheksreesaila.github.io/fh-matui/components.html#formgrid), [`FormModal`](https://abhisheksreesaila.github.io/fh-matui/components.html#formmodal) for rapid form building |
+| **Data management** | [`DataTable`](https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatable) and [`DataTableResource`](https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatableresource) for CRUD operations |
 
 ## 🤖 For LLM Users
 

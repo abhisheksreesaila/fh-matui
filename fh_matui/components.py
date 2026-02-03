@@ -685,8 +685,8 @@ def Select(*options, label=None, value='', name='', id=None, placeholder=None, c
     
     select_el = fc.Select(*opt_elements, **select_attrs)
     
-    # Build field wrapper
-    field_cls = ['field', 'border', 'round']
+    # Build field wrapper - 'max' ensures full width like LabelInput
+    field_cls = ['field', 'border', 'round', 'max']
     if label: field_cls.append('label')
     if cls: field_cls.extend(normalize_tokens(cls))
     cls_str = stringify(field_cls)
