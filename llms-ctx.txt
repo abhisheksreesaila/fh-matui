@@ -4369,6 +4369,10 @@ def DataTable(
     table_style:str='border', # border, stripes, min, fixed (can combine: 'border stripes')
     space:str='small-space', # no-space, small-space, medium-space, large-space
     align:str=None, # left-align, right-align, center-align (None = default left)
+    group_by:str=None, # Column key to group rows by
+    group_header_format:Callable=None, # Format group header text
+    group_header_cls:str='surface-container', # CSS classes for group header row
+    group_header_icon:Union=None, # Icon name or callable
 ):
 
 
@@ -4380,6 +4384,12 @@ Table Styling (BeerCSS):
     table_style: Table visual style - 'border', 'stripes', 'min', 'fixed' or combine like 'border stripes'
     space: Row spacing - 'no-space', 'small-space', 'medium-space', 'large-space'  
     align: Text alignment - 'left-align', 'right-align', 'center-align' (None for default)
+
+Grouping:
+    group_by: Column key to group rows by (e.g., 'transaction_date')
+    group_header_format: Callable to format group value for display (e.g., lambda d: d.strftime('%B %d, %Y'))
+    group_header_cls: CSS classes for group header rows (default: 'surface-container')
+    group_header_icon: Icon name (str) or callable returning icon name per group value
 
 
 ---
@@ -5032,7 +5042,10 @@ def DataTableResource(
     on_create:Callable=None, # CRUD Hooks (with CrudContext)
     on_update:Callable=None, on_delete:Callable=None, layout_wrapper:Callable=None, # (content, req) -> wrapped
     id_generator:Callable=None, # Custom generators
-    timestamp_fields:dict=None
+    timestamp_fields:dict=None, group_by:str=None, # Column key to group rows by
+    group_header_format:Callable=None, # Format group header text
+    group_header_cls:str='surface-container', # CSS classes for group header row
+    group_header_icon:Union=None, # Icon name or callable
 ):
 
 
@@ -5047,11 +5060,25 @@ def DataTableResource(
 - Auto-refresh table via HX-Trigger after mutations
 - Layout wrapper for full-page (non-HTMX) responses
 - Optional `get_count` for efficient DB-level pagination
+- **Row grouping** with `group_by` for visual organization
 
 **Auto-registers 3 routes:**
 - `GET {base_route}` → DataTable list view
 - `GET {base_route}/action` → FormModal for create/edit/view/delete
 - `POST {base_route}/save` → Save handler with hooks
+
+**Row Grouping:**
+
+Group rows by a column value with formatted section headers:
+
+```python
+DataTableResource(
+    ...,
+    group_by="transaction_date",
+    group_header_format=lambda d: d.strftime("%B %d, %Y"),
+    group_header_icon="calendar_today"
+)
+```
 
 **DB-Level Pagination (Recommended for large datasets):**
 
@@ -5080,6 +5107,200 @@ DataTableResource(
 
 If `get_count` is not provided, the library filters and paginates in Python
 (requires `get_all` to return ALL rows - inefficient for large datasets).
+
+
+---
+
+## 📊 Row Grouping
+
+> **Visually organize rows by a column value with section headers**
+
+The `group_by` feature allows you to group table rows by a common column value (e.g., date, category, status), displaying a formatted header row that spans all columns before each group.
+
+### 📦 Why Row Grouping?
+
+**Before (flat table):**
+```
+| Date       | Description | Amount  |
+|------------|-------------|---------|
+| 2026-02-01 | Grocery     | $50.00  |
+| 2026-02-01 | Gas         | $35.00  |
+| 2026-02-01 | Coffee      | $5.00   |
+| 2026-01-31 | Restaurant  | $45.00  |
+```
+
+**After (grouped with headers):**
+```
+┌──────────────────────────────────────┐
+│ 📅 February 1, 2026                  │  ← Group header (colspan)
+├──────────────────────────────────────┤
+│ Grocery                    | $50.00  │
+│ Gas                        | $35.00  │
+│ Coffee                     | $5.00   │
+├──────────────────────────────────────┤
+│ 📅 January 31, 2026                  │  ← Group header
+├──────────────────────────────────────┤
+│ Restaurant                 | $45.00  │
+└──────────────────────────────────────┘
+```
+
+---
+
+### 🎯 Grouping Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `group_by` | `str` | `None` | Column key to group rows by |
+| `group_header_format` | `Callable[[Any], str]` | `str()` | Function to format group header text |
+| `group_header_cls` | `str` | `"surface-container"` | CSS classes for group header row |
+| `group_header_icon` | `str \| Callable` | `None` | Icon name or callable returning icon per group |
+
+---
+
+### 🚀 Basic Usage
+
+```python
+# Group products by category
+DataTableResource(
+    app=app,
+    base_route="/products",
+    columns=product_columns,
+    get_all=get_products,
+    get_by_id=get_product_by_id,
+    group_by="category",  # Group by the 'category' column
+    group_header_icon="category"  # Show category icon in headers
+)
+```
+
+---
+
+### 📅 Transaction Table Example (Grouped by Date)
+
+```python
+from datetime import date
+
+# Transaction data - sorted by date DESC
+transactions = [
+    {"id": 1, "date": date(2026, 2, 1), "description": "Grocery", "amount": 50.00},
+    {"id": 2, "date": date(2026, 2, 1), "description": "Gas", "amount": 35.00},
+    {"id": 3, "date": date(2026, 2, 1), "description": "Coffee", "amount": 5.00},
+    {"id": 4, "date": date(2026, 1, 31), "description": "Restaurant", "amount": 45.00},
+    {"id": 5, "date": date(2026, 1, 31), "description": "Pharmacy", "amount": 12.00},
+]
+
+# Column config (date column still visible in rows)
+transaction_columns = [
+    {"key": "description", "label": "Description", "searchable": True},
+    {"key": "amount", "label": "Amount", "renderer": lambda v, r: f"${v:,.2f}"},
+]
+
+DataTableResource(
+    app=app,
+    base_route="/transactions",
+    columns=transaction_columns,
+    get_all=lambda req: transactions,
+    get_by_id=lambda req, id: next((t for t in transactions if t["id"] == id), None),
+    
+    # Grouping configuration
+    group_by="date",
+    group_header_format=lambda d: d.strftime("%A, %B %d, %Y"),  # "Saturday, February 01, 2026"
+    group_header_icon="calendar_today",
+    group_header_cls="surface-container",
+    
+    title="Transaction History"
+)
+```
+
+---
+
+### 🎨 Dynamic Icons per Group
+
+Use a callable for `group_header_icon` to show different icons based on group value:
+
+```python
+def status_icon(status):
+    """Return icon based on status value."""
+    icons = {
+        "In Stock": "check_circle",
+        "Low Stock": "warning",
+        "Out of Stock": "error"
+    }
+    return icons.get(status, "help")
+
+DataTableResource(
+    ...,
+    group_by="status",
+    group_header_icon=status_icon  # Callable for dynamic icons
+)
+```
+
+---
+
+### ⚠️ Important Notes
+
+1. **Sorting**: Data should be pre-sorted by the `group_by` column in your `get_all` callback for logical grouping
+2. **Pagination**: Groups may span pages; each page shows its own group headers
+3. **Search**: When searching, only matching rows are shown; groups re-form from filtered results
+4. **Backward Compatible**: When `group_by=None` (default), tables render flat as before
+
+::: {#2e2e060f .cell}
+``` {.python .cell-code code-fold="true"}
+# --- Grouped Products Demo (by Category) ---
+# Demonstrates the group_by feature with products organized by category
+
+GROUPED_PRODUCTS = [
+    # Audio category
+    {"id": 4, "name": "AirPods Pro", "category": "Audio", "price": 249.00, "stock": 200},
+    {"id": 9, "name": "HomePod Mini", "category": "Audio", "price": 99.00, "stock": 150},
+    # Laptops category
+    {"id": 1, "name": "MacBook Pro 16\"", "category": "Laptops", "price": 2499.00, "stock": 45},
+    # Phones category
+    {"id": 2, "name": "iPhone 15 Pro", "category": "Phones", "price": 999.00, "stock": 120},
+    # Tablets category
+    {"id": 3, "name": "iPad Air", "category": "Tablets", "price": 599.00, "stock": 0},
+]
+
+grouped_columns = [
+    {"key": "name", "label": "Product", "searchable": True},
+    {"key": "price", "label": "Price", "renderer": lambda v, r: f"${v:,.2f}"},
+    {"key": "stock", "label": "Stock"},
+]
+
+# Create grouped resource
+grouped_resource = DataTableResource(
+    app=app,
+    base_route="/grouped-products",
+    columns=grouped_columns,
+    get_all=lambda req: GROUPED_PRODUCTS,
+    get_by_id=lambda req, id: next((p for p in GROUPED_PRODUCTS if p["id"] == id), None),
+    title="Products by Category",
+    
+    # Grouping configuration
+    group_by="category",
+    group_header_icon="category",
+    group_header_cls="surface-container"
+)
+
+# Preview helper
+def ex_grouped_products():
+    mock_req = type('MockRequest', (), {'query_params': {}, 'headers': {}})()
+    return grouped_resource._handle_table(mock_req)
+
+preview(ex_grouped_products())
+```
+
+::: {.cell-output .cell-output-display}
+```{=html}
+<iframe src="http://localhost:5555/_vr11z32oSwasfky-R-S6EQ" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+```
+:::
+:::
 
 
 ### DataTableResource Demo
@@ -5207,7 +5428,7 @@ preview(ex_products())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:5555/_D5F37x7sTrqhg1urm9bKpA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:5555/_W-I4wwAcSFeR67jbnhVQkQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe

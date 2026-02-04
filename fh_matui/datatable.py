@@ -23,8 +23,9 @@ from .components import *
 #| code-fold: true
 from math import ceil
 from urllib.parse import urlencode
-from typing import Callable, Optional, Any
+from typing import Callable, Optional, Any, Union
 from dataclasses import asdict, is_dataclass
+from collections import OrderedDict
 
 # Default page size options
 PAGE_SIZES = [5, 10, 20, 50]
@@ -80,6 +81,25 @@ def _safe_int(value, default):
         return number if number > 0 else default
     except (TypeError, ValueError):
         return default
+
+
+def _group_data(data: list[dict], group_key: str) -> list[tuple[Any, list[dict]]]:
+    """
+    Group data by a column value, preserving input order.
+    
+    Args:
+        data: List of row dicts
+        group_key: Column key to group by
+        
+    Returns:
+        List of (group_value, [rows...]) tuples in order of first appearance
+    """
+    groups = OrderedDict()
+    for row in data:
+        val = row.get(group_key)
+        groups.setdefault(val, []).append(row)
+    return list(groups.items())
+
 
 def table_state_from_request(req, page_sizes=None):
     """
@@ -217,7 +237,12 @@ def DataTable(
     # BeerCSS table styling options
     table_style: str = 'border',      # border, stripes, min, fixed (can combine: 'border stripes')
     space: str = 'small-space',       # no-space, small-space, medium-space, large-space
-    align: str = None                 # left-align, right-align, center-align (None = default left)
+    align: str = None,                # left-align, right-align, center-align (None = default left)
+    # Grouping options
+    group_by: str = None,             # Column key to group rows by
+    group_header_format: Callable[[Any], str] = None,  # Format group header text
+    group_header_cls: str = 'surface-container',       # CSS classes for group header row
+    group_header_icon: Union[str, Callable[[Any], str]] = None  # Icon name or callable
 ):
     """
     Generic data table with server-side pagination, search, and row actions.
@@ -226,6 +251,12 @@ def DataTable(
         table_style: Table visual style - 'border', 'stripes', 'min', 'fixed' or combine like 'border stripes'
         space: Row spacing - 'no-space', 'small-space', 'medium-space', 'large-space'  
         align: Text alignment - 'left-align', 'right-align', 'center-align' (None for default)
+    
+    Grouping:
+        group_by: Column key to group rows by (e.g., 'transaction_date')
+        group_header_format: Callable to format group value for display (e.g., lambda d: d.strftime('%B %d, %Y'))
+        group_header_cls: CSS classes for group header rows (default: 'surface-container')
+        group_header_icon: Icon name (str) or callable returning icon name per group value
     """
     # Defaults
     crud_ops = crud_ops or {"create": False, "update": False, "delete": False}
@@ -254,9 +285,11 @@ def DataTable(
     header_keys = [col["key"] for col in columns] + ["actions"]
     header_labels = [col.get("label", col["key"]) for col in columns] + [""]
     
-    # Build table rows
-    table_rows = []
-    for row in data:
+    # Calculate colspan for group headers (all visible columns)
+    group_colspan = len(header_keys)
+    
+    # Helper to build a single data row
+    def build_data_row(row: dict) -> Tr:
         row_id = row.get(row_id_field)
         row_dict = {}
         
@@ -283,7 +316,49 @@ def DataTable(
             container_id=container_id,
             feedback_id=feedback_id
         )
-        table_rows.append(row_dict)
+        return Tr(*[Td(row_dict.get(key, '')) for key in header_keys])
+    
+    # Helper to build a group header row
+    def build_group_header(group_value: Any) -> Tr:
+        # Format the group label
+        if group_header_format and callable(group_header_format):
+            label = group_header_format(group_value)
+        else:
+            label = str(group_value) if group_value is not None else "Ungrouped"
+        
+        # Get icon if specified
+        icon_content = None
+        if group_header_icon:
+            if callable(group_header_icon):
+                icon_name = group_header_icon(group_value)
+            else:
+                icon_name = group_header_icon
+            if icon_name:
+                icon_content = Icon(icon_name, cls="small")
+        
+        # Build header cell content
+        cell_content = []
+        if icon_content:
+            cell_content.append(icon_content)
+        cell_content.append(Span(label, cls="bold"))
+        
+        return Tr(
+            Td(*cell_content, colspan=group_colspan, cls="padding"),
+            cls=f"group-header {group_header_cls}"
+        )
+    
+    # Build table rows - grouped or flat
+    if group_by and data:
+        # Grouped rendering
+        grouped = _group_data(data, group_by)
+        tbody_rows = []
+        for group_value, group_rows in grouped:
+            tbody_rows.append(build_group_header(group_value))
+            for row in group_rows:
+                tbody_rows.append(build_data_row(row))
+    else:
+        # Flat rendering (original behavior)
+        tbody_rows = [build_data_row(row) for row in data]
     
     # Create button - use crud_enabled for callable support
     create_button = None
@@ -343,10 +418,7 @@ def DataTable(
     # Build table with proper Thead/Tbody structure
     data_table = Table(
         Thead(Tr(*[Th(label) for label in header_labels])),
-        Tbody(*[
-            Tr(*[Td(row_dict.get(key, '')) for key in header_keys])
-            for row_dict in table_rows
-        ]),
+        Tbody(*tbody_rows),
         cls=table_cls
     ) if data else Div(empty_message, cls="center-align padding")
     
@@ -517,11 +589,25 @@ class DataTableResource:
     - Auto-refresh table via HX-Trigger after mutations
     - Layout wrapper for full-page (non-HTMX) responses
     - Optional `get_count` for efficient DB-level pagination
+    - **Row grouping** with `group_by` for visual organization
     
     **Auto-registers 3 routes:**
     - `GET {base_route}` → DataTable list view
     - `GET {base_route}/action` → FormModal for create/edit/view/delete
     - `POST {base_route}/save` → Save handler with hooks
+    
+    **Row Grouping:**
+    
+    Group rows by a column value with formatted section headers:
+    
+    ```python
+    DataTableResource(
+        ...,
+        group_by="transaction_date",
+        group_header_format=lambda d: d.strftime("%B %d, %Y"),
+        group_header_icon="calendar_today"
+    )
+    ```
     
     **DB-Level Pagination (Recommended for large datasets):**
     
@@ -580,7 +666,12 @@ class DataTableResource:
         layout_wrapper: Callable[[Any, Any], Any] = None,  # (content, req) -> wrapped
         # Custom generators
         id_generator: Callable[[], Any] = None,
-        timestamp_fields: dict = None
+        timestamp_fields: dict = None,
+        # Grouping options
+        group_by: str = None,                              # Column key to group rows by
+        group_header_format: Callable[[Any], str] = None,  # Format group header text
+        group_header_cls: str = "surface-container",       # CSS classes for group header row
+        group_header_icon: Union[str, Callable[[Any], str]] = None  # Icon name or callable
     ):
         self.app = app
         self.base_route = base_route.rstrip("/")
@@ -597,6 +688,12 @@ class DataTableResource:
         self.search_placeholder = search_placeholder
         self.create_label = create_label
         self.empty_message = empty_message
+        
+        # Grouping options
+        self.group_by = group_by
+        self.group_header_format = group_header_format
+        self.group_header_cls = group_header_cls
+        self.group_header_icon = group_header_icon
         
         # Determine CRUD ops from provided functions
         if crud_ops is None:
@@ -796,7 +893,12 @@ class DataTableResource:
             page_sizes=self.page_sizes,
             search_placeholder=self.search_placeholder,
             create_label=self.create_label,
-            empty_message=self.empty_message
+            empty_message=self.empty_message,
+            # Grouping options
+            group_by=self.group_by,
+            group_header_format=self.group_header_format,
+            group_header_cls=self.group_header_cls,
+            group_header_icon=self.group_header_icon
         )
         
         # Wrap table in auto-refresh container
