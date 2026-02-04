@@ -671,7 +671,9 @@ class DataTableResource:
         group_by: str = None,                              # Column key to group rows by
         group_header_format: Callable[[Any], str] = None,  # Format group header text
         group_header_cls: str = "surface-container",       # CSS classes for group header row
-        group_header_icon: Union[str, Callable[[Any], str]] = None  # Icon name or callable
+        group_header_icon: Union[str, Callable[[Any], str]] = None,  # Icon name or callable
+        # Table styling options
+        space: str = "small-space"                         # Row density: "no-space", "small-space", or None
     ):
         self.app = app
         self.base_route = base_route.rstrip("/")
@@ -694,6 +696,9 @@ class DataTableResource:
         self.group_header_format = group_header_format
         self.group_header_cls = group_header_cls
         self.group_header_icon = group_header_icon
+        
+        # Table styling
+        self.space = space
         
         # Determine CRUD ops from provided functions
         if crud_ops is None:
@@ -898,7 +903,9 @@ class DataTableResource:
             group_by=self.group_by,
             group_header_format=self.group_header_format,
             group_header_cls=self.group_header_cls,
-            group_header_icon=self.group_header_icon
+            group_header_icon=self.group_header_icon,
+            # Table styling
+            space=self.space
         )
         
         # Wrap table in auto-refresh container
