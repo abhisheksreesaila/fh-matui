@@ -22,6 +22,52 @@ from fastlite import *
 import fasthtml.components as fc
 from fasthtml.common import A, Button as FhButton, I, Span
 
+# Hover animation CSS for cards/articles - adds lift + shadow + primary border on hover
+# Only applies on devices that support hover (not touch devices)
+_CARD_HOVER_CSS = """
+.card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    border: 1px solid transparent;
+}
+@media (hover: hover) {
+    .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        border-color: var(--primary);
+    }
+}
+"""
+
+# Simple scale effect for pricing cards - enlarges 3% + primary border on hover
+_CARD_SCALE_CSS = """
+.card-scale {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    border: 1px solid transparent;
+}
+@media (hover: hover) {
+    .card-scale:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        border-color: var(--primary);
+    }
+}
+"""
+
+# Image zoom effect - image scales within overflow-hidden container
+_IMAGE_SCALE_CSS = """
+.image-scale {
+    overflow: hidden;
+    border-radius: inherit;
+}
+.image-scale img {
+    transition: transform 0.3s ease;
+}
+@media (hover: hover) {
+    .image-scale:hover img {
+        transform: scale(1.05);
+    }
+}
+"""
 
 # %% ../nbs/04_web_pages.ipynb #ec869572
 def HeroSection(
@@ -97,35 +143,44 @@ def HeroSection(
 
 # %% ../nbs/04_web_pages.ipynb #9aac83c5
 def FeatureShowcase(
-    features: list,  # List of dicts: {title, description, image_src?, icon?, image_alt?}
+    features: list,  # List of dicts: {title, description, image_src?, image_alt?, layout?}
     title: str = None,  # Optional section title
     subtitle: str = None,  # Optional section subtitle
+    default_layout: str = "alternate",  # 'alternate', 'left', or 'right'
     cls: str = "",
 ):
-    """Alternating text/image feature showcase with card styling.
+    """Configurable text/image feature showcase with card styling.
     
-    Each feature row alternates: text-left/media-right, then text-right/media-left.
-    On mobile, stacks vertically. Supports either image_src or icon for media.
-    Each row is wrapped in an Article card with elevation for visual distinction.
+    Displays features as cards with text and image side-by-side.
+    Layout is fully configurable per-feature or by default pattern.
+    On mobile, stacks vertically. Auto-generates placeholder images if none provided.
+    
+    Images have a subtle zoom effect on hover within their containers.
     
     Args:
         features: List of feature dicts with keys:
             - title: Feature title (required)
             - description: Feature description (required)
-            - image_src: URL/path to image (optional)
-            - icon: Material icon name (optional, used if no image_src)
-            - image_alt: Alt text for image (optional)
+            - image_src: URL/path to image (optional - auto-generates placeholder if omitted)
+            - image_alt: Alt text for image (optional, defaults to title)
+            - layout: 'left' (text-left), 'right' (text-right), or omit for default
         title: Section heading
         subtitle: Section subheading
+        default_layout: Layout pattern for features without explicit layout
+            - 'alternate': even=text-left, odd=text-right (default)
+            - 'left': all text-left, image-right
+            - 'right': all text-right, image-left
         cls: Additional CSS classes
     
     Example:
         FeatureShowcase(
             title="Why Choose Us",
             features=[
-                {'title': 'Fast', 'description': 'Lightning quick', 'icon': 'bolt'},
-                {'title': 'Secure', 'description': 'Bank-level security', 'image_src': '/img/secure.png'},
-            ]
+                {'title': 'Fast', 'description': 'Lightning quick'},
+                {'title': 'Secure', 'description': '...', 'image_src': '/img/secure.png', 'layout': 'right'},
+                {'title': 'Scale', 'description': '...', 'layout': 'left'},
+            ],
+            default_layout="alternate",  # or "left" / "right"
         )
     """
     rows = []
@@ -138,33 +193,48 @@ def FeatureShowcase(
             cls="s12 m6 l6 padding",
         )
         
-        # Media column - image or icon
+        # Image - use provided image_src or auto-generate placeholder from title
         if feature.get('image_src'):
-            media_content = Img(
-                src=feature['image_src'],
-                alt=feature.get('image_alt', feature['title']),
-                cls="responsive round",
-            )
+            img_src = feature['image_src']
         else:
-            # Fallback to icon with large display
-            icon_name = feature.get('icon', 'star')
-            media_content = Icon(icon_name, size="extra", cls="primary-text")
+            # Auto-generate placeholder: picsum.photos with seed from title for consistency
+            seed = feature['title'].lower().replace(' ', '-')
+            img_src = f"https://picsum.photos/seed/{seed}/400/300"
         
+        media_content = Img(
+            src=img_src,
+            alt=feature.get('image_alt', feature['title']),
+            cls="responsive round",
+        )
+        
+        # Wrap media in image-scale for zoom effect on hover
         media_col = Div(
-            Div(media_content, cls="center-align"),
+            Div(media_content, cls="center-align image-scale round"),
             cls="s12 m6 l6 padding",
         )
         
-        # Alternate layout: even rows = text-left, odd rows = text-right
-        if idx % 2 == 0:
+        # Determine layout: per-feature override > default pattern
+        feature_layout = feature.get('layout')
+        if feature_layout:
+            # Explicit layout from feature dict
+            text_left = feature_layout == 'left'
+        elif default_layout == 'alternate':
+            # Alternate: even idx = text-left, odd = text-right
+            text_left = idx % 2 == 0
+        else:
+            # Fixed pattern: left or right for all
+            text_left = default_layout == 'left'
+        
+        # Build row based on layout
+        if text_left:
             row_content = Div(text_col, media_col, cls="grid middle-align")
         else:
             row_content = Div(media_col, text_col, cls="grid middle-align")
         
-        # Wrap each row in Article card with elevation styling
+        # Wrap each row in Article card with elevation styling + hover animation
         row = Article(
             row_content,
-            cls="surface-container round border large-padding medium-margin",
+            cls="surface-container round border padding small-margin card-hover",
         )
         rows.append(row)
     
@@ -176,60 +246,57 @@ def FeatureShowcase(
         content.append(P(subtitle, cls="center-align secondary-text large-text bottom-margin"))
     content.extend(rows)
     
-    return Section(*content, cls=f"responsive {cls}".strip())
+    return Section(Style(_CARD_HOVER_CSS), Style(_IMAGE_SCALE_CSS), *content, cls=f"responsive {cls}".strip())
 
 # %% ../nbs/04_web_pages.ipynb #297f69dc
 def FeaturesGrid(
-    features: list,  # List of dicts with 'icon', 'title', 'description'
+    features: list,  # List of dicts: {icon, title, description, size?}
     title: str = None,  # Optional section title
     subtitle: str = None,  # Optional section subtitle
-    cols: int = 3,  # Number of columns (1-4)
     cls: str = ""  # Additional classes
 ):
-    """Grid of feature cards using BeerCSS grid helpers."""
-    import fh_matui.components as _cmp
+    """Bento-style feature grid using BeerCSS 12-column grid.
     
-    GridCell = getattr(_cmp, 'GridCell', None)
-    ResponsiveGrid = getattr(_cmp, 'ResponsiveGrid', None)
+    Creates visual hierarchy with configurable card sizes for a modern bento box layout.
+    Grid auto-fills with BeerCSS responsive column classes.
     
-    if GridCell is None or ResponsiveGrid is None:
-        # Fallback: keep previews working even if the notebook kernel has a stale module import.
-        def GridCell(*c, span=(), cls='', **kwargs):
-            cell_cls = []
-            cell_cls.extend(normalize_tokens(span))
-            cell_cls.extend(normalize_tokens(cls))
-            cell_cls = [t for t in cell_cls if t]
-            return Div(*c, cls=stringify(dedupe_preserve_order(cell_cls)), **kwargs)
+    Each feature dict can include a 'size' key:
+    - 'big': spans half width (l6) - highlighted/featured items
+    - 'small' (default): spans quarter width (l3)
+    
+    Responsive behavior (BeerCSS breakpoints):
+    - Mobile (s): full width, stacked (s12)
+    - Tablet (m): 2 columns (m6)
+    - Desktop (l): 4-column bento (l3 small, l6 big)
+    
+    Example:
+        FeaturesGrid([
+            {"icon": "star", "title": "Featured", "description": "...", "size": "big"},
+            {"icon": "bolt", "title": "Fast", "description": "..."},
+            {"icon": "shield", "title": "Secure", "description": "..."},
+        ])
+    """
+    cards = []
+    for f in features:
+        size = f.get("size", "small")
         
-        def ResponsiveGrid(*cells, space='medium-space', cls: str = '', **kwargs):
-            cls_tokens = normalize_tokens(cls)
-            grid_cls = ['grid']
-            if space and space not in cls_tokens:
-                grid_cls.extend(normalize_tokens(space))
-            grid_cls.extend(cls_tokens)
-            grid_cls = [t for t in grid_cls if t]
-            return Div(*cells, cls=stringify(dedupe_preserve_order(grid_cls)), **kwargs)
-    
-    cols = max(1, min(int(cols), 4))
-    col_width = 12 // cols  # 12-col grid
-    
-    s_span = "s12"
-    m_span = "m12" if cols == 1 else "m6"
-    l_span = f"l{col_width}"
-    cell_span = f"{s_span} {m_span} {l_span}".strip()
-    
-    cells = [
-        GridCell(
-            Card(
-                Div(Icon(f["icon"], size="medium", cls="primary-text"), cls="center-align"),
-                H5(f["title"], cls="center-align small-margin"),
-                P(f["description"], cls="secondary-text center-align"),
-                cls="center-align padding",
-            ),
-            span=cell_span,
+        # BeerCSS grid spans - responsive column classes
+        if size == "big":
+            span_cls = "s12 m6 l6"  # Half width on desktop
+            icon_size = "extra"  # Larger icon for big cards
+        else:
+            span_cls = "s12 m6 l3"  # Quarter width on desktop
+            icon_size = "medium"
+        
+        card = Card(
+            Div(Icon(f["icon"], size=icon_size, cls="primary-text"), cls="center-align"),
+            H5(f["title"], cls="center-align small-margin"),
+            P(f["description"], cls="secondary-text center-align"),
+            cls="padding card-hover fill",  # fill ensures card fills cell height
         )
-        for f in features
-    ]
+        
+        # Wrap in grid cell div with BeerCSS column classes
+        cards.append(Div(card, cls=span_cls))
     
     content = []
     if title:
@@ -237,9 +304,14 @@ def FeaturesGrid(
     if subtitle:
         content.append(P(subtitle, cls="center-align secondary-text large-margin large-text"))
     
-    content.append(ResponsiveGrid(*cells, space="medium-space"))
-    # Use responsive for centered max-width layout
-    return Section(*content, cls=f"responsive padding {cls}".strip())
+    # BeerCSS grid container with spacing
+    content.append(Div(*cards, cls="grid medium-space"))
+    
+    return Section(
+        Style(_CARD_HOVER_CSS),
+        *content,
+        cls=f"responsive padding {cls}".strip()
+    )
 
 # %% ../nbs/04_web_pages.ipynb #ea5213e3
 def _pricing_toggle_js():
@@ -342,8 +414,8 @@ def _pricing_card(
         ),
     )
     
-    # Card styling - highlight adds primary-container background
-    card_cls = "padding round"
+    # Card styling - simple scale effect on hover
+    card_cls = "padding round card-scale"
     if highlight:
         card_cls += " primary-container"
     
@@ -445,6 +517,7 @@ def PricingSection(
     
     # Assemble section - use responsive for centered max-width layout
     return Section(
+        Style(_CARD_SCALE_CSS),
         *_pricing_toggle_js(),
         H2(title, cls="center-align bottom-margin"),
         toggle,
@@ -797,9 +870,9 @@ def LandingPageSimple(
     # Each section handles its own content centering with responsive
     main_content = Main(*main_sections, cls="max")
     
-    # Include CSS for smooth scrolling and anchor offset
+    # Include CSS for smooth scrolling, anchor offset, and card hover animations
     return Div(
-        Style(_LANDING_PAGE_CSS),
+        Style(_LANDING_PAGE_CSS + _CARD_HOVER_CSS),
         navbar, 
         main_content, 
         footer_el, 
@@ -854,9 +927,20 @@ We value your privacy...
     # NotStr tells FastHTML to render raw HTML without escaping
     elements.append(NotStr(html_content))
     
-    # large-width constrains content, wrapped in row center-align for centering
-    article = Article(*elements, cls=f"large-width large-padding {cls}".strip())
-    return Div(article, cls="row center-align")
+    # Grid-based centering: 12-column grid with content in center
+    # - Mobile (s): full width (s12)
+    # - Tablet (m): 1-10-1 split (content gets 10/12 = ~83%)
+    # - Desktop (l): 2-8-2 split (content gets 8/12 = ~67%)
+    # card-hover adds subtle lift + shadow on hover
+    content_card = Article(*elements, cls=f"surface-container round large-padding card-hover {cls}".strip())
+    
+    return Div(
+        Style(_CARD_HOVER_CSS),
+        Div(cls="s0 m1 l2"),  # Left spacer (hidden on mobile)
+        Div(content_card, cls="s12 m10 l8"),  # Center content
+        Div(cls="s0 m1 l2"),  # Right spacer (hidden on mobile)
+        cls="grid",
+    )
 
 # %% ../nbs/04_web_pages.ipynb #250d86cb
 def ContentPage(

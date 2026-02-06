@@ -242,7 +242,8 @@ def DataTable(
     group_by: str = None,             # Column key to group rows by
     group_header_format: Callable[[Any], str] = None,  # Format group header text
     group_header_cls: str = 'surface-container',       # CSS classes for group header row
-    group_header_icon: Union[str, Callable[[Any], str]] = None  # Icon name or callable
+    group_header_icon: Union[str, Callable[[Any], str]] = None,  # Icon name or callable
+    group_header_space: str = 'small-space'  # no-space, small-space, medium-space, large-space
 ):
     """
     Generic data table with server-side pagination, search, and row actions.
@@ -256,7 +257,7 @@ def DataTable(
         group_by: Column key to group rows by (e.g., 'transaction_date')
         group_header_format: Callable to format group value for display (e.g., lambda d: d.strftime('%B %d, %Y'))
         group_header_cls: CSS classes for group header rows (default: 'surface-container')
-        group_header_icon: Icon name (str) or callable returning icon name per group value
+        group_header_space: Spacing for group header cells - 'no-space', 'small-space', 'medium-space', 'large-space'
     """
     # Defaults
     crud_ops = crud_ops or {"create": False, "update": False, "delete": False}
@@ -343,7 +344,7 @@ def DataTable(
         cell_content.append(Span(label, cls="bold"))
         
         return Tr(
-            Td(*cell_content, colspan=group_colspan, cls="padding"),
+            Td(*cell_content, colspan=group_colspan, cls=group_header_space),
             cls=f"group-header {group_header_cls}"
         )
     
@@ -454,7 +455,8 @@ def DataTable(
         hx_get=f"{base_route}?{base_query}",
         hx_target=f"#{container_id}",
         hx_swap="outerHTML"
-    )
+
+    )    
 
 # %% ../nbs/05_datatable.ipynb #b84c744d
 import asyncio
@@ -672,6 +674,7 @@ class DataTableResource:
         group_header_format: Callable[[Any], str] = None,  # Format group header text
         group_header_cls: str = "surface-container",       # CSS classes for group header row
         group_header_icon: Union[str, Callable[[Any], str]] = None,  # Icon name or callable
+        group_header_space: str = "small-space",           # no-space, small-space, medium-space, large-space
         # Table styling options
         space: str = "small-space"                         # Row density: "no-space", "small-space", or None
     ):
@@ -696,6 +699,7 @@ class DataTableResource:
         self.group_header_format = group_header_format
         self.group_header_cls = group_header_cls
         self.group_header_icon = group_header_icon
+        self.group_header_space = group_header_space
         
         # Table styling
         self.space = space
@@ -904,6 +908,7 @@ class DataTableResource:
             group_header_format=self.group_header_format,
             group_header_cls=self.group_header_cls,
             group_header_icon=self.group_header_icon,
+            group_header_space=self.group_header_space,
             # Table styling
             space=self.space
         )

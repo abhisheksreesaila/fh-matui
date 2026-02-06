@@ -4373,6 +4373,7 @@ def DataTable(
     group_header_format:Callable=None, # Format group header text
     group_header_cls:str='surface-container', # CSS classes for group header row
     group_header_icon:Union=None, # Icon name or callable
+    group_header_space:str='small-space', # no-space, small-space, medium-space, large-space
 ):
 
 
@@ -4389,7 +4390,7 @@ Grouping:
     group_by: Column key to group rows by (e.g., 'transaction_date')
     group_header_format: Callable to format group value for display (e.g., lambda d: d.strftime('%B %d, %Y'))
     group_header_cls: CSS classes for group header rows (default: 'surface-container')
-    group_header_icon: Icon name (str) or callable returning icon name per group value
+    group_header_space: Spacing for group header cells - 'no-space', 'small-space', 'medium-space', 'large-space'
 
 
 ---
@@ -5046,6 +5047,7 @@ def DataTableResource(
     group_header_format:Callable=None, # Format group header text
     group_header_cls:str='surface-container', # CSS classes for group header row
     group_header_icon:Union=None, # Icon name or callable
+    group_header_space:str='small-space', # no-space, small-space, medium-space, large-space
     space:str='small-space', # Row density: "no-space", "small-space", or None
 ):
 
@@ -5279,7 +5281,9 @@ grouped_resource = DataTableResource(
     # Grouping configuration
     group_by="category",
     group_header_icon="category",
-    group_header_cls="surface-container"
+    group_header_cls="surface-container",
+    group_header_space="no-space",  # Compact group header spacing
+    space="no-space"              # Compact rows with minimal padding
 )
 
 # Preview helper
@@ -5292,7 +5296,7 @@ preview(ex_grouped_products())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:5555/_HfqaaQ3kQB2v7XIydxvF4w" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:5555/_hZG_5AbpRSKJgJgvLpXjAA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -5430,7 +5434,7 @@ preview(ex_products())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:5555/_vbvpxQ78T86fDbGLlVRAew" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:5555/_GF3CDFxLR0GveBCEeS_ciA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -5869,7 +5873,7 @@ preview(hero_section())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_e7xBl305TVCvV6Cqs1f-Sg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_8avrYchlSXiKsRVWiHA3_w" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -5885,17 +5889,42 @@ preview(hero_section())
 
 | Component | Purpose |
 |-----------|---------|
-| [`FeaturesGrid`](https://abhisheksreesaila.github.io/fh-matui/web_pages.html#featuresgrid) | Responsive grid of feature cards with icons |
+| [`FeaturesGrid`](https://abhisheksreesaila.github.io/fh-matui/web_pages.html#featuresgrid) | Bento-style responsive grid of feature cards with icons |
 
-**Features:** Optional section title, 3-column layout, card-based presentation
+**Features:** Configurable card sizes (`size: 'big'`/`'small'`), BeerCSS 12-column grid, mobile-responsive
 
 ## 🎯 Feature Showcase
 
 | Component | Purpose |
 |-----------|---------|
-| [`FeatureShowcase`](https://abhisheksreesaila.github.io/fh-matui/web_pages.html#featureshowcase) | Alternating text/image rows for detailed feature highlights |
+| [`FeatureShowcase`](https://abhisheksreesaila.github.io/fh-matui/web_pages.html#featureshowcase) | Configurable text/image rows for detailed feature highlights |
 
-**Features:** Left/right alternating layout, supports images or icons, responsive stacking on mobile
+### Configuration Options
+
+**Section-level parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `features` | list | required | List of feature dicts (see below) |
+| `title` | str | None | Section heading |
+| `subtitle` | str | None | Section subheading |
+| `default_layout` | str | `'alternate'` | Layout pattern: `'alternate'`, `'left'`, or `'right'` |
+
+**Per-feature dict keys:**
+
+| Key | Required | Description |
+|-----|----------|-------------|
+| `title` | ✓ | Feature title |
+| `description` | ✓ | Feature description |
+| `image_src` | | Custom image URL/path (auto-generates placeholder if omitted) |
+| `image_alt` | | Alt text for image (defaults to title) |
+| `layout` | | Override layout: `'left'` (text-left) or `'right'` (text-right) |
+
+**Layout behavior:**
+- `'alternate'` (default): Row 1 text-left, Row 2 text-right, Row 3 text-left...
+- `'left'`: All rows have text on left, image on right
+- `'right'`: All rows have image on left, text on right
+- Per-feature `layout` key overrides the default pattern
 
 ---
 
@@ -5906,48 +5935,57 @@ preview(hero_section())
 ```python
 
 def FeatureShowcase(
-    features:list, # List of dicts: {title, description, image_src?, icon?, image_alt?}
+    features:list, # List of dicts: {title, description, image_src?, image_alt?, layout?}
     title:str=None, # Optional section title
     subtitle:str=None, # Optional section subtitle
+    default_layout:str='alternate', # 'alternate', 'left', or 'right'
     cls:str=''
 ):
 
 
 ```
 
-*Alternating text/image feature showcase with card styling.*
+*Configurable text/image feature showcase with card styling.*
 
-Each feature row alternates: text-left/media-right, then text-right/media-left.
-On mobile, stacks vertically. Supports either image_src or icon for media.
-Each row is wrapped in an Article card with elevation for visual distinction.
+Displays features as cards with text and image side-by-side.
+Layout is fully configurable per-feature or by default pattern.
+On mobile, stacks vertically. Auto-generates placeholder images if none provided.
+
+Images have a subtle zoom effect on hover within their containers.
 
 Args:
     features: List of feature dicts with keys:
         - title: Feature title (required)
         - description: Feature description (required)
-        - image_src: URL/path to image (optional)
-        - icon: Material icon name (optional, used if no image_src)
-        - image_alt: Alt text for image (optional)
+        - image_src: URL/path to image (optional - auto-generates placeholder if omitted)
+        - image_alt: Alt text for image (optional, defaults to title)
+        - layout: 'left' (text-left), 'right' (text-right), or omit for default
     title: Section heading
     subtitle: Section subheading
+    default_layout: Layout pattern for features without explicit layout
+        - 'alternate': even=text-left, odd=text-right (default)
+        - 'left': all text-left, image-right
+        - 'right': all text-right, image-left
     cls: Additional CSS classes
 
 Example:
     FeatureShowcase(
         title="Why Choose Us",
         features=[
-            {'title': 'Fast', 'description': 'Lightning quick', 'icon': 'bolt'},
-            {'title': 'Secure', 'description': 'Bank-level security', 'image_src': '/img/secure.png'},
-        ]
+            {'title': 'Fast', 'description': 'Lightning quick'},
+            {'title': 'Secure', 'description': '...', 'image_src': '/img/secure.png', 'layout': 'right'},
+            {'title': 'Scale', 'description': '...', 'layout': 'left'},
+        ],
+        default_layout="alternate",  # or "left" / "right"
     )
 
 
 ::: {#11bcabcb .cell}
 ``` {.python .cell-code code-fold="true"}
 showcase_features = [
-    {'title': 'Lightning Fast', 'description': 'Built for speed with optimized rendering and minimal overhead. Your pages load instantly.', 'icon': 'bolt'},
-    {'title': 'Secure by Default', 'description': 'Enterprise-grade security with automatic CSRF protection and input sanitization.', 'icon': 'shield'},
-    {'title': 'Infinitely Scalable', 'description': 'From prototype to production, scale seamlessly without changing your code.', 'icon': 'trending_up'},
+    {'title': 'Lightning Fast', 'description': 'Built for speed with optimized rendering and minimal overhead. Your pages load instantly.'},
+    {'title': 'Secure by Default', 'description': 'Enterprise-grade security with automatic CSRF protection and input sanitization.'},
+    {'title': 'Infinitely Scalable', 'description': 'From prototype to production, scale seamlessly without changing your code.'},
 ]
 
 def test_showcase():
@@ -5955,6 +5993,7 @@ def test_showcase():
         title="Built for Modern Teams",
         subtitle="Everything you need to ship faster",
         features=showcase_features,
+        default_layout='alternate',  # Row 1: text-left, Row 2: text-right, Row 3: text-left
     )
 
 preview(test_showcase())
@@ -5962,7 +6001,7 @@ preview(test_showcase())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_N1dfN2o2ThW5G577_k22SQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_mrdV11B0R-aX7rAalTlRuA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -5983,28 +6022,47 @@ preview(test_showcase())
 ```python
 
 def FeaturesGrid(
-    features:list, # List of dicts with 'icon', 'title', 'description'
+    features:list, # List of dicts: {icon, title, description, size?}
     title:str=None, # Optional section title
     subtitle:str=None, # Optional section subtitle
-    cols:int=3, # Number of columns (1-4)
     cls:str='', # Additional classes
 ):
 
 
 ```
 
-*Grid of feature cards using BeerCSS grid helpers.*
+*Bento-style feature grid using BeerCSS 12-column grid.*
+
+Creates visual hierarchy with configurable card sizes for a modern bento box layout.
+Grid auto-fills with BeerCSS responsive column classes.
+
+Each feature dict can include a 'size' key:
+- 'big': spans half width (l6) - highlighted/featured items
+- 'small' (default): spans quarter width (l3)
+
+Responsive behavior (BeerCSS breakpoints):
+- Mobile (s): full width, stacked (s12)
+- Tablet (m): 2 columns (m6)
+- Desktop (l): 4-column bento (l3 small, l6 big)
+
+Example:
+    FeaturesGrid([
+        {"icon": "star", "title": "Featured", "description": "...", "size": "big"},
+        {"icon": "bolt", "title": "Fast", "description": "..."},
+        {"icon": "shield", "title": "Secure", "description": "..."},
+    ])
 
 
 ::: {#17e96d5b .cell}
 ``` {.python .cell-code code-fold="true"}
+# Bento layout example: 2 big features + 4 small = nice visual hierarchy
 sample_features = [
-    {'icon': 'star', 'title': 'Fast', 'description': 'Lightning fast performance'},
-    {'icon': 'shield', 'title': 'Secure', 'description': 'Bank-level security'},
+    {'icon': 'bolt', 'title': 'Lightning Fast', 'description': 'Optimized rendering with minimal overhead. Pages load instantly.', 'size': 'big'},
+    {'icon': 'shield', 'title': 'Secure by Default', 'description': 'Enterprise-grade security with automatic CSRF protection.', 'size': 'big'},
     {'icon': 'trending_up', 'title': 'Scalable', 'description': 'Grows with your needs'},
-        {'icon': 'star', 'title': 'Fast', 'description': 'Lightning fast performance'},
-    {'icon': 'shield', 'title': 'Secure', 'description': 'Bank-level security'},
-    {'icon': 'trending_up', 'title': 'Scalable', 'description': 'Grows with your needs'},
+    {'icon': 'palette', 'title': 'Beautiful', 'description': 'Material Design tokens'},
+    {'icon': 'extension', 'title': 'Extensible', 'description': 'Compose with any component'},
+    {'icon': 'code', 'title': 'Developer First', 'description': 'Pure Python, no JS required'},
 ]
 
 @rt('/test-fg')
@@ -6013,20 +6071,14 @@ def test_fg():
         features=sample_features,
         title="Why Choose Us",
         subtitle="Everything you need to ship quickly",
-        cols=3,
     )
-```
-:::
 
-
-::: {#72017bff .cell}
-``` {.python .cell-code code-fold="true"}
 preview(test_fg())
 ```
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_1p_ivZOhSk2QDCxo_7kHTA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_5B_pSQ9iS22z3x7upQ-X0A" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6154,7 +6206,7 @@ preview(test_pricing_3tier())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_L7Qal1JqSPGjbXOQ8uoyCg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_NNmOOKb-SlyIeTyhrt8OGw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6195,7 +6247,7 @@ preview(test_pricing_single())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_tfbceex6RtC1iZMxna64ag" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_2KqD0OR4RiW4nPKTfirDhg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6259,7 +6311,7 @@ preview(faq_section())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_cN8JWvsgQtuM4mgoppkM_A" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_hhIR7SpiSNabQMRBgxgm_A" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6327,7 +6379,7 @@ preview(ex_footer())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_uSpJtofiTN2d-C1Pzipi5A" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_4umC0qOGQFm8xO5l48Jt0g" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6439,18 +6491,18 @@ def test_landing_page():
         hero_primary_cta={'text': 'Get Started', 'href': '/signup'},
         hero_secondary_cta={'text': 'View Docs', 'href': '/docs'},
         footer_copyright="© 2026 FastHTML",
-        # Benefits (alternating showcase)
+        # Benefits (alternating showcase) - images auto-generated from title
         benefits=[
-            {'title': 'Lightning Fast', 'description': 'Built for speed with optimized rendering and minimal overhead.', 'icon': 'bolt'},
-            {'title': 'Secure by Default', 'description': 'Enterprise-grade security with automatic CSRF protection.', 'icon': 'shield'},
-            {'title': 'Infinitely Scalable', 'description': 'From prototype to production, scale seamlessly.', 'icon': 'trending_up'},
+            {'title': 'Lightning Fast', 'description': 'Built for speed with optimized rendering and minimal overhead.'},
+            {'title': 'Secure by Default', 'description': 'Enterprise-grade security with automatic CSRF protection.'},
+            {'title': 'Infinitely Scalable', 'description': 'From prototype to production, scale seamlessly.'},
         ],
         benefits_title="Why FastHTML?",
         benefits_subtitle="Built for modern teams",
-        # Features (icon grid)
+        # Features (bento grid) - first 2 are big, rest small
         features=[
-            {"icon": "dashboard", "title": "Page primitives", "description": "Hero, feature, pricing sections."},
-            {"icon": "bolt", "title": "HTMX ready", "description": "Live previews in notebook."},
+            {"icon": "dashboard", "title": "Page primitives", "description": "Hero, feature, pricing sections ready to use.", "size": "big"},
+            {"icon": "bolt", "title": "HTMX ready", "description": "Live previews in notebook with zero config.", "size": "big"},
             {"icon": "palette", "title": "Color tokens", "description": "Material container classes."},
             {"icon": "extension", "title": "Composable", "description": "Extend with extra classes."},
             {"icon": "security", "title": "Accessible", "description": "WCAG friendly defaults."},
@@ -6641,7 +6693,7 @@ preview(privacy_page())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_gK_8YSmPS1SuzT4wHFR43w" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_S_S6hRXVQnKFp3az9NvTGw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6706,7 +6758,7 @@ preview(security_page())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_VcxFHIX2Rdyw0MX1Fd3SfQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_WN0WJHMxSJimq9MIU70FKw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6767,7 +6819,7 @@ preview(about_page())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_rrWybUA-Q2W9E_0xGmJ_EA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_iaxAyNIKT7_ad9sv9i5WKQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6846,7 +6898,7 @@ preview(terms_page())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_9f8WSRhpT3K9-g3kAdVvnA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_CENzy47eS860Q2kYBrAoRg" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
