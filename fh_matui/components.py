@@ -331,29 +331,47 @@ def Icon(icon: str, size: str = None, fill: bool = False, cls = (), **kwargs):
 
 # %% ../nbs/02_components.ipynb #f1e25f09
 #| code-fold: true
-def NavBar(*children, brand=None, sticky=False, cls='', size='small',
-           hx_boost=True, hx_target='#main-content', **kwargs):
+def NavBar(*children, brand=None, sticky=False, blur=None, cls='', size='small',
+           center=False, end=None,
+           hx_boost=True, hx_target='#main-content', hx_swap=None, **kwargs):
     """Horizontal navigation bar with HTMX SPA navigation defaults.
     
     Args:
         brand: Brand element (logo/title) positioned on the left
         sticky: Whether navbar sticks to top on scroll
+        blur: Blur effect class ('small-blur', 'medium-blur', 'large-blur') for glass effect
         size: Navbar size - 'small' (default), 'medium', 'large', or None
+        center: Center the navigation links (default False = links on right)
+        end: Optional end slot content (shown at right when center=True)
         hx_boost: Auto-enhance all <a> links for HTMX navigation (default True)
         hx_target: Target element for boosted links (default '#main-content')
+        hx_swap: HTMX swap method (e.g., 'outerHTML' for full main swap)
+    
+    Layout modes:
+        center=False: [brand] [spacer] [links...]
+        center=True:  [brand] [spacer] [links centered] [spacer] [end?]
     """
     size_cls = size if size else ''
-    nav_cls = f"{'sticky top' if sticky else ''} surface {size_cls} {cls}".strip()
+    blur_cls = blur if blur else ''
+    nav_cls = f"{'sticky top' if sticky else ''} surface {size_cls} {blur_cls} {cls}".strip()
     
     # HTMX SPA optimizations
     if hx_boost: kwargs['hx_boost'] = 'true'
     if hx_target: kwargs['hx_target'] = hx_target
+    if hx_swap: kwargs['hx_swap'] = hx_swap
     kwargs.setdefault('hx_push_url', 'true')
     
     # Use small-padding for compact navbar
     padding_cls = 'small-padding' if size == 'small' else 'padding'
     
     if brand:
+        if center:
+            # Centered layout: brand | spacer | links(centered) | spacer | end?
+            parts = [brand, Div(cls='max'), Div(*children, cls='center-align'), Div(cls='max')]
+            if end:
+                parts.append(end)
+            return Nav(*parts, cls=f"row middle-align {padding_cls} {nav_cls}", **kwargs)
+        # Default: brand | spacer | links (right-aligned)
         return Nav(brand, Div(cls='max'), *children, cls=f"row middle-align {padding_cls} {nav_cls}", **kwargs)
     return Nav(*children, cls=f"{padding_cls} {nav_cls}", **kwargs)
 
