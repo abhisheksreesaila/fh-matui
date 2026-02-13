@@ -87,9 +87,9 @@ def HeroSection(
     BeerCSS-first styling. Takes up 75vh by default with gradient overlay.
     Designed for full-width layout - background extends edge-to-edge naturally.
     Content is centered using responsive class internally.
+    Mobile-friendly: title scales down via clamp(), text stays centered.
     """
-    # Hero styling: 75vh height + gradient overlay
-    # No width hacks needed - parent layout uses "max" for full-width
+    # Hero styling: 75vh height + gradient overlay + responsive title sizing
     hero_css = """
     .hero-section {
         min-height: 75vh;
@@ -114,6 +114,17 @@ def HeroSection(
     .hero-content {
         position: relative;
         z-index: 1;
+        text-align: center;
+    }
+    /* Responsive title: scales smoothly from 2rem (mobile) to 3.5rem (desktop) */
+    .hero-section h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+    /* Responsive subtitle: scales from 1rem (mobile) to 1.25rem (desktop) */
+    .hero-section .hero-subtitle {
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
     }
     """
     
@@ -129,9 +140,11 @@ def HeroSection(
     
     stack = DivVStacked(
         H1(title, cls="no-margin"),
-        P(subtitle, cls="secondary-text large-text"),
-        Div(*ctas, cls="row middle-align center-align small-space"),
+        P(subtitle, cls="secondary-text large-text hero-subtitle"),
+        Div(*ctas, cls="row middle-align center-align small-space wrap"),
         cls="center-align large-padding hero-content",
+        responsive=False,  # Outer Div already handles responsive centering
+        padding=False,      # large-padding already applied via cls
     )
     # Content centered with responsive class
     content = Div(stack, cls="responsive")
@@ -143,33 +156,34 @@ def HeroSection(
 
 # %% ../nbs/04_web_pages.ipynb #9aac83c5
 def FeatureShowcase(
-    features: list,  # List of dicts: {title, description, image_src?, image_alt?, layout?}
+    features: list,  # List of dicts: {title, description, image_src?, image_alt?, size?}
     title: str = None,  # Optional section title
     subtitle: str = None,  # Optional section subtitle
-    default_layout: str = "alternate",  # 'alternate', 'left', or 'right'
     cls: str = "",
 ):
-    """Configurable text/image feature showcase with card styling.
+    """Bento-box feature showcase with image-on-top cards.
     
-    Displays features as cards with text and image side-by-side.
-    Layout is fully configurable per-feature or by default pattern.
-    On mobile, stacks vertically. Auto-generates placeholder images if none provided.
+    Displays features as cards with a large image on top (~75%) and
+    text description on the bottom (~25%). Uses a bento grid layout:
+    first 2 features are "big" (half-width on desktop), remaining are
+    "small" (third-width on desktop). All stack full-width on mobile.
     
-    Images have a subtle zoom effect on hover within their containers.
+    Each feature can override its size via the 'size' key:
+    - 'big': spans l6 (half width on desktop)
+    - 'small': spans l4 (third width on desktop)
+    - If omitted: first 2 default to 'big', rest to 'small'
+    
+    Auto-generates placeholder images from picsum.photos if no image_src provided.
     
     Args:
         features: List of feature dicts with keys:
             - title: Feature title (required)
             - description: Feature description (required)
-            - image_src: URL/path to image (optional - auto-generates placeholder if omitted)
+            - image_src: URL/path to image (optional - auto-generates placeholder)
             - image_alt: Alt text for image (optional, defaults to title)
-            - layout: 'left' (text-left), 'right' (text-right), or omit for default
+            - size: 'big' or 'small' (optional - auto-assigned by position)
         title: Section heading
         subtitle: Section subheading
-        default_layout: Layout pattern for features without explicit layout
-            - 'alternate': even=text-left, odd=text-right (default)
-            - 'left': all text-left, image-right
-            - 'right': all text-right, image-left
         cls: Additional CSS classes
     
     Example:
@@ -177,76 +191,88 @@ def FeatureShowcase(
             title="Why Choose Us",
             features=[
                 {'title': 'Fast', 'description': 'Lightning quick'},
-                {'title': 'Secure', 'description': '...', 'image_src': '/img/secure.png', 'layout': 'right'},
-                {'title': 'Scale', 'description': '...', 'layout': 'left'},
+                {'title': 'Secure', 'description': 'Built-in protection'},
+                {'title': 'Scale', 'description': 'Grows with you'},
+                {'title': 'Simple', 'description': 'Easy to use'},
+                {'title': 'Open', 'description': 'Open source'},
             ],
-            default_layout="alternate",  # or "left" / "right"
         )
     """
-    rows = []
+    _SHOWCASE_CSS = """
+    .showcase-card {
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .showcase-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--elevate3);
+    }
+    .showcase-img-wrap {
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: var(--round) var(--round) 0 0;
+    }
+    .showcase-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+    .showcase-card:hover .showcase-img-wrap img {
+        transform: scale(1.05);
+    }
+    """
     
+    cards = []
     for idx, feature in enumerate(features):
-        # Text column
-        text_col = Div(
-            H3(feature['title'], cls="no-margin"),
-            P(feature['description'], cls="secondary-text large-text"),
-            cls="s12 m6 l6 padding",
-        )
+        # Determine size: explicit > positional default
+        size = feature.get('size')
+        if size is None:
+            size = 'big' if idx < 2 else 'small'
         
-        # Image - use provided image_src or auto-generate placeholder from title
+        # Grid span classes
+        if size == 'big':
+            span_cls = "s12 m6 l6"
+        else:
+            span_cls = "s12 m6 l4"
+        
+        # Image source - use provided or auto-generate placeholder
         if feature.get('image_src'):
             img_src = feature['image_src']
         else:
-            # Auto-generate placeholder: picsum.photos with seed from title for consistency
             seed = feature['title'].lower().replace(' ', '-')
-            img_src = f"https://picsum.photos/seed/{seed}/400/300"
+            img_src = f"https://picsum.photos/seed/{seed}/600/340"
         
-        media_content = Img(
-            src=img_src,
-            alt=feature.get('image_alt', feature['title']),
-            cls="responsive round",
+        # Build card: image on top, text on bottom
+        card = Article(
+            Div(
+                Img(
+                    src=img_src,
+                    alt=feature.get('image_alt', feature['title']),
+                    loading="lazy",
+                ),
+                cls="showcase-img-wrap",
+            ),
+            Div(
+                H5(feature['title'], cls="no-margin small-margin"),
+                P(feature['description'], cls="secondary-text no-margin"),
+                cls="padding",
+            ),
+            cls="showcase-card surface-container round no-padding border",
         )
-        
-        # Wrap media in image-scale for zoom effect on hover
-        media_col = Div(
-            Div(media_content, cls="center-align image-scale round"),
-            cls="s12 m6 l6 padding",
-        )
-        
-        # Determine layout: per-feature override > default pattern
-        feature_layout = feature.get('layout')
-        if feature_layout:
-            # Explicit layout from feature dict
-            text_left = feature_layout == 'left'
-        elif default_layout == 'alternate':
-            # Alternate: even idx = text-left, odd = text-right
-            text_left = idx % 2 == 0
-        else:
-            # Fixed pattern: left or right for all
-            text_left = default_layout == 'left'
-        
-        # Build row based on layout
-        if text_left:
-            row_content = Div(text_col, media_col, cls="grid middle-align")
-        else:
-            row_content = Div(media_col, text_col, cls="grid middle-align")
-        
-        # Wrap each row in Article card with elevation styling + hover animation
-        row = Article(
-            row_content,
-            cls="surface-container round border padding small-margin card-hover",
-        )
-        rows.append(row)
+        cards.append(Div(card, cls=span_cls))
     
     # Build section
-    content = []
+    content = [Style(_SHOWCASE_CSS)]
     if title:
         content.append(H2(title, cls="center-align"))
     if subtitle:
         content.append(P(subtitle, cls="center-align secondary-text large-text bottom-margin"))
-    content.extend(rows)
     
-    return Section(Style(_CARD_HOVER_CSS), Style(_IMAGE_SCALE_CSS), *content, cls=f"responsive {cls}".strip())
+    # Bento grid
+    content.append(Div(*cards, cls="grid medium-space"))
+    
+    return Section(*content, cls=f"responsive {cls}".strip())
 
 # %% ../nbs/04_web_pages.ipynb #297f69dc
 def FeaturesGrid(
@@ -582,15 +608,24 @@ def PageFooter(
     
     Features a decorative sine wave border at the top for elegant visual separation.
     Blends with page background (no container fill) for seamless appearance.
+    
+    Mobile-responsive: columns stack vertically on mobile (s12), 
+    2-col on tablet (m6), full row on desktop using BeerCSS grid.
     """
     footer_cols = []
+    
+    # Calculate responsive grid spans based on total column count
+    # Logo counts as a column if present
+    total_cols = len(columns) + (1 if logo else 0)
+    # Desktop span: divide 12 evenly, fallback to l3
+    l_span = max(1, 12 // total_cols) if total_cols > 0 else 12
     
     # Logo column if provided
     if logo:
         footer_cols.append(
             Div(
                 H6(logo, cls='no-margin bold'),
-                cls='padding'
+                cls=f's12 m6 l{l_span} padding'
             )
         )
     
@@ -600,23 +635,30 @@ def PageFooter(
         footer_cols.append(
             Div(
                 H6(col['title'], cls='no-margin bold'),
-                DivVStacked(*links, cls='small-space'),
-                cls='padding'
+                DivVStacked(*links, cls='small-space', responsive=False, padding=False),
+                cls=f's12 m6 l{l_span} padding'
             )
         )
     
-    # Footer row with full spacing between columns
-    footer_row = DivFullySpaced(*footer_cols)
+    # BeerCSS grid: stacks on mobile (s12), 2-col tablet (m6), full row desktop (l_span)
+    footer_row = Div(*footer_cols, cls="grid")
     
-    # Bottom section with copyright and social links
-    bottom_left = Div(P(copyright, cls='small-text grey-text no-margin'))
+    # Bottom section: copyright + social links
+    # Grid-based so they stack on mobile too
+    bottom_left = Div(
+        P(copyright, cls='small-text grey-text no-margin'),
+        cls='s12 m6'
+    )
     
-    bottom_right = Div()
+    bottom_right = Div(cls='s12 m6')
     if social_links:
         social_icons = [A(Icon(s['icon']), href=s['href'], cls='grey-text') for s in social_links]
-        bottom_right = Div(*social_icons, cls='row small-space')
+        bottom_right = Div(
+            Div(*social_icons, cls='row small-space'),
+            cls='s12 m6 right-align'
+        )
     
-    bottom_section = DivFullySpaced(bottom_left, bottom_right)
+    bottom_section = Div(bottom_left, bottom_right, cls="grid")
     
     # Footer blends with page (no surface-container), wave provides visual separation
     footer_cls = f'footer-wave {cls}'.strip() if wave_border else cls
@@ -637,53 +679,112 @@ def PageFooter(
     )
 
 # %% ../nbs/04_web_pages.ipynb #be3a76d2
+_LANDING_NAV_CSS = """
+@media (max-width: 599px) {
+    .nav-desktop { display: none !important; }
+}
+@media (min-width: 600px) {
+    .nav-mobile { display: none !important; }
+}
+"""
+
 def LandingNavBar(
     brand_name: str,        # Brand name for the navbar
     links: list = None,     # List of dicts with 'text' and 'href'
     actions: list = None,   # List of action buttons (Buttons/Links)
     sticky: bool = True,    # Whether navbar sticks to top
+    drawer_id: str = "landing-nav-drawer",  # ID for mobile drawer
     cls: str = ""           # Additional classes
 ):
-    """
-    Landing page navigation bar with frosted glass effect.
+    """Landing page navigation bar with frosted glass effect and mobile drawer.
     
-    Uses BeerCSS blur classes for translucent glass appearance.
-    Sticky by default to stay visible while scrolling.
-    Content is centered with max-width using 'responsive' class.
-    Brand name links to home page.
+    Desktop (>=600px): horizontal bar with brand, links, and action buttons.
+    Mobile (<600px): brand + hamburger button opens a slide-in drawer
+    via BeerCSS data-ui toggle (zero custom JavaScript).
+    
+    Reuses NavContainer from components for the mobile drawer — same dialog
+    pattern used in app navigation sidebars.
     
     Args:
         brand_name: Brand name/logo text
-        links: List of navigation links [{'text': 'Features', 'href': '#features'}, ...]
-        actions: List of action elements (Buttons, etc.) for CTA
+        links: Navigation links [{'text': 'Features', 'href': '#features'}, ...]
+        actions: Action elements (Buttons, etc.) for CTA
         sticky: Whether navbar sticks to top while scrolling (default: True)
+        drawer_id: HTML id for the mobile drawer dialog (default: 'landing-nav-drawer')
         cls: Additional CSS classes
     """
-    nav_items = []
+    from fh_matui.components import NavContainer
     
-    # Brand - links to home page
-    nav_items.append(A(H5(brand_name, cls="no-margin bold"), href="/"))
+    # Hide the drawer dialog on desktop — BeerCSS makes dialog.left a
+    # persistent sidebar on large screens; we override that here.
+    drawer_hide_css = f"@media (min-width: 600px) {{ #{drawer_id} {{ display: none !important; }} }}"
     
-    # Spacer to push links right
-    nav_items.append(Div(cls="max"))
-    
-    # Navigation links
+    # === Desktop layout (hidden on mobile) ===
+    desktop_items = []
     if links:
         for link in links:
-            nav_items.append(A(link['text'], href=link['href'], cls="padding"))
-    
-    # Action buttons
+            desktop_items.append(A(link['text'], href=link['href'], cls="padding"))
     if actions:
-        nav_items.extend(actions)
+        desktop_items.extend(actions)
+    desktop_section = Div(*desktop_items, cls="nav-desktop") if desktop_items else ""
     
-    # Inner content: responsive centers it, row for horizontal layout
-    inner = Div(*nav_items, cls="responsive row middle-align")
+    # === Mobile hamburger button (hidden on desktop) ===
+    hamburger = FhButton(
+        I("menu"),
+        cls="transparent circle large nav-mobile",
+        data_ui=f"#{drawer_id}",
+    )
     
-    # Sticky positioning + BeerCSS blur/glass classes
+    # === Header bar (always visible) ===
+    header_items = [
+        A(H5(brand_name, cls="no-margin bold"), href="/"),
+        Div(cls="max"),  # spacer
+        desktop_section,
+        hamburger,
+    ]
+    inner = Div(*header_items, cls="responsive row middle-align")
+    
     sticky_cls = "fixed top left right" if sticky else ""
     toolbar_cls = f"blur large-blur surface-container-low {sticky_cls} {cls}".strip()
+    header = Header(inner, cls=toolbar_cls, style="z-index: 10;")
     
-    return Header(inner, cls=toolbar_cls)
+    # === Mobile drawer (BeerCSS dialog, toggled via data-ui) ===
+    # On mobile, dialog.left is hidden by default and slides in when
+    # data-ui toggles the active class. On desktop, our CSS hides it.
+    drawer_items = []
+    if links:
+        for link in links:
+            drawer_items.append(
+                Li(
+                    A(link['text'], href=link['href']),
+                    cls="wave round",
+                    data_ui=f"#{drawer_id}",
+                )
+            )
+    
+    drawer = NavContainer(
+        *drawer_items,
+        title=brand_name,
+        position='left',
+        close_button=True,
+        id=drawer_id,
+        cls='',  # Not active by default — data-ui toggles it
+    )
+    
+    # Append action buttons after the list inside the drawer
+    if actions:
+        action_wrappers = [Hr()]
+        for action in actions:
+            action_wrappers.append(Div(action, cls="padding", data_ui=f"#{drawer_id}"))
+        drawer.children.extend(action_wrappers)
+    
+    # display:contents eliminates this wrapper from layout so the navbar
+    # doesn't create a separate block/section in the page flow.
+    return Div(
+        Style(_LANDING_NAV_CSS + drawer_hide_css),
+        header, drawer,
+        style="display: contents"
+    )
 
 # %% ../nbs/04_web_pages.ipynb #a45e13b8
 # Section spacing: padding for internal space, margin for breathing room between sections
@@ -832,7 +933,6 @@ def LandingPageSimple(
             features=features,
             title=features_title,
             subtitle=features_subtitle,
-            cols=3,
             cls=SECTION_STYLE,
         )
         main_sections.append(Div(features_section, id="features", cls=SECTION_MARGIN))
