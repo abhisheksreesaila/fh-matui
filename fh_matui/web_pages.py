@@ -776,7 +776,7 @@ def LandingNavBar(
         action_wrappers = [Hr()]
         for action in actions:
             action_wrappers.append(Div(action, cls="padding", data_ui=f"#{drawer_id}"))
-        drawer.children.extend(action_wrappers)
+        drawer.children = list(drawer.children) + action_wrappers
     
     # display:contents eliminates this wrapper from layout so the navbar
     # doesn't create a separate block/section in the page flow.

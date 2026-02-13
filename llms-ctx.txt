@@ -6197,7 +6197,7 @@ preview(hero_section())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L145){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L158){target="_blank" style="float:right; font-size:smaller"}
 
 ### FeatureShowcase
 
@@ -6287,7 +6287,7 @@ preview(test_showcase())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L252){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L278){target="_blank" style="float:right; font-size:smaller"}
 
 ### FeaturesGrid
 
@@ -6377,7 +6377,7 @@ preview(test_fg())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L436){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L462){target="_blank" style="float:right; font-size:smaller"}
 
 ### PricingSection
 
@@ -6541,7 +6541,7 @@ preview(test_pricing_single())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L529){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L555){target="_blank" style="float:right; font-size:smaller"}
 
 ### FAQSection
 
@@ -6609,7 +6609,7 @@ preview(faq_section())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L573){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L599){target="_blank" style="float:right; font-size:smaller"}
 
 ### PageFooter
 
@@ -6668,7 +6668,7 @@ preview(ex_footer())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L640){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L691){target="_blank" style="float:right; font-size:smaller"}
 
 ### LandingNavBar
 
@@ -6715,7 +6715,7 @@ Args:
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L741){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L842){target="_blank" style="float:right; font-size:smaller"}
 
 ### LandingPageSimple
 
@@ -6838,7 +6838,7 @@ preview(test_landing_page())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L883){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L983){target="_blank" style="float:right; font-size:smaller"}
 
 ### MarkdownSection
 
@@ -6882,7 +6882,7 @@ We value your privacy...
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L946){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L1046){target="_blank" style="float:right; font-size:smaller"}
 
 ### ContentPage
 
