@@ -4,8 +4,7 @@
 
 # %% auto #0
 __all__ = ['SECTION_STYLE', 'SECTION_MARGIN', 'STANDARD_FOOTER_COLUMNS', 'HeroSection', 'FeatureShowcase', 'FeaturesGrid',
-           'PricingSection', 'FAQSection', 'PageFooter', 'LandingNavBar', 'LandingPageSimple', 'MarkdownSection',
-           'ContentPage']
+           'PricingSection', 'FAQSection', 'PageFooter', 'LandingNavBar', 'MarkdownSection', 'ContentPage']
 
 # %% ../nbs/04_web_pages.ipynb #7f3cabf7
 import importlib
@@ -590,9 +589,18 @@ _FOOTER_WAVE_CSS = """
     right: 0;
     height: 12px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 12' preserveAspectRatio='none'%3E%3Cpath d='M0,6 Q25,0 50,6 T100,6 T150,6 T200,6 T250,6 T300,6 T350,6 T400,6 T450,6 T500,6 T550,6 T600,6 T650,6 T700,6 T750,6 T800,6 T850,6 T900,6 T950,6 T1000,6 T1050,6 T1100,6 T1150,6 T1200,6' fill='none' stroke='%23888' stroke-width='1'/%3E%3C/svg%3E");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    background-size: 600px 12px;
+    background-repeat: repeat-x;
     opacity: 0.5;
+    transition: opacity 0.4s ease;
+}
+@keyframes footerWaveFlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 600px 0; }
+}
+.footer-wave:hover::before {
+    opacity: 0.8;
+    animation: footerWaveFlow 3s linear infinite;
 }
 """
 
@@ -819,165 +827,37 @@ html {
 #benefits, #features, #pricing, #faq {
     scroll-margin-top: 5rem;
 }
+/* Wave flow animation - shifts background position for flowing effect */
+@keyframes waveFlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 150px 0; }
+}
 /* Centered mini-wave separator between sections */
 .section-wave {
     display: flex;
     justify-content: center;
     padding: 1.5rem 0;
+    cursor: default;
 }
 .section-wave::before {
     content: '';
     width: 150px;
     height: 12px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 12' preserveAspectRatio='none'%3E%3Cpath d='M0,6 Q12.5,0 25,6 T50,6 T75,6 T100,6 T125,6 T150,6' fill='none' stroke='%23888' stroke-width='1.5'/%3E%3C/svg%3E");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    background-size: 150px 12px;
+    background-repeat: repeat-x;
     opacity: 0.4;
+    transition: opacity 0.4s ease, width 0.4s ease;
+}
+.section-wave:hover::before {
+    opacity: 0.7;
+    width: 200px;
+    animation: waveFlow 1.2s linear infinite;
 }
 """
 
 # Internal helper - centered wave separator between sections
 def _SectionWave(): return Div(cls="section-wave")
-
-def LandingPageSimple(
-    # Required
-    brand_name: str,
-    hero_title: str,
-    hero_subtitle: str,
-    hero_primary_cta: dict,           # {'text': 'Get Started', 'href': '/signup'}
-    footer_copyright: str,            # Required copyright text
-    # Optional Hero
-    hero_secondary_cta: dict = None,  # Optional secondary CTA
-    # Optional Benefits (FeatureShowcase - alternating rows)
-    benefits: list = None,            # List of dicts: {title, description, icon?, image_src?}
-    benefits_title: str = None,
-    benefits_subtitle: str = None,
-    # Optional Features (FeaturesGrid - icon cards)
-    features: list = None,            # List of dicts: {icon, title, description}
-    features_title: str = None,
-    features_subtitle: str = None,
-    # Optional Pricing
-    pricing_plans: list = None,       # List of plan dicts for PricingSection
-    pricing_title: str = "Pricing",
-    # Optional FAQ
-    faqs: list = None,                # List of FAQ dicts
-    faq_title: str = "Frequently Asked Questions",
-    # Optional Footer extras
-    footer_columns: list = None,
-    footer_social_links: list = None,
-    # Nav customization
-    nav_links: list = None,           # Override default nav links
-    nav_actions: list = None,         # CTA buttons in navbar
-    cls: str = "",
-):
-    """Landing page component - supply your content, get a complete page.
-    
-    This is a reusable template component. Pass your brand info, hero content,
-    features, pricing, and FAQs - it assembles a complete marketing landing page.
-    
-    Includes smooth scrolling and proper anchor offset to prevent sticky navbar
-    from hiding section headings when navigating via anchor links.
-    
-    Layout approach: Main uses "max" for full-width backgrounds.
-    Each section handles its own content centering with "responsive" wrapper.
-    This allows gradients/backgrounds to extend edge-to-edge naturally.
-    
-    Section order: Hero → Benefits → Features → Pricing → FAQ → Footer
-    
-    Required: brand_name, hero_title, hero_subtitle, hero_primary_cta, footer_copyright
-    Optional: Benefits, Features, Pricing, FAQ (pass None to skip any section)
-    """
-    # Static nav links - convention: all sections available
-    default_nav_links = [
-        {"text": "Benefits", "href": "#benefits"},
-        {"text": "Features", "href": "#features"},
-        {"text": "Pricing", "href": "#pricing"},
-        {"text": "FAQ", "href": "#faq"},
-    ]
-    navbar = LandingNavBar(
-        brand_name=brand_name,
-        links=nav_links or default_nav_links,
-        actions=nav_actions,
-        sticky=True,
-    )
-    
-    main_sections = []
-    
-    # 1. Hero (required) - full-width, content centered internally
-    hero = HeroSection(
-        title=hero_title,
-        subtitle=hero_subtitle,
-        primary_cta_text=hero_primary_cta['text'],
-        primary_cta_href=hero_primary_cta['href'],
-        secondary_cta_text=hero_secondary_cta.get('text') if hero_secondary_cta else None,
-        secondary_cta_href=hero_secondary_cta.get('href') if hero_secondary_cta else None,
-        cls=SECTION_MARGIN,
-    )
-    main_sections.append(hero)
-    
-    # 2. Benefits - FeatureShowcase (optional) - has responsive internally
-    if benefits:
-        main_sections.append(_SectionWave())
-        benefits_section = FeatureShowcase(
-            features=benefits,
-            title=benefits_title,
-            subtitle=benefits_subtitle,
-            cls=SECTION_STYLE,
-        )
-        main_sections.append(Div(benefits_section, id="benefits", cls=SECTION_MARGIN))
-    
-    # 3. Features - FeaturesGrid (optional) - has responsive internally
-    if features:
-        main_sections.append(_SectionWave())
-        features_section = FeaturesGrid(
-            features=features,
-            title=features_title,
-            subtitle=features_subtitle,
-            cls=SECTION_STYLE,
-        )
-        main_sections.append(Div(features_section, id="features", cls=SECTION_MARGIN))
-    
-    # 4. Pricing (optional) - has responsive internally
-    if pricing_plans:
-        main_sections.append(_SectionWave())
-        pricing_section = PricingSection(
-            title=pricing_title,
-            plans=pricing_plans,
-            cls=SECTION_STYLE,
-        )
-        main_sections.append(Div(pricing_section, id="pricing", cls=SECTION_MARGIN))
-    
-    # 5. FAQ (optional) - has responsive internally
-    if faqs:
-        main_sections.append(_SectionWave())
-        faq_section = FAQSection(
-            title=faq_title,
-            faqs=faqs,
-            cls=SECTION_STYLE,
-        )
-        main_sections.append(Div(faq_section, id="faq", cls=SECTION_MARGIN))
-    
-    # Footer (required) - use standard columns if none provided
-    footer_el = PageFooter(
-        columns=footer_columns or STANDARD_FOOTER_COLUMNS,
-        copyright=footer_copyright,
-        social_links=footer_social_links,
-        logo=brand_name,
-        cls="large-padding",
-    )
-    
-    # Main uses "max" for full-width - sections extend edge-to-edge
-    # Each section handles its own content centering with responsive
-    main_content = Main(*main_sections, cls="max")
-    
-    # Include CSS for smooth scrolling, anchor offset, and card hover animations
-    return Div(
-        Style(_LANDING_PAGE_CSS + _CARD_HOVER_CSS),
-        navbar, 
-        main_content, 
-        footer_el, 
-        cls=f"column {cls}".strip()
-    )
 
 # %% ../nbs/04_web_pages.ipynb #5aa5632d
 def MarkdownSection(
