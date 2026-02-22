@@ -1,0 +1,2136 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Data table with pagination, search, sorting, and inline actions">
+
+<title>📊 Data Tables – fh-matui</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-000f0825b9c55ed21d14970d810c14a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="📊 Data Tables – fh-matui">
+<meta property="og:description" content="Data table with pagination, search, sorting, and inline actions">
+<meta property="og:site_name" content="fh-matui">
+<meta name="twitter:title" content="📊 Data Tables – fh-matui">
+<meta name="twitter:description" content="Data table with pagination, search, sorting, and inline actions">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">fh-matui</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./datatable.html">📊 Data Tables</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">fh-matui</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔧 Foundations</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./core.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">⚙️ Core</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./components.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🧩 Components</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app_pages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📱 App Pages</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web_pages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🌐 Web Pages</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datatable.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">📊 Data Tables</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./billing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">💳 Billing Components</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">🎯 Overview</a></li>
+  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture">🏗️ Architecture</a></li>
+  <li><a href="#quick-reference" id="toc-quick-reference" class="nav-link" data-scroll-target="#quick-reference">📚 Quick Reference</a></li>
+  <li><a href="#datatable-vs-datatableresource-when-to-use-which" id="toc-datatable-vs-datatableresource-when-to-use-which" class="nav-link" data-scroll-target="#datatable-vs-datatableresource-when-to-use-which">🤔 DataTable vs DataTableResource: When to Use Which?</a>
+  <ul class="collapse">
+  <li><a href="#quick-comparison" id="toc-quick-comparison" class="nav-link" data-scroll-target="#quick-comparison">Quick Comparison</a></li>
+  <li><a href="#datatable-the-building-block" id="toc-datatable-the-building-block" class="nav-link" data-scroll-target="#datatable-the-building-block">📊 DataTable: The Building Block</a></li>
+  <li><a href="#datatableresource-the-complete-solution" id="toc-datatableresource-the-complete-solution" class="nav-link" data-scroll-target="#datatableresource-the-complete-solution">🔧 DataTableResource: The Complete Solution</a></li>
+  <li><a href="#decision-flowchart" id="toc-decision-flowchart" class="nav-link" data-scroll-target="#decision-flowchart">🎯 Decision Flowchart</a></li>
+  </ul></li>
+  <li><a href="#datatable-wrapper" id="toc-datatable-wrapper" class="nav-link" data-scroll-target="#datatable-wrapper">📋 DataTable Wrapper</a>
+  <ul class="collapse">
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It Works</a></li>
+  <li><a href="#datatable-parameters" id="toc-datatable-parameters" class="nav-link" data-scroll-target="#datatable-parameters">DataTable Parameters</a></li>
+  <li><a href="#datatable" id="toc-datatable" class="nav-link" data-scroll-target="#datatable">DataTable</a></li>
+  <li><a href="#table_state_from_request" id="toc-table_state_from_request" class="nav-link" data-scroll-target="#table_state_from_request">table_state_from_request</a></li>
+  </ul></li>
+  <li><a href="#crudcontext---enhanced-hook-context" id="toc-crudcontext---enhanced-hook-context" class="nav-link" data-scroll-target="#crudcontext---enhanced-hook-context">🎯 CrudContext - Enhanced Hook Context</a>
+  <ul class="collapse">
+  <li><a href="#why-crudcontext" id="toc-why-crudcontext" class="nav-link" data-scroll-target="#why-crudcontext">📦 Why CrudContext?</a></li>
+  <li><a href="#architecture-1" id="toc-architecture-1" class="nav-link" data-scroll-target="#architecture-1">🏗️ Architecture</a></li>
+  <li><a href="#crudcontext" id="toc-crudcontext" class="nav-link" data-scroll-target="#crudcontext">CrudContext</a></li>
+  </ul></li>
+  <li><a href="#fields" id="toc-fields" class="nav-link" data-scroll-target="#fields">📦 Fields</a></li>
+  <li><a href="#usage-in-hooks" id="toc-usage-in-hooks" class="nav-link" data-scroll-target="#usage-in-hooks">💡 Usage in Hooks</a>
+  <ul class="collapse">
+  <li><a href="#example-create-with-external-api" id="toc-example-create-with-external-api" class="nav-link" data-scroll-target="#example-create-with-external-api">Example: Create with External API</a></li>
+  <li><a href="#example-soft-delete" id="toc-example-soft-delete" class="nav-link" data-scroll-target="#example-soft-delete">Example: Soft Delete</a></li>
+  <li><a href="#example-update-with-sync" id="toc-example-update-with-sync" class="nav-link" data-scroll-target="#example-update-with-sync">Example: Update with Sync</a></li>
+  </ul></li>
+  <li><a href="#datatableresource" id="toc-datatableresource" class="nav-link" data-scroll-target="#datatableresource">🔧 DataTableResource</a>
+  <ul class="collapse">
+  <li><a href="#datatableresource-parameters" id="toc-datatableresource-parameters" class="nav-link" data-scroll-target="#datatableresource-parameters">DataTableResource Parameters</a></li>
+  <li><a href="#crud-hooks-with-crudcontext" id="toc-crud-hooks-with-crudcontext" class="nav-link" data-scroll-target="#crud-hooks-with-crudcontext">🎯 CRUD Hooks (with CrudContext)</a></li>
+  <li><a href="#multi-tenant-example" id="toc-multi-tenant-example" class="nav-link" data-scroll-target="#multi-tenant-example">🏢 Multi-Tenant Example</a></li>
+  <li><a href="#layout-wrapper" id="toc-layout-wrapper" class="nav-link" data-scroll-target="#layout-wrapper">📐 Layout Wrapper</a></li>
+  <li><a href="#basic-usage-example" id="toc-basic-usage-example" class="nav-link" data-scroll-target="#basic-usage-example">🚀 Basic Usage Example</a></li>
+  <li><a href="#with-external-api-integration-async-hook" id="toc-with-external-api-integration-async-hook" class="nav-link" data-scroll-target="#with-external-api-integration-async-hook">🔗 With External API Integration (Async Hook)</a></li>
+  </ul></li>
+  <li><a href="#custom-row-actions" id="toc-custom-row-actions" class="nav-link" data-scroll-target="#custom-row-actions">🎨 Custom Row Actions</a>
+  <ul class="collapse">
+  <li><a href="#why-custom-actions" id="toc-why-custom-actions" class="nav-link" data-scroll-target="#why-custom-actions">📦 Why Custom Actions?</a></li>
+  <li><a href="#custom-action-structure" id="toc-custom-action-structure" class="nav-link" data-scroll-target="#custom-action-structure">🏗️ Custom Action Structure</a></li>
+  <li><a href="#handler-signature" id="toc-handler-signature" class="nav-link" data-scroll-target="#handler-signature">🎯 Handler Signature</a></li>
+  <li><a href="#complete-example" id="toc-complete-example" class="nav-link" data-scroll-target="#complete-example">📊 Complete Example</a></li>
+  <li><a href="#per-row-conditional-actions" id="toc-per-row-conditional-actions" class="nav-link" data-scroll-target="#per-row-conditional-actions">🔧 Per-Row Conditional Actions</a></li>
+  <li><a href="#future-full-renderer-override-escape-hatch" id="toc-future-full-renderer-override-escape-hatch" class="nav-link" data-scroll-target="#future-full-renderer-override-escape-hatch">🎭 Future: Full Renderer Override (Escape Hatch)</a></li>
+  </ul></li>
+  <li><a href="#datatableresource-1" id="toc-datatableresource-1" class="nav-link" data-scroll-target="#datatableresource-1">📊 DataTableResource</a>
+  <ul class="collapse">
+  <li><a href="#datatableresource-2" id="toc-datatableresource-2" class="nav-link" data-scroll-target="#datatableresource-2">DataTableResource</a></li>
+  </ul></li>
+  <li><a href="#row-grouping" id="toc-row-grouping" class="nav-link" data-scroll-target="#row-grouping">📊 Row Grouping</a>
+  <ul class="collapse">
+  <li><a href="#why-row-grouping" id="toc-why-row-grouping" class="nav-link" data-scroll-target="#why-row-grouping">📦 Why Row Grouping?</a></li>
+  <li><a href="#grouping-parameters" id="toc-grouping-parameters" class="nav-link" data-scroll-target="#grouping-parameters">🎯 Grouping Parameters</a></li>
+  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link" data-scroll-target="#basic-usage">🚀 Basic Usage</a></li>
+  <li><a href="#transaction-table-example-grouped-by-date" id="toc-transaction-table-example-grouped-by-date" class="nav-link" data-scroll-target="#transaction-table-example-grouped-by-date">📅 Transaction Table Example (Grouped by Date)</a></li>
+  <li><a href="#dynamic-icons-per-group" id="toc-dynamic-icons-per-group" class="nav-link" data-scroll-target="#dynamic-icons-per-group">🎨 Dynamic Icons per Group</a></li>
+  <li><a href="#important-notes" id="toc-important-notes" class="nav-link" data-scroll-target="#important-notes">⚠️ Important Notes</a></li>
+  <li><a href="#datatableresource-demo" id="toc-datatableresource-demo" class="nav-link" data-scroll-target="#datatableresource-demo">DataTableResource Demo</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/abhisheksreesaila/fh-matui/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="datatable.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">📊 Data Tables</h1>
+</div>
+
+<div>
+  <div class="description">
+    Data table with pagination, search, sorting, and inline actions
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">🎯 Overview</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Components</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>📋 Table</td>
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatable"><code>DataTable</code></a></td>
+<td>Paginated data table with search, sort, and actions</td>
+</tr>
+<tr class="even">
+<td>🔧 Resource</td>
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatableresource"><code>DataTableResource</code></a></td>
+<td>Zero-boilerplate class to wire everything together</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>💡 <strong>Note</strong>: Form components (<a href="https://abhisheksreesaila.github.io/fh-matui/components.html#formfield"><code>FormField</code></a>, <a href="https://abhisheksreesaila.github.io/fh-matui/components.html#formmodal"><code>FormModal</code></a>, <a href="https://abhisheksreesaila.github.io/fh-matui/components.html#formgrid"><code>FormGrid</code></a>) are in the Components module. Import via <code>from fh_matui.components import *</code></p>
+</blockquote>
+<hr>
+</section>
+<section id="architecture" class="level2">
+<h2 class="anchored" data-anchor-id="architecture">🏗️ Architecture</h2>
+<pre><code>┌─────────────────────────────────────────────────────────┐
+│                   DataTableResource                      │
+├─────────────────────────────────────────────────────────┤
+│  Auto-registers routes:                                  │
+│  ├─ GET /resource       → DataTable (list view)         │
+│  ├─ GET /resource/action→ FormModal (create/edit)       │
+│  └─ POST /resource/save → Save handler (insert/update)  │
+├─────────────────────────────────────────────────────────┤
+│  DataTable                                              │
+│  ├─ Pagination controls (page size, prev/next)          │
+│  ├─ Search input (debounced, HTMX)                      │
+│  ├─ Sortable column headers                             │
+│  └─ Row action menus (edit, delete, custom)             │
+├─────────────────────────────────────────────────────────┤
+│  FormModal (from components)                            │
+│  ├─ Auto-generates fields from column config            │
+│  └─ HTMX submit to save endpoint                        │
+└─────────────────────────────────────────────────────────┘</code></pre>
+<hr>
+</section>
+<section id="quick-reference" class="level2">
+<h2 class="anchored" data-anchor-id="quick-reference">📚 Quick Reference</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Complete CRUD in 5 lines</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>resource <span class="op">=</span> DataTableResource(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    app<span class="op">=</span>app,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">'products'</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    data_source<span class="op">=</span><span class="kw">lambda</span>: db.products(),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[{<span class="st">'key'</span>: <span class="st">'name'</span>, <span class="st">'label'</span>: <span class="st">'Name'</span>}, {<span class="st">'key'</span>: <span class="st">'price'</span>, <span class="st">'label'</span>: <span class="st">'Price'</span>}]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="datatable-vs-datatableresource-when-to-use-which" class="level2">
+<h2 class="anchored" data-anchor-id="datatable-vs-datatableresource-when-to-use-which">🤔 DataTable vs DataTableResource: When to Use Which?</h2>
+<blockquote class="blockquote">
+<p><strong>TL;DR:</strong> <a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatable"><code>DataTable</code></a> = UI only, <a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatableresource"><code>DataTableResource</code></a> = UI + routes + CRUD + forms</p>
+</blockquote>
+<section id="quick-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="quick-comparison">Quick Comparison</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th><a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatable"><code>DataTable</code></a></th>
+<th><a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatableresource"><code>DataTableResource</code></a></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>What it is</strong></td>
+<td>Pure UI function</td>
+<td>Full-stack class</td>
+</tr>
+<tr class="even">
+<td><strong>Returns</strong></td>
+<td>HTML table component</td>
+<td>Auto-registers 3 routes</td>
+</tr>
+<tr class="odd">
+<td><strong>Data handling</strong></td>
+<td>You provide pre-paginated data</td>
+<td>Handles pagination internally</td>
+</tr>
+<tr class="even">
+<td><strong>Routes</strong></td>
+<td>❌ You write them manually</td>
+<td>✅ Auto-generated</td>
+</tr>
+<tr class="odd">
+<td><strong>Forms</strong></td>
+<td>❌ You build them manually</td>
+<td>✅ Auto-generated from columns</td>
+</tr>
+<tr class="even">
+<td><strong>CRUD operations</strong></td>
+<td>❌ You implement handlers</td>
+<td>✅ Built-in with hooks</td>
+</tr>
+<tr class="odd">
+<td><strong>Use case</strong></td>
+<td>Custom/complex tables</td>
+<td>Standard CRUD tables</td>
+</tr>
+<tr class="even">
+<td><strong>Lines of code</strong></td>
+<td>~50-100 lines</td>
+<td>~15 lines</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="datatable-the-building-block" class="level3">
+<h3 class="anchored" data-anchor-id="datatable-the-building-block">📊 DataTable: The Building Block</h3>
+<p><a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatable"><code>DataTable</code></a> is a <strong>pure UI component</strong> that renders a paginated table. It doesn’t know anything about your database or routes—you handle all that.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You must write the route handler yourself</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span>(<span class="st">"/my-products"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> products_table(req):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. Extract pagination params</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    search, page, page_size <span class="op">=</span> extract_params(req)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. Query your database</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> db.query(<span class="ss">f"SELECT * FROM products LIMIT </span><span class="sc">{</span>page_size<span class="sc">}</span><span class="ss"> OFFSET </span><span class="sc">{</span>(page<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>page_size<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> db.query(<span class="st">"SELECT COUNT(*) FROM products"</span>)[<span class="dv">0</span>]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3. Return the UI component</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> DataTable(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        data<span class="op">=</span>data,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        total<span class="op">=</span>total,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        page<span class="op">=</span>page,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        page_size<span class="op">=</span>page_size,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span>[{<span class="st">"key"</span>: <span class="st">"name"</span>, <span class="st">"label"</span>: <span class="st">"Name"</span>}],</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        base_route<span class="op">=</span><span class="st">"/my-products"</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># You also need separate routes for create/edit/delete forms...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Use DataTable when:</strong> - You need custom pagination logic - You want to embed a table inside a larger page - You’re building something non-standard - You already have route handlers</p>
+<hr>
+</section>
+<section id="datatableresource-the-complete-solution" class="level3">
+<h3 class="anchored" data-anchor-id="datatableresource-the-complete-solution">🔧 DataTableResource: The Complete Solution</h3>
+<p><a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatableresource"><code>DataTableResource</code></a> is a <strong>high-level class</strong> that uses <a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatable"><code>DataTable</code></a> internally but also auto-registers routes, generates forms, and handles CRUD operations.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One object replaces ~100 lines of code</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>products <span class="op">=</span> DataTableResource(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    app<span class="op">=</span>app,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    base_route<span class="op">=</span><span class="st">"/products"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[{<span class="st">"key"</span>: <span class="st">"name"</span>, <span class="st">"label"</span>: <span class="st">"Name"</span>, <span class="st">"form"</span>: {<span class="st">"type"</span>: <span class="st">"text"</span>}}],</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    get_all<span class="op">=</span><span class="kw">lambda</span>: db.products(),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    get_by_id<span class="op">=</span><span class="kw">lambda</span> <span class="bu">id</span>: db.products[<span class="bu">id</span>],</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    create<span class="op">=</span><span class="kw">lambda</span> data: db.products.insert(data),</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    update<span class="op">=</span><span class="kw">lambda</span> <span class="bu">id</span>, data: db.products.update(<span class="bu">id</span>, data),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    delete<span class="op">=</span><span class="kw">lambda</span> <span class="bu">id</span>: db.products.delete(<span class="bu">id</span>),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Products"</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># That's it! Routes are auto-registered:</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># GET  /products        → Table view</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># GET  /products/action → Create/Edit/View modals</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># POST /products/save   → Save handler</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Use DataTableResource when:</strong> - You want standard CRUD functionality - You want auto-generated forms from column config - You need hooks for business logic (e.g., API calls) - You want minimal boilerplate</p>
+<hr>
+</section>
+<section id="decision-flowchart" class="level3">
+<h3 class="anchored" data-anchor-id="decision-flowchart">🎯 Decision Flowchart</h3>
+<pre><code>Do you need a CRUD table with forms?
+├── YES → Use DataTableResource
+│         (auto routes, forms, hooks)
+│
+└── NO → Do you need just a data display?
+         ├── YES → Use DataTable
+         │         (pure UI, you handle routes)
+         │
+         └── NO → Consider a custom solution</code></pre>
+</section>
+</section>
+<section id="datatable-wrapper" class="level2">
+<h2 class="anchored" data-anchor-id="datatable-wrapper">📋 DataTable Wrapper</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatable"><code>DataTable</code></a></td>
+<td>Paginated table with search, sort, and row actions</td>
+</tr>
+<tr class="even">
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#table_state_from_request"><code>table_state_from_request</code></a></td>
+<td>Extract pagination/search state from request</td>
+</tr>
+<tr class="odd">
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#_action_menu"><code>_action_menu</code></a></td>
+<td>Dropdown menu for row actions</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Features:</strong> HTMX-powered pagination, debounced search, sortable columns, action menus</p>
+<hr>
+<section id="how-it-works" class="level3">
+<h3 class="anchored" data-anchor-id="how-it-works">How It Works</h3>
+<p>The wrapper expects <strong>pre-paginated data</strong> from your backend. Your SQL backend provides: - <code>data</code>: Current page rows (via <code>LIMIT/OFFSET</code>) - <code>total</code>: Total record count (via <code>COUNT(*)</code>)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span>(<span class="st">"/my-table"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_table(req):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    search, page, page_size <span class="op">=</span> extract_params(req)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> db.query(<span class="ss">f"SELECT * FROM items LIMIT </span><span class="sc">{</span>page_size<span class="sc">}</span><span class="ss"> OFFSET </span><span class="sc">{</span>(page<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>page_size<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> db.query(<span class="st">"SELECT COUNT(*) FROM items"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> DataTable(</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        data<span class="op">=</span>data,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        total<span class="op">=</span>total,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        page<span class="op">=</span>page,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        page_size<span class="op">=</span>page_size,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        search<span class="op">=</span>search,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span>[{<span class="st">"key"</span>: <span class="st">"name"</span>, <span class="st">"label"</span>: <span class="st">"Name"</span>}],</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        crud_ops<span class="op">=</span>{<span class="st">"create"</span>: <span class="va">True</span>, <span class="st">"update"</span>: <span class="va">True</span>, <span class="st">"delete"</span>: <span class="va">True</span>},</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        base_route<span class="op">=</span><span class="st">"/my-table"</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="datatable-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="datatable-parameters">DataTable Parameters</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 20%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>data</code></td>
+<td><code>list[dict]</code></td>
+<td>Current page rows (pre-paginated by backend)</td>
+</tr>
+<tr class="even">
+<td><code>total</code></td>
+<td><code>int</code></td>
+<td>Total record count (for pagination math)</td>
+</tr>
+<tr class="odd">
+<td><code>page</code></td>
+<td><code>int</code></td>
+<td>Current page number (1-indexed)</td>
+</tr>
+<tr class="even">
+<td><code>page_size</code></td>
+<td><code>int</code></td>
+<td>Records per page</td>
+</tr>
+<tr class="odd">
+<td><code>search</code></td>
+<td><code>str</code></td>
+<td>Current search term</td>
+</tr>
+<tr class="even">
+<td><code>columns</code></td>
+<td><code>list[dict]</code></td>
+<td>Column configs: <code>[{"key": "name", "label": "Name", "searchable": True}]</code></td>
+</tr>
+<tr class="odd">
+<td><code>crud_ops</code></td>
+<td><code>dict</code></td>
+<td>Enabled operations: <code>{"create": True, "update": True, "delete": True}</code></td>
+</tr>
+<tr class="even">
+<td><code>base_route</code></td>
+<td><code>str</code></td>
+<td>Base URL for HTMX requests (e.g., <code>/crud-products</code>)</td>
+</tr>
+<tr class="odd">
+<td><code>row_id_field</code></td>
+<td><code>str</code></td>
+<td>Field name for row ID (default: <code>"id"</code>)</td>
+</tr>
+<tr class="even">
+<td><code>title</code></td>
+<td><code>str</code></td>
+<td>Table card header title</td>
+</tr>
+<tr class="odd">
+<td><code>container_id</code></td>
+<td><code>str</code></td>
+<td>HTML id for HTMX targeting (auto-generated if None)</td>
+</tr>
+<tr class="even">
+<td><code>page_sizes</code></td>
+<td><code>list</code></td>
+<td>Page size options (default: <code>[5, 10, 20, 50]</code>)</td>
+</tr>
+<tr class="odd">
+<td><code>search_placeholder</code></td>
+<td><code>str</code></td>
+<td>Placeholder for search input</td>
+</tr>
+<tr class="even">
+<td><code>create_label</code></td>
+<td><code>str</code></td>
+<td>Label for create button</td>
+</tr>
+<tr class="odd">
+<td><code>empty_message</code></td>
+<td><code>str</code></td>
+<td>Message when no records found</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a href="https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L220" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="datatable" class="level3">
+<h3 class="anchored" data-anchor-id="datatable">DataTable</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> DataTable(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    data:<span class="bu">list</span>, total:<span class="bu">int</span>, page:<span class="bu">int</span><span class="op">=</span><span class="dv">1</span>, page_size:<span class="bu">int</span><span class="op">=</span><span class="dv">10</span>, search:<span class="bu">str</span><span class="op">=</span><span class="st">''</span>, columns:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, crud_ops:<span class="bu">dict</span><span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    crud_enabled:<span class="bu">dict</span><span class="op">=</span><span class="va">None</span>, base_route:<span class="bu">str</span><span class="op">=</span><span class="st">''</span>, row_id_field:<span class="bu">str</span><span class="op">=</span><span class="st">'id'</span>, title:<span class="bu">str</span><span class="op">=</span><span class="st">'Records'</span>, container_id:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    page_sizes:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, search_placeholder:<span class="bu">str</span><span class="op">=</span><span class="st">'Search...'</span>, create_label:<span class="bu">str</span><span class="op">=</span><span class="st">'New Record'</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    empty_message:<span class="bu">str</span><span class="op">=</span><span class="st">'No records match the current filters.'</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    table_style:<span class="bu">str</span><span class="op">=</span><span class="st">'border'</span>, <span class="co"># border, stripes, min, fixed (can combine: 'border stripes')</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    space:<span class="bu">str</span><span class="op">=</span><span class="st">'small-space'</span>, <span class="co"># no-space, small-space, medium-space, large-space</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    align:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, <span class="co"># left-align, right-align, center-align (None = default left)</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    group_by:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Column key to group rows by</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    group_header_format:Callable<span class="op">=</span><span class="va">None</span>, <span class="co"># Format group header text</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    group_header_cls:<span class="bu">str</span><span class="op">=</span><span class="st">'surface-container'</span>, <span class="co"># CSS classes for group header row</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    group_header_icon:Union<span class="op">=</span><span class="va">None</span>, <span class="co"># Icon name or callable</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    group_header_space:<span class="bu">str</span><span class="op">=</span><span class="st">'small-space'</span>, <span class="co"># no-space, small-space, medium-space, large-space</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Generic data table with server-side pagination, search, and row actions.</em></p>
+<p>Table Styling (BeerCSS): table_style: Table visual style - ‘border’, ‘stripes’, ‘min’, ‘fixed’ or combine like ‘border stripes’ space: Row spacing - ‘no-space’, ‘small-space’, ‘medium-space’, ‘large-space’<br>
+align: Text alignment - ‘left-align’, ‘right-align’, ‘center-align’ (None for default)</p>
+<p>Grouping: group_by: Column key to group rows by (e.g., ‘transaction_date’) group_header_format: Callable to format group value for display (e.g., lambda d: d.strftime(‘%B %d, %Y’)) group_header_cls: CSS classes for group header rows (default: ‘surface-container’) group_header_space: Spacing for group header cells - ‘no-space’, ‘small-space’, ‘medium-space’, ‘large-space’</p>
+<hr>
+<p><a href="https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L104" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="table_state_from_request" class="level3">
+<h3 class="anchored" data-anchor-id="table_state_from_request">table_state_from_request</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> table_state_from_request(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    req, page_sizes:NoneType<span class="op">=</span><span class="va">None</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Extract pagination state from request query params.</em></p>
+<p>Returns dict with: search, page, page_size</p>
+<hr>
+</section>
+</section>
+<section id="crudcontext---enhanced-hook-context" class="level2">
+<h2 class="anchored" data-anchor-id="crudcontext---enhanced-hook-context">🎯 CrudContext - Enhanced Hook Context</h2>
+<blockquote class="blockquote">
+<p><strong>Rich context object for custom CRUD hooks with external API integration support</strong></p>
+</blockquote>
+<p>The <a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#crudcontext"><code>CrudContext</code></a> dataclass provides complete access to request state, user info, database, and record data for implementing complex business logic in hooks.</p>
+<section id="why-crudcontext" class="level3">
+<h3 class="anchored" data-anchor-id="why-crudcontext">📦 Why CrudContext?</h3>
+<p><strong>Before (simple hooks):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> on_before_create(data):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">'created_at'</span>] <span class="op">=</span> datetime.now()</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data  <span class="co"># Limited to data manipulation</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>After (with CrudContext):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> on_create(ctx: CrudContext) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Access user info</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    user_id <span class="op">=</span> ctx.user[<span class="st">'user_id'</span>]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Call external API</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    api <span class="op">=</span> QuilttClient()</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> <span class="cf">await</span> api.create_connection(</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        institution<span class="op">=</span>ctx.record[<span class="st">'institution_name'</span>],</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        user_id<span class="op">=</span>user_id</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Enrich record with API response</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    ctx.record[<span class="st">'connection_id'</span>] <span class="op">=</span> response[<span class="st">'id'</span>]</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    ctx.record[<span class="st">'status'</span>] <span class="op">=</span> <span class="st">'pending'</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ctx.record  <span class="co"># DataTableResource will insert this</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="architecture-1" class="level3">
+<h3 class="anchored" data-anchor-id="architecture-1">🏗️ Architecture</h3>
+<pre><code>┌─────────────────────────────────────────────────────────┐
+│                   DataTableResource                      │
+├─────────────────────────────────────────────────────────┤
+│  Enhanced CRUD Hooks (with CrudContext)                 │
+│  ├─ on_create(ctx) → Return modified record dict        │
+│  ├─ on_update(ctx) → Return modified record dict        │
+│  └─ on_delete(ctx) → Perform custom deletion logic      │
+├─────────────────────────────────────────────────────────┤
+│  CrudContext provides:                                  │
+│  ├─ request          → Full Starlette request           │
+│  ├─ user             → request.state.user               │
+│  ├─ db               → request.state.tenant_db          │
+│  ├─ tbl              → request.state.tables[table_name] │
+│  ├─ record           → Form data dict                   │
+│  └─ record_id        → ID for update/delete             │
+├─────────────────────────────────────────────────────────┤
+│  Features:                                              │
+│  ✅ Async/sync hook support                             │
+│  ✅ Auto-refresh via HX-Trigger                         │
+│  ✅ Toast notifications                                 │
+│  ✅ External API integration                            │
+│  ✅ Backward compatible with old hooks                  │
+└─────────────────────────────────────────────────────────┘</code></pre>
+<hr>
+<p><a href="https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L471" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="crudcontext" class="level3">
+<h3 class="anchored" data-anchor-id="crudcontext">CrudContext</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> CrudContext(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    request:Any, user:Optional<span class="op">=</span><span class="va">None</span>, db:Optional<span class="op">=</span><span class="va">None</span>, tbl:Optional<span class="op">=</span><span class="va">None</span>, record:<span class="bu">dict</span><span class="op">=</span><span class="va">None</span>, record_id:Optional<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    feedback_id:Optional<span class="op">=</span><span class="va">None</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>)<span class="op">-&gt;</span><span class="va">None</span>:</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>🎯 Context object passed to enhanced CRUD operation hooks.</em></p>
+<p>Provides rich access to request state, user info, database, and record data. Perfect for implementing complex business logic and external API integration.</p>
+</section>
+</section>
+<section id="fields" class="level2">
+<h2 class="anchored" data-anchor-id="fields">📦 Fields</h2>
+<ul>
+<li><code>request</code>: Full Starlette request object (headers, query params, session, state)</li>
+<li><code>user</code>: Current user dict from <code>request.state.user</code> (if available)</li>
+<li><code>db</code>: Database instance from <code>request.state.tenant_db</code> (if available)</li>
+<li><code>tbl</code>: Table instance from <code>request.state.tables[table_name]</code> (if available)</li>
+<li><code>record</code>: Form data dict with field values</li>
+<li><code>record_id</code>: Record ID for update/delete operations (None for create)</li>
+</ul>
+</section>
+<section id="usage-in-hooks" class="level2">
+<h2 class="anchored" data-anchor-id="usage-in-hooks">💡 Usage in Hooks</h2>
+<section id="example-create-with-external-api" class="level3">
+<h3 class="anchored" data-anchor-id="example-create-with-external-api">Example: Create with External API</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> quiltt_create_connection(ctx: CrudContext) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Access user info</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    user_id <span class="op">=</span> ctx.user[<span class="st">'user_id'</span>]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Call external API</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    api <span class="op">=</span> QuilttClient()</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> <span class="cf">await</span> api.create_connection(</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        institution<span class="op">=</span>ctx.record[<span class="st">'institution_name'</span>],</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        user_id<span class="op">=</span>user_id</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Enrich record with API response</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    ctx.record[<span class="st">'connection_id'</span>] <span class="op">=</span> response[<span class="st">'id'</span>]</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    ctx.record[<span class="st">'account_id'</span>] <span class="op">=</span> response[<span class="st">'account_id'</span>]</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    ctx.record[<span class="st">'status'</span>] <span class="op">=</span> <span class="st">'pending'</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ctx.record  <span class="co"># DataTableResource will insert this</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>DataTableResource(</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    ...,</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    on_create<span class="op">=</span>quiltt_create_connection  <span class="co"># 🆕 Enhanced hook</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="example-soft-delete" class="level3">
+<h3 class="anchored" data-anchor-id="example-soft-delete">Example: Soft Delete</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> soft_delete_budget(ctx: CrudContext) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Access table directly</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    ctx.tbl.update({</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'id'</span>: ctx.record_id,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'is_deleted'</span>: <span class="va">True</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'deleted_at'</span>: datetime.now().isoformat(),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'deleted_by'</span>: ctx.user[<span class="st">'user_id'</span>]</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># No return needed for delete hooks</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>DataTableResource(</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    ...,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    on_delete<span class="op">=</span>soft_delete_budget,  <span class="co"># 🆕 Custom delete logic</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    get_table<span class="op">=</span><span class="kw">lambda</span> req: req.state.tables[<span class="st">'budgets'</span>]</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="example-update-with-sync" class="level3">
+<h3 class="anchored" data-anchor-id="example-update-with-sync">Example: Update with Sync</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> sync_transaction_update(ctx: CrudContext) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Update external API first</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    api <span class="op">=</span> TransactionAPI()</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> api.update_transaction(</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        transaction_id<span class="op">=</span>ctx.record_id,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        data<span class="op">=</span>ctx.record</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add sync timestamp</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    ctx.record[<span class="st">'last_synced'</span>] <span class="op">=</span> datetime.now().isoformat()</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ctx.record</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="datatableresource" class="level2">
+<h2 class="anchored" data-anchor-id="datatableresource">🔧 DataTableResource</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatableresource"><code>DataTableResource</code></a></td>
+<td>High-level class that auto-registers table + forms + routes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Features:</strong> Auto-registers routes, handles pagination/search/save, <strong>all callbacks receive request</strong>, <strong>async hooks with CrudContext</strong>, <strong>auto-refresh via HX-Trigger</strong>, <strong>layout wrapper for full-page responses</strong></p>
+<hr>
+<section id="datatableresource-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="datatableresource-parameters">DataTableResource Parameters</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 20%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>app</code></td>
+<td><code>FastHTML</code></td>
+<td>App instance to register routes</td>
+</tr>
+<tr class="even">
+<td><code>base_route</code></td>
+<td><code>str</code></td>
+<td>Base URL path (e.g., <code>/products</code>)</td>
+</tr>
+<tr class="odd">
+<td><code>columns</code></td>
+<td><code>list[dict]</code></td>
+<td>Column config (same as DataTable)</td>
+</tr>
+<tr class="even">
+<td><code>get_all</code></td>
+<td><code>Callable[[Request], list]</code></td>
+<td><code>(req) -&gt; list</code> of all records</td>
+</tr>
+<tr class="odd">
+<td><code>get_by_id</code></td>
+<td><code>Callable[[Request, Any], Any]</code></td>
+<td><code>(req, id) -&gt; record</code> or None</td>
+</tr>
+<tr class="even">
+<td><code>create</code></td>
+<td><code>Callable[[Request, dict], Any]</code></td>
+<td><code>(req, data) -&gt; record</code></td>
+</tr>
+<tr class="odd">
+<td><code>update</code></td>
+<td><code>Callable[[Request, Any, dict], Any]</code></td>
+<td><code>(req, id, data) -&gt; record</code></td>
+</tr>
+<tr class="even">
+<td><code>delete</code></td>
+<td><code>Callable[[Request, Any], bool]</code></td>
+<td><code>(req, id) -&gt; bool</code></td>
+</tr>
+<tr class="odd">
+<td><code>title</code></td>
+<td><code>str</code></td>
+<td>Display title for table</td>
+</tr>
+<tr class="even">
+<td><code>layout_wrapper</code></td>
+<td><code>Callable[[FT, Request], FT]</code></td>
+<td>Wrap full-page responses in app layout</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>💡 <strong>All data callbacks receive <code>request</code> as first parameter</strong> for multi-tenant support</p>
+</blockquote>
+<hr>
+</section>
+<section id="crud-hooks-with-crudcontext" class="level3">
+<h3 class="anchored" data-anchor-id="crud-hooks-with-crudcontext">🎯 CRUD Hooks (with CrudContext)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 42%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Hook</th>
+<th>Signature</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>on_create</code></td>
+<td><code>(ctx: CrudContext) -&gt; dict</code></td>
+<td>Custom create logic with full context</td>
+</tr>
+<tr class="even">
+<td><code>on_update</code></td>
+<td><code>(ctx: CrudContext) -&gt; dict</code></td>
+<td>Custom update logic with full context</td>
+</tr>
+<tr class="odd">
+<td><code>on_delete</code></td>
+<td><code>(ctx: CrudContext) -&gt; None</code></td>
+<td>Custom delete logic with full context</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Features:</strong> - ✅ Async/sync support (hooks can be <code>async def</code> or regular <code>def</code>) - ✅ Access to user, db via <a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#crudcontext"><code>CrudContext</code></a> - ✅ Perfect for external API integration (e.g., Quiltt) - ✅ Auto-refresh table after mutations via HX-Trigger</p>
+<hr>
+</section>
+<section id="multi-tenant-example" class="level3">
+<h3 class="anchored" data-anchor-id="multi-tenant-example">🏢 Multi-Tenant Example</h3>
+<p>In a multi-tenant app where each tenant has their own database (<code>request.state.tenant_db</code>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define your data callbacks - all receive request</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_all_connections(req):</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Get all connections from tenant's database."""</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    tbl <span class="op">=</span> req.state.tenant_db.t.connections</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> tbl(order_by<span class="op">=</span><span class="st">"created_at DESC"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_connection_by_id(req, <span class="bu">id</span>):</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Get single connection from tenant's database."""</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    tbl <span class="op">=</span> req.state.tenant_db.t.connections</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> tbl[<span class="bu">id</span>]</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_connection(req, data):</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Create connection in tenant's database."""</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    tbl <span class="op">=</span> req.state.tenant_db.t.connections</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> tbl.insert(data)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update_connection(req, <span class="bu">id</span>, data):</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Update connection in tenant's database."""</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    tbl <span class="op">=</span> req.state.tenant_db.t.connections</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">'id'</span>] <span class="op">=</span> <span class="bu">id</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> tbl.update(data)</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> delete_connection(req, <span class="bu">id</span>):</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Delete connection from tenant's database."""</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    tbl <span class="op">=</span> req.state.tenant_db.t.connections</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>    tbl.delete(<span class="bu">id</span>)</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Create resource - handles all routes automatically</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>connections <span class="op">=</span> DataTableResource(</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>    app<span class="op">=</span>app,</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>    base_route<span class="op">=</span><span class="st">"/connections"</span>,</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>connection_columns,</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>    get_all<span class="op">=</span>get_all_connections,</span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>    get_by_id<span class="op">=</span>get_connection_by_id,</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>    create<span class="op">=</span>create_connection,</span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>    update<span class="op">=</span>update_connection,</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>    delete<span class="op">=</span>delete_connection,</span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Bank Connections"</span>,</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>    search_placeholder<span class="op">=</span><span class="st">"Search connections..."</span>,</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>    create_label<span class="op">=</span><span class="st">"Add Connection"</span>,</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>    layout_wrapper<span class="op">=</span><span class="kw">lambda</span> content, req: AppLayout(content, user<span class="op">=</span>req.state.user)</span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="layout-wrapper" class="level3">
+<h3 class="anchored" data-anchor-id="layout-wrapper">📐 Layout Wrapper</h3>
+<p>For full-page (non-HTMX) requests, wrap the table in your app layout:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_layout_wrapper(content, req):</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Wrap content in app layout with sidebar and navbar."""</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> AppLayout(</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        content,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        sidebar_links<span class="op">=</span>get_sidebar_links(),</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        nav_bar<span class="op">=</span>NavBar(user<span class="op">=</span>req.state.user),</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Dashboard"</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>DataTableResource(</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    ...,</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    layout_wrapper<span class="op">=</span>my_layout_wrapper</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>How it works:</strong> - HTMX requests (<code>HX-Request: true</code> header) → Returns partial HTML for table swap - Full-page requests (no header) → Wraps response with <code>layout_wrapper(content, req)</code></p>
+<hr>
+</section>
+<section id="basic-usage-example" class="level3">
+<h3 class="anchored" data-anchor-id="basic-usage-example">🚀 Basic Usage Example</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple in-memory example (no multi-tenant)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>PRODUCTS <span class="op">=</span> [{<span class="st">"id"</span>: <span class="dv">1</span>, <span class="st">"name"</span>: <span class="st">"Widget"</span>, <span class="st">"price"</span>: <span class="fl">9.99</span>}]</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>products <span class="op">=</span> DataTableResource(</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    app<span class="op">=</span>app,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    base_route<span class="op">=</span><span class="st">"/products"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"key"</span>: <span class="st">"name"</span>, <span class="st">"label"</span>: <span class="st">"Name"</span>, <span class="st">"searchable"</span>: <span class="va">True</span>},</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"key"</span>: <span class="st">"price"</span>, <span class="st">"label"</span>: <span class="st">"Price"</span>}</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    get_all<span class="op">=</span><span class="kw">lambda</span> req: PRODUCTS,</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    get_by_id<span class="op">=</span><span class="kw">lambda</span> req, <span class="bu">id</span>: <span class="bu">next</span>((p <span class="cf">for</span> p <span class="kw">in</span> PRODUCTS <span class="cf">if</span> p[<span class="st">"id"</span>] <span class="op">==</span> <span class="bu">id</span>), <span class="va">None</span>),</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    create<span class="op">=</span><span class="kw">lambda</span> req, data: PRODUCTS.append({<span class="st">"id"</span>: <span class="bu">len</span>(PRODUCTS)<span class="op">+</span><span class="dv">1</span>, <span class="op">**</span>data}),</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    update<span class="op">=</span><span class="kw">lambda</span> req, <span class="bu">id</span>, data: ...,</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    delete<span class="op">=</span><span class="kw">lambda</span> req, <span class="bu">id</span>: ...,</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Products"</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="with-external-api-integration-async-hook" class="level3">
+<h3 class="anchored" data-anchor-id="with-external-api-integration-async-hook">🔗 With External API Integration (Async Hook)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> quiltt_create_connection(ctx: CrudContext) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Call Quiltt API before storing connection in database."""</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> quiltt_client <span class="im">import</span> QuilttAPI</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    api <span class="op">=</span> QuilttAPI()</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> <span class="cf">await</span> api.create_connection(</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        institution<span class="op">=</span>ctx.record[<span class="st">'institution_name'</span>],</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        user_id<span class="op">=</span>ctx.user[<span class="st">'user_id'</span>]</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Enrich record with API response</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    ctx.record[<span class="st">'connection_id'</span>] <span class="op">=</span> response[<span class="st">'id'</span>]</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    ctx.record[<span class="st">'account_id'</span>] <span class="op">=</span> response[<span class="st">'account_id'</span>]</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    ctx.record[<span class="st">'status'</span>] <span class="op">=</span> <span class="st">'pending'</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ctx.record</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>DataTableResource(</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    app<span class="op">=</span>app,</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    base_route<span class="op">=</span><span class="st">"/connections"</span>,</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>connection_columns,</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    get_all<span class="op">=</span><span class="kw">lambda</span> req: req.state.tenant_db.t.connections(),</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    get_by_id<span class="op">=</span><span class="kw">lambda</span> req, <span class="bu">id</span>: req.state.tenant_db.t.connections[<span class="bu">id</span>],</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    create<span class="op">=</span><span class="kw">lambda</span> req, data: req.state.tenant_db.t.connections.insert(data),</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Bank Connections"</span>,</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    on_create<span class="op">=</span>quiltt_create_connection</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="custom-row-actions" class="level2">
+<h2 class="anchored" data-anchor-id="custom-row-actions">🎨 Custom Row Actions</h2>
+<blockquote class="blockquote">
+<p><strong>Add domain-specific actions to the row menu beyond standard View/Edit/Delete</strong></p>
+</blockquote>
+<p>The <code>custom_actions</code> feature allows you to extend the row action menu with custom operations like “Refresh”, “Archive”, “Clone”, “Approve”, etc., each with their own handlers, icons, and optional confirmation dialogs.</p>
+<section id="why-custom-actions" class="level3">
+<h3 class="anchored" data-anchor-id="why-custom-actions">📦 Why Custom Actions?</h3>
+<p><strong>Before:</strong> Only View/Edit/Delete hardcoded actions</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>crud_ops <span class="op">=</span> {<span class="st">"create"</span>: <span class="va">True</span>, <span class="st">"update"</span>: <span class="va">True</span>, <span class="st">"delete"</span>: <span class="va">True</span>}</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ❌ Cannot add "Refresh", "Archive", or domain-specific actions</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>After:</strong> Extensible action menu with custom handlers</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>crud_ops <span class="op">=</span> {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"view"</span>: <span class="va">False</span>,  <span class="co"># Can disable View now!</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"update"</span>: <span class="va">False</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"delete"</span>: <span class="va">True</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"custom_actions"</span>: [</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name"</span>: <span class="st">"refresh"</span>,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"label"</span>: <span class="st">"Refresh Data"</span>,</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"icon"</span>: <span class="st">"sync"</span>,</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"handler"</span>: <span class="kw">lambda</span> ctx: sync_external_data(ctx.record_id),</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"confirm"</span>: <span class="va">None</span>  <span class="co"># No confirmation needed</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name"</span>: <span class="st">"archive"</span>,</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"label"</span>: <span class="st">"Archive"</span>,</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"icon"</span>: <span class="st">"archive"</span>,</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"handler"</span>: handle_archive,</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"confirm"</span>: <span class="st">"Archive this record?"</span>,</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"condition"</span>: <span class="kw">lambda</span> row: <span class="kw">not</span> row.get(<span class="st">'is_archived'</span>)  <span class="co"># Only show if not archived</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="custom-action-structure" class="level3">
+<h3 class="anchored" data-anchor-id="custom-action-structure">🏗️ Custom Action Structure</h3>
+<p>Each custom action requires:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>name</code></td>
+<td><code>str</code></td>
+<td>✅ Yes</td>
+<td>Internal action identifier (used in routing)</td>
+</tr>
+<tr class="even">
+<td><code>label</code></td>
+<td><code>str</code></td>
+<td>✅ Yes</td>
+<td>Display text in menu</td>
+</tr>
+<tr class="odd">
+<td><code>icon</code></td>
+<td><code>str</code></td>
+<td>✅ Yes</td>
+<td>Material icon name (e.g., “sync”, “archive”)</td>
+</tr>
+<tr class="even">
+<td><code>handler</code></td>
+<td><code>Callable</code></td>
+<td>✅ Yes</td>
+<td>Function that receives <a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#crudcontext"><code>CrudContext</code></a></td>
+</tr>
+<tr class="odd">
+<td><code>confirm</code></td>
+<td><code>str</code></td>
+<td>❌ Optional</td>
+<td>Confirmation dialog message</td>
+</tr>
+<tr class="even">
+<td><code>condition</code></td>
+<td><code>Callable[[dict], bool]</code></td>
+<td>❌ Optional</td>
+<td>Per-row visibility test</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reserved action names:</strong> <code>view</code>, <code>edit</code>, <code>delete</code>, <code>create</code> (will raise <code>ValueError</code> if used)</p>
+<hr>
+</section>
+<section id="handler-signature" class="level3">
+<h3 class="anchored" data-anchor-id="handler-signature">🎯 Handler Signature</h3>
+<p>Handlers receive a <a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#crudcontext"><code>CrudContext</code></a> object with full access to request state:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> handle_refresh(ctx: CrudContext) <span class="op">-&gt;</span> Optional[<span class="bu">str</span>]:</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Custom action handler.</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">        ctx.request: Full Starlette request</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">        ctx.user: request.state.user (if available)</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">        ctx.db: request.state.tenant_db (if available)</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">        ctx.record: Current row data as dict</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">        ctx.record_id: ID of the row</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co">        Optional success message (defaults to "{label} completed successfully.")</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Access external API</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    api <span class="op">=</span> ExternalAPI(ctx.user[<span class="st">'api_token'</span>])</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    api.sync_data(ctx.record_id)</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Update record</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    ctx.db.t.connections.update({</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">'id'</span>: ctx.record_id,</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">'last_synced'</span>: datetime.now().isoformat()</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"Data refreshed successfully!"</span>  <span class="co"># Custom success message</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Async handlers are supported:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> handle_async_action(ctx: CrudContext) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="cf">await</span> some_async_operation(ctx.record_id)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"Completed: </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="complete-example" class="level3">
+<h3 class="anchored" data-anchor-id="complete-example">📊 Complete Example</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Handler definitions</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> refresh_connection(ctx: CrudContext) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Sync data from external API."""</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    api <span class="op">=</span> BankAPI(ctx.user[<span class="st">'bank_token'</span>])</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> api.refresh_accounts(ctx.record[<span class="st">'connection_id'</span>])</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    ctx.db.t.connections.update({</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'id'</span>: ctx.record_id,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">'last_synced'</span>: datetime.now().isoformat(),</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'account_count'</span>: response[<span class="st">'account_count'</span>]</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"Refreshed </span><span class="sc">{</span>response[<span class="st">'account_count'</span>]<span class="sc">}</span><span class="ss"> accounts"</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> archive_connection(ctx: CrudContext):</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Soft delete by archiving."""</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>    ctx.db.t.connections.update({</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">'id'</span>: ctx.record_id,</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">'is_archived'</span>: <span class="va">True</span>,</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">'archived_at'</span>: datetime.now().isoformat(),</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">'archived_by'</span>: ctx.user[<span class="st">'user_id'</span>]</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return None = uses default success message</span></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> clone_connection(ctx: CrudContext) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Create a duplicate connection."""</span></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>    new_record <span class="op">=</span> {<span class="op">**</span>ctx.record}</span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">del</span> new_record[<span class="st">'id'</span>]</span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>    new_record[<span class="st">'name'</span>] <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>new_record[<span class="st">'name'</span>]<span class="sc">}</span><span class="ss"> (Copy)"</span></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>    new_record[<span class="st">'created_at'</span>] <span class="op">=</span> datetime.now().isoformat()</span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Async database operation</span></span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="cf">await</span> ctx.db.t.connections.insert_async(new_record)</span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"Cloned as connection #</span><span class="sc">{</span>result[<span class="st">'id'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a><span class="co"># DataTableResource configuration</span></span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>DataTableResource(</span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>    app<span class="op">=</span>app,</span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>    base_route<span class="op">=</span><span class="st">"/connections"</span>,</span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>connection_columns,</span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a>    get_all<span class="op">=</span><span class="kw">lambda</span> req: req.state.tenant_db.t.connections(),</span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>    get_by_id<span class="op">=</span><span class="kw">lambda</span> req, <span class="bu">id</span>: req.state.tenant_db.t.connections[<span class="bu">id</span>],</span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a>    crud_ops<span class="op">=</span>{</span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a>        <span class="st">"view"</span>: <span class="va">False</span>,  <span class="co"># 🆕 Disable View action</span></span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a>        <span class="st">"create"</span>: <span class="va">True</span>,</span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a>        <span class="st">"update"</span>: <span class="va">False</span>,  <span class="co"># No edit needed</span></span>
+<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>        <span class="st">"delete"</span>: <span class="va">True</span>,</span>
+<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>        <span class="st">"custom_actions"</span>: [  <span class="co"># 🆕 Custom actions</span></span>
+<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a>                <span class="st">"name"</span>: <span class="st">"refresh"</span>,</span>
+<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a>                <span class="st">"label"</span>: <span class="st">"Refresh Data"</span>,</span>
+<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>                <span class="st">"icon"</span>: <span class="st">"sync"</span>,</span>
+<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a>                <span class="st">"handler"</span>: refresh_connection</span>
+<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a>            },</span>
+<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a>                <span class="st">"name"</span>: <span class="st">"archive"</span>,</span>
+<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a>                <span class="st">"label"</span>: <span class="st">"Archive"</span>,</span>
+<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a>                <span class="st">"icon"</span>: <span class="st">"archive"</span>,</span>
+<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a>                <span class="st">"handler"</span>: archive_connection,</span>
+<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a>                <span class="st">"confirm"</span>: <span class="st">"Archive this connection?"</span>,</span>
+<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a>                <span class="st">"condition"</span>: <span class="kw">lambda</span> row: <span class="kw">not</span> row.get(<span class="st">'is_archived'</span>)  <span class="co"># Only show if active</span></span>
+<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a>            },</span>
+<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a>                <span class="st">"name"</span>: <span class="st">"clone"</span>,</span>
+<span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a>                <span class="st">"label"</span>: <span class="st">"Duplicate"</span>,</span>
+<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a>                <span class="st">"icon"</span>: <span class="st">"content_copy"</span>,</span>
+<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a>                <span class="st">"handler"</span>: clone_connection,</span>
+<span id="cb24-68"><a href="#cb24-68" aria-hidden="true" tabindex="-1"></a>                <span class="st">"confirm"</span>: <span class="st">"Create a copy of this connection?"</span></span>
+<span id="cb24-69"><a href="#cb24-69" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb24-70"><a href="#cb24-70" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb24-71"><a href="#cb24-71" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb24-72"><a href="#cb24-72" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Bank Connections"</span></span>
+<span id="cb24-73"><a href="#cb24-73" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="per-row-conditional-actions" class="level3">
+<h3 class="anchored" data-anchor-id="per-row-conditional-actions">🔧 Per-Row Conditional Actions</h3>
+<p>Use the <code>condition</code> callable to show/hide actions based on row data:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: <span class="st">"approve"</span>,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"label"</span>: <span class="st">"Approve"</span>,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"icon"</span>: <span class="st">"check_circle"</span>,</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"handler"</span>: handle_approve,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"condition"</span>: <span class="kw">lambda</span> row: row.get(<span class="st">'status'</span>) <span class="op">==</span> <span class="st">'pending'</span>  <span class="co"># Only show for pending items</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Common conditions:</strong> - Status-based: <code>lambda row: row['status'] == 'active'</code> - Role-based: <code>lambda row: row['owner_id'] == current_user_id</code> (access via handler) - Feature flag: <code>lambda row: row.get('supports_refresh', False)</code> - Type-based: <code>lambda row: row['type'] in ['checking', 'savings']</code></p>
+<hr>
+</section>
+<section id="future-full-renderer-override-escape-hatch" class="level3">
+<h3 class="anchored" data-anchor-id="future-full-renderer-override-escape-hatch">🎭 Future: Full Renderer Override (Escape Hatch)</h3>
+<p>For complete UI control beyond menu items, a future <code>row_actions_renderer</code> parameter will allow replacing the entire action menu:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 🔮 Future feature (not yet implemented)</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> custom_row_actions(row, row_id, ctx):</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Full control over row action UI."""</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row[<span class="st">'type'</span>] <span class="op">==</span> <span class="st">'external'</span>:</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Button(</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Launch Widget"</span>,</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>            onclick<span class="op">=</span><span class="st">"launchExternalWidget()"</span>,</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span><span class="st">"secondary"</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fall back to standard menu</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>DataTable(</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    ...,</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    row_actions_renderer<span class="op">=</span>custom_row_actions  <span class="co"># 🔮 Planned</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This would be useful for: - Non-menu layouts (button groups, custom dropdowns) - External widget integrations - Row-specific completely different UIs</p>
+<p><strong>Status:</strong> Documented as planned feature, implement only if real use cases emerge.</p>
+<hr>
+<hr>
+</section>
+</section>
+<section id="datatableresource-1" class="level2">
+<h2 class="anchored" data-anchor-id="datatableresource-1">📊 DataTableResource</h2>
+<p>A high-level resource that auto-registers all routes for a complete CRUD data table.</p>
+<blockquote class="blockquote">
+<p><strong>💡 DB-Level Pagination (Recommended for Large Datasets)</strong></p>
+<p>By default, <a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatableresource"><code>DataTableResource</code></a> fetches all rows via <code>get_all</code> and paginates in Python. For large datasets, this is inefficient. Use the <code>get_count</code> parameter for efficient DB-level pagination:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_products(req):</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    page <span class="op">=</span> <span class="bu">int</span>(req.query_params.get(<span class="st">'page'</span>, <span class="dv">1</span>))</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    page_size <span class="op">=</span> <span class="bu">int</span>(req.query_params.get(<span class="st">'page_size'</span>, <span class="dv">10</span>))</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    offset <span class="op">=</span> (page <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> page_size</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># SQL-level pagination - only fetch current page</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">list</span>(tbl(limit<span class="op">=</span>page_size, offset<span class="op">=</span>offset))</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_product_count(req):</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Efficient COUNT(*) query</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> db.execute(<span class="st">"SELECT COUNT(*) FROM products"</span>).scalar()</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>DataTableResource(</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    get_all<span class="op">=</span>get_products,        <span class="co"># Returns only page_size rows</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    get_count<span class="op">=</span>get_product_count,  <span class="co"># Returns total count efficiently</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Behavior:</strong> - <strong>With <code>get_count</code></strong>: Uses your count function; assumes <code>get_all</code> returns pre-paginated data - <strong>Without <code>get_count</code></strong>: Falls back to Python-side filtering/pagination (requires <code>get_all</code> to return ALL rows)</p>
+</blockquote>
+<hr>
+<p><a href="https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/datatable.py#L583" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="datatableresource-2" class="level3">
+<h3 class="anchored" data-anchor-id="datatableresource-2">DataTableResource</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> DataTableResource(</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    app, base_route:<span class="bu">str</span>, columns:<span class="bu">list</span>, get_all:Callable, <span class="co"># (req) -&gt; list (can be paginated)</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    get_by_id:Callable, <span class="co"># (req, id) -&gt; record</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    get_count:Callable<span class="op">=</span><span class="va">None</span>, <span class="co"># (req) -&gt; total count for pagination</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    create:Callable<span class="op">=</span><span class="va">None</span>, <span class="co"># (req, data) -&gt; record</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    update:Callable<span class="op">=</span><span class="va">None</span>, <span class="co"># (req, id, data) -&gt; record</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    delete:Callable<span class="op">=</span><span class="va">None</span>, <span class="co"># (req, id) -&gt; bool</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    title:<span class="bu">str</span><span class="op">=</span><span class="st">'Records'</span>, <span class="co"># Display options</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    row_id_field:<span class="bu">str</span><span class="op">=</span><span class="st">'id'</span>, crud_ops:<span class="bu">dict</span><span class="op">=</span><span class="va">None</span>, page_sizes:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, search_placeholder:<span class="bu">str</span><span class="op">=</span><span class="st">'Search...'</span>,</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    create_label:<span class="bu">str</span><span class="op">=</span><span class="st">'New Record'</span>, empty_message:<span class="bu">str</span><span class="op">=</span><span class="st">'No records found.'</span>,</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    on_create:Callable<span class="op">=</span><span class="va">None</span>, <span class="co"># CRUD Hooks (with CrudContext)</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    on_update:Callable<span class="op">=</span><span class="va">None</span>, on_delete:Callable<span class="op">=</span><span class="va">None</span>, layout_wrapper:Callable<span class="op">=</span><span class="va">None</span>, <span class="co"># (content, req) -&gt; wrapped</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    id_generator:Callable<span class="op">=</span><span class="va">None</span>, <span class="co"># Custom generators</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>    timestamp_fields:<span class="bu">dict</span><span class="op">=</span><span class="va">None</span>, group_by:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Column key to group rows by</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    group_header_format:Callable<span class="op">=</span><span class="va">None</span>, <span class="co"># Format group header text</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    group_header_cls:<span class="bu">str</span><span class="op">=</span><span class="st">'surface-container'</span>, <span class="co"># CSS classes for group header row</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>    group_header_icon:Union<span class="op">=</span><span class="va">None</span>, <span class="co"># Icon name or callable</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    group_header_space:<span class="bu">str</span><span class="op">=</span><span class="st">'small-space'</span>, <span class="co"># no-space, small-space, medium-space, large-space</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>    space:<span class="bu">str</span><span class="op">=</span><span class="st">'small-space'</span>, <span class="co"># Row density: "no-space", "small-space", or None</span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>🔧 High-level resource that auto-registers all routes for a data table.</em></p>
+<p><strong>Features:</strong> - All callbacks receive <code>request</code> for multi-tenant support - Custom CRUD hooks with <a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#crudcontext"><code>CrudContext</code></a> for rich business logic - Async/sync hook support for external API integration - Auto-refresh table via HX-Trigger after mutations - Layout wrapper for full-page (non-HTMX) responses - Optional <code>get_count</code> for efficient DB-level pagination - <strong>Row grouping</strong> with <code>group_by</code> for visual organization</p>
+<p><strong>Auto-registers 3 routes:</strong> - <code>GET {base_route}</code> → DataTable list view - <code>GET {base_route}/action</code> → FormModal for create/edit/view/delete - <code>POST {base_route}/save</code> → Save handler with hooks</p>
+<p><strong>Row Grouping:</strong></p>
+<p>Group rows by a column value with formatted section headers:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>DataTableResource(</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    ...,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    group_by<span class="op">=</span><span class="st">"transaction_date"</span>,</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    group_header_format<span class="op">=</span><span class="kw">lambda</span> d: d.strftime(<span class="st">"%B </span><span class="sc">%d</span><span class="st">, %Y"</span>),</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    group_header_icon<span class="op">=</span><span class="st">"calendar_today"</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>DB-Level Pagination (Recommended for large datasets):</strong></p>
+<p>For efficient pagination, provide both <code>get_all</code> (returning paginated rows) and <code>get_count</code> (returning total count):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_products(req):</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    page <span class="op">=</span> <span class="bu">int</span>(req.query_params.get(<span class="st">'page'</span>, <span class="dv">1</span>))</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    page_size <span class="op">=</span> <span class="bu">int</span>(req.query_params.get(<span class="st">'page_size'</span>, <span class="dv">10</span>))</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    offset <span class="op">=</span> (page <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> page_size</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    search <span class="op">=</span> req.query_params.get(<span class="st">'search'</span>, <span class="st">''</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># SQL-level pagination</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">list</span>(tbl(limit<span class="op">=</span>page_size, offset<span class="op">=</span>offset))</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_product_count(req):</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    search <span class="op">=</span> req.query_params.get(<span class="st">'search'</span>, <span class="st">''</span>)</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> db.execute(<span class="st">"SELECT COUNT(*) FROM products"</span>).scalar()</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>DataTableResource(</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    get_all<span class="op">=</span>get_products,      <span class="co"># Returns page_size rows</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    get_count<span class="op">=</span>get_product_count,  <span class="co"># Returns total count</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If <code>get_count</code> is not provided, the library filters and paginates in Python (requires <code>get_all</code> to return ALL rows - inefficient for large datasets).</p>
+<hr>
+</section>
+</section>
+<section id="row-grouping" class="level2">
+<h2 class="anchored" data-anchor-id="row-grouping">📊 Row Grouping</h2>
+<blockquote class="blockquote">
+<p><strong>Visually organize rows by a column value with section headers</strong></p>
+</blockquote>
+<p>The <code>group_by</code> feature allows you to group table rows by a common column value (e.g., date, category, status), displaying a formatted header row that spans all columns before each group.</p>
+<section id="why-row-grouping" class="level3">
+<h3 class="anchored" data-anchor-id="why-row-grouping">📦 Why Row Grouping?</h3>
+<p><strong>Before (flat table):</strong></p>
+<pre><code>| Date       | Description | Amount  |
+|------------|-------------|---------|
+| 2026-02-01 | Grocery     | $50.00  |
+| 2026-02-01 | Gas         | $35.00  |
+| 2026-02-01 | Coffee      | $5.00   |
+| 2026-01-31 | Restaurant  | $45.00  |</code></pre>
+<p><strong>After (grouped with headers):</strong></p>
+<pre><code>┌──────────────────────────────────────┐
+│ 📅 February 1, 2026                  │  ← Group header (colspan)
+├──────────────────────────────────────┤
+│ Grocery                    | $50.00  │
+│ Gas                        | $35.00  │
+│ Coffee                     | $5.00   │
+├──────────────────────────────────────┤
+│ 📅 January 31, 2026                  │  ← Group header
+├──────────────────────────────────────┤
+│ Restaurant                 | $45.00  │
+└──────────────────────────────────────┘</code></pre>
+<hr>
+</section>
+<section id="grouping-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="grouping-parameters">🎯 Grouping Parameters</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 15%">
+<col style="width: 23%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>group_by</code></td>
+<td><code>str</code></td>
+<td><code>None</code></td>
+<td>Column key to group rows by</td>
+</tr>
+<tr class="even">
+<td><code>group_header_format</code></td>
+<td><code>Callable[[Any], str]</code></td>
+<td><code>str()</code></td>
+<td>Function to format group header text</td>
+</tr>
+<tr class="odd">
+<td><code>group_header_cls</code></td>
+<td><code>str</code></td>
+<td><code>"surface-container"</code></td>
+<td>CSS classes for group header row</td>
+</tr>
+<tr class="even">
+<td><code>group_header_icon</code></td>
+<td><code>str \| Callable</code></td>
+<td><code>None</code></td>
+<td>Icon name or callable returning icon per group</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="basic-usage" class="level3">
+<h3 class="anchored" data-anchor-id="basic-usage">🚀 Basic Usage</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group products by category</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>DataTableResource(</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    app<span class="op">=</span>app,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    base_route<span class="op">=</span><span class="st">"/products"</span>,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>product_columns,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    get_all<span class="op">=</span>get_products,</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    get_by_id<span class="op">=</span>get_product_by_id,</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    group_by<span class="op">=</span><span class="st">"category"</span>,  <span class="co"># Group by the 'category' column</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    group_header_icon<span class="op">=</span><span class="st">"category"</span>  <span class="co"># Show category icon in headers</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="transaction-table-example-grouped-by-date" class="level3">
+<h3 class="anchored" data-anchor-id="transaction-table-example-grouped-by-date">📅 Transaction Table Example (Grouped by Date)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> date</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Transaction data - sorted by date DESC</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>transactions <span class="op">=</span> [</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">1</span>, <span class="st">"date"</span>: date(<span class="dv">2026</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="st">"description"</span>: <span class="st">"Grocery"</span>, <span class="st">"amount"</span>: <span class="fl">50.00</span>},</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">2</span>, <span class="st">"date"</span>: date(<span class="dv">2026</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="st">"description"</span>: <span class="st">"Gas"</span>, <span class="st">"amount"</span>: <span class="fl">35.00</span>},</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">3</span>, <span class="st">"date"</span>: date(<span class="dv">2026</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="st">"description"</span>: <span class="st">"Coffee"</span>, <span class="st">"amount"</span>: <span class="fl">5.00</span>},</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">4</span>, <span class="st">"date"</span>: date(<span class="dv">2026</span>, <span class="dv">1</span>, <span class="dv">31</span>), <span class="st">"description"</span>: <span class="st">"Restaurant"</span>, <span class="st">"amount"</span>: <span class="fl">45.00</span>},</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">5</span>, <span class="st">"date"</span>: date(<span class="dv">2026</span>, <span class="dv">1</span>, <span class="dv">31</span>), <span class="st">"description"</span>: <span class="st">"Pharmacy"</span>, <span class="st">"amount"</span>: <span class="fl">12.00</span>},</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Column config (date column still visible in rows)</span></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>transaction_columns <span class="op">=</span> [</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"key"</span>: <span class="st">"description"</span>, <span class="st">"label"</span>: <span class="st">"Description"</span>, <span class="st">"searchable"</span>: <span class="va">True</span>},</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"key"</span>: <span class="st">"amount"</span>, <span class="st">"label"</span>: <span class="st">"Amount"</span>, <span class="st">"renderer"</span>: <span class="kw">lambda</span> v, r: <span class="ss">f"$</span><span class="sc">{</span>v<span class="sc">:,.2f}</span><span class="ss">"</span>},</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>DataTableResource(</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>    app<span class="op">=</span>app,</span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>    base_route<span class="op">=</span><span class="st">"/transactions"</span>,</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>transaction_columns,</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>    get_all<span class="op">=</span><span class="kw">lambda</span> req: transactions,</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>    get_by_id<span class="op">=</span><span class="kw">lambda</span> req, <span class="bu">id</span>: <span class="bu">next</span>((t <span class="cf">for</span> t <span class="kw">in</span> transactions <span class="cf">if</span> t[<span class="st">"id"</span>] <span class="op">==</span> <span class="bu">id</span>), <span class="va">None</span>),</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Grouping configuration</span></span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>    group_by<span class="op">=</span><span class="st">"date"</span>,</span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>    group_header_format<span class="op">=</span><span class="kw">lambda</span> d: d.strftime(<span class="st">"%A, %B </span><span class="sc">%d</span><span class="st">, %Y"</span>),  <span class="co"># "Saturday, February 01, 2026"</span></span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>    group_header_icon<span class="op">=</span><span class="st">"calendar_today"</span>,</span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>    group_header_cls<span class="op">=</span><span class="st">"surface-container"</span>,</span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Transaction History"</span></span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="dynamic-icons-per-group" class="level3">
+<h3 class="anchored" data-anchor-id="dynamic-icons-per-group">🎨 Dynamic Icons per Group</h3>
+<p>Use a callable for <code>group_header_icon</code> to show different icons based on group value:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> status_icon(status):</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return icon based on status value."""</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    icons <span class="op">=</span> {</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"In Stock"</span>: <span class="st">"check_circle"</span>,</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Low Stock"</span>: <span class="st">"warning"</span>,</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Out of Stock"</span>: <span class="st">"error"</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> icons.get(status, <span class="st">"help"</span>)</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>DataTableResource(</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    ...,</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>    group_by<span class="op">=</span><span class="st">"status"</span>,</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>    group_header_icon<span class="op">=</span>status_icon  <span class="co"># Callable for dynamic icons</span></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="important-notes" class="level3">
+<h3 class="anchored" data-anchor-id="important-notes">⚠️ Important Notes</h3>
+<ol type="1">
+<li><strong>Sorting</strong>: Data should be pre-sorted by the <code>group_by</code> column in your <code>get_all</code> callback for logical grouping</li>
+<li><strong>Pagination</strong>: Groups may span pages; each page shows its own group headers</li>
+<li><strong>Search</strong>: When searching, only matching rows are shown; groups re-form from filtered results</li>
+<li><strong>Backward Compatible</strong>: When <code>group_by=None</code> (default), tables render flat as before</li>
+</ol>
+<div id="2e2e060f" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Grouped Products Demo (by Category) ---</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrates the group_by feature with products organized by category</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>GROUPED_PRODUCTS <span class="op">=</span> [</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Audio category</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">4</span>, <span class="st">"name"</span>: <span class="st">"AirPods Pro"</span>, <span class="st">"category"</span>: <span class="st">"Audio"</span>, <span class="st">"price"</span>: <span class="fl">249.00</span>, <span class="st">"stock"</span>: <span class="dv">200</span>},</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">9</span>, <span class="st">"name"</span>: <span class="st">"HomePod Mini"</span>, <span class="st">"category"</span>: <span class="st">"Audio"</span>, <span class="st">"price"</span>: <span class="fl">99.00</span>, <span class="st">"stock"</span>: <span class="dv">150</span>},</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Laptops category</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">1</span>, <span class="st">"name"</span>: <span class="st">"MacBook Pro 16</span><span class="ch">\"</span><span class="st">"</span>, <span class="st">"category"</span>: <span class="st">"Laptops"</span>, <span class="st">"price"</span>: <span class="fl">2499.00</span>, <span class="st">"stock"</span>: <span class="dv">45</span>},</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Phones category</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">2</span>, <span class="st">"name"</span>: <span class="st">"iPhone 15 Pro"</span>, <span class="st">"category"</span>: <span class="st">"Phones"</span>, <span class="st">"price"</span>: <span class="fl">999.00</span>, <span class="st">"stock"</span>: <span class="dv">120</span>},</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tablets category</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">3</span>, <span class="st">"name"</span>: <span class="st">"iPad Air"</span>, <span class="st">"category"</span>: <span class="st">"Tablets"</span>, <span class="st">"price"</span>: <span class="fl">599.00</span>, <span class="st">"stock"</span>: <span class="dv">0</span>},</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>grouped_columns <span class="op">=</span> [</span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"key"</span>: <span class="st">"name"</span>, <span class="st">"label"</span>: <span class="st">"Product"</span>, <span class="st">"searchable"</span>: <span class="va">True</span>},</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"key"</span>: <span class="st">"price"</span>, <span class="st">"label"</span>: <span class="st">"Price"</span>, <span class="st">"renderer"</span>: <span class="kw">lambda</span> v, r: <span class="ss">f"$</span><span class="sc">{</span>v<span class="sc">:,.2f}</span><span class="ss">"</span>},</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"key"</span>: <span class="st">"stock"</span>, <span class="st">"label"</span>: <span class="st">"Stock"</span>},</span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Create grouped resource</span></span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>grouped_resource <span class="op">=</span> DataTableResource(</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>    app<span class="op">=</span>app,</span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>    base_route<span class="op">=</span><span class="st">"/grouped-products"</span>,</span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>grouped_columns,</span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>    get_all<span class="op">=</span><span class="kw">lambda</span> req: GROUPED_PRODUCTS,</span>
+<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a>    get_by_id<span class="op">=</span><span class="kw">lambda</span> req, <span class="bu">id</span>: <span class="bu">next</span>((p <span class="cf">for</span> p <span class="kw">in</span> GROUPED_PRODUCTS <span class="cf">if</span> p[<span class="st">"id"</span>] <span class="op">==</span> <span class="bu">id</span>), <span class="va">None</span>),</span>
+<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Products by Category"</span>,</span>
+<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Grouping configuration</span></span>
+<span id="cb36-32"><a href="#cb36-32" aria-hidden="true" tabindex="-1"></a>    group_by<span class="op">=</span><span class="st">"category"</span>,</span>
+<span id="cb36-33"><a href="#cb36-33" aria-hidden="true" tabindex="-1"></a>    group_header_icon<span class="op">=</span><span class="st">"category"</span>,</span>
+<span id="cb36-34"><a href="#cb36-34" aria-hidden="true" tabindex="-1"></a>    group_header_cls<span class="op">=</span><span class="st">"surface-container"</span>,</span>
+<span id="cb36-35"><a href="#cb36-35" aria-hidden="true" tabindex="-1"></a>    group_header_space<span class="op">=</span><span class="st">"no-space"</span>,  <span class="co"># Compact group header spacing</span></span>
+<span id="cb36-36"><a href="#cb36-36" aria-hidden="true" tabindex="-1"></a>    space<span class="op">=</span><span class="st">"no-space"</span>              <span class="co"># Compact rows with minimal padding</span></span>
+<span id="cb36-37"><a href="#cb36-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-38"><a href="#cb36-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-39"><a href="#cb36-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview helper</span></span>
+<span id="cb36-40"><a href="#cb36-40" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ex_grouped_products():</span>
+<span id="cb36-41"><a href="#cb36-41" aria-hidden="true" tabindex="-1"></a>    mock_req <span class="op">=</span> <span class="bu">type</span>(<span class="st">'MockRequest'</span>, (), {<span class="st">'query_params'</span>: {}, <span class="st">'headers'</span>: {}})()</span>
+<span id="cb36-42"><a href="#cb36-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> grouped_resource._handle_table(mock_req)</span>
+<span id="cb36-43"><a href="#cb36-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-44"><a href="#cb36-44" aria-hidden="true" tabindex="-1"></a>preview(ex_grouped_products())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe src="http://localhost:5555/_hZG_5AbpRSKJgJgvLpXjAA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+</div>
+</div>
+</section>
+<section id="datatableresource-demo" class="level3">
+<h3 class="anchored" data-anchor-id="datatableresource-demo">DataTableResource Demo</h3>
+<p>Demonstrates how <a href="https://abhisheksreesaila.github.io/fh-matui/datatable.html#datatableresource"><code>DataTableResource</code></a> reduces ~100 lines of route handlers to ~15 lines:</p>
+<div id="f1df4405" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Mock Data for Demo ---</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>MOCK_PRODUCTS <span class="op">=</span> [</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">1</span>, <span class="st">"name"</span>: <span class="st">"MacBook Pro 16</span><span class="ch">\"</span><span class="st">"</span>, <span class="st">"category"</span>: <span class="st">"Laptops"</span>, <span class="st">"price"</span>: <span class="fl">2499.00</span>, <span class="st">"stock"</span>: <span class="dv">45</span>, <span class="st">"status"</span>: <span class="st">"In Stock"</span>},</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">2</span>, <span class="st">"name"</span>: <span class="st">"iPhone 15 Pro"</span>, <span class="st">"category"</span>: <span class="st">"Phones"</span>, <span class="st">"price"</span>: <span class="fl">999.00</span>, <span class="st">"stock"</span>: <span class="dv">120</span>, <span class="st">"status"</span>: <span class="st">"In Stock"</span>},</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">3</span>, <span class="st">"name"</span>: <span class="st">"iPad Air"</span>, <span class="st">"category"</span>: <span class="st">"Tablets"</span>, <span class="st">"price"</span>: <span class="fl">599.00</span>, <span class="st">"stock"</span>: <span class="dv">0</span>, <span class="st">"status"</span>: <span class="st">"Out of Stock"</span>},</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">4</span>, <span class="st">"name"</span>: <span class="st">"AirPods Pro"</span>, <span class="st">"category"</span>: <span class="st">"Audio"</span>, <span class="st">"price"</span>: <span class="fl">249.00</span>, <span class="st">"stock"</span>: <span class="dv">200</span>, <span class="st">"status"</span>: <span class="st">"In Stock"</span>},</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">5</span>, <span class="st">"name"</span>: <span class="st">"Apple Watch Ultra"</span>, <span class="st">"category"</span>: <span class="st">"Wearables"</span>, <span class="st">"price"</span>: <span class="fl">799.00</span>, <span class="st">"stock"</span>: <span class="dv">30</span>, <span class="st">"status"</span>: <span class="st">"Low Stock"</span>},</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">6</span>, <span class="st">"name"</span>: <span class="st">"Magic Keyboard"</span>, <span class="st">"category"</span>: <span class="st">"Accessories"</span>, <span class="st">"price"</span>: <span class="fl">299.00</span>, <span class="st">"stock"</span>: <span class="dv">85</span>, <span class="st">"status"</span>: <span class="st">"In Stock"</span>},</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">7</span>, <span class="st">"name"</span>: <span class="st">"Studio Display"</span>, <span class="st">"category"</span>: <span class="st">"Monitors"</span>, <span class="st">"price"</span>: <span class="fl">1599.00</span>, <span class="st">"stock"</span>: <span class="dv">12</span>, <span class="st">"status"</span>: <span class="st">"Low Stock"</span>},</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">8</span>, <span class="st">"name"</span>: <span class="st">"Mac Mini M2"</span>, <span class="st">"category"</span>: <span class="st">"Desktops"</span>, <span class="st">"price"</span>: <span class="fl">599.00</span>, <span class="st">"stock"</span>: <span class="dv">60</span>, <span class="st">"status"</span>: <span class="st">"In Stock"</span>},</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">9</span>, <span class="st">"name"</span>: <span class="st">"HomePod Mini"</span>, <span class="st">"category"</span>: <span class="st">"Audio"</span>, <span class="st">"price"</span>: <span class="fl">99.00</span>, <span class="st">"stock"</span>: <span class="dv">150</span>, <span class="st">"status"</span>: <span class="st">"In Stock"</span>},</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">10</span>, <span class="st">"name"</span>: <span class="st">"AirTag 4-Pack"</span>, <span class="st">"category"</span>: <span class="st">"Accessories"</span>, <span class="st">"price"</span>: <span class="fl">99.00</span>, <span class="st">"stock"</span>: <span class="dv">0</span>, <span class="st">"status"</span>: <span class="st">"Out of Stock"</span>},</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Status chip styles</span></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>PRODUCT_STATUS_CLASSES <span class="op">=</span> {</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"In Stock"</span>: <span class="st">"chip small success"</span>,</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Low Stock"</span>: <span class="st">"chip small warning"</span>, </span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Out of Stock"</span>: <span class="st">"chip small error"</span></span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Column configuration with renderers and form config</span></span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>product_columns <span class="op">=</span> [</span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">"key"</span>: <span class="st">"name"</span>,</span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"label"</span>: <span class="st">"Product"</span>,</span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>        <span class="st">"searchable"</span>: <span class="va">True</span>,</span>
+<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a>        <span class="st">"renderer"</span>: <span class="kw">lambda</span> v, row: Strong(v),</span>
+<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a>        <span class="st">"form"</span>: {<span class="st">"type"</span>: <span class="st">"text"</span>, <span class="st">"required"</span>: <span class="va">True</span>}</span>
+<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a>        <span class="st">"key"</span>: <span class="st">"category"</span>,</span>
+<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a>        <span class="st">"label"</span>: <span class="st">"Category"</span>,</span>
+<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">"searchable"</span>: <span class="va">True</span>,</span>
+<span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">"form"</span>: {</span>
+<span id="cb37-36"><a href="#cb37-36" aria-hidden="true" tabindex="-1"></a>            <span class="st">"type"</span>: <span class="st">"select"</span>,</span>
+<span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a>            <span class="st">"options"</span>: [<span class="st">"Laptops"</span>, <span class="st">"Phones"</span>, <span class="st">"Tablets"</span>, <span class="st">"Audio"</span>, <span class="st">"Wearables"</span>, <span class="st">"Accessories"</span>, <span class="st">"Monitors"</span>, <span class="st">"Desktops"</span>]</span>
+<span id="cb37-38"><a href="#cb37-38" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb37-39"><a href="#cb37-39" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb37-40"><a href="#cb37-40" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb37-41"><a href="#cb37-41" aria-hidden="true" tabindex="-1"></a>        <span class="st">"key"</span>: <span class="st">"price"</span>,</span>
+<span id="cb37-42"><a href="#cb37-42" aria-hidden="true" tabindex="-1"></a>        <span class="st">"label"</span>: <span class="st">"Price"</span>,</span>
+<span id="cb37-43"><a href="#cb37-43" aria-hidden="true" tabindex="-1"></a>        <span class="st">"renderer"</span>: <span class="kw">lambda</span> v, row: Span(<span class="ss">f"$</span><span class="sc">{</span>v<span class="sc">:,.2f}</span><span class="ss">"</span>, cls<span class="op">=</span><span class="st">"bold"</span>),</span>
+<span id="cb37-44"><a href="#cb37-44" aria-hidden="true" tabindex="-1"></a>        <span class="st">"form"</span>: {<span class="st">"type"</span>: <span class="st">"number"</span>, <span class="st">"min"</span>: <span class="dv">0</span>, <span class="st">"step"</span>: <span class="fl">0.01</span>}</span>
+<span id="cb37-45"><a href="#cb37-45" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb37-46"><a href="#cb37-46" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb37-47"><a href="#cb37-47" aria-hidden="true" tabindex="-1"></a>        <span class="st">"key"</span>: <span class="st">"stock"</span>,</span>
+<span id="cb37-48"><a href="#cb37-48" aria-hidden="true" tabindex="-1"></a>        <span class="st">"label"</span>: <span class="st">"Stock"</span>,</span>
+<span id="cb37-49"><a href="#cb37-49" aria-hidden="true" tabindex="-1"></a>        <span class="st">"renderer"</span>: <span class="kw">lambda</span> v, row: Span(<span class="bu">str</span>(v), cls<span class="op">=</span><span class="ss">f"badge </span><span class="sc">{</span><span class="st">'error'</span> <span class="cf">if</span> v <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">'warning'</span> <span class="cf">if</span> v <span class="op">&lt;</span> <span class="dv">20</span> <span class="cf">else</span> <span class="st">'success'</span><span class="sc">}</span><span class="ss">"</span>) <span class="cf">if</span> <span class="bu">isinstance</span>(v, <span class="bu">int</span>) <span class="cf">else</span> v,</span>
+<span id="cb37-50"><a href="#cb37-50" aria-hidden="true" tabindex="-1"></a>        <span class="st">"form"</span>: {<span class="st">"type"</span>: <span class="st">"number"</span>, <span class="st">"min"</span>: <span class="dv">0</span>, <span class="st">"step"</span>: <span class="dv">1</span>}</span>
+<span id="cb37-51"><a href="#cb37-51" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb37-52"><a href="#cb37-52" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb37-53"><a href="#cb37-53" aria-hidden="true" tabindex="-1"></a>        <span class="st">"key"</span>: <span class="st">"status"</span>,</span>
+<span id="cb37-54"><a href="#cb37-54" aria-hidden="true" tabindex="-1"></a>        <span class="st">"label"</span>: <span class="st">"Status"</span>,</span>
+<span id="cb37-55"><a href="#cb37-55" aria-hidden="true" tabindex="-1"></a>        <span class="st">"searchable"</span>: <span class="va">True</span>,</span>
+<span id="cb37-56"><a href="#cb37-56" aria-hidden="true" tabindex="-1"></a>        <span class="st">"renderer"</span>: <span class="kw">lambda</span> v, row: Span(v, cls<span class="op">=</span>PRODUCT_STATUS_CLASSES.get(v, <span class="st">"chip small"</span>)),</span>
+<span id="cb37-57"><a href="#cb37-57" aria-hidden="true" tabindex="-1"></a>        <span class="st">"form"</span>: {<span class="st">"type"</span>: <span class="st">"select"</span>, <span class="st">"options"</span>: [<span class="st">"In Stock"</span>, <span class="st">"Low Stock"</span>, <span class="st">"Out of Stock"</span>]}</span>
+<span id="cb37-58"><a href="#cb37-58" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb37-59"><a href="#cb37-59" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb37-60"><a href="#cb37-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-61"><a href="#cb37-61" aria-hidden="true" tabindex="-1"></a><span class="co"># --- In-memory store (simulates database) ---</span></span>
+<span id="cb37-62"><a href="#cb37-62" aria-hidden="true" tabindex="-1"></a>DEMO_PRODUCTS <span class="op">=</span> <span class="bu">list</span>(MOCK_PRODUCTS)</span>
+<span id="cb37-63"><a href="#cb37-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-64"><a href="#cb37-64" aria-hidden="true" tabindex="-1"></a><span class="co"># All callbacks receive request as first parameter</span></span>
+<span id="cb37-65"><a href="#cb37-65" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> demo_get_all(req):</span>
+<span id="cb37-66"><a href="#cb37-66" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Get all products. In multi-tenant app: req.state.tenant_db.t.products()"""</span></span>
+<span id="cb37-67"><a href="#cb37-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> DEMO_PRODUCTS</span>
+<span id="cb37-68"><a href="#cb37-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-69"><a href="#cb37-69" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> demo_get_by_id(req, <span class="bu">id</span>):</span>
+<span id="cb37-70"><a href="#cb37-70" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Get product by ID. In multi-tenant app: req.state.tenant_db.t.products[id]"""</span></span>
+<span id="cb37-71"><a href="#cb37-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">next</span>((p <span class="cf">for</span> p <span class="kw">in</span> DEMO_PRODUCTS <span class="cf">if</span> p[<span class="st">"id"</span>] <span class="op">==</span> <span class="bu">id</span>), <span class="va">None</span>)</span>
+<span id="cb37-72"><a href="#cb37-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-73"><a href="#cb37-73" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> demo_create(req, data):</span>
+<span id="cb37-74"><a href="#cb37-74" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Create product. In multi-tenant app: req.state.tenant_db.t.products.insert(data)"""</span></span>
+<span id="cb37-75"><a href="#cb37-75" aria-hidden="true" tabindex="-1"></a>    new_id <span class="op">=</span> <span class="bu">max</span>(p[<span class="st">"id"</span>] <span class="cf">for</span> p <span class="kw">in</span> DEMO_PRODUCTS) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb37-76"><a href="#cb37-76" aria-hidden="true" tabindex="-1"></a>    record <span class="op">=</span> {<span class="st">"id"</span>: new_id, <span class="op">**</span>data}</span>
+<span id="cb37-77"><a href="#cb37-77" aria-hidden="true" tabindex="-1"></a>    DEMO_PRODUCTS.append(record)</span>
+<span id="cb37-78"><a href="#cb37-78" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> record</span>
+<span id="cb37-79"><a href="#cb37-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-80"><a href="#cb37-80" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> demo_update(req, <span class="bu">id</span>, data):</span>
+<span id="cb37-81"><a href="#cb37-81" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Update product. In multi-tenant app: tbl.update({'id': id, **data})"""</span></span>
+<span id="cb37-82"><a href="#cb37-82" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, p <span class="kw">in</span> <span class="bu">enumerate</span>(DEMO_PRODUCTS):</span>
+<span id="cb37-83"><a href="#cb37-83" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> p[<span class="st">"id"</span>] <span class="op">==</span> <span class="bu">id</span>:</span>
+<span id="cb37-84"><a href="#cb37-84" aria-hidden="true" tabindex="-1"></a>            DEMO_PRODUCTS[i] <span class="op">=</span> {<span class="st">"id"</span>: <span class="bu">id</span>, <span class="op">**</span>data}</span>
+<span id="cb37-85"><a href="#cb37-85" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> DEMO_PRODUCTS[i]</span>
+<span id="cb37-86"><a href="#cb37-86" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb37-87"><a href="#cb37-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-88"><a href="#cb37-88" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> demo_delete(req, <span class="bu">id</span>):</span>
+<span id="cb37-89"><a href="#cb37-89" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Delete product. In multi-tenant app: req.state.tenant_db.t.products.delete(id)"""</span></span>
+<span id="cb37-90"><a href="#cb37-90" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> DEMO_PRODUCTS</span>
+<span id="cb37-91"><a href="#cb37-91" aria-hidden="true" tabindex="-1"></a>    DEMO_PRODUCTS <span class="op">=</span> [p <span class="cf">for</span> p <span class="kw">in</span> DEMO_PRODUCTS <span class="cf">if</span> p[<span class="st">"id"</span>] <span class="op">!=</span> <span class="bu">id</span>]</span>
+<span id="cb37-92"><a href="#cb37-92" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb37-93"><a href="#cb37-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-94"><a href="#cb37-94" aria-hidden="true" tabindex="-1"></a><span class="co"># --- DataTableResource: One object replaces ~100 lines of route handlers ---</span></span>
+<span id="cb37-95"><a href="#cb37-95" aria-hidden="true" tabindex="-1"></a>products_resource <span class="op">=</span> DataTableResource(</span>
+<span id="cb37-96"><a href="#cb37-96" aria-hidden="true" tabindex="-1"></a>    app<span class="op">=</span>app,</span>
+<span id="cb37-97"><a href="#cb37-97" aria-hidden="true" tabindex="-1"></a>    base_route<span class="op">=</span><span class="st">"/products"</span>,</span>
+<span id="cb37-98"><a href="#cb37-98" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>product_columns,</span>
+<span id="cb37-99"><a href="#cb37-99" aria-hidden="true" tabindex="-1"></a>    get_all<span class="op">=</span>demo_get_all,</span>
+<span id="cb37-100"><a href="#cb37-100" aria-hidden="true" tabindex="-1"></a>    get_by_id<span class="op">=</span>demo_get_by_id,</span>
+<span id="cb37-101"><a href="#cb37-101" aria-hidden="true" tabindex="-1"></a>    create<span class="op">=</span>demo_create,</span>
+<span id="cb37-102"><a href="#cb37-102" aria-hidden="true" tabindex="-1"></a>    update<span class="op">=</span>demo_update,</span>
+<span id="cb37-103"><a href="#cb37-103" aria-hidden="true" tabindex="-1"></a>    delete<span class="op">=</span>demo_delete,</span>
+<span id="cb37-104"><a href="#cb37-104" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Products"</span>,</span>
+<span id="cb37-105"><a href="#cb37-105" aria-hidden="true" tabindex="-1"></a>    search_placeholder<span class="op">=</span><span class="st">"Search products..."</span>,</span>
+<span id="cb37-106"><a href="#cb37-106" aria-hidden="true" tabindex="-1"></a>    create_label<span class="op">=</span><span class="st">"Add Product"</span>,</span>
+<span id="cb37-107"><a href="#cb37-107" aria-hidden="true" tabindex="-1"></a>    space<span class="op">=</span><span class="st">"no-space"</span></span>
+<span id="cb37-108"><a href="#cb37-108" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb37-109"><a href="#cb37-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-110"><a href="#cb37-110" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Preview helper ---</span></span>
+<span id="cb37-111"><a href="#cb37-111" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ex_products():</span>
+<span id="cb37-112"><a href="#cb37-112" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Preview the DataTableResource table."""</span></span>
+<span id="cb37-113"><a href="#cb37-113" aria-hidden="true" tabindex="-1"></a>    mock_req <span class="op">=</span> <span class="bu">type</span>(<span class="st">'MockRequest'</span>, (), {<span class="st">'query_params'</span>: {}, <span class="st">'headers'</span>: {}})()</span>
+<span id="cb37-114"><a href="#cb37-114" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> products_resource._handle_table(mock_req)</span>
+<span id="cb37-115"><a href="#cb37-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-116"><a href="#cb37-116" aria-hidden="true" tabindex="-1"></a>preview(ex_products())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe src="http://localhost:5555/_GF3CDFxLR0GveBCEeS_ciA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/abhisheksreesaila\.github\.io\/fh-matui");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/abhisheksreesaila/fh-matui/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

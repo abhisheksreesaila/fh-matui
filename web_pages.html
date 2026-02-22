@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Pre-built landing page components for marketing websites and public-facing pages">
+
+<title>🌐 Web Pages – fh-matui</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-000f0825b9c55ed21d14970d810c14a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="🌐 Web Pages – fh-matui">
+<meta property="og:description" content="Pre-built landing page components for marketing websites and public-facing pages">
+<meta property="og:site_name" content="fh-matui">
+<meta name="twitter:title" content="🌐 Web Pages – fh-matui">
+<meta name="twitter:description" content="Pre-built landing page components for marketing websites and public-facing pages">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">fh-matui</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./web_pages.html">🌐 Web Pages</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">fh-matui</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔧 Foundations</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./core.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">⚙️ Core</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./components.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🧩 Components</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app_pages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📱 App Pages</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web_pages.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">🌐 Web Pages</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📊 Data Tables</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./billing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">💳 Billing Components</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">🎯 Overview</a></li>
+  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture">🏗️ Architecture</a></li>
+  <li><a href="#quick-reference" id="toc-quick-reference" class="nav-link" data-scroll-target="#quick-reference">📚 Quick Reference</a></li>
+  <li><a href="#hero-section" id="toc-hero-section" class="nav-link" data-scroll-target="#hero-section">🎬 Hero Section</a>
+  <ul class="collapse">
+  <li><a href="#herosection" id="toc-herosection" class="nav-link" data-scroll-target="#herosection">HeroSection</a></li>
+  </ul></li>
+  <li><a href="#features-grid" id="toc-features-grid" class="nav-link" data-scroll-target="#features-grid">✨ Features Grid</a></li>
+  <li><a href="#feature-showcase" id="toc-feature-showcase" class="nav-link" data-scroll-target="#feature-showcase">🎯 Feature Showcase</a>
+  <ul class="collapse">
+  <li><a href="#configuration-options" id="toc-configuration-options" class="nav-link" data-scroll-target="#configuration-options">Configuration Options</a></li>
+  <li><a href="#featureshowcase" id="toc-featureshowcase" class="nav-link" data-scroll-target="#featureshowcase">FeatureShowcase</a></li>
+  <li><a href="#featuresgrid" id="toc-featuresgrid" class="nav-link" data-scroll-target="#featuresgrid">FeaturesGrid</a></li>
+  </ul></li>
+  <li><a href="#pricing-section" id="toc-pricing-section" class="nav-link" data-scroll-target="#pricing-section">💰 Pricing Section</a>
+  <ul class="collapse">
+  <li><a href="#pricingsection" id="toc-pricingsection" class="nav-link" data-scroll-target="#pricingsection">PricingSection</a></li>
+  </ul></li>
+  <li><a href="#faq-section" id="toc-faq-section" class="nav-link" data-scroll-target="#faq-section">❓ FAQ Section</a>
+  <ul class="collapse">
+  <li><a href="#faqsection" id="toc-faqsection" class="nav-link" data-scroll-target="#faqsection">FAQSection</a></li>
+  </ul></li>
+  <li><a href="#footer" id="toc-footer" class="nav-link" data-scroll-target="#footer">🦶 Footer</a>
+  <ul class="collapse">
+  <li><a href="#pagefooter" id="toc-pagefooter" class="nav-link" data-scroll-target="#pagefooter">PageFooter</a></li>
+  <li><a href="#landingnavbar" id="toc-landingnavbar" class="nav-link" data-scroll-target="#landingnavbar">LandingNavBar</a></li>
+  </ul></li>
+  <li><a href="#landing-page" id="toc-landing-page" class="nav-link" data-scroll-target="#landing-page">📄 Landing Page</a>
+  <ul class="collapse">
+  <li><a href="#landingpagesimple" id="toc-landingpagesimple" class="nav-link" data-scroll-target="#landingpagesimple">LandingPageSimple</a></li>
+  </ul></li>
+  <li><a href="#content-pages" id="toc-content-pages" class="nav-link" data-scroll-target="#content-pages">📝 Content Pages</a>
+  <ul class="collapse">
+  <li><a href="#markdownsection" id="toc-markdownsection" class="nav-link" data-scroll-target="#markdownsection">MarkdownSection</a></li>
+  </ul></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a>
+  <ul class="collapse">
+  <li><a href="#contentpage" id="toc-contentpage" class="nav-link" data-scroll-target="#contentpage">ContentPage</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/abhisheksreesaila/fh-matui/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="web_pages.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">🌐 Web Pages</h1>
+</div>
+
+<div>
+  <div class="description">
+    Pre-built landing page components for marketing websites and public-facing pages
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">🎯 Overview</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Components</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>🎬 Hero</td>
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#herosection"><code>HeroSection</code></a></td>
+<td>Full-width landing hero with CTAs</td>
+</tr>
+<tr class="even">
+<td>✨ Features</td>
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#featuresgrid"><code>FeaturesGrid</code></a></td>
+<td>Icon cards showcasing product features</td>
+</tr>
+<tr class="odd">
+<td>💰 Pricing</td>
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#pricingsection"><code>PricingSection</code></a></td>
+<td>Single pricing card with feature checklist</td>
+</tr>
+<tr class="even">
+<td>❓ FAQ</td>
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#faqsection"><code>FAQSection</code></a></td>
+<td>Expandable FAQ using Details/Summary</td>
+</tr>
+<tr class="odd">
+<td>🦶 Footer</td>
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#pagefooter"><code>PageFooter</code></a></td>
+<td>Multi-column footer with social links</td>
+</tr>
+<tr class="even">
+<td>🧭 Nav</td>
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#landingnavbar"><code>LandingNavBar</code></a></td>
+<td>Sticky navbar with brand and CTAs</td>
+</tr>
+<tr class="odd">
+<td>📄 Pages</td>
+<td><code>LandingPage</code>, <code>LandingPageV2</code></td>
+<td>Complete landing page compositions</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="architecture" class="level2">
+<h2 class="anchored" data-anchor-id="architecture">🏗️ Architecture</h2>
+<pre><code>┌─────────────────────────────────────────────────────────┐
+│                    Landing Page                          │
+├─────────────────────────────────────────────────────────┤
+│  LandingNavBar (sticky, blur)                           │
+│  ├─ Brand + Navigation Links + CTA Actions              │
+├─────────────────────────────────────────────────────────┤
+│  HeroSection                                            │
+│  ├─ Title + Subtitle + Primary/Secondary CTAs           │
+├─────────────────────────────────────────────────────────┤
+│  FeaturesGrid                                           │
+│  ├─ 3-column responsive cards with icons                │
+├─────────────────────────────────────────────────────────┤
+│  PricingSection                                         │
+│  ├─ Centered pricing card with feature bullets          │
+├─────────────────────────────────────────────────────────┤
+│  FAQSection                                             │
+│  ├─ Expandable Details/Summary items                    │
+├─────────────────────────────────────────────────────────┤
+│  PageFooter                                             │
+│  ├─ Multi-column links + Copyright + Social icons       │
+└─────────────────────────────────────────────────────────┘</code></pre>
+<hr>
+</section>
+<section id="quick-reference" class="level2">
+<h2 class="anchored" data-anchor-id="quick-reference">📚 Quick Reference</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Complete landing page in one call</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>LandingPage(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    brand_name<span class="op">=</span><span class="st">"MyBrand"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    hero_title<span class="op">=</span><span class="st">"Welcome"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    hero_subtitle<span class="op">=</span><span class="st">"Build faster"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    features<span class="op">=</span>[{<span class="st">'icon'</span>: <span class="st">'speed'</span>, <span class="st">'title'</span>: <span class="st">'Fast'</span>, <span class="st">'description'</span>: <span class="st">'...'</span>}],</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    faqs<span class="op">=</span>[{<span class="st">'question'</span>: <span class="st">'Q?'</span>, <span class="st">'answer'</span>: <span class="st">'A'</span>}]</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="e5974670" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socket</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> kill_process_on_port(port):</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Kill any process using the specified port on Windows"""</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> subprocess.run(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f'netstat -ano | findstr :</span><span class="sc">{</span>port<span class="sc">}</span><span class="ss">'</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            shell<span class="op">=</span><span class="va">True</span>, capture_output<span class="op">=</span><span class="va">True</span>, text<span class="op">=</span><span class="va">True</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> result.stdout:</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            lines <span class="op">=</span> result.stdout.strip().split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> line <span class="kw">in</span> lines:</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="st">'LISTENING'</span> <span class="kw">in</span> line:</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                    pid <span class="op">=</span> line.strip().split()[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                    subprocess.run(<span class="ss">f'taskkill /PID </span><span class="sc">{</span>pid<span class="sc">}</span><span class="ss"> /F'</span>, shell<span class="op">=</span><span class="va">True</span>, capture_output<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="ss">f"✓ Killed process </span><span class="sc">{</span>pid<span class="sc">}</span><span class="ss"> on port </span><span class="sc">{</span>port<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                    time.sleep(<span class="fl">0.5</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"⚠ Could not kill process on port </span><span class="sc">{</span>port<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_available_port(start_port<span class="op">=</span><span class="dv">5000</span>, max_attempts<span class="op">=</span><span class="dv">10</span>):</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Find an available port starting from start_port"""</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> port <span class="kw">in</span> <span class="bu">range</span>(start_port, start_port <span class="op">+</span> max_attempts):</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM) <span class="im">as</span> s:</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">try</span>:</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>                s.bind((<span class="st">''</span>, port))</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> port</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>            <span class="cf">except</span> <span class="pp">OSError</span>:</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">RuntimeError</span>(<span class="ss">f"Could not find an available port in range </span><span class="sc">{</span>start_port<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>start_port<span class="op">+</span>max_attempts<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Stop existing server if running</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'server'</span> <span class="kw">in</span> <span class="bu">globals</span>(): </span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        server.stop()</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="fl">0.5</span>)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Try to kill any process on preferred port, then find available port</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>preferred_port <span class="op">=</span> <span class="dv">7020</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>kill_process_on_port(preferred_port)</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>port <span class="op">=</span> find_available_port(preferred_port)</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastHTML(hdrs<span class="op">=</span>MatTheme.blue.headers(title<span class="op">=</span><span class="st">"Page Snippets"</span>, mode<span class="op">=</span><span class="st">"dark"</span>))</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>rt <span class="op">=</span> app.route</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    server <span class="op">=</span> JupyUvi(app, port<span class="op">=</span>port)</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    preview <span class="op">=</span> partial(HTMX, app<span class="op">=</span>app, port<span class="op">=</span>port)</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"✓ Server running on port </span><span class="sc">{</span>port<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"✗ Failed to start server: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+
+<script>
+document.body.addEventListener('htmx:configRequest', (event) => {
+    if(event.detail.path.includes('://')) return;
+    htmx.config.selfRequestsOnly=false;
+    event.detail.path = `${location.protocol}//${location.hostname}:7020${event.detail.path}`;
+});
+</script>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>✓ Server running on port 7020</code></pre>
+</div>
+</div>
+</section>
+<section id="hero-section" class="level2">
+<h2 class="anchored" data-anchor-id="hero-section">🎬 Hero Section</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#herosection"><code>HeroSection</code></a></td>
+<td>Full-width hero with title, subtitle, and CTA buttons</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Features:</strong> BeerCSS-first styling, optional secondary CTA, custom CSS/JS hooks</p>
+<hr>
+<p><a href="https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L73" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="herosection" class="level3">
+<h3 class="anchored" data-anchor-id="herosection">HeroSection</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> HeroSection(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    title:<span class="bu">str</span>, <span class="co"># Main hero title</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    subtitle:<span class="bu">str</span>, <span class="co"># Hero subtitle/description</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    primary_cta_text:<span class="bu">str</span>, <span class="co"># Primary CTA button text</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    primary_cta_href:<span class="bu">str</span>, <span class="co"># Primary CTA button href</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    secondary_cta_text:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Secondary CTA button text (optional)</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    secondary_cta_href:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Secondary CTA button href (optional)</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    background:<span class="bu">str</span><span class="op">=</span><span class="st">'primary-container'</span>, <span class="co"># BeerCSS background class (without bg- prefix)</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    cls:<span class="bu">str</span><span class="op">=</span><span class="st">''</span>, <span class="co"># Additional classes</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    extra_css:<span class="bu">str</span> <span class="op">|</span> <span class="va">None</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Optional custom CSS (minimal; opt-in)</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    extra_js:<span class="bu">str</span> <span class="op">|</span> <span class="va">None</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Optional custom JS (minimal; opt-in)</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Hero section with title, subtitle, and CTA buttons.</em></p>
+<p>BeerCSS-first styling. Takes up 75vh by default with gradient overlay. Designed for full-width layout - background extends edge-to-edge naturally. Content is centered using responsive class internally. Mobile-friendly: title scales down via clamp(), text stays centered.</p>
+<div id="c7cbe9d0" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hero_section():</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> HeroSection(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Welcome to Material UI"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    subtitle<span class="op">=</span><span class="st">"Build beautiful web apps with FastHTML"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    primary_cta_text<span class="op">=</span><span class="st">"Get Started"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    primary_cta_href<span class="op">=</span><span class="st">"/signup"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    secondary_cta_text<span class="op">=</span><span class="st">"Learn More"</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    secondary_cta_href<span class="op">=</span><span class="st">"/docs"</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>) </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>preview(hero_section())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe src="http://localhost:7020/_r9AfAm7ARV__C06bJKFAjw" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+</div>
+</div>
+</section>
+</section>
+<section id="features-grid" class="level2">
+<h2 class="anchored" data-anchor-id="features-grid">✨ Features Grid</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#featuresgrid"><code>FeaturesGrid</code></a></td>
+<td>Bento-style responsive grid of feature cards with icons</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Features:</strong> Configurable card sizes (<code>size: 'big'</code>/<code>'small'</code>), BeerCSS 12-column grid, mobile-responsive</p>
+</section>
+<section id="feature-showcase" class="level2">
+<h2 class="anchored" data-anchor-id="feature-showcase">🎯 Feature Showcase</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#featureshowcase"><code>FeatureShowcase</code></a></td>
+<td>Bento-box image-on-top cards for detailed feature highlights</td>
+</tr>
+</tbody>
+</table>
+<section id="configuration-options" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-options">Configuration Options</h3>
+<p><strong>Section-level parameters:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>features</code></td>
+<td>list</td>
+<td>required</td>
+<td>List of feature dicts (see below)</td>
+</tr>
+<tr class="even">
+<td><code>title</code></td>
+<td>str</td>
+<td>None</td>
+<td>Section heading</td>
+</tr>
+<tr class="odd">
+<td><code>subtitle</code></td>
+<td>str</td>
+<td>None</td>
+<td>Section subheading</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Per-feature dict keys:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 35%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>title</code></td>
+<td>✓</td>
+<td>Feature title</td>
+</tr>
+<tr class="even">
+<td><code>description</code></td>
+<td>✓</td>
+<td>Feature description</td>
+</tr>
+<tr class="odd">
+<td><code>image_src</code></td>
+<td></td>
+<td>Custom image URL/path (auto-generates placeholder if omitted)</td>
+</tr>
+<tr class="even">
+<td><code>image_alt</code></td>
+<td></td>
+<td>Alt text for image (defaults to title)</td>
+</tr>
+<tr class="odd">
+<td><code>size</code></td>
+<td></td>
+<td><code>'big'</code> (l6) or <code>'small'</code> (l4) — auto-assigned if omitted (first 2 big, rest small)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bento layout:</strong> - First 2 features → <code>big</code> (half-width on desktop, l6) - Remaining features → <code>small</code> (third-width on desktop, l4) - All stack full-width on mobile (s12), 2-col on tablet (m6) - Override per-feature with <code>size</code> key</p>
+<hr>
+<p><a href="https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L158" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="featureshowcase" class="level3">
+<h3 class="anchored" data-anchor-id="featureshowcase">FeatureShowcase</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> FeatureShowcase(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    features:<span class="bu">list</span>, <span class="co"># List of dicts: {title, description, image_src?, image_alt?, size?}</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    title:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Optional section title</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    subtitle:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Optional section subtitle</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    cls:<span class="bu">str</span><span class="op">=</span><span class="st">''</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Bento-box feature showcase with image-on-top cards.</em></p>
+<p>Displays features as cards with a large image on top (~75%) and text description on the bottom (~25%). Uses a bento grid layout: first 2 features are “big” (half-width on desktop), remaining are “small” (third-width on desktop). All stack full-width on mobile.</p>
+<p>Each feature can override its size via the ‘size’ key: - ‘big’: spans l6 (half width on desktop) - ‘small’: spans l4 (third width on desktop) - If omitted: first 2 default to ‘big’, rest to ‘small’</p>
+<p>Auto-generates placeholder images from picsum.photos if no image_src provided.</p>
+<p>Args: features: List of feature dicts with keys: - title: Feature title (required) - description: Feature description (required) - image_src: URL/path to image (optional - auto-generates placeholder) - image_alt: Alt text for image (optional, defaults to title) - size: ‘big’ or ‘small’ (optional - auto-assigned by position) title: Section heading subtitle: Section subheading cls: Additional CSS classes</p>
+<p>Example: FeatureShowcase( title=“Why Choose Us”, features=[ {‘title’: ‘Fast’, ‘description’: ‘Lightning quick’}, {‘title’: ‘Secure’, ‘description’: ‘Built-in protection’}, {‘title’: ‘Scale’, ‘description’: ‘Grows with you’}, {‘title’: ‘Simple’, ‘description’: ‘Easy to use’}, {‘title’: ‘Open’, ‘description’: ‘Open source’}, ], )</p>
+<div id="11bcabcb" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>showcase_features <span class="op">=</span> [</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'title'</span>: <span class="st">'Lightning Fast'</span>, <span class="st">'description'</span>: <span class="st">'Built for speed with optimized rendering and minimal overhead. Your pages load instantly.'</span>},</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'title'</span>: <span class="st">'Secure by Default'</span>, <span class="st">'description'</span>: <span class="st">'Enterprise-grade security with automatic CSRF protection and input sanitization.'</span>},</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'title'</span>: <span class="st">'Infinitely Scalable'</span>, <span class="st">'description'</span>: <span class="st">'From prototype to production, scale seamlessly without changing your code.'</span>},</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'title'</span>: <span class="st">'Beautiful Design'</span>, <span class="st">'description'</span>: <span class="st">'Material Design 3 components that look polished out of the box.'</span>},</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'title'</span>: <span class="st">'Developer First'</span>, <span class="st">'description'</span>: <span class="st">'Pure Python API — no JavaScript or build tools required.'</span>},</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_showcase():</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> FeatureShowcase(</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Built for Modern Teams"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        subtitle<span class="op">=</span><span class="st">"Everything you need to ship faster"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        features<span class="op">=</span>showcase_features,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>preview(test_showcase())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe src="http://localhost:7020/_bM1r5ZCSRmODujmzho4lpQ" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+</div>
+</div>
+<hr>
+<p><a href="https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L278" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="featuresgrid" class="level3">
+<h3 class="anchored" data-anchor-id="featuresgrid">FeaturesGrid</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> FeaturesGrid(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    features:<span class="bu">list</span>, <span class="co"># List of dicts: {icon, title, description, size?}</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    title:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Optional section title</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    subtitle:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Optional section subtitle</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    cls:<span class="bu">str</span><span class="op">=</span><span class="st">''</span>, <span class="co"># Additional classes</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Bento-style feature grid using BeerCSS 12-column grid.</em></p>
+<p>Creates visual hierarchy with configurable card sizes for a modern bento box layout. Grid auto-fills with BeerCSS responsive column classes.</p>
+<p>Each feature dict can include a ‘size’ key: - ‘big’: spans half width (l6) - highlighted/featured items - ‘small’ (default): spans quarter width (l3)</p>
+<p>Responsive behavior (BeerCSS breakpoints): - Mobile (s): full width, stacked (s12) - Tablet (m): 2 columns (m6) - Desktop (l): 4-column bento (l3 small, l6 big)</p>
+<p>Example: FeaturesGrid([ {“icon”: “star”, “title”: “Featured”, “description”: “…”, “size”: “big”}, {“icon”: “bolt”, “title”: “Fast”, “description”: “…”}, {“icon”: “shield”, “title”: “Secure”, “description”: “…”}, ])</p>
+<div id="17e96d5b" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bento layout example: 2 big features + 4 small = nice visual hierarchy</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sample_features <span class="op">=</span> [</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'icon'</span>: <span class="st">'bolt'</span>, <span class="st">'title'</span>: <span class="st">'Lightning Fast'</span>, <span class="st">'description'</span>: <span class="st">'Optimized rendering with minimal overhead. Pages load instantly.'</span>, <span class="st">'size'</span>: <span class="st">'big'</span>},</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'icon'</span>: <span class="st">'shield'</span>, <span class="st">'title'</span>: <span class="st">'Secure by Default'</span>, <span class="st">'description'</span>: <span class="st">'Enterprise-grade security with automatic CSRF protection.'</span>, <span class="st">'size'</span>: <span class="st">'big'</span>},</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'icon'</span>: <span class="st">'trending_up'</span>, <span class="st">'title'</span>: <span class="st">'Scalable'</span>, <span class="st">'description'</span>: <span class="st">'Grows with your needs'</span>},</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'icon'</span>: <span class="st">'palette'</span>, <span class="st">'title'</span>: <span class="st">'Beautiful'</span>, <span class="st">'description'</span>: <span class="st">'Material Design tokens'</span>},</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'icon'</span>: <span class="st">'extension'</span>, <span class="st">'title'</span>: <span class="st">'Extensible'</span>, <span class="st">'description'</span>: <span class="st">'Compose with any component'</span>},</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'icon'</span>: <span class="st">'code'</span>, <span class="st">'title'</span>: <span class="st">'Developer First'</span>, <span class="st">'description'</span>: <span class="st">'Pure Python, no JS required'</span>},</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span>(<span class="st">'/test-fg'</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_fg():</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> FeaturesGrid(</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        features<span class="op">=</span>sample_features,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Why Choose Us"</span>,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        subtitle<span class="op">=</span><span class="st">"Everything you need to ship quickly"</span>,</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>preview(test_fg())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe src="http://localhost:7020/_x-9SDYOERWWJKxoGLHp73g" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+</div>
+</div>
+</section>
+</section>
+<section id="pricing-section" class="level2">
+<h2 class="anchored" data-anchor-id="pricing-section">💰 Pricing Section</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#pricingsection"><code>PricingSection</code></a></td>
+<td>Multi-tier pricing with monthly/yearly toggle</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Features:</strong> - 1-3 pricing tiers (Starter/Pro/Enterprise pattern) - Monthly/Yearly toggle with automatic savings calculation - Green “Save X%” chip with subtle pulse animation - Highlight flag for recommended tier - Responsive grid layout</p>
+<hr>
+<p><a href="https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L462" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="pricingsection" class="level3">
+<h3 class="anchored" data-anchor-id="pricingsection">PricingSection</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> PricingSection(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    title:<span class="bu">str</span>, <span class="co"># Section title</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    plans:<span class="bu">list</span>, <span class="co"># List of plan dicts: {name, monthly_price, yearly_price, features, cta_text, cta_href, highlight?}</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    cls:<span class="bu">str</span><span class="op">=</span><span class="st">''</span>, <span class="co"># Additional classes</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Multi-tier pricing section with monthly/yearly toggle.</em></p>
+<p>Supports 1-3 pricing tiers with automatic responsive layout. User provides prices; component handles toggle, savings display, and grid.</p>
+<p>Args: title: Section heading (e.g., “Simple Pricing”) plans: List of plan dicts, each containing: - name: Plan name (e.g., “Starter”, “Pro”, “Enterprise”) - monthly_price: Monthly price as float (e.g., 9.99) - yearly_price: Yearly price as float (e.g., 99.99) - features: List of feature strings - cta_text: Button text (e.g., “Get Started”) - cta_href: Button link - highlight: Optional bool to emphasize this tier (default False) cls: Additional CSS classes</p>
+<p>Example: PricingSection( title=“Choose Your Plan”, plans=[ {“name”: “Starter”, “monthly_price”: 9.99, “yearly_price”: 99.99, “features”: [“5 users”, “Basic support”], “cta_text”: “Start Free”, “cta_href”: “/signup”}, {“name”: “Pro”, “monthly_price”: 29.99, “yearly_price”: 299.99, “features”: [“Unlimited users”, “Priority support”], “cta_text”: “Get Pro”, “cta_href”: “/signup”, “highlight”: True}, ] )</p>
+<div id="574777b3" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test with 3-tier pricing (Starter / Pro / Enterprise)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_pricing_3tier():</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> PricingSection(</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Choose Your Plan"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        plans<span class="op">=</span>[</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">"name"</span>: <span class="st">"Starter"</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">"monthly_price"</span>: <span class="fl">9.99</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                <span class="st">"yearly_price"</span>: <span class="fl">99.99</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>                <span class="st">"features"</span>: [</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"5 team members"</span>,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Basic analytics"</span>,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Email support"</span>,</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"1GB storage"</span>,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>                ],</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>                <span class="st">"cta_text"</span>: <span class="st">"Start Free"</span>,</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>                <span class="st">"cta_href"</span>: <span class="st">"/signup?plan=starter"</span>,</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>            },</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>                <span class="st">"name"</span>: <span class="st">"Pro"</span>,</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>                <span class="st">"monthly_price"</span>: <span class="fl">29.99</span>,</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>                <span class="st">"yearly_price"</span>: <span class="fl">299.99</span>,</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>                <span class="st">"features"</span>: [</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Unlimited members"</span>,</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Advanced analytics"</span>,</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Priority support"</span>,</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"10GB storage"</span>,</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"API access"</span>,</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>                ],</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>                <span class="st">"cta_text"</span>: <span class="st">"Get Pro"</span>,</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>                <span class="st">"cta_href"</span>: <span class="st">"/signup?plan=pro"</span>,</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>                <span class="st">"highlight"</span>: <span class="va">True</span>,</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>            },</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>                <span class="st">"name"</span>: <span class="st">"Enterprise"</span>,</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>                <span class="st">"monthly_price"</span>: <span class="fl">99.99</span>,</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>                <span class="st">"yearly_price"</span>: <span class="fl">999.99</span>,</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>                <span class="st">"features"</span>: [</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Everything in Pro"</span>,</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Dedicated support"</span>,</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Custom SLA"</span>,</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Unlimited storage"</span>,</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"SSO &amp; SAML"</span>,</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>                ],</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>                <span class="st">"cta_text"</span>: <span class="st">"Contact Sales"</span>,</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>                <span class="st">"cta_href"</span>: <span class="st">"/contact"</span>,</span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>            },</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>preview(test_pricing_3tier())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe src="http://localhost:7020/_a0_djNaxR4CrHLbM03L7Lw" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+</div>
+</div>
+<div id="72c44e1c" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test with single pricing card</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_pricing_single():</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> PricingSection(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Simple Pricing"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        plans<span class="op">=</span>[</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">"name"</span>: <span class="st">"Professional"</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">"monthly_price"</span>: <span class="fl">7.99</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>                <span class="st">"yearly_price"</span>: <span class="fl">79.99</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                <span class="st">"features"</span>: [</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Unlimited users"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"24/7 priority support"</span>,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Custom branding"</span>,</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Advanced analytics"</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Full API access"</span>,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                ],</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>                <span class="st">"cta_text"</span>: <span class="st">"Get Started"</span>,</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>                <span class="st">"cta_href"</span>: <span class="st">"/signup"</span>,</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>            },</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>preview(test_pricing_single())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe src="http://localhost:7020/_jdxPA-xmQgy0vQJsKzDKPw" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+</div>
+</div>
+</section>
+</section>
+<section id="faq-section" class="level2">
+<h2 class="anchored" data-anchor-id="faq-section">❓ FAQ Section</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#faqsection"><code>FAQSection</code></a></td>
+<td>Expandable FAQ using native Details/Summary</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Features:</strong> BeerCSS-first accordion, proper spacing between items</p>
+<hr>
+<p><a href="https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L555" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="faqsection" class="level3">
+<h3 class="anchored" data-anchor-id="faqsection">FAQSection</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> FAQSection(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    title:<span class="bu">str</span>, faqs:<span class="bu">list</span>, cls:<span class="bu">str</span><span class="op">=</span><span class="st">''</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>FAQ section using FAQItem from components.</em></p>
+<p>Wraps multiple FAQItem components with a title and consistent spacing. Uses FAQItem from fh_matui.components for the actual collapsible Q&amp;A.</p>
+<p>Args: title: Section heading faqs: List of dicts with ‘question’ and ‘answer’ keys cls: Additional CSS classes</p>
+<div id="826fabe3" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>faqs <span class="op">=</span> [</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'question'</span>: <span class="st">'What is FastHTML?'</span>, <span class="st">'answer'</span>: <span class="st">'FastHTML is a modern web framework'</span>},</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'question'</span>: <span class="st">'How much does it cost?'</span>, <span class="st">'answer'</span>: <span class="st">'See our pricing page for details'</span>}</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> faq_section():</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>  FAQSection(</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Frequently Asked Questions"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    faqs<span class="op">=</span>faqs</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>preview(faq_section())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe src="http://localhost:7020/_S3kTH0b0SoWbcyJCxLMipw" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+</div>
+</div>
+</section>
+</section>
+<section id="footer" class="level2">
+<h2 class="anchored" data-anchor-id="footer">🦶 Footer</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#pagefooter"><code>PageFooter</code></a></td>
+<td>Multi-column footer with social links, copyright, and decorative wave border</td>
+</tr>
+<tr class="even">
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#landingnavbar"><code>LandingNavBar</code></a></td>
+<td>Sticky navbar with brand, links, and CTA actions</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Features:</strong> - Flexible column layout with social icon links - Decorative sine wave border at top (<code>wave_border=True</code> by default) - Blends seamlessly with page background</p>
+<hr>
+<p><a href="https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L608" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="pagefooter" class="level3">
+<h3 class="anchored" data-anchor-id="pagefooter">PageFooter</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> PageFooter(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    columns:<span class="bu">list</span>, <span class="co"># List of dicts with 'title' and 'links' (list of dicts with 'text' and 'href')</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    copyright:<span class="bu">str</span>, <span class="co"># Copyright text</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    social_links:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, <span class="co"># List of dicts with 'icon' and 'href'</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    logo:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Optional logo text</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    wave_border:<span class="bu">bool</span><span class="op">=</span><span class="va">True</span>, <span class="co"># Show decorative wave border at top</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    cls:<span class="bu">str</span><span class="op">=</span><span class="st">''</span>, <span class="co"># Additional classes</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Footer with multiple columns, social links, and copyright.</em></p>
+<p>Features a decorative sine wave border at the top for elegant visual separation. Blends with page background (no container fill) for seamless appearance.</p>
+<p>Mobile-responsive: columns stack vertically on mobile (s12), 2-col on tablet (m6), full row on desktop using BeerCSS grid.</p>
+<div id="49e86185" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ex_footer():</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>   PageFooter(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        {<span class="st">'title'</span>: <span class="st">'Product'</span>, <span class="st">'links'</span>: [{<span class="st">'text'</span>: <span class="st">'Features'</span>, <span class="st">'href'</span>: <span class="st">'#features'</span>}]},</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        {<span class="st">'title'</span>: <span class="st">'Company'</span>, <span class="st">'links'</span>: [{<span class="st">'text'</span>: <span class="st">'About'</span>, <span class="st">'href'</span>: <span class="st">'/about'</span>}]}</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    copyright<span class="op">=</span><span class="st">"© 2025 MyBrand"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    social_links<span class="op">=</span>[{<span class="st">'icon'</span>: <span class="st">'twitter'</span>, <span class="st">'href'</span>: <span class="st">'https://twitter.com'</span>}],</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    logo<span class="op">=</span><span class="st">"MyBrand"</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>preview(ex_footer())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe src="http://localhost:7020/_TjoFrmEJSm6UzSTV3doXxQ" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+</div>
+</div>
+<hr>
+<p><a href="https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L700" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="landingnavbar" class="level3">
+<h3 class="anchored" data-anchor-id="landingnavbar">LandingNavBar</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> LandingNavBar(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    brand_name:<span class="bu">str</span>, <span class="co"># Brand name for the navbar</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    links:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, <span class="co"># List of dicts with 'text' and 'href'</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    actions:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, <span class="co"># List of action buttons (Buttons/Links)</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    sticky:<span class="bu">bool</span><span class="op">=</span><span class="va">True</span>, <span class="co"># Whether navbar sticks to top</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    drawer_id:<span class="bu">str</span><span class="op">=</span><span class="st">'landing-nav-drawer'</span>, <span class="co"># ID for mobile drawer</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    cls:<span class="bu">str</span><span class="op">=</span><span class="st">''</span>, <span class="co"># Additional classes</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Landing page navigation bar with frosted glass effect and mobile drawer.</em></p>
+<p>Desktop (&gt;=600px): horizontal bar with brand, links, and action buttons. Mobile (&lt;600px): brand + hamburger button opens a slide-in drawer via BeerCSS data-ui toggle (zero custom JavaScript).</p>
+<p>Reuses NavContainer from components for the mobile drawer — same dialog pattern used in app navigation sidebars.</p>
+<p>Args: brand_name: Brand name/logo text links: Navigation links [{‘text’: ‘Features’, ‘href’: ‘#features’}, …] actions: Action elements (Buttons, etc.) for CTA sticky: Whether navbar sticks to top while scrolling (default: True) drawer_id: HTML id for the mobile drawer dialog (default: ‘landing-nav-drawer’) cls: Additional CSS classes</p>
+</section>
+</section>
+<section id="landing-page" class="level2">
+<h2 class="anchored" data-anchor-id="landing-page">📄 Landing Page</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>LandingPage</code></td>
+<td>Complete landing page composition</td>
+</tr>
+<tr class="even">
+<td><code>LandingPageV2</code></td>
+<td>Alternative landing page layout</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Features:</strong> Combines Hero, Features, Pricing, FAQ, and Footer into one component</p>
+<hr>
+<p><a href="https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L863" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="landingpagesimple" class="level3">
+<h3 class="anchored" data-anchor-id="landingpagesimple">LandingPageSimple</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> LandingPageSimple(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    brand_name:<span class="bu">str</span>, <span class="co"># Required</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    hero_title:<span class="bu">str</span>, hero_subtitle:<span class="bu">str</span>, hero_primary_cta:<span class="bu">dict</span>, <span class="co"># {'text': 'Get Started', 'href': '/signup'}</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    footer_copyright:<span class="bu">str</span>, <span class="co"># Required copyright text</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    hero_secondary_cta:<span class="bu">dict</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Optional secondary CTA</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    benefits:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, <span class="co"># List of dicts: {title, description, icon?, image_src?}</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    benefits_title:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, benefits_subtitle:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    features:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, <span class="co"># List of dicts: {icon, title, description}</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    features_title:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, features_subtitle:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    pricing_plans:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, <span class="co"># List of plan dicts for PricingSection</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    pricing_title:<span class="bu">str</span><span class="op">=</span><span class="st">'Pricing'</span>, faqs:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, <span class="co"># List of FAQ dicts</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    faq_title:<span class="bu">str</span><span class="op">=</span><span class="st">'Frequently Asked Questions'</span>, footer_columns:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Optional Footer extras</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    footer_social_links:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, nav_links:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Override default nav links</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    nav_actions:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, <span class="co"># CTA buttons in navbar</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    cls:<span class="bu">str</span><span class="op">=</span><span class="st">''</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Landing page component - supply your content, get a complete page.</em></p>
+<p>This is a reusable template component. Pass your brand info, hero content, features, pricing, and FAQs - it assembles a complete marketing landing page.</p>
+<p>Includes smooth scrolling and proper anchor offset to prevent sticky navbar from hiding section headings when navigating via anchor links.</p>
+<p>Layout approach: Main uses “max” for full-width backgrounds. Each section handles its own content centering with “responsive” wrapper. This allows gradients/backgrounds to extend edge-to-edge naturally.</p>
+<p>Section order: Hero → Benefits → Features → Pricing → FAQ → Footer</p>
+<p>Required: brand_name, hero_title, hero_subtitle, hero_primary_cta, footer_copyright Optional: Benefits, Features, Pricing, FAQ (pass None to skip any section)</p>
+<div id="e768711d" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span>(<span class="st">'/test-lp'</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_landing_page():</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> LandingPageSimple(</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        brand_name<span class="op">=</span><span class="st">"FastHTML"</span>,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        hero_title<span class="op">=</span><span class="st">"Build faster with FastHTML"</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        hero_subtitle<span class="op">=</span><span class="st">"Compose production-ready pages with Material-inspired components wired for HTMX."</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        hero_primary_cta<span class="op">=</span>{<span class="st">'text'</span>: <span class="st">'Get Started'</span>, <span class="st">'href'</span>: <span class="st">'/signup'</span>},</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        hero_secondary_cta<span class="op">=</span>{<span class="st">'text'</span>: <span class="st">'View Docs'</span>, <span class="st">'href'</span>: <span class="st">'/docs'</span>},</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>        footer_copyright<span class="op">=</span><span class="st">"© 2026 FastHTML"</span>,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Benefits (bento showcase) - 2 big + 3 small cards with image on top</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        benefits<span class="op">=</span>[</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>            {<span class="st">'title'</span>: <span class="st">'Lightning Fast'</span>, <span class="st">'description'</span>: <span class="st">'Built for speed with optimized rendering and minimal overhead.'</span>},</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>            {<span class="st">'title'</span>: <span class="st">'Secure by Default'</span>, <span class="st">'description'</span>: <span class="st">'Enterprise-grade security with automatic CSRF protection.'</span>},</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>            {<span class="st">'title'</span>: <span class="st">'Infinitely Scalable'</span>, <span class="st">'description'</span>: <span class="st">'From prototype to production, scale seamlessly.'</span>},</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>            {<span class="st">'title'</span>: <span class="st">'Beautiful Design'</span>, <span class="st">'description'</span>: <span class="st">'Material Design 3 components that look polished out of the box.'</span>},</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>            {<span class="st">'title'</span>: <span class="st">'Developer First'</span>, <span class="st">'description'</span>: <span class="st">'Pure Python API — no JavaScript or build tools required.'</span>},</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>        benefits_title<span class="op">=</span><span class="st">"Why FastHTML?"</span>,</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>        benefits_subtitle<span class="op">=</span><span class="st">"Built for modern teams"</span>,</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Features (bento grid) - first 2 are big, rest small</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>        features<span class="op">=</span>[</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"icon"</span>: <span class="st">"dashboard"</span>, <span class="st">"title"</span>: <span class="st">"Page primitives"</span>, <span class="st">"description"</span>: <span class="st">"Hero, feature, pricing sections ready to use."</span>, <span class="st">"size"</span>: <span class="st">"big"</span>},</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"icon"</span>: <span class="st">"bolt"</span>, <span class="st">"title"</span>: <span class="st">"HTMX ready"</span>, <span class="st">"description"</span>: <span class="st">"Live previews in notebook with zero config."</span>, <span class="st">"size"</span>: <span class="st">"big"</span>},</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"icon"</span>: <span class="st">"palette"</span>, <span class="st">"title"</span>: <span class="st">"Color tokens"</span>, <span class="st">"description"</span>: <span class="st">"Material container classes."</span>},</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"icon"</span>: <span class="st">"extension"</span>, <span class="st">"title"</span>: <span class="st">"Composable"</span>, <span class="st">"description"</span>: <span class="st">"Extend with extra classes."</span>},</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"icon"</span>: <span class="st">"security"</span>, <span class="st">"title"</span>: <span class="st">"Accessible"</span>, <span class="st">"description"</span>: <span class="st">"WCAG friendly defaults."</span>},</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"icon"</span>: <span class="st">"rocket_launch"</span>, <span class="st">"title"</span>: <span class="st">"Fast iteration"</span>, <span class="st">"description"</span>: <span class="st">"nbdev keeps code and docs together."</span>},</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>        features_title<span class="op">=</span><span class="st">"Everything you need"</span>,</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>        features_subtitle<span class="op">=</span><span class="st">"Mix heroes, features, pricing, and FAQs."</span>,</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Pricing</span></span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>        pricing_title<span class="op">=</span><span class="st">"Simple Pricing"</span>,</span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>        pricing_plans<span class="op">=</span>[</span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"name"</span>: <span class="st">"Starter"</span>, <span class="st">"monthly_price"</span>: <span class="fl">9.99</span>, <span class="st">"yearly_price"</span>: <span class="fl">99.99</span>,</span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>             <span class="st">"features"</span>: [<span class="st">"5 users"</span>, <span class="st">"Basic support"</span>], <span class="st">"cta_text"</span>: <span class="st">"Start Free"</span>, <span class="st">"cta_href"</span>: <span class="st">"/signup"</span>},</span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"name"</span>: <span class="st">"Pro"</span>, <span class="st">"monthly_price"</span>: <span class="fl">29.99</span>, <span class="st">"yearly_price"</span>: <span class="fl">299.99</span>,</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>             <span class="st">"features"</span>: [<span class="st">"Unlimited users"</span>, <span class="st">"Priority support"</span>, <span class="st">"API access"</span>], </span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>             <span class="st">"cta_text"</span>: <span class="st">"Get Pro"</span>, <span class="st">"cta_href"</span>: <span class="st">"/signup"</span>, <span class="st">"highlight"</span>: <span class="va">True</span>},</span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>        <span class="co"># FAQ</span></span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>        faqs<span class="op">=</span>[</span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"question"</span>: <span class="st">"Can I mix components?"</span>, <span class="st">"answer"</span>: <span class="st">"Yes. Every helper returns plain FastHTML nodes."</span>},</span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"question"</span>: <span class="st">"How do colors work?"</span>, <span class="st">"answer"</span>: <span class="st">"Apply Material container classes to any wrapper."</span>},</span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"question"</span>: <span class="st">"Is HTMX required?"</span>, <span class="st">"answer"</span>: <span class="st">"No. Interactions degrade gracefully."</span>},</span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Footer uses STANDARD_FOOTER_COLUMNS by default (omit footer_columns to use standard)</span></span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a>        footer_social_links<span class="op">=</span>[{<span class="st">"icon"</span>: <span class="st">"code"</span>, <span class="st">"href"</span>: <span class="st">"https://github.com"</span>}],</span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a>preview(test_landing_page())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe src="http://localhost:7020/_TkLC52-lQqazM56ekt8s8Q" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+</div>
+</div>
+</section>
+</section>
+<section id="content-pages" class="level2">
+<h2 class="anchored" data-anchor-id="content-pages">📝 Content Pages</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#markdownsection"><code>MarkdownSection</code></a></td>
+<td>Renders markdown text as HTML (server-side, SEO-friendly)</td>
+</tr>
+<tr class="even">
+<td><a href="https://abhisheksreesaila.github.io/fh-matui/web_pages.html#contentpage"><code>ContentPage</code></a></td>
+<td>Generic page shell with navbar, content area, and footer</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Use Cases:</strong> Privacy Policy, Terms of Service, Security, About, Cookie Policy, Disclaimers, Blog posts, etc.</p>
+<hr>
+<p><a href="https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L1001" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="markdownsection" class="level3">
+<h3 class="anchored" data-anchor-id="markdownsection">MarkdownSection</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> MarkdownSection(</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    content:<span class="bu">str</span>, <span class="co"># Markdown text to render</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    title:<span class="bu">str</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Optional section title (rendered as H3 for appropriate size)</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    cls:<span class="bu">str</span><span class="op">=</span><span class="st">''</span>, <span class="co"># Additional classes</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Renders markdown content server-side for SEO compatibility.</em></p>
+<pre><code>Uses python-markdown to convert markdown to HTML on the server.
+Search engines see fully rendered HTML (no JavaScript required).
+Content is centered using BeerCSS large-width + row center-align pattern.
+
+Great for text-heavy pages like Privacy Policy, Terms, About, Blog posts, etc.
+
+Args:
+    content: Markdown text string (can include headers, lists, links, code blocks, tables)
+    title: Optional page title (rendered as H3 for blog-appropriate sizing)
+    cls: Additional CSS classes
+
+Example:
+    MarkdownSection(
+        title="Privacy Policy",
+        content='''</code></pre>
+</section>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>We value your privacy…</p>
+</section>
+<section id="data-collection" class="level2">
+<h2 class="anchored" data-anchor-id="data-collection">Data Collection</h2>
+<ul>
+<li>We collect minimal data</li>
+<li>We never sell your data ’’’ )</li>
+</ul>
+<hr>
+<p><a href="https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L1064" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="contentpage" class="level3">
+<h3 class="anchored" data-anchor-id="contentpage">ContentPage</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ContentPage(</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    brand_name:<span class="bu">str</span>, <span class="co"># Brand name for navbar</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    footer_copyright:<span class="bu">str</span>, <span class="co"># Copyright text for footer</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    sections:VAR_POSITIONAL, <span class="co"># Content sections (MarkdownSection, custom Divs, etc.)</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    nav_links:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Override default nav links</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    nav_actions:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, <span class="co"># CTA buttons in navbar</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    footer_columns:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Footer link columns (uses STANDARD_FOOTER_COLUMNS by default)</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    footer_social_links:<span class="bu">list</span><span class="op">=</span><span class="va">None</span>, <span class="co"># Footer social icons</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    cls:<span class="bu">str</span><span class="op">=</span><span class="st">''</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Generic content page with navbar, flexible content area, and footer.</em></p>
+<p>A shell template for text-heavy pages like Privacy Policy, Terms of Service, Security, About, Blog posts, etc. Developer passes any number of content sections.</p>
+<p>Layout: Navbar (sticky) -&gt; Content sections (centered with ‘responsive’) -&gt; Footer</p>
+<p>Uses STANDARD_FOOTER_COLUMNS by default for consistent footer across all pages.</p>
+<p>Args: brand_name: Brand name for navbar footer_copyright: Copyright text *sections: One or more content sections (MarkdownSection, custom Divs, etc.) nav_links: Navigation links [{‘text’: ‘Home’, ‘href’: ‘/’}, …] nav_actions: Action buttons for navbar footer_columns: Footer link columns (defaults to STANDARD_FOOTER_COLUMNS) footer_social_links: Social media icons for footer cls: Additional CSS classes</p>
+<p>Example: ContentPage( brand_name=“MyBrand”, footer_copyright=“2026 MyBrand”, MarkdownSection(title=“Privacy Policy”, content=“…markdown…”), nav_links=[{‘text’: ‘Home’, ‘href’: ‘/’}], )</p>
+<div id="5081664a" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Privacy Policy page</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>privacy_md <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="st">#### 📋 Introduction</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="st">This Privacy Policy explains how we collect, use, and protect your personal information when you use our services.</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="st">#### 📊 Information We Collect</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="st">We may collect the following types of information:</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="st">- **Account Information**: Name, email address, and password when you create an account</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="st">- **Usage Data**: How you interact with our services, including pages visited and features used</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="st">- **Device Information**: Browser type, operating system, and IP address</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🎯 How We Use Your Information</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="st">We use your information to:</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="st">1. Provide and improve our services</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a><span class="st">2. Communicate with you about updates and offers</span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a><span class="st">3. Ensure security and prevent fraud</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="st">## 🗄️ Data Retention</span></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="st">We retain your data only as long as necessary to provide our services or as required by law.</span></span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a><span class="st">#### ✅ Your Rights</span></span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a><span class="st">You have the right to:</span></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a><span class="st">- Access your personal data</span></span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a><span class="st">- Request correction of inaccurate data</span></span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a><span class="st">- Request deletion of your data</span></span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a><span class="st">- Opt out of marketing communications</span></span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a><span class="st">#### 📬 Contact Us</span></span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a><span class="st">If you have questions about this Privacy Policy, please contact us at privacy@example.com.</span></span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a><span class="st">*Last updated: January 2026*</span></span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span>(<span class="st">'/privacy'</span>)</span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> privacy_page():</span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ContentPage(</span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a>        <span class="st">"FastHTML"</span>,           <span class="co"># brand_name</span></span>
+<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>        <span class="st">"© 2026 FastHTML"</span>,    <span class="co"># footer_copyright</span></span>
+<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>        MarkdownSection(title<span class="op">=</span><span class="st">"Privacy Policy"</span>, content<span class="op">=</span>privacy_md),</span>
+<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Uses STANDARD_FOOTER_COLUMNS by default</span></span>
+<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>preview(privacy_page())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe src="http://localhost:7020/_LzkWOTAWQ6a4YxC4v8SJuw" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+</div>
+</div>
+<div id="465bbd8f" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Security page</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>security_md <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🛡️ Our Commitment to Security</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="st">We take the security of your data seriously. Here is how we protect your information:</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🔐 Encryption</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="st">- All data is encrypted in transit using TLS 1.3</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="st">- Sensitive data is encrypted at rest using AES-256</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="st">- Passwords are hashed using bcrypt with salt</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🏗️ Infrastructure</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="st">- Hosted on SOC 2 Type II certified infrastructure</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="st">- Regular security audits and penetration testing</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="st">- 24/7 monitoring and incident response</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🔑 Access Control</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="st">- Role-based access control (RBAC) for all systems</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="st">- Multi-factor authentication required for all employees</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="st">- Principle of least privilege enforced</span></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a><span class="st">#### 📜 Compliance</span></span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a><span class="st">We comply with:</span></span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a><span class="st">- GDPR (General Data Protection Regulation)</span></span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a><span class="st">- CCPA (California Consumer Privacy Act)</span></span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a><span class="st">- SOC 2 Type II</span></span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🚨 Reporting Security Issues</span></span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a><span class="st">If you discover a security vulnerability, please report it to security@example.com. We appreciate responsible disclosure.</span></span>
+<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span>(<span class="st">'/security'</span>)</span>
+<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> security_page():</span>
+<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ContentPage(</span>
+<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a>        <span class="st">"FastHTML"</span>,           <span class="co"># brand_name</span></span>
+<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a>        <span class="st">"© 2026 FastHTML"</span>,    <span class="co"># footer_copyright</span></span>
+<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a>        MarkdownSection(title<span class="op">=</span><span class="st">"Security"</span>, content<span class="op">=</span>security_md),</span>
+<span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Uses STANDARD_FOOTER_COLUMNS by default</span></span>
+<span id="cb25-45"><a href="#cb25-45" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a>preview(security_page())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe src="http://localhost:7020/_-lK0u5WMQT_k5eWjLiggsA" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+</div>
+</div>
+<div id="82f78d74" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: About Us page</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>about_md <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="st">## 👋 Who We Are</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="st">FastHTML is built by a passionate team of developers who believe building web apps should be **fast, fun, and frustration-free**.</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🎯 Our Mission</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="st">To empower developers to ship beautiful, production-ready web applications in record time — without sacrificing quality or maintainability.</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="st">#### 💡 Our Story</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="st">We started FastHTML because we were tired of:</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="st">- Wrestling with complex frontend build systems</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="st">- Writing the same boilerplate code over and over</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="st">- Choosing between speed and quality</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="st">So we built a better way. FastHTML combines the best of Python, HTMX, and Material Design into a cohesive framework that just works.</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🌟 Our Values</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a><span class="st">- **Simplicity First**: If it's complicated, we're doing it wrong</span></span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a><span class="st">- **Developer Experience**: Your time is precious — we respect it</span></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a><span class="st">- **Open Source**: Built in the open, for everyone</span></span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🤝 Join Us</span></span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a><span class="st">We're always looking for contributors and collaborators. Check out our GitHub or reach out at hello@example.com.</span></span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a><span class="st">*Building the future of web development, one component at a time.*</span></span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span>(<span class="st">'/about'</span>)</span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> about_page():</span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ContentPage(</span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>        <span class="st">"FastHTML"</span>,           <span class="co"># brand_name</span></span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>        <span class="st">"© 2026 FastHTML"</span>,    <span class="co"># footer_copyright</span></span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a>        MarkdownSection(title<span class="op">=</span><span class="st">"About Us"</span>, content<span class="op">=</span>about_md),</span>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Uses STANDARD_FOOTER_COLUMNS by default</span></span>
+<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb26-42"><a href="#cb26-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-43"><a href="#cb26-43" aria-hidden="true" tabindex="-1"></a>preview(about_page())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe src="http://localhost:7020/_EBeY8teHQVa5PHsaTXwtng" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+</div>
+</div>
+<div id="89cc1af6" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Terms of Service page</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>terms_md <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="st">#### 📜 Terms of Service</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="st">*Effective Date: January 2026*</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="st">Please read these Terms of Service carefully before using our services.</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="st">#### ✅ Acceptance of Terms</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="st">By accessing or using FastHTML, you agree to be bound by these Terms. If you disagree with any part, you may not access the service.</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🔐 Account Responsibilities</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="st">When you create an account, you must:</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="st">- Provide accurate and complete information</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="st">- Maintain the security of your password</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="st">- Notify us immediately of any unauthorized access</span></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="st">- Accept responsibility for all activities under your account</span></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a><span class="st">#### 💳 Payment Terms</span></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a><span class="st">For paid plans:</span></span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a><span class="st">- Billing occurs monthly or annually based on your selection</span></span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a><span class="st">- Refunds are available within 30 days of initial purchase</span></span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a><span class="st">- We reserve the right to change pricing with 30 days notice</span></span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🚫 Prohibited Uses</span></span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a><span class="st">You may not use our service to:</span></span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a><span class="st">1. Violate any laws or regulations</span></span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a><span class="st">2. Infringe on intellectual property rights</span></span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a><span class="st">3. Distribute malware or harmful code</span></span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a><span class="st">4. Attempt to gain unauthorized access to our systems</span></span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a><span class="st">#### ⚖️ Limitation of Liability</span></span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a><span class="st">FastHTML is provided "as is" without warranties of any kind. We are not liable for any indirect, incidental, or consequential damages.</span></span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a><span class="st">#### 📝 Changes to Terms</span></span>
+<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a><span class="st">We may modify these terms at any time. Continued use of the service constitutes acceptance of modified terms.</span></span>
+<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a><span class="st">#### 📧 Contact</span></span>
+<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a><span class="st">Questions about these Terms? Contact us at legal@example.com.</span></span>
+<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-52"><a href="#cb27-52" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span>(<span class="st">'/terms'</span>)</span>
+<span id="cb27-53"><a href="#cb27-53" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> terms_page():</span>
+<span id="cb27-54"><a href="#cb27-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ContentPage(</span>
+<span id="cb27-55"><a href="#cb27-55" aria-hidden="true" tabindex="-1"></a>        <span class="st">"FastHTML"</span>,           <span class="co"># brand_name</span></span>
+<span id="cb27-56"><a href="#cb27-56" aria-hidden="true" tabindex="-1"></a>        <span class="st">"© 2026 FastHTML"</span>,    <span class="co"># footer_copyright</span></span>
+<span id="cb27-57"><a href="#cb27-57" aria-hidden="true" tabindex="-1"></a>        MarkdownSection(title<span class="op">=</span><span class="st">"Terms of Service"</span>, content<span class="op">=</span>terms_md),</span>
+<span id="cb27-58"><a href="#cb27-58" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Uses STANDARD_FOOTER_COLUMNS by default</span></span>
+<span id="cb27-59"><a href="#cb27-59" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb27-60"><a href="#cb27-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-61"><a href="#cb27-61" aria-hidden="true" tabindex="-1"></a>preview(terms_page())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe src="http://localhost:7020/_etNFdKftQ6i8xQHDdlGukQ" style="width: 100%; height: auto; border: none;" onload="{
+        let frame = this;
+        window.addEventListener('message', function(e) {
+            if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
+            if (e.data.height) frame.style.height = (e.data.height+1) + 'px';
+        }, false);
+    }" allow="accelerometer; autoplay; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; fullscreen; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; screen-wake-lock; serial; usb; web-share; xr-spatial-tracking"></iframe> 
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/abhisheksreesaila\.github\.io\/fh-matui");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/abhisheksreesaila/fh-matui/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
