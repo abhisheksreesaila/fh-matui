@@ -8,5 +8,7 @@ website:
       - 03_app_pages.ipynb
       - 04_web_pages.ipynb
       - 05_datatable.ipynb
+      - 06_billing.ipynb
       - test_00_foundations.ipynb
       - test_01_core.ipynb
+      - test_06_billing.ipynb

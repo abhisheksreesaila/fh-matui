@@ -6143,7 +6143,7 @@ preview(hero_section())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_c0_SlvPAS8K4Ud-P3b-ITQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_r9AfAm7ARV__C06bJKFAjw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6273,7 +6273,7 @@ preview(test_showcase())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_W_E82NOGReO63YsS74X6IA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_bM1r5ZCSRmODujmzho4lpQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6350,7 +6350,7 @@ preview(test_fg())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_p0Wz0HRLQQmfnaixpQDMTQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_x-9SDYOERWWJKxoGLHp73g" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6478,7 +6478,7 @@ preview(test_pricing_3tier())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_jr_XypV_R7OvhPanZwa5Zw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_a0_djNaxR4CrHLbM03L7Lw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6519,7 +6519,7 @@ preview(test_pricing_single())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_Vxq7pRv6SeCRz9nPkhiXZw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_jdxPA-xmQgy0vQJsKzDKPw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6583,7 +6583,7 @@ preview(faq_section())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_3D7Lx8CRRpGcB7gWi6iE6Q" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_S3kTH0b0SoWbcyJCxLMipw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6609,7 +6609,7 @@ preview(faq_section())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L599){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L608){target="_blank" style="float:right; font-size:smaller"}
 
 ### PageFooter
 
@@ -6654,7 +6654,7 @@ preview(ex_footer())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_hskBUxjGRGGFKajNGUrK6w" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_TjoFrmEJSm6UzSTV3doXxQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6668,7 +6668,7 @@ preview(ex_footer())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L691){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L700){target="_blank" style="float:right; font-size:smaller"}
 
 ### LandingNavBar
 
@@ -6712,6 +6712,52 @@ Args:
 | `LandingPageV2` | Alternative landing page layout |
 
 **Features:** Combines Hero, Features, Pricing, FAQ, and Footer into one component
+
+---
+
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L863){target="_blank" style="float:right; font-size:smaller"}
+
+### LandingPageSimple
+
+```python
+
+def LandingPageSimple(
+    brand_name:str, # Required
+    hero_title:str, hero_subtitle:str, hero_primary_cta:dict, # {'text': 'Get Started', 'href': '/signup'}
+    footer_copyright:str, # Required copyright text
+    hero_secondary_cta:dict=None, # Optional secondary CTA
+    benefits:list=None, # List of dicts: {title, description, icon?, image_src?}
+    benefits_title:str=None, benefits_subtitle:str=None,
+    features:list=None, # List of dicts: {icon, title, description}
+    features_title:str=None, features_subtitle:str=None,
+    pricing_plans:list=None, # List of plan dicts for PricingSection
+    pricing_title:str='Pricing', faqs:list=None, # List of FAQ dicts
+    faq_title:str='Frequently Asked Questions', footer_columns:list=None, # Optional Footer extras
+    footer_social_links:list=None, nav_links:list=None, # Override default nav links
+    nav_actions:list=None, # CTA buttons in navbar
+    cls:str=''
+):
+
+
+```
+
+*Landing page component - supply your content, get a complete page.*
+
+This is a reusable template component. Pass your brand info, hero content,
+features, pricing, and FAQs - it assembles a complete marketing landing page.
+
+Includes smooth scrolling and proper anchor offset to prevent sticky navbar
+from hiding section headings when navigating via anchor links.
+
+Layout approach: Main uses "max" for full-width backgrounds.
+Each section handles its own content centering with "responsive" wrapper.
+This allows gradients/backgrounds to extend edge-to-edge naturally.
+
+Section order: Hero → Benefits → Features → Pricing → FAQ → Footer
+
+Required: brand_name, hero_title, hero_subtitle, hero_primary_cta, footer_copyright
+Optional: Benefits, Features, Pricing, FAQ (pass None to skip any section)
+
 
 ::: {#e768711d .cell}
 ``` {.python .cell-code code-fold="true"}
@@ -6769,7 +6815,7 @@ preview(test_landing_page())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_66DOVYGpSDqC_Gv9BLNlXw" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_TkLC52-lQqazM56ekt8s8Q" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -6792,7 +6838,7 @@ preview(test_landing_page())
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L983){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L1001){target="_blank" style="float:right; font-size:smaller"}
 
 ### MarkdownSection
 
@@ -6836,7 +6882,7 @@ We value your privacy...
 
 ---
 
-[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L1046){target="_blank" style="float:right; font-size:smaller"}
+[source](https://github.com/abhisheksreesaila/fh-matui/blob/master/fh_matui/web_pages.py#L1064){target="_blank" style="float:right; font-size:smaller"}
 
 ### ContentPage
 
@@ -6942,7 +6988,7 @@ preview(privacy_page())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_DJ9ke9RjTgmSPC_7ZDt_tQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_LzkWOTAWQ6a4YxC4v8SJuw" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -7007,7 +7053,7 @@ preview(security_page())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_YqFOKCf2TSS9JJau89JRtA" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_-lK0u5WMQT_k5eWjLiggsA" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -7068,7 +7114,7 @@ preview(about_page())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_K9-wJSK0SgGzrceCSx5RBQ" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_EBeY8teHQVa5PHsaTXwtng" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
@@ -7147,7 +7193,7 @@ preview(terms_page())
 
 ::: {.cell-output .cell-output-display}
 ```{=html}
-<iframe src="http://localhost:7020/_EV4yYh2-SnOIzRckKxs7hg" style="width: 100%; height: auto; border: none;" onload="{
+<iframe src="http://localhost:7020/_etNFdKftQ6i8xQHDdlGukQ" style="width: 100%; height: auto; border: none;" onload="{
         let frame = this;
         window.addEventListener('message', function(e) {
             if (e.source !== frame.contentWindow) return; // Only proceed if the message is from this iframe
